@@ -104,7 +104,7 @@ class WorkImg extends CActiveRecord
 	}
 
     /**
-     * È«²¿Êý¾Ý
+     * È«ï¿½ï¿½ï¿½ï¿½ï¿½
      * Enter description here ...
      * @param unknown_type $array  =>  array('id'=>2,'user_id'=>3,...); $order => $order='create_time desc'
      */
@@ -133,7 +133,7 @@ class WorkImg extends CActiveRecord
     }
     
     /**
-     * ²éÑ¯×ÜÊý
+     * ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
      * Enter description here ...
      */
     public function countWorkImg()
@@ -145,7 +145,7 @@ class WorkImg extends CActiveRecord
     
     
     /**
-     * µ¥¸öÊý¾Ý
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      * Enter description here ...
      * @param unknown_type $array array('id'=>2,'user_id'=>3,...);
      */
@@ -166,7 +166,7 @@ class WorkImg extends CActiveRecord
         return $res;
     } 
     /**
-     * ±£´æ
+     * ï¿½ï¿½ï¿½ï¿½
      * Enter description here ...
      * @param unknown_type $array   array('id'=>2,'user_id'=>3,...);
      */
@@ -180,19 +180,20 @@ class WorkImg extends CActiveRecord
             }
     		$key = implode(',',$key);
     		$row = implode(',',$row);
+    		$time = date('Y-m-d H:i:s');
         }else{
            return false;
         }
-    	$sql = sprintf("INSERT INTO $this->tableName() ( %s ,`create_time`) VALUES ( %s ,NOW())",$key,$row);
+    	$sql = sprintf("INSERT INTO $this->tableName() ( %s ,`create_time`) VALUES ( %s ,'$time')",$key,$row);
         $res = Yii::app()->db->createCommand($sql)->execute();
         return $res;
     }
     
     /**
-     * ÐÞ¸Ä
+     * ï¿½Þ¸ï¿½
      * Enter description here ...
      * @param unknown_type $array  array('id'=>2,'user_id'=>3,...);
-     * @param unknown_type $id  ×÷Æ·ID
+     * @param unknown_type $id  ï¿½ï¿½Æ·ID
      */
     public function updateWorkImg($array,$id)
     {
@@ -210,7 +211,7 @@ class WorkImg extends CActiveRecord
         return $res;
     }
     /**
-     * É¾³ý
+     * É¾ï¿½ï¿½
      * Enter description here ...
      */
     public function delWorkImg($id)

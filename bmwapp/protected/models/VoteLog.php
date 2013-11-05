@@ -173,10 +173,11 @@ class VoteLog extends CActiveRecord
             }
     		$key = implode(',',$key);
     		$row = implode(',',$row);
+    		$time = date('Y-m-d H:i:s');
         }else{
            return false;
         }
-    	$sql = sprintf("INSERT INTO $this->tableName() ( %s ,`create_time`) VALUES ( %s ,NOW())",$key,$row);
+    	$sql = sprintf("INSERT INTO $this->tableName() ( %s ,`create_time`) VALUES ( %s ,'$time')",$key,$row);
         $res = Yii::app()->db->createCommand($sql)->execute();
         return $res;
     }

@@ -105,7 +105,7 @@ class Works extends CActiveRecord
 		));
 	}
     /**
-     * 作品表全部数据
+     * 
      * Enter description here ...
      * @param unknown_type $array  =>  array('id'=>2,'user_id'=>3,...); $order => $order='create_time desc'
      */
@@ -134,7 +134,7 @@ class Works extends CActiveRecord
     }
     
     /**
-     * 查询总数
+     * 
      * Enter description here ...
      */
     public function countWork()
@@ -146,7 +146,7 @@ class Works extends CActiveRecord
     
     
     /**
-     * 作品表单个数据
+     * 
      * Enter description here ...
      * @param unknown_type $array array('id'=>2,'user_id'=>3,...);
      */
@@ -167,7 +167,7 @@ class Works extends CActiveRecord
         return $res;
     } 
     /**
-     * 保存作品
+     * 
      * Enter description here ...
      * @param unknown_type $array   array('id'=>2,'user_id'=>3,...);
      */
@@ -179,21 +179,22 @@ class Works extends CActiveRecord
                   $key[] = "`$k`";
                   $row[] = "'$val'";
             }
-    		$key = implode(',',$key);
-    		$row = implode(',',$row);
+    		$key  = implode(',',$key);
+    		$row  = implode(',',$row);
+            $time = date('Y-m-d H:i:s');
         }else{
            return false;
         }
-    	$sql = sprintf("INSERT INTO $this->tableName() ( %s ,`create_time`) VALUES ( %s ,NOW())",$key,$row);
+    	$sql = sprintf("INSERT INTO $this->tableName() ( %s ,`create_time`) VALUES ( %s ,'$time')",$key,$row);
         $res = Yii::app()->db->createCommand($sql)->execute();
         return $res;
     }
     
     /**
-     * 修改作品
+     * 
      * Enter description here ...
      * @param unknown_type $array  array('id'=>2,'user_id'=>3,...);
-     * @param unknown_type $id  作品ID
+     * @param unknown_type $id  锟斤拷品ID
      */
     public function updateWork($array,$id)
     {
@@ -202,16 +203,17 @@ class Works extends CActiveRecord
             foreach ( $data as $key => $value ) {
                 $command [] = "`$key` = '$value'";
 			}
+			$time = date('Y-m-d H:i:s');
 		    $command = implode ( ',', $command );
         }else{
            return false;
         }
-    	$sql=sprintf("UPDATE $this->tableName() SET %s,`update_time` = now() WHERE `id` =%d",$command,$id);
+    	$sql=sprintf("UPDATE $this->tableName() SET %s,`update_time` = '$time' WHERE `id` =%d",$command,$id);
     	$res = Yii::app()->db->createCommand($sql)->execute();
         return $res;
     }
     /**
-     * 删除作品
+     * 
      * Enter description here ...
      */
     public function delWork($id)
