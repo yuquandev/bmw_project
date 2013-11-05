@@ -112,6 +112,13 @@ class Admin extends CActiveRecord
 		));
 	}
 
+    //根据用户名获取管理员信息
+    public function get_admin_info_by_name($username,$status=0){
+        $sql = sprintf("SELECT * FROM bmw_cms.admin_tbl WHERE username = '%s' AND STATUS = %d;",$username,$status);
+        $res = Yii::app()->db->createCommand($sql)->queryRow();
+        return $res;
+    }
+
     public function get_admin_user_list(){
         $sql = sprintf("SELECT * FROM bmw_cms.admin_tbl");
         $res = Yii::app()->db->createCommand($sql)->queryAll();

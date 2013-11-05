@@ -33,7 +33,6 @@
     <![endif]-->
 
     <script type="text/javascript" src="/js/easyui-1.3.4/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/easyui-1.3.4/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </head>
 <body>
