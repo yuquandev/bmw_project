@@ -103,13 +103,14 @@ class VoteLog extends CActiveRecord
      */
     public function selectVoteLog($array,$order='create_time desc',$limit = 5)
     {
-        if( is_array($array) )
+        $where = '';
+    	if( is_array($array) )
         {
             foreach($array as $key=>$val)
             {
                $where .= "`$key` = '$val' and";  
             }
-        	$where = substr($where,0,-3); 
+        	$where = substr($where,0,-4); 
         }else{
             $where = 1;
         }
@@ -120,7 +121,7 @@ class VoteLog extends CActiveRecord
         if( is_int($limit) ){
            $limit_sned = intval($limit);
         }
-        $sql = sprintf("SELECT `id`,`work_id`,`user_id`,`ip`,create_time` FROM $this->tableName() where %s %s limit %d",$where,$order_list,$limit_sned);
+        $sql = sprintf("SELECT `id`,`work_id`,`user_id`,`ip`,create_time` FROM %s where %s %s limit %d",$this->tableName(),$where,$order_list,$limit_sned);
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }
@@ -129,9 +130,9 @@ class VoteLog extends CActiveRecord
      * 
      * Enter description here ...
      */
-    public function countVoteLog()
+    public function countVoteLog($where)
     {
-        $sql = sprintf("SELECT COUNT(1) AS `num` FROM $this->tableName() where %s",$where);
+        $sql = sprintf("SELECT COUNT(1) AS `num` FROM %s where %s",$this->tableName(),$where);
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }
@@ -144,17 +145,18 @@ class VoteLog extends CActiveRecord
      */
     public function getOneVoteLog($array)
     {
-        if( is_array($array) )
+        $where ='';
+    	if( is_array($array) )
         {
             foreach($array as $key=>$val)
             {
                $where .= "`$key` = '$val' and";  
             }
-        	$where = substr($where,0,-3); 
+        	$where = substr($where,0,-4); 
         }else{
             return false;
         }
-        $sql = sprintf("SELECT `id`,`work_id`,`user_id`,`ip`,create_time` FROM $this->tableName() where %s limit 1",$where);
+        $sql = sprintf("SELECT `id`,`work_id`,`user_id`,`ip`,`create_time` FROM %s where %s limit 1",$this->tableName(),$where);
         $res = Yii::app()->db->createCommand($sql)->queryRow();
         return $res;
     } 
@@ -165,19 +167,22 @@ class VoteLog extends CActiveRecord
      */
     public function insertVoteLog($array)
     {
-        if( is_array($array) )
+        
+    	if( is_array($array) )
         {
-           foreach($array as $key=>$val){
-                  $key[] = "`$k`";
-                  $row[] = "'$val'";
+            $k  = array();
+            $r  = array();
+        	foreach($array as $key=>$val){
+                  $k[] = "`$key`";
+                  $r[] = "'$val'";
             }
-    		$key = implode(',',$key);
-    		$row = implode(',',$row);
+    		$key = implode(',',$k);
+    		$row = implode(',',$r);
     		$time = date('Y-m-d H:i:s');
         }else{
            return false;
         }
-    	$sql = sprintf("INSERT INTO $this->tableName() ( %s ,`create_time`) VALUES ( %s ,'$time')",$key,$row);
+    	$sql = sprintf("INSERT INTO %s ( %s ,`create_time`) VALUES ( %s ,'$time')",$this->tableName(),$key,$row);
         $res = Yii::app()->db->createCommand($sql)->execute();
         return $res;
     }
@@ -199,7 +204,7 @@ class VoteLog extends CActiveRecord
         }else{
            return false;
         }
-    	$sql=sprintf("UPDATE $this->tableName() SET %s WHERE `id` =%d",$command,$id);
+    	$sql=sprintf("UPDATE %s SET %s WHERE `id` =%d",$this->tableName(),$command,$id);
     	$res = Yii::app()->db->createCommand($sql)->execute();
         return $res;
     }
@@ -209,7 +214,7 @@ class VoteLog extends CActiveRecord
      */
     public function delVoteLog($id)
     {
-       $sql =sprintf("DELETE FROM $this->tableName() WHERE `id` in(%s)",$id);
+       $sql =sprintf("DELETE FROM %s WHERE `id` in(%s)",$this->tableName(),$id);
        $res = Yii::app()->db->createCommand($sql)->execute();
        return $res;
     }

@@ -111,16 +111,19 @@ class Works extends CActiveRecord
      */
     public function selectWork($array,$order='create_time desc',$limit = 5)
     {
-        if( is_array($array) )
+        $where = '';
+    	if( is_array($array) )
         {
             foreach($array as $key=>$val)
             {
                $where .= "`$key` = '$val' and";  
             }
-        	$where = substr($where,0,-3); 
+        	$where = substr($where,0,-4); 
+        	
         }else{
             $where = 1;
         }
+        
         if( is_string($order) )
         {
            $order_list = trim($order);
@@ -128,7 +131,8 @@ class Works extends CActiveRecord
         if( is_int($limit) ){
            $limit_sned = intval($limit);
         }
-        $sql = sprintf("SELECT `id`,`user_id`,`name`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM $this->tableName() where %s %s limit %d",$where,$order_list,$limit_sned);
+        $sql = sprintf("SELECT `id`,`user_id`,`name`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM %s where %s order by %s limit %d",$this->tableName(),$where,$order_list,$limit_sned);
+        
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }
@@ -137,9 +141,9 @@ class Works extends CActiveRecord
      * 
      * Enter description here ...
      */
-    public function countWork()
+    public function countWork($where)
     {
-        $sql = sprintf("SELECT COUNT(1) AS `num` FROM $this->tableName() where %s",$where);
+        $sql = sprintf("SELECT COUNT(1) AS `num` FROM %s where %s",$this->tableName(),$where);
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }
@@ -158,11 +162,11 @@ class Works extends CActiveRecord
             {
                $where .= "`$key` = '$val' and";  
             }
-        	$where = substr($where,0,-3); 
+        	$where = substr($where,0,-4); 
         }else{
             return false;
         }
-        $sql = sprintf("SELECT `id`,`user_id`,`name`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM $this->tableName() where %s limit 1",$where);
+        $sql = sprintf("SELECT `id`,`user_id`,`name`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM %s where %s limit 1",$this->tableName(),$where);
         $res = Yii::app()->db->createCommand($sql)->queryRow();
         return $res;
     } 
@@ -185,7 +189,7 @@ class Works extends CActiveRecord
         }else{
            return false;
         }
-    	$sql = sprintf("INSERT INTO $this->tableName() ( %s ,`create_time`) VALUES ( %s ,'$time')",$key,$row);
+    	$sql = sprintf("INSERT INTO %s ( %s ,`create_time`) VALUES ( %s ,'$time')",$this->tableName(),$key,$row);
         $res = Yii::app()->db->createCommand($sql)->execute();
         return $res;
     }
@@ -200,15 +204,21 @@ class Works extends CActiveRecord
     {
         if( is_array($array) && $id)
         {
-            foreach ( $data as $key => $value ) {
-                $command [] = "`$key` = '$value'";
+            $command = array();
+        	foreach ( $array as $key => $value ) {
+                if($key =='vote_num'){
+                   $command[] = "`$key` = $value";
+                }else{
+                   $command[] = "`$key` = '$value'";
+                }
+        		
 			}
 			$time = date('Y-m-d H:i:s');
 		    $command = implode ( ',', $command );
         }else{
            return false;
         }
-    	$sql=sprintf("UPDATE $this->tableName() SET %s,`update_time` = '$time' WHERE `id` =%d",$command,$id);
+    	$sql=sprintf("UPDATE %s SET %s,`update_time` = '$time' WHERE `id` =%d",$this->tableName(),$command,$id);
     	$res = Yii::app()->db->createCommand($sql)->execute();
         return $res;
     }
@@ -218,7 +228,7 @@ class Works extends CActiveRecord
      */
     public function delWork($id)
     {
-       $sql =sprintf("DELETE FROM $this->tableName() WHERE `id` in(%s)",$id);
+       $sql =sprintf("DELETE FROM %s WHERE `id` in(%s)",$this->tableName(),$id);
        $res = Yii::app()->db->createCommand($sql)->execute();
        return $res;
     }
