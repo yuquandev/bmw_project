@@ -8,6 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Web Application',
+    'defaultController'=>'index',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -20,14 +21,15 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		/*
+
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
+			'password'=>'yuquan',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
+            //'ipFilters'=>false,
 		),
-		*/
+
 	),
 
 	// application components
@@ -40,6 +42,8 @@ return array(
 
 		'urlManager'=>array(
 			'urlFormat'=>'path',
+            #'showScriptName'=>false,
+            #'urlSuffix'=>'/',
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
@@ -53,10 +57,11 @@ return array(
 		// uncomment the following to use a MySQL database
 
 		'db'=>array(
+            'class' => 'system.db.CDbConnection',
 			'connectionString' => 'mysql:host=localhost;dbname=bmw_cms',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '',
+			'password' => '123456',
 			'charset' => 'utf8',
 		),
 
