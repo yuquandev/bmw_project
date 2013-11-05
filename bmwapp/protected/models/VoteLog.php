@@ -97,7 +97,7 @@ class VoteLog extends CActiveRecord
 
 
      /**
-     * 全部数据
+     * 
      * Enter description here ...
      * @param unknown_type $array  =>  array('id'=>2,'user_id'=>3,...); $order => $order='create_time desc'
      */
@@ -126,7 +126,7 @@ class VoteLog extends CActiveRecord
     }
     
     /**
-     * 查询总数
+     * 
      * Enter description here ...
      */
     public function countVoteLog()
@@ -138,7 +138,7 @@ class VoteLog extends CActiveRecord
     
     
     /**
-     * 单个数据
+     * 
      * Enter description here ...
      * @param unknown_type $array array('id'=>2,'user_id'=>3,...);
      */
@@ -159,7 +159,7 @@ class VoteLog extends CActiveRecord
         return $res;
     } 
     /**
-     * 保存
+     * 
      * Enter description here ...
      * @param unknown_type $array   array('id'=>2,'user_id'=>3,...);
      */
@@ -182,10 +182,10 @@ class VoteLog extends CActiveRecord
     }
     
     /**
-     * 修改
+     * 
      * Enter description here ...
      * @param unknown_type $array  array('id'=>2,'user_id'=>3,...);
-     * @param unknown_type $id  作品ID
+     * @param unknown_type $id  锟斤拷品ID
      */
     public function updateVoteLog($array,$id)
     {
@@ -203,7 +203,7 @@ class VoteLog extends CActiveRecord
         return $res;
     }
     /**
-     * 删除
+     * 
      * Enter description here ...
      */
     public function delVoteLog($id)
