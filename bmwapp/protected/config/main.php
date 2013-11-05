@@ -91,5 +91,10 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
+	    'imgpath'=> 'http://'.$_SERVER["HTTP_HOST"].'/img/',
+	    'jspath'=>  'http://'.$_SERVER["HTTP_HOST"].'/js/',
+	    'csspath'=> 'http://'.$_SERVER["HTTP_HOST"].'/css/',
+	
 	),
+	
 );
