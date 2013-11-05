@@ -102,4 +102,125 @@ class WorkImg extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    /**
+     * 全部数据
+     * Enter description here ...
+     * @param unknown_type $array  =>  array('id'=>2,'user_id'=>3,...); $order => $order='create_time desc'
+     */
+    public function selectWorkImg($array,$order='create_time desc',$limit = 5)
+    {
+        if( is_array($array) )
+        {
+            foreach($array as $key=>$val)
+            {
+               $where .= "`$key` = '$val' and";  
+            }
+        	$where = substr($where,0,-3); 
+        }else{
+            $where = 1;
+        }
+        if( is_string($order) )
+        {
+           $order_list = trim($order);
+        }
+        if( is_int($limit) ){
+           $limit_sned = intval($limit);
+        }
+        $sql = sprintf("SELECT `id`,`work_id`,`name`,`description`,image_url`,`status`,`create_time` FROM $this->tableName() where %s %s limit %d",$where,$order_list,$limit_sned);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+    
+    /**
+     * 查询总数
+     * Enter description here ...
+     */
+    public function countWorkImg()
+    {
+        $sql = sprintf("SELECT COUNT(1) AS `num` FROM $this->tableName() where %s",$where);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+    
+    
+    /**
+     * 单个数据
+     * Enter description here ...
+     * @param unknown_type $array array('id'=>2,'user_id'=>3,...);
+     */
+    public function getOneWorkImg($array)
+    {
+        if( is_array($array) )
+        {
+            foreach($array as $key=>$val)
+            {
+               $where .= "`$key` = '$val' and";  
+            }
+        	$where = substr($where,0,-3); 
+        }else{
+            return false;
+        }
+        $sql = sprintf("SELECT `id`,`work_id`,`name`,`description`,image_url`,`status`,`create_time` FROM $this->tableName() where %s limit 1",$where);
+        $res = Yii::app()->db->createCommand($sql)->queryRow();
+        return $res;
+    } 
+    /**
+     * 保存
+     * Enter description here ...
+     * @param unknown_type $array   array('id'=>2,'user_id'=>3,...);
+     */
+    public function insertWorkImg($array)
+    {
+        if( is_array($array) )
+        {
+           foreach($array as $key=>$val){
+                  $key[] = "`$k`";
+                  $row[] = "'$val'";
+            }
+    		$key = implode(',',$key);
+    		$row = implode(',',$row);
+        }else{
+           return false;
+        }
+    	$sql = sprintf("INSERT INTO $this->tableName() ( %s ,`create_time`) VALUES ( %s ,NOW())",$key,$row);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
+    
+    /**
+     * 修改
+     * Enter description here ...
+     * @param unknown_type $array  array('id'=>2,'user_id'=>3,...);
+     * @param unknown_type $id  作品ID
+     */
+    public function updateWorkImg($array,$id)
+    {
+        if( is_array($array) && $id)
+        {
+            foreach ( $data as $key => $value ) {
+                $command [] = "`$key` = '$value'";
+			}
+		    $command = implode ( ',', $command );
+        }else{
+           return false;
+        }
+    	$sql=sprintf("UPDATE $this->tableName() SET %s WHERE `id` =%d",$command,$id);
+    	$res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
+    /**
+     * 删除
+     * Enter description here ...
+     */
+    public function delWorkImg($id)
+    {
+       $sql =sprintf("DELETE FROM $this->tableName() WHERE `id` in(%s)",$id);
+       $res = Yii::app()->db->createCommand($sql)->execute();
+       return $res;
+    }
+    
+
+
+
 }
