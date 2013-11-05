@@ -115,4 +115,18 @@ class User extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    //
+    public function get_user_list($page=1,$rows=10){
+        $offset = ($page-1) * $rows;
+        $sql = sprintf("SELECT * FROM bmw_cms.user_tbl LIMIT %d, %d",$offset,$rows);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+
+    public function get_user_total(){
+        $sql = sprintf("SELECT count(1) as total FROM bmw_cms.user_tbl");
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
 }

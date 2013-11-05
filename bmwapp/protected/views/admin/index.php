@@ -7,4 +7,6 @@
  * To change this template use File | Settings | File Templates.
  */
 ?>
-index
+
+<div id="dg" class="easyui-datagrid" >
+</div>

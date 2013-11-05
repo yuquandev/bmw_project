@@ -52,3 +52,255 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/bmw_project/bmwapp/index.php?r=admin/login
 ---
+2013/11/05 23:42:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/
+---
+2013/11/05 23:42:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php
+---
+2013/11/05 23:42:35 [error] [php] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php:423)
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(308): CDbConnection->setActive()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/base/CModule.php(387): CDbConnection->init()
+#3 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(438): CWebApplication->getComponent()
+#4 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(623): CWebApplication->getDb()
+#5 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(2309): Admin->getDbConnection()
+#6 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct()
+#7 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(402): model()
+#8 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(77): Admin->getMetaData()
+#9 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(19): Admin->__construct()
+#10 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(281): AdminController->init()
+#11 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/admin
+2013/11/05 23:45:13 [error] [php] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php:423)
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(308): CDbConnection->setActive()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/base/CModule.php(387): CDbConnection->init()
+#3 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(438): CWebApplication->getComponent()
+#4 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(623): CWebApplication->getDb()
+#5 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(2309): Admin->getDbConnection()
+#6 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct()
+#7 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(402): model()
+#8 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(77): Admin->getMetaData()
+#9 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(19): Admin->__construct()
+#10 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(281): AdminController->init()
+#11 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/admin
+2013/11/05 23:45:18 [error] [php] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php:423)
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(308): CDbConnection->setActive()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/base/CModule.php(387): CDbConnection->init()
+#3 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(438): CWebApplication->getComponent()
+#4 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(623): CWebApplication->getDb()
+#5 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(2309): Admin->getDbConnection()
+#6 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct()
+#7 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(402): model()
+#8 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(77): Admin->getMetaData()
+#9 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(19): Admin->__construct()
+#10 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(281): AdminController->init()
+#11 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/admin
+2013/11/05 23:47:19 [error] [php] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php:423)
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(308): CDbConnection->setActive()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/base/CModule.php(387): CDbConnection->init()
+#3 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(438): CWebApplication->getComponent()
+#4 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(623): CWebApplication->getDb()
+#5 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(2309): Admin->getDbConnection()
+#6 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct()
+#7 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(402): model()
+#8 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(77): Admin->getMetaData()
+#9 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(19): Admin->__construct()
+#10 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(281): AdminController->init()
+#11 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/admin
+2013/11/05 23:47:22 [error] [php] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php:423)
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(308): CDbConnection->setActive()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/base/CModule.php(387): CDbConnection->init()
+#3 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(438): CWebApplication->getComponent()
+#4 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(623): CWebApplication->getDb()
+#5 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(2309): Admin->getDbConnection()
+#6 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct()
+#7 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(402): model()
+#8 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(77): Admin->getMetaData()
+#9 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(19): Admin->__construct()
+#10 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(281): AdminController->init()
+#11 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/admin
+2013/11/05 23:47:25 [error] [php] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php:423)
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(308): CDbConnection->setActive()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/base/CModule.php(387): CDbConnection->init()
+#3 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(438): CWebApplication->getComponent()
+#4 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(623): CWebApplication->getDb()
+#5 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(2309): Admin->getDbConnection()
+#6 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct()
+#7 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(402): model()
+#8 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(77): Admin->getMetaData()
+#9 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(19): Admin->__construct()
+#10 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(281): AdminController->init()
+#11 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/admin
+2013/11/05 23:47:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php
+---
+2013/11/05 23:47:55 [error] [php] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php:423)
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(308): CDbConnection->setActive()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/base/CModule.php(387): CDbConnection->init()
+#3 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(438): CWebApplication->getComponent()
+#4 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(623): CWebApplication->getDb()
+#5 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(2309): Admin->getDbConnection()
+#6 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct()
+#7 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(402): model()
+#8 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(77): Admin->getMetaData()
+#9 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(19): Admin->__construct()
+#10 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(281): AdminController->init()
+#11 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/admin?
+2013/11/05 23:48:21 [error] [php] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php:423)
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(308): CDbConnection->setActive()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/base/CModule.php(387): CDbConnection->init()
+#3 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(438): CWebApplication->getComponent()
+#4 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(623): CWebApplication->getDb()
+#5 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(2309): Admin->getDbConnection()
+#6 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct()
+#7 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(402): model()
+#8 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(77): Admin->getMetaData()
+#9 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(19): Admin->__construct()
+#10 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(281): AdminController->init()
+#11 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/admin?
+2013/11/05 23:48:55 [error] [php] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php:423)
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(308): CDbConnection->setActive()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/base/CModule.php(387): CDbConnection->init()
+#3 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(438): CWebApplication->getComponent()
+#4 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(623): CWebApplication->getDb()
+#5 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(2309): Admin->getDbConnection()
+#6 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct()
+#7 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(402): model()
+#8 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(77): Admin->getMetaData()
+#9 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(19): Admin->__construct()
+#10 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(281): AdminController->init()
+#11 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/admin?
+2013/11/05 23:48:59 [error] [php] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php:423)
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(308): CDbConnection->setActive()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/base/CModule.php(387): CDbConnection->init()
+#3 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(438): CWebApplication->getComponent()
+#4 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(623): CWebApplication->getDb()
+#5 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(2309): Admin->getDbConnection()
+#6 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct()
+#7 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(402): model()
+#8 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(77): Admin->getMetaData()
+#9 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(19): Admin->__construct()
+#10 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(281): AdminController->init()
+#11 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/admin/login
+2013/11/05 23:49:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?
+---
+2013/11/05 23:49:21 [error] [php] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php:423)
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /Library/WebServer/Documents/trunk/trunk/framework/db/CDbConnection.php(308): CDbConnection->setActive()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/base/CModule.php(387): CDbConnection->init()
+#3 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(438): CWebApplication->getComponent()
+#4 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(623): CWebApplication->getDb()
+#5 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(2309): Admin->getDbConnection()
+#6 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(387): CActiveRecordMetaData->__construct()
+#7 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(402): model()
+#8 /Library/WebServer/Documents/trunk/trunk/framework/db/ar/CActiveRecord.php(77): Admin->getMetaData()
+#9 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(19): Admin->__construct()
+#10 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(281): AdminController->init()
+#11 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#13 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/admin
+2013/11/06 00:17:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/
+---
+2013/11/06 01:19:05 [error] [exception.CException] exception 'CException' with message 'CDbCommand and its behaviors do not have a method or closure named "count".' in /Library/WebServer/Documents/trunk/trunk/framework/base/CComponent.php:265
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/models/User.php(129): CComponent->__call('count', Array)
+#1 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/models/User.php(129): CDbCommand->count()
+#2 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(101): User->get_user_total()
+#3 /Library/WebServer/Documents/trunk/trunk/framework/web/actions/CInlineAction.php(49): AdminController->actionDatajson()
+#4 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#6 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(282): CController->run('datajson')
+#8 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/datajson')
+#9 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#10 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/admin/datajson?act=1
+HTTP_REFERER=http://bmw.zhaoquan.com/index.php/admin
+---
+2013/11/06 01:29:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "index".' in /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/
+---

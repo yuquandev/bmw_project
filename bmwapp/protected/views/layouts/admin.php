@@ -15,7 +15,7 @@
         <a href="#" class="easyui-menubutton" data-options="menu:'#mm1',iconCls:'icon-redo'">导入</a>
         <a href="#" class="easyui-menubutton" data-options="menu:'#mm2',iconCls:'icon-undo'">导出</a>
         <a href="#" class="easyui-menubutton" data-options="menu:'#mm3',iconCls:'icon-search'">执行SQL</a>
-        <a href="/test/logout" class="easyui-linkbutton" data-options="plain:true">退出</a>
+        <a href="/index.php/admin/logout" class="easyui-linkbutton" data-options="plain:true">退出</a>
     </div>
     <div id="mm1" style="width:150px;">
         <div data-options="iconCls:'icon-undo'">Undo</div>
@@ -51,13 +51,21 @@
 </div>
 <div data-options="region:'south',split:true" style="height:50px;"></div>
 <div data-options="region:'west',split:true" title="" style="width:200px;">
-    <ul id="tt" class="easyui-tree" url="/index.php/test/treedata"></ul>
+    <ul id="tt" class="easyui-tree" url="/index.php/test/treedata">
+        <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">用户管理</a></li>
+        <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">首页banner</a></li>
+        <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">3系</a></li>
+        <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">5系</a></li>
+        <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">X1</a></li>
+        <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">用户作品管理</a></li>
+        <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">用户作品管理</a></li>
+    </ul>
 </div>
 <div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'">
     <?php echo $content;?>
 </div>
 <script type="text/javascript">
-    $('#tt').tree({
+    /*$('#tt').tree({
         onClick: function(node){
             //console.log(node);
             //alert(node.text);  // alert node text property when clicked
@@ -65,13 +73,13 @@
                 ajax_get_columns(node.id);
             }
         }
-    });
+    });*/
 
     function ajax_get_columns(table){
         var columns = [{field:"ck",checkbox:true}];
-        $.ajax({url: '/index.php/test/columns?_n='+ new Date().getTime(),
+        $.ajax({url: '/index.php/admin/columns?_n='+ new Date().getTime(),
             type: 'POST',
-            data:{tbl:table},
+            data:{act:table},
             dataType: 'json',
             beforeSend : function(){
             },
@@ -79,11 +87,12 @@
             },
             success: function(data){
                 for (var n in data){
-                    if(data[n]['Field']){
-                        columns.push({field:data[n]['Field'],title:data[n]['Field'],width:100});
+                    if(data[n]){
+                        columns.push({field:data[n],title:data[n],width:100});
                     }
                 }
                 //console.log(columns);
+
                 reload_datagrid(table,columns);
             },
             complete : function(){
@@ -92,9 +101,10 @@
     }
 
     function reload_datagrid(table,columns){
+        console.log(table);
         $('#dg').datagrid({
             title : table,
-            url:'/index.php/test/datajson?tbl='+table,
+            url:'/index.php/admin/datajson?act='+table,
             striped : true,
             method : "post",
             nowrap : false,

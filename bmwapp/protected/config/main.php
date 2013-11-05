@@ -58,10 +58,10 @@ return array(
 
 		'db'=>array(
             'class' => 'system.db.CDbConnection',
-			'connectionString' => 'mysql:host=localhost;dbname=bmw_cms',
+			'connectionString' => 'mysql:host=127.0.0.1;dbname=bmw_cms',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '123456',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 
