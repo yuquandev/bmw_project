@@ -20,15 +20,15 @@ class IndexController extends Controller {
     public function actionIndex()
     {
       
-    	//works
-        $works = $this->works->selectWork(array('recommend'=>0,'review'=>0),'create_time desc',10);
+    	//works  //后台推荐10个作品到首页
+        $works = $this->works->selectWork(array('recommend'=>0,'review'=>0),'0',10,'create_time desc');
     	foreach($works as $key=>$val)
     	{
     	   $works_img_info = $this->works_img->getOneWorkImg(array('work_id'=>$val['id']));
     	   $works[$key]['imgname'] = $works_img_info['name'];
     	   $works[$key]['image_url'] = $works_img_info['image_url'];
     	}
-    	//var_dump($works);die;
+    	
     	$data = array(
     	   'works'=>$works
     	);

@@ -32,12 +32,12 @@ class ApiController extends Controller {
        	  $vote_info = $this->vote_log_tbl->insertVoteLog($data);
           if($vote_info){
           	  $this->works->updateWork(array('vote_num'=>"vote_num+1"),$wid);
-          	  echo 1; 
+          	  echo json_encode(1); 
           }else{
-              echo 2; 	
+              echo json_encode(2); 	
           }
        }else{
-       	     echo 3; 
+       	     echo json_encode(3); 
        }
     }
 

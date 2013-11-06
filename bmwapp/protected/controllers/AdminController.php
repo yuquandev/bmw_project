@@ -13,7 +13,10 @@ class AdminController extends Controller {
     public $user;
     public static $is_login;
     public $login_key = '@_yu)*quan!=dev';
-
+    private $works;
+	private $works_img ;
+	
+    
     public function init(){
         $this->check_login();
         $this->admin_user = new Admin();
@@ -82,7 +85,7 @@ class AdminController extends Controller {
         setcookie('bmw_ad_t','', $time - 3600, "/");
         $this->redirect("/index.php/admin/login");
     }
-
+    //用户管理部分
     //异步获取表的字段名
     public function actionColumns(){
         $act = isset($_POST['act']) ? trim($_POST['act']) : '';
@@ -100,10 +103,33 @@ class AdminController extends Controller {
                 array("field"=>"create_time","title"=>"注册时间"),
                 array("field"=>"editor","title"=>"编辑"),
             );
+        }elseif($act == 'works_list')
+        {
+            $res = $this->actionWorks();
         }
         echo json_encode($res);
     }
 
+    //作品管理部分
+    public function actionWorks()
+    {
+        $works_list = array(
+                array("field"=>"id","title"=>"作品id"),
+                array("field"=>"user_id","title"=>"用户用户ID"),
+                array("field"=>"name","title"=>"作品名称"),
+                array("field"=>"img_url","title"=>"作品图片"),
+                array("field"=>"description","title"=>"作品描述"),
+                array("field"=>"status","title"=>"作品状态"),
+                array("field"=>"review","title"=>"审核状态"),
+                array("field"=>"recommend","title"=>"推荐状态"),
+                array("field"=>"vote_num","title"=>"投票数"),
+                array("field"=>"update_time","title"=>"更新时间"),
+                array("field"=>"create_time","title"=>"创建实际上呢"),
+        );
+        echo json_encode($works_list);  
+    } 
+    
+    
     //异步获取表数据
     public function actionDatajson(){
         $act = isset($_GET['act']) ? trim($_GET['act']) : "";
@@ -119,8 +145,20 @@ class AdminController extends Controller {
             $count = $this->user->get_user_total();
             #print_r($count);
             $res = array("total"=>$count[0]['total'],"rows"=>$data);
+        }else if($act == 'works_list'){
+            $this->works     = new Works();
+            $this->works_img = new WorkImg();
+            $data = $this->works->selectWork(1,$page,$rows,'create_time desc');
+            $count = $this->works->countWork(1);
+            $res = array("total"=>$count[0]['total'],"rows"=>$data);
         }
         echo json_encode($res);
     }
-
+   
+    
+    
+    
+    
+    
+   
 }
