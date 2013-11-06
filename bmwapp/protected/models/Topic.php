@@ -98,4 +98,18 @@ class Topic extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+    //根据类型获取专题列表
+    public function get_topiclist_by_type($type){
+        $sql = sprintf("SELECT * FROM `topic_tbl` WHERE `type` = %d",$type);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+
+    public function get_topic_info_by_id($id){
+        $sql = sprintf("SELECT * FROM `topic_tbl` WHERE `id` = %d",$id);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+
 }

@@ -130,7 +130,6 @@ class Works extends CActiveRecord
         }
         $limit_sned = "{$limit},{$limit_offis}";
         $sql = sprintf("SELECT `id`,`user_id`,`name`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM %s where %s order by %s limit %s",$this->tableName(),$where,$order_list,$limit_sned);
-        
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }

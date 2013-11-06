@@ -386,3 +386,147 @@ Stack trace:
 #11 {main}
 REQUEST_URI=/index.php
 ---
+2013/11/07 00:12:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "tree2_getdata.php".' in /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('tree2_getdata.p...')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#2 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/tree2_getdata.php
+HTTP_REFERER=http://bmw.zhaoquan.com/index.php/admin
+---
+2013/11/07 00:19:49 [error] [exception.CException] exception 'CException' with message 'Property "AdminController.test" is not defined.' in /Library/WebServer/Documents/trunk/trunk/framework/base/CComponent.php:130
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(163): CComponent->__get('test')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/web/actions/CInlineAction.php(49): AdminController->actionTreedata()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#4 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(282): CController->run('treedata')
+#6 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/treedata')
+#7 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php/admin/treedata
+HTTP_REFERER=http://bmw.zhaoquan.com/index.php/admin
+---
+2013/11/07 00:23:26 [error] [exception.CException] exception 'CException' with message 'Property "AdminController.test" is not defined.' in /Library/WebServer/Documents/trunk/trunk/framework/base/CComponent.php:130
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(163): CComponent->__get('test')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/web/actions/CInlineAction.php(49): AdminController->actionTreedata()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#4 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(282): CController->run('treedata')
+#6 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/treedata')
+#7 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php/admin/treedata
+HTTP_REFERER=http://bmw.zhaoquan.com/index.php/admin
+---
+2013/11/07 00:23:52 [error] [exception.CException] exception 'CException' with message 'Property "AdminController.test" is not defined.' in /Library/WebServer/Documents/trunk/trunk/framework/base/CComponent.php:130
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(163): CComponent->__get('test')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/web/actions/CInlineAction.php(49): AdminController->actionTreedata()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#4 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(282): CController->run('treedata')
+#6 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/treedata')
+#7 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php/admin/treedata
+HTTP_REFERER=http://bmw.zhaoquan.com/index.php/admin
+---
+2013/11/07 00:24:52 [error] [exception.CException] exception 'CException' with message 'Property "AdminController.test" is not defined.' in /Library/WebServer/Documents/trunk/trunk/framework/base/CComponent.php:130
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(163): CComponent->__get('test')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/web/actions/CInlineAction.php(49): AdminController->actionTreedata()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#4 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(282): CController->run('treedata')
+#6 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/treedata')
+#7 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php/admin/treedata
+HTTP_REFERER=http://bmw.zhaoquan.com/index.php/admin
+---
+2013/11/07 00:25:22 [error] [exception.CException] exception 'CException' with message 'Property "AdminController.test" is not defined.' in /Library/WebServer/Documents/trunk/trunk/framework/base/CComponent.php:130
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(163): CComponent->__get('test')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/web/actions/CInlineAction.php(49): AdminController->actionTreedata()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#4 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(282): CController->run('treedata')
+#6 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/treedata')
+#7 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php/admin/treedata
+HTTP_REFERER=http://bmw.zhaoquan.com/index.php/admin
+---
+2013/11/07 00:25:30 [error] [exception.CException] exception 'CException' with message 'Property "AdminController.test" is not defined.' in /Library/WebServer/Documents/trunk/trunk/framework/base/CComponent.php:130
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(163): CComponent->__get('test')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/web/actions/CInlineAction.php(49): AdminController->actionTreedata()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#4 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(282): CController->run('treedata')
+#6 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/treedata')
+#7 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php/admin/treedata
+HTTP_REFERER=http://bmw.zhaoquan.com/index.php/admin
+---
+2013/11/07 00:26:09 [error] [exception.CException] exception 'CException' with message 'Property "AdminController.test" is not defined.' in /Library/WebServer/Documents/trunk/trunk/framework/base/CComponent.php:130
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(163): CComponent->__get('test')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/web/actions/CInlineAction.php(49): AdminController->actionTreedata()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#4 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(282): CController->run('treedata')
+#6 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/treedata')
+#7 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php/admin/treedata
+HTTP_REFERER=http://bmw.zhaoquan.com/index.php/admin
+---
+2013/11/07 00:33:52 [error] [exception.CException] exception 'CException' with message 'Property "AdminController.test" is not defined.' in /Library/WebServer/Documents/trunk/trunk/framework/base/CComponent.php:130
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(172): CComponent->__get('test')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/web/actions/CInlineAction.php(49): AdminController->actionTreedata()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#4 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(282): CController->run('treedata')
+#6 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/treedata')
+#7 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php/admin/treedata
+HTTP_REFERER=http://bmw.zhaoquan.com/index.php/admin
+---
+2013/11/07 00:34:41 [error] [exception.CException] exception 'CException' with message 'Property "AdminController.test" is not defined.' in /Library/WebServer/Documents/trunk/trunk/framework/base/CComponent.php:130
+Stack trace:
+#0 /Library/WebServer/Documents/trunk/trunk/bmwapp/protected/controllers/AdminController.php(172): CComponent->__get('test')
+#1 /Library/WebServer/Documents/trunk/trunk/framework/web/actions/CInlineAction.php(49): AdminController->actionTreedata()
+#2 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#4 /Library/WebServer/Documents/trunk/trunk/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(282): CController->run('treedata')
+#6 /Library/WebServer/Documents/trunk/trunk/framework/web/CWebApplication.php(141): CWebApplication->runController('admin/treedata')
+#7 /Library/WebServer/Documents/trunk/trunk/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#8 /Library/WebServer/Documents/trunk/trunk/bmwapp/index.php(17): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php/admin/treedata
+HTTP_REFERER=http://bmw.zhaoquan.com/index.php/admin
+---

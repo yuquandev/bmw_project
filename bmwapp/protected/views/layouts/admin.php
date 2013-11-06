@@ -51,7 +51,20 @@
 </div>
 <div data-options="region:'south',split:true" style="height:50px;"></div>
 <div data-options="region:'west',split:true" title="" style="width:200px;">
-    <ul id="tt" class="easyui-tree" url="/index.php/test/treedata">
+    <div class="easyui-accordion" data-options="fit:true,border:false" >
+        <div title="专题管理" data-options="iconCls:'icon-help'" style="padding:10px;">
+            <ul id="tt" class="easyui-tree"
+                url="/index.php/admin/treedata">
+            </ul>
+        </div>
+        <div title="作品管理" data-options="iconCls:'icon-search'" style="padding:10px;">
+            <li style="padding-bottom: 10px;"><a href="javascript:void(0);" onclick="ajax_get_columns('works_list','用户作品列表');">用户作品列表</a></li>
+        </div>
+        <div title="用户管理" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
+            <li style="padding-bottom: 10px;"><a href="javascript:void(0);" onclick="ajax_get_columns('user_list','用户列表');">用户列表</a></li>
+        </div>
+    </div>
+    <!-- <ul id="tt" class="easyui-tree" url="/index.php/test/treedata">
         <li><a href="javascript:void(0);" onclick="ajax_get_columns('user_list','用户列表');">用户管理</a></li>
         <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">首页banner</a></li>
         <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">3系</a></li>
@@ -59,23 +72,25 @@
         <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">X1</a></li>
         <li><a href="javascript:void(0);" onclick="ajax_get_columns('works_list','作品管理');">作品管理</a></li>
         <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">用户作品管理</a></li>
-    </ul>
+    </ul> -->
 </div>
-<div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'">
+<div data-options="region:'center'"><!-- region:'center',title:'Main Title',iconCls:'icon-ok',border:false -->
+    <div style="padding:5px;border:1px solid #ddd;display: none;"></div>
     <?php echo $content;?>
 </div>
 <script type="text/javascript">
-    /*$('#tt').tree({
+    $('#tt').tree({
         onClick: function(node){
             //console.log(node);
             //alert(node.text);  // alert node text property when clicked
             if(!node.hasOwnProperty('state')){
-                ajax_get_columns(node.id);
+                ajax_get_columns('topic_list',node.text,node.id);
             }
         }
-    });*/
+    });
 
-    function ajax_get_columns(table,title){
+    function ajax_get_columns(table,title,id){
+        id = id || 0;
         var columns = [{field:"ck",checkbox:true}];
         $.ajax({url: '/index.php/admin/columns?_n='+ new Date().getTime(),
             type: 'POST',
@@ -93,7 +108,7 @@
                 }
                 //console.log(columns);
 
-                reload_datagrid(table,title,columns);
+                reload_datagrid(table,title,columns,id);
             },
             complete : function(){
             }
@@ -106,11 +121,11 @@
 
 
     
-    function reload_datagrid(table,title,columns){
+    function reload_datagrid(table,title,columns,id){
         console.log(table);
         $('#dg').datagrid({
             title : title,
-            url:'/index.php/admin/datajson?act='+table,
+            url:'/index.php/admin/datajson?act='+table+'&id='+id,
             striped : true,
             method : "post",
             nowrap : false,

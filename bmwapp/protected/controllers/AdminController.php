@@ -11,6 +11,7 @@ class AdminController extends Controller {
     public $layout = "admin";
     public $admin_user;
     public $user;
+    public $topic;
     public static $is_login;
     public $login_key = '@_yu)*quan!=dev';
     private $works;
@@ -103,36 +104,37 @@ class AdminController extends Controller {
                 array("field"=>"create_time","title"=>"注册时间"),
                 array("field"=>"editor","title"=>"编辑"),
             );
+        }elseif ($act == 'topic_list'){
+            $res = array(
+                array("field"=>"id","title"=>"id"),
+                array("field"=>"name","title"=>"名称"),
+                array("field"=>"description","title"=>"描述"),
+                array("field"=>"create_time","title"=>"创建时间"),
+                array("field"=>"editor","title"=>"编辑"),
+            );
         }elseif($act == 'works_list')
         {
-            $res = $this->actionWorks();
-        }
-        echo json_encode($res);
-    }
-
-    //作品管理部分
-    public function actionWorks()
-    {
-        $works_list = array(
+            $res = array(
                 array("field"=>"id","title"=>"作品id"),
-                array("field"=>"user_id","title"=>"用户用户ID"),
+                array("field"=>"user_name","title"=>"用户名"),
                 array("field"=>"name","title"=>"作品名称"),
                 array("field"=>"img_url","title"=>"作品图片"),
                 array("field"=>"description","title"=>"作品描述"),
-                array("field"=>"status","title"=>"作品状态"),
                 array("field"=>"review","title"=>"审核状态"),
                 array("field"=>"recommend","title"=>"推荐状态"),
                 array("field"=>"vote_num","title"=>"投票数"),
-                array("field"=>"update_time","title"=>"更新时间"),
-                array("field"=>"create_time","title"=>"创建实际上呢"),
-        );
-        echo json_encode($works_list);  
-    } 
+                array("field"=>"create_time","title"=>"创建时间"),
+                array("field"=>"editor","title"=>"编辑"),
+            );
+        }
+        echo json_encode($res);
+    }
     
     
     //异步获取表数据
     public function actionDatajson(){
         $act = isset($_GET['act']) ? trim($_GET['act']) : "";
+        $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
         $page = isset($_POST['page']) ? intval($_POST['page']) : 0;
         $rows = isset($_POST['rows']) ? intval($_POST['rows']) : 0;
         if(empty($table_name)){echo "";}
@@ -145,6 +147,10 @@ class AdminController extends Controller {
             $count = $this->user->get_user_total();
             #print_r($count);
             $res = array("total"=>$count[0]['total'],"rows"=>$data);
+        }else if ($act == 'topic_list'){
+            $this->topic = new Topic();
+            $data = $this->topic->get_topic_info_by_id($id);
+            $res = array("total"=>1,"rows"=>$data);
         }else if($act == 'works_list'){
             $this->works     = new Works();
             $this->works_img = new WorkImg();
@@ -154,9 +160,33 @@ class AdminController extends Controller {
         }
         echo json_encode($res);
     }
-   
-    
-    
+
+
+    //异步获取数据库树
+    public function actionTreedata(){
+        $id = isset($_POST['id']) ? trim($_POST['id']) : "";
+        if(empty($id)){
+            $res = array(
+                array("id"=>'1',"text"=>'X1',"state"=>"closed"),
+                array("id"=>'2',"text"=>'3系',"state"=>"closed"),
+                array("id"=>'3',"text"=>'5系',"state"=>"closed")
+            );
+            echo json_encode($res);
+        }else {
+            if($id == "null"){echo "";exit();}
+            $this->topic = new Topic();
+            $topic_list = $this->topic->get_topiclist_by_type($id);
+            #print_r($topic_list);
+            $tbl_res = array();
+            foreach ($topic_list as $k=>$v){
+                $tbl_res[] = array("id"=>$v['id'],"text"=>$v["name"]);
+            }
+            #$tbl_res = !empty($tbl_res) ? array("text"=>"Table","state"=>"closed","children"=>$tbl_res) : array("id"=>"null","text"=>"Table","state"=>"closed");
+
+            echo json_encode($tbl_res);
+        }
+
+    }
     
     
     
