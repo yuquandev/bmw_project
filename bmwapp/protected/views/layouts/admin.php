@@ -52,7 +52,7 @@
 <div data-options="region:'south',split:true" style="height:50px;"></div>
 <div data-options="region:'west',split:true" title="" style="width:200px;">
     <ul id="tt" class="easyui-tree" url="/index.php/test/treedata">
-        <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">用户管理</a></li>
+        <li><a href="javascript:void(0);" onclick="ajax_get_columns('user_list','用户列表');">用户管理</a></li>
         <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">首页banner</a></li>
         <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">3系</a></li>
         <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">5系</a></li>
@@ -75,7 +75,7 @@
         }
     });*/
 
-    function ajax_get_columns(table){
+    function ajax_get_columns(table,title){
         var columns = [{field:"ck",checkbox:true}];
         $.ajax({url: '/index.php/admin/columns?_n='+ new Date().getTime(),
             type: 'POST',
@@ -88,22 +88,22 @@
             success: function(data){
                 for (var n in data){
                     if(data[n]){
-                        columns.push({field:data[n],title:data[n],width:100});
+                        columns.push({field:data[n]['field'],title:data[n]['title'],width:100});
                     }
                 }
                 //console.log(columns);
 
-                reload_datagrid(table,columns);
+                reload_datagrid(table,title,columns);
             },
             complete : function(){
             }
         });
     }
 
-    function reload_datagrid(table,columns){
+    function reload_datagrid(table,title,columns){
         console.log(table);
         $('#dg').datagrid({
-            title : table,
+            title : title,
             url:'/index.php/admin/datajson?act='+table,
             striped : true,
             method : "post",

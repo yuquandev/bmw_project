@@ -129,4 +129,19 @@ class User extends CActiveRecord
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }
+
+    //添加用户
+    public function add_user_info($data){
+        extract($data);
+        $sql = sprintf("INSERT INTO `user_tbl` (`username`,`nickname`,`password`,`salt`,`telephone`,`ip`,`status`,`last_login`,`update_time`,`create_time`) VALUES ('%s','%s','%s','%d','%s','%s',0,NULL,NULL,NOW());",$username,$nickname,$password,$salt,$telephone,$ip);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
+
+    //根据用户名获取用户信息
+    public function get_userinfo_by_username($username){
+        $sql = sprintf("SELECT * FROM `user_tbl` WHERE `username`='%s'",$username);
+        $res = Yii::app()->db->createCommand($sql)->queryRow();
+        return $res;
+    }
 }

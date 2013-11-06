@@ -17,12 +17,12 @@ class AdminController extends Controller {
     public function init(){
         $this->check_login();
         $this->admin_user = new Admin();
-        $this->user = new User();
     }
 
+    //验证用户是否登录
     private function check_login(){
-        if (isset($_COOKIE['bmw_ad_uid']) && isset($_COOKIE['bmw_ad_username']) && isset($_COOKIE['bmw_ad_ses'])){
-            if ($_COOKIE['bmw_ad_ses'] == md5($_COOKIE['bmw_ad_uid'].$this->login_key.$_COOKIE['bmw_ad_username'])){
+        if (isset($_COOKIE['bmw_ad_uid']) && isset($_COOKIE['bmw_ad_username']) && isset($_COOKIE['bmw_ad_ses']) && isset($_COOKIE['bmw_ad_t'])){
+            if ($_COOKIE['bmw_ad_ses'] == md5($_COOKIE['bmw_ad_uid'].$this->login_key.$_COOKIE['bmw_ad_username'].$_COOKIE['bmw_ad_t'])){
                 self::$is_login = true;
             }else {
                 self::$is_login = false;
@@ -59,9 +59,11 @@ class AdminController extends Controller {
                 echo "密码错误";
             }else {
                 $lifeTime = 60*60;
-                setcookie('bmw_ad_ses', md5($userinfo['id'].$this->login_key.$userinfo['username']), time() + $lifeTime, "/");
-                setcookie('bmw_ad_username', $userinfo['username'], time() + $lifeTime, "/");
-                setcookie('bmw_ad_uid', $userinfo['id'], time() + $lifeTime, "/");
+                $time = time();
+                setcookie('bmw_ad_ses', md5($userinfo['id'].$this->login_key.$userinfo['username'].$time), $time + $lifeTime, "/");
+                setcookie('bmw_ad_username', $userinfo['username'], $time + $lifeTime, "/");
+                setcookie('bmw_ad_uid', $userinfo['id'], $time + $lifeTime, "/");
+                setcookie('bmw_ad_t',$time, $time + $lifeTime, "/");
                 $this->redirect("/index.php/admin");
             }
         }
@@ -73,36 +75,52 @@ class AdminController extends Controller {
         if (!self::$is_login){
             $this->redirect("/index.php/admin/login");
         }
-        setcookie('bmw_ad_ses', '', time() - 3600, "/");
-        setcookie('bmw_ad_username', '', time() - 3600, "/");
-        setcookie('bmw_ad_uid', '', time() - 3600, "/");
+        $time = time();
+        setcookie('bmw_ad_ses', '', $time - 3600, "/");
+        setcookie('bmw_ad_username', '', $time - 3600, "/");
+        setcookie('bmw_ad_uid', '', $time - 3600, "/");
+        setcookie('bmw_ad_t','', $time - 3600, "/");
         $this->redirect("/index.php/admin/login");
     }
 
     //异步获取表的字段名
     public function actionColumns(){
         $act = isset($_POST['act']) ? trim($_POST['act']) : '';
-        if(empty($act)){echo "";}
-        else {
-            $act = array("id","username","nickname","telephone","ip");
-            echo json_encode($act);
+        if(empty($act)){echo "";exit();}
+        $res = array();
+        if ($act == 'user_list') {
+            $res = array(
+                array("field"=>"id","title"=>"用户id"),
+                array("field"=>"username","title"=>"用户名"),
+                array("field"=>"nickname","title"=>"昵称"),
+                array("field"=>"telephone","title"=>"手机"),
+                array("field"=>"ip","title"=>"ip"),
+                array("field"=>"status","title"=>"状态"),
+                array("field"=>"last_login","title"=>"登录时间"),
+                array("field"=>"create_time","title"=>"注册时间"),
+                array("field"=>"editor","title"=>"编辑"),
+            );
         }
+        echo json_encode($res);
     }
 
     //异步获取表数据
     public function actionDatajson(){
-        $table_name = isset($_GET['act']) ? trim($_GET['act']) : "";
+        $act = isset($_GET['act']) ? trim($_GET['act']) : "";
         $page = isset($_POST['page']) ? intval($_POST['page']) : 0;
         $rows = isset($_POST['rows']) ? intval($_POST['rows']) : 0;
         if(empty($table_name)){echo "";}
-        else {
+
+        $res = array();
+        if ($act == 'user_list'){
+            $this->user = new User();
             $data = $this->user->get_user_list($page,$rows);
             #print_r($data);
             $count = $this->user->get_user_total();
             #print_r($count);
-            $data = array("total"=>$count[0]['total'],"rows"=>$data);
-            echo json_encode($data);
+            $res = array("total"=>$count[0]['total'],"rows"=>$data);
         }
+        echo json_encode($res);
     }
 
 }
