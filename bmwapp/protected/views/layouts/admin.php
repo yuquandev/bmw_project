@@ -57,7 +57,7 @@
         <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">3系</a></li>
         <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">5系</a></li>
         <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">X1</a></li>
-        <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">用户作品管理</a></li>
+        <li><a href="javascript:void(0);" onclick="ajax_get_columns('works_list','作品管理');">作品管理</a></li>
         <li><a href="javascript:void(0);" onclick="ajax_get_columns(1);">用户作品管理</a></li>
     </ul>
 </div>
@@ -100,6 +100,12 @@
         });
     }
 
+
+    //
+
+
+
+    
     function reload_datagrid(table,title,columns){
         console.log(table);
         $('#dg').datagrid({
