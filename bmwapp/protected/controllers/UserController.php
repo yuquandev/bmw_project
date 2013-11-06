@@ -61,6 +61,12 @@ class UserController extends Controller {
                 );
                 $res = $this->user->add_user_info($data);
                 if ($res){
+                    $life_time = 60*60;
+                    $time = time();
+                    setcookie('bmw_ses', md5($res.UserController::LOGIN_KEY.$username.$time), $time+$life_time, "/");
+                    setcookie('bmw_username', $username, $time + $life_time, "/");
+                    setcookie('bmw_uid', $res, $time + $life_time, "/");
+                    setcookie('bmw_t', $time, $time + $life_time, "/");
                     echo "注册成功";
                 }else {
                     echo "注册失败";

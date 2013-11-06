@@ -4,15 +4,18 @@
     <list default="true" id="179fa980-1755-42d6-8829-2562512d6570" name="Default" comment="" />
     <ignored path="bmw_project.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383616009732" ignored="false" />
-    <file path="/AdminController.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383624550995" ignored="false" />
+    <file path="/Dummy.txt" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383741783006" ignored="false" />
+    <file path="/AdminController.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383671640978" ignored="false" />
     <file path="/main.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383617271001" ignored="false" />
-    <file path="/index.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383618441425" ignored="false" />
-    <file path="/admin.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383619187022" ignored="false" />
+    <file path="/index.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383671509236" ignored="false" />
+    <file path="/admin.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383671318055" ignored="false" />
     <file path="/admin_login.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383622428399" ignored="false" />
     <file path="/login.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383622854687" ignored="false" />
     <file path="/Test.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383623393409" ignored="false" />
-    <file path="/Admin.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383624567265" ignored="false" />
+    <file path="/Admin.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383671918117" ignored="false" />
+    <file path="/User.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383742619153" ignored="false" />
+    <file path="/UserController.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383742752554" ignored="false" />
+    <file path="/IndexController.php" changelist="179fa980-1755-42d6-8829-2562512d6570" time="1383743486689" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,102 +34,106 @@
     <favorites_list name="bmw_project" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="AdminController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bmwapp/protected/controllers/AdminController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="56" selection-start="483" selection-end="483" vertical-scroll-proportion="-9.5">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BarTopic.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DRa0.369/douya2.0/bar/protected/models/BarTopic.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="215" column="64" selection-start="8369" selection-end="8377" vertical-scroll-proportion="-3.392857">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Admin.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bmwapp/protected/models/Admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="1" selection-start="3379" selection-end="3379" vertical-scroll-proportion="1.512255">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bmwapp/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="44" selection-start="50" selection-end="50" vertical-scroll-proportion="-0.6785714">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/admin/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="34" selection-start="178" selection-end="178" vertical-scroll-proportion="-3.392857">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/admin/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="173" selection-end="178" vertical-scroll-proportion="-6.107143">
-              <folding>
-                <element signature="e#6#169#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/layouts/admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="34" selection-start="3737" selection-end="3737" vertical-scroll-proportion="-59.714287">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_login.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/layouts/admin_login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="78" selection-start="1064" selection-end="1064" vertical-scroll-proportion="-21.035715">
-              <folding>
-                <element signature="e#6#169#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap-cerulean.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bmwapp/css/bootstrap-cerulean.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bmwapp/protected/config/main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="29" selection-start="512" selection-end="512" vertical-scroll-proportion="-11.535714">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.4373024">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/admin/index.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="11" column="6" selection-start="219" selection-end="219" vertical-scroll-proportion="-3.125">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="admin.php" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/layouts/admin.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="64" column="26" selection-start="3336" selection-end="3336" vertical-scroll-proportion="0.6454545">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Admin.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/bmwapp/protected/models/Admin.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="124" column="20" selection-start="3663" selection-end="3663" vertical-scroll-proportion="-16.041666">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/bmwapp/protected/models/User.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="140" column="21" selection-start="4375" selection-end="4375" vertical-scroll-proportion="-13.541667">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UserController.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/bmwapp/protected/controllers/UserController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="51" column="49" selection-start="1855" selection-end="1855" vertical-scroll-proportion="-4.1666665">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="2013-11-5 234108更新表结构.sql" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/bmwapp/protected/data/2013-11-5 234108更新表结构.sql">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="15" column="83" selection-start="556" selection-end="556" vertical-scroll-proportion="0.56485355">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="layout_bm.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/layouts/layout_bm.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="8" column="7" selection-start="84" selection-end="84" vertical-scroll-proportion="-5.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="IndexController.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/bmwapp/protected/controllers/IndexController.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="10" column="0" selection-start="209" selection-end="209" vertical-scroll-proportion="-2.5">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="admin_login.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/layouts/admin_login.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="36" column="0" selection-start="1237" selection-end="1291" vertical-scroll-proportion="-9.75">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="main.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/bmwapp/protected/config/main.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="63" column="27" selection-start="1753" selection-end="1753" vertical-scroll-proportion="-8.125">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -144,26 +151,45 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/bmwapp/protected/config/main.php" />
-        <option value="$PROJECT_DIR$/bmwapp/protected/views/admin/index.php" />
         <option value="$PROJECT_DIR$/bmwapp/css/bootstrap-cerulean.css" />
         <option value="$PROJECT_DIR$/bmwapp/css/charisma-app.css" />
         <option value="$PROJECT_DIR$/bmwapp/protected/views/layouts/admin_login.php" />
         <option value="$PROJECT_DIR$/bmwapp/protected/views/admin/login.php" />
-        <option value="$PROJECT_DIR$/bmwapp/protected/views/layouts/admin.php" />
         <option value="$PROJECT_DIR$/bmwapp/protected/models/Test.php" />
         <option value="$PROJECT_DIR$/bmwapp/index.php" />
-        <option value="$PROJECT_DIR$/bmwapp/protected/controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/bmwapp/protected/views/layouts/admin.php" />
         <option value="$PROJECT_DIR$/bmwapp/protected/models/Admin.php" />
+        <option value="$PROJECT_DIR$/bmwapp/protected/controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/bmwapp/protected/views/admin/index.php" />
+        <option value="$PROJECT_DIR$/bmwapp/protected/config/main.php" />
+        <option value="$PROJECT_DIR$/bmwapp/protected/models/User.php" />
+        <option value="$PROJECT_DIR$/bmwapp/protected/controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/bmwapp/protected/views/layouts/layout_bm.php" />
+        <option value="$PROJECT_DIR$/bmwapp/protected/controllers/IndexController.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="y" value="22" />
+    <option name="width" value="1280" />
+    <option name="height" value="722" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>CoffeeScript</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -206,7 +232,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bmw_project" />
+              <option name="myItemId" value="trunk" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -216,11 +242,121 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="bmw_project" />
+              <option name="myItemId" value="trunk" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bmwapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmw_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmwapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmw_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmwapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmw_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmwapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmw_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmwapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmw_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trunk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bmwapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protected" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -233,43 +369,20 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="options.lastSelected" value="reference.settings.deploy.options" />
+    <property name="options.lastSelected" value="editor" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
-  <component name="PublishConfig" serverName="bmw_project" serverId="e386ce2b-13f4-4795-b222-2a447d941c3c" autoUpload="true" uploadOnSaveAll="true" autoUploadExternalChanges="true">
-    <servers>
-      <server id="23dc7fce-a77b-4e3f-956e-774dd99f7927">
-        <serverdata />
-      </server>
-      <server id="4ab5dc67-08fe-4aeb-849c-00b4ed30d600">
-        <serverdata />
-      </server>
-      <server id="580b64db-042d-4a3b-af9a-fb7d4114c85c">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="6d5a902e-8c87-4db6-b9e6-b20be5bc29d8">
-        <serverdata />
-      </server>
-      <server id="e386ce2b-13f4-4795-b222-2a447d941c3c">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </server>
-    </servers>
-  </component>
+  <component name="PublishConfig" serverName="bmw_project" serverId="e386ce2b-13f4-4795-b222-2a447d941c3c" autoUpload="true" uploadOnSaveAll="true" autoUploadExternalChanges="true" />
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
@@ -278,6 +391,23 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="179fa980-1755-42d6-8829-2562512d6570" name="Default" comment="" />
@@ -287,28 +417,28 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="0" y="22" width="1280" height="722" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.67001116" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1826923" sideWeight="0.67001116" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.67001116" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18800648" sideWeight="0.67001116" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -337,7 +467,7 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
     <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
     <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
@@ -372,118 +502,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bmwapp/protected/components/Controller.php">
+    <entry file="file://$PROJECT_DIR$/framework/db/CDbCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="31" selection-start="183" selection-end="183" vertical-scroll-proportion="0.116421565">
+        <state line="314" column="27" selection-start="11842" selection-end="11849" vertical-scroll-proportion="0.61706346">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/data/10.5.17.181/xiangmu/protected/controllers/TestController.php">
+    <entry file="file://$PROJECT_DIR$/bmwapp/protected/controllers/TestController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="30" selection-start="189" selection-end="193" vertical-scroll-proportion="0.15833333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bmwapp/css/bootstrap-cerulean.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/data/10.5.17.181/xiangmu/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="3" selection-start="44" selection-end="78" vertical-scroll-proportion="0.067857146">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bmwapp/protected/models/Works.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.067857146">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bmwapp/protected/config/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="29" selection-start="512" selection-end="512" vertical-scroll-proportion="-11.535714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bmwapp/protected/models/Test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="15" selection-start="221" selection-end="221" vertical-scroll-proportion="0.23284313">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/admin/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="173" selection-end="178" vertical-scroll-proportion="-6.107143">
-          <folding>
-            <element signature="e#6#169#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/admin/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="34" selection-start="178" selection-end="178" vertical-scroll-proportion="-3.392857">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/framework/db/ar/CActiveRecord.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="15" selection-start="2023" selection-end="2023" vertical-scroll-proportion="0.74509805">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/layouts/admin_login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="78" selection-start="1064" selection-end="1064" vertical-scroll-proportion="-21.035715">
-          <folding>
-            <element signature="e#6#169#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bmwapp/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="44" selection-start="50" selection-end="50" vertical-scroll-proportion="-0.6785714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/layouts/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="34" selection-start="3737" selection-end="3737" vertical-scroll-proportion="-59.714287">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bmwapp/protected/controllers/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="56" selection-start="483" selection-end="483" vertical-scroll-proportion="-9.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DRa0.369/douya2.0/bar/protected/models/BarTopic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="64" selection-start="8369" selection-end="8377" vertical-scroll-proportion="-3.392857">
+        <state line="94" column="37" selection-start="3271" selection-end="3271" vertical-scroll-proportion="0.91468257">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bmwapp/protected/models/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="1" selection-start="3379" selection-end="3379" vertical-scroll-proportion="1.512255">
+        <state line="124" column="20" selection-start="3663" selection-end="3663" vertical-scroll-proportion="-16.041666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bmwapp/protected/models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="21" selection-start="4375" selection-end="4375" vertical-scroll-proportion="-13.541667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bmwapp/protected/controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="49" selection-start="1855" selection-end="1855" vertical-scroll-proportion="-4.1666665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/layouts/column2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/layouts/column1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bmwapp/protected/config/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="27" selection-start="1753" selection-end="1753" vertical-scroll-proportion="-8.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/layouts/admin_login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="1237" selection-end="1291" vertical-scroll-proportion="-9.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bmwapp/protected/controllers/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="209" selection-end="209" vertical-scroll-proportion="-2.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/db/CDbConnection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-4.83871">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/layouts/layout_bm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="7" selection-start="84" selection-end="84" vertical-scroll-proportion="-5.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bmwapp/protected/data/2013-11-5 234108更新表结构.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="83" selection-start="556" selection-end="556" vertical-scroll-proportion="0.56485355">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bmwapp/protected/controllers/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="14" selection-start="522" selection-end="522" vertical-scroll-proportion="-0.113851994">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="6" selection-start="219" selection-end="219" vertical-scroll-proportion="-3.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bmwapp/protected/views/layouts/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="26" selection-start="3336" selection-end="3336" vertical-scroll-proportion="0.6454545">
           <folding />
         </state>
       </provider>

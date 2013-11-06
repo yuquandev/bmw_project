@@ -135,7 +135,11 @@ class User extends CActiveRecord
         extract($data);
         $sql = sprintf("INSERT INTO `user_tbl` (`username`,`nickname`,`password`,`salt`,`telephone`,`ip`,`status`,`last_login`,`update_time`,`create_time`) VALUES ('%s','%s','%s','%d','%s','%s',0,NULL,NULL,NOW());",$username,$nickname,$password,$salt,$telephone,$ip);
         $res = Yii::app()->db->createCommand($sql)->execute();
-        return $res;
+        if ($res){
+            return Yii::app()->db->getLastInsertID();
+        }else {
+            return 0;
+        }
     }
 
     //根据用户名获取用户信息
