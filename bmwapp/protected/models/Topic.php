@@ -98,21 +98,8 @@ class Topic extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-
-    //根据类型获取专题列表
-    public function get_topiclist_by_type($type){
-        $sql = sprintf("SELECT * FROM `topic_tbl` WHERE `type` = %d",$type);
-        $res = Yii::app()->db->createCommand($sql)->queryAll();
-        return $res;
-    }
-
-    public function get_topic_info_by_id($id){
-        $sql = sprintf("SELECT * FROM `topic_tbl` WHERE `id` = %d",$id);
-        $res = Yii::app()->db->createCommand($sql)->queryAll();
-        return $res;
-    }
-    
-     /**
+<<<<<<< .mine
+ /**
      * 
      * Enter description here ...
      * @param unknown_type $array  =>  array('id'=>2,'user_id'=>3,...); $order => $order='create_time desc'
@@ -137,14 +124,32 @@ class Topic extends CActiveRecord
            $order_list = trim($order);
         }
         $limit_sned = "{$limit},{$limit_offis}";
-        $sql = sprintf("SELECT `id`,`name`,`description`,`update_time`,`create_time` FROM %s where %s order by %s limit %s",$this->tableName(),$where,$order_list,$limit_sned);
+        $sql = sprintf("SELECT `id`,`name`,`content`,`description`,`update_time`,`create_time` FROM %s where %s order by %s limit %s",$this->tableName(),$where,$order_list,$limit_sned);
         
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }
+
+
+
+
+    //根据类型获取专题列表
+    public function get_topiclist_by_type($type){
+        $sql = sprintf("SELECT * FROM `topic_tbl` WHERE `type` = %d",$type);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+
+    public function get_topic_info_by_id($id){
+        $sql = sprintf("SELECT * FROM `topic_tbl` WHERE `id` = %d",$id);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+    
+   
     
     
     
-    
+
 
 }

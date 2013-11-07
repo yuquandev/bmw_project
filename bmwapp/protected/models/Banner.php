@@ -141,4 +141,37 @@ class Banner extends CActiveRecord
     }
 	
 	
+    
+ /**
+     * 
+     * Enter description here ...
+     * @param unknown_type $array  =>  array('id'=>2,'user_id'=>3,...); $order => $order='create_time desc'
+     */
+    public function selectBanner($array,$limit = 0,$limit_offis = 10,$order='create_time desc')
+    {
+        $where = '';
+    	if( is_array($array) )
+        {
+            foreach($array as $key=>$val)
+            {
+               $where .= "`$key` = '$val' and";  
+            }
+        	$where = substr($where,0,-4); 
+        	
+        }else{
+            $where = 1;
+        }
+        
+        if( is_string($order) )
+        {
+           $order_list = trim($order);
+        }
+        $limit_sned = "{$limit},{$limit_offis}";
+        $sql = sprintf("SELECT `id`,`topic_id`,`name`,`image_url`,`description`,`update_time`,`create_time` FROM %s where %s order by %s limit %s",$this->tableName(),$where,$order_list,$limit_sned);
+        
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+
+
 }

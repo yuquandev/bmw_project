@@ -196,7 +196,7 @@ class Works extends CActiveRecord
      * 
      * Enter description here ...
      * @param unknown_type $array  array('id'=>2,'user_id'=>3,...);
-     * @param unknown_type $id  锟斤拷品ID
+     * @param unknown_type $id  ��ƷID
      */
     public function updateWork($array,$id)
     {
@@ -233,5 +233,8 @@ class Works extends CActiveRecord
     
     
     
+
+    
+
 
 }
