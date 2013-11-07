@@ -57,5 +57,64 @@ function Show_menuTab013(menuTabid_num,menuTabnum){
 
 
 
+/*µ¯³ö¿ò*/
+
+$(function(){
+	$("#a1").click(function(){
+		$("#popDiv").hide();
+		$("#bg").hide();
+		$("#popIframe").hide();
+	});
+});
+function showDiv(){
+document.getElementById('popDiv').style.display='block';
+document.getElementById('popIframe').style.display='block';
+document.getElementById('bg').style.display='block';
+}
+function closeDiv(){
+document.getElementById('popDiv').style.display='none';
+document.getElementById('bg').style.display='none';
+document.getElementById('popIframe').style.display='none';
+}
+
+
+
+$(function(){
+	$("#a1").click(function(){
+		$("#popDiv2").hide();
+		$("#bg").hide();
+		$("#popIframe").hide();
+	});
+});
+function showDiv2(){
+document.getElementById('popDiv2').style.display='block';
+document.getElementById('popIframe').style.display='block';
+document.getElementById('bg').style.display='block';
+}
+function closeDiv2(){
+document.getElementById('popDiv2').style.display='none';
+document.getElementById('bg').style.display='none';
+document.getElementById('popIframe').style.display='none';
+}
+
+
+$(function(){
+	$("#a1").click(function(){
+		$("#popDiv3").hide();
+		$("#bg").hide();
+		$("#popIframe").hide();
+	});
+});
+function showDiv3(){
+document.getElementById('popDiv3').style.display='block';
+document.getElementById('popIframe').style.display='block';
+document.getElementById('bg').style.display='block';
+}
+function closeDiv3(){
+document.getElementById('popDiv3').style.display='none';
+document.getElementById('bg').style.display='none';
+document.getElementById('popIframe').style.display='none';
+}
+
 
 
