@@ -1,6 +1,29 @@
+<script type="text/javascript">
+function top_vote(wid,num)
+{
+	var url = '/index.php/api/vote';
+	$.ajax({'url':url,'async':false,'data':{'wid':wid},'dataType':'json',
+	'success':function(rs){
+	    if(rs == 1){
+
+            $('#vote_'+wid).html(parseInt(num) + 1);
+            alert('投票成功');
+            
+    	}else if(rs == 2){
+	    	alert('投票失败');
+	    }else{
+            alert('你已经投过该作品了');
+	    }
+	}
+	});
+}
+</script>
 <div class="bm_index">
-	<?php $this->beginContent('//index/nav'); ?>
+	
+        <?php $this->beginContent('//index/nav'); ?>
         <?php $this->endContent(); ?>
+        <!--导航结束-->
+    
     <!--活动细则-->
     <div class="bm_hd">
     	<div class="bm_hd_title">
@@ -10,121 +33,91 @@
            		<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu012_10 onclick="setTimeout('Show_menuTab012(1,0)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico3.gif" /><span>视频</span></a></li>
             </ul>
             <div class="bm_dl">
-            	<a href="javascript:showDiv3()">登陆 | </a><a href="javascript:showDiv2()">注册</a>
+            	<a href="javascript:showDiv3();">登陆 | </a><a href="javascript:showDiv2();">注册</a>
             </div>
         </div>
-        <div class="bm_hd_main bm_hd_main2" id="menuTabcontent012_12">
-        	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
+        <div class="bm_hd_main" id="menuTabcontent012_12">
+        	<div class="bm_hd_left"><a href="javascript:showDiv();"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
             <div class="bm_hd_zj">
-            <h2></h2><br />
-            <span>　　　　　 从X1的视角解读随访内容，剪辑病毒视频，<br />
-       　　　　 将每个城市不同的自由态度呈现出来。视频将<br />
-    　　　 通过积极的、正能量的基调来关联X1以及X1车<br />
-　　　主的自由理念以及对城市、对生活的热爱。<br />
-　　 通过积极的、正能量的基调来关联X1以及X1车<br />
-　　　主的自由理念以及对城市、对生活的热爱。<br /><br /><br /><br /><br /><br />
-			<h2>FREEDOM IN CITIES</h2>
+            <h2>　　　　你的运动宣言有奖活动征集3x</h2><br />
+            <span>　　　　参与活动即可获得宝马中国提供的BMW<br />
+   　　　精英驾驶培训课程、BMW精美车模、BMW<br />
+　　 U盘以及BMW精美钥匙链等。</span><br /><br />
+ 			<p>　　1.拍摄现场活动照片</p><br />
+            <p>　2.使用美图秀秀的BMW3系专属模板进行拼<br />图并保存</p><br />
+            <p>3.上传至活动官网参与有奖活动</p>
             </div>
             <div class="bm_hd_yc">
-            	<div class="bm_hd_tu2"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_x1_sp.jpg" /></div>
+            	<div class="bm_hd_tu"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tu.jpg" /></div>
             </div>
         </div>
-        <div class="bm_hd_main bm_hd_main2" style="display:none" id="menuTabcontent012_11">
-        	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
+        <div class="bm_hd_main" style="display:none" id="menuTabcontent012_11">
+        	<div class="bm_hd_left"><a href="javascript:showDiv();"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
             <div class="bm_hd_zj">
-            <h2></h2><br />
-               <span>　　　　　 从X1的视角解读随访内容，剪辑病毒视频，<br />
-       　　　　 将每个城市不同的自由态度呈现出来。视频将<br />
-    　　　 通过积极的、正能量的基调来关联X1以及X1车<br />
-　　　主的自由理念以及对城市、对生活的热爱。<br /><br /><br /><br /><br /><br />
-			<h2>FREEDOM IN CITIES</h2>
+            <h2>　　　　你的运动宣活动征集23x</h2><br />
+            <span>　　　　参与活动即可获得宝马中国提供的BMW<br />
+   　　　精英驾驶培训课程、BMW精美车模、BMW<br />
+　　 U盘以及BMW精美钥匙链等。</span><br /><br />
+ 			<p>　　1.拍摄现场活动照片</p><br />
+            <p>　2.使用美图秀秀的BMW3系专属模板进行拼<br />图并保存</p><br />
+            <p>3.上传至活动官网参与有奖活动</p>
             </div>
             <div class="bm_hd_yc">
-            	<div class="bm_hd_tu2"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_x1_sp.jpg" /></div>
+            	<div class="bm_hd_tu"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tu.jpg" /></div>
             </div>
         </div>
-        <div class="bm_hd_main bm_hd_main2" id="menuTabcontent012_10" style="display:none">
-        	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
+        <div class="bm_hd_main" id="menuTabcontent012_10" style="display:none">
+        	<div class="bm_hd_left"><a href="javascript:showDiv();"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
             <div class="bm_hd_zj">
-            <h2></h2><br />
-            <span>　　　　　 从X1的视角解读随访内容，剪辑病毒视频，<br />
-       　　　　 将每个城市不同的自由态度呈现出来。视频将<br />
-    　　　 通过积极的、正能量的基调来关联X1以及X1车<br />
-　　　主的自由理念以及对城市、对生活的热爱。<br /><br /><br /><br /><br /><br />
-			<h2>FREEDOM IN CITIES</h2>
+            <h2>　　　　你的运动宣言有动征集33x</h2><br />
+            <span>　　　　　BMW 3系的历史在这里一览无疑，由于脾<br />　　　　气火爆，性格直率，所以被人们常常亲切称为<br />　　　“三哥”。
+</span><br /><br />
+ 			<p>　漂亮的甩尾，灵动的转弯，澎湃的动力，都刺<br />激着你的肾上腺素</p><br />
+            <h2>　BMW 3系</h2><br />
+            <h2>运动王者 领衔起跑</h2>
             </div>
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu">
                 	<div class="bm_3x_st">
-                        <div class="pgmiddle">
-<div id="example">
-<div id="slides">
-<div class="scroimg" style="left:0px;">
-<h2>Freedom In Shanghai</h2>
-<embed height="210" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="http://player.pps.tv/player/sid/36628KXUMQSM/v.swf" type="application/x-shockwave-flash" wmode="Opaque">
-</div>
-
-<div class="scroimg" style="left: -400px;">
-<h2>Freedom In Shanghai2 </h2>
-<embed height="210" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="http://player.pps.tv/player/sid/36628KXUMQSM/v.swf" type="application/x-shockwave-flash" wmode="Opaque">
-</div>
-<div class="scroimg" style="left: -400px;">
-<h2>Freedom In Shanghai</h2>
-<embed height="210" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="http://player.pps.tv/player/sid/36628KXUMQSM/v.swf" type="application/x-shockwave-flash" wmode="Opaque">
-</div>
-<div class="scroimg" style="left: -400px;">
-<h2>Freedom In Shanghai</h2>
-<embed height="210" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="http://player.pps.tv/player/sid/36628KXUMQSM/v.swf" type="application/x-shockwave-flash" wmode="Opaque">
-</div>
-<div class="scroimg" style="left: -400px;">
-<h2>Freedom In Shanghai</h2>
-<embed height="210" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="http://player.pps.tv/player/sid/36628KXUMQSM/v.swf" type="application/x-shockwave-flash" wmode="Opaque">
-</div>
-</div>
-
-<div id="pagination">
-<span onclick="gopaly(0)" onfocus="this.blur();" class="current"></span>
-<span onclick="gopaly(1)" onfocus="this.blur();"></span>
-<span onclick="gopaly(2)" onfocus="this.blur();"></span>
-<span onclick="gopaly(3)" onfocus="this.blur();"></span>
-<span onclick="gopaly(4)" onfocus="this.blur();"></span>
-</div>
-</div>
-</div>
-
-<script language="JavaScript" type="text/javascript" src="js/slides.js"></script>
+                        <div class="bm_3x_bt"><a href="#">运动王者 领衔起跑</a></div>
+                        <div class="bm_3x_sp"> <embed height="243" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="http://player.pps.tv/player/sid/36628KXUMQSM/v.swf" type="application/x-shockwave-flash" wmode="Opaque"></div>
                 	</div>
                 </div>
             </div>
         </div>
     </div>
-    
+    <!--人车交互-->
+    <div class="bm_rcjh">
+    	<div class="bm_zpzs_title">
+        	<span>人车交互</span>
+        </div>
+        <div class="bm_rcjh_main"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_rcjh.jpg" /></div>
+    </div>
     <!--作品展示-->
     <div class="bm_zpzs">
     	<div class="bm_zpzs_title">
         	<span>作品展示</span>
-            <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?uuid=0,1"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_zpzs_more.jpg" /></a>
+            <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?uuid=0,2"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_zpzs_more.jpg" /></a>
         </div>
         <div class="bm_zpzs_main">
-        	
         	<?php foreach($works as $key=>$val):?>
         	<div class="bm_zpzs_list">
-            	<div class="bm_zpzs_tu2"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['user_id'];?>,<?php echo $val['type'];?>"><img src="<?php echo $val['img_url']; ?>" width="230" height="130"/></a></div>
+            	<div class="bm_zpzs_tu"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['user_id'];?>,<?php echo $val['type'];?>"><img src="<?php echo $val['img_url'];?>" /></a></div>
                 <div class="bm_zpzs_zi"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['user_id'];?>,<?php echo $val['type'];?>"><?php echo $val['name'];?></a></div>
                 <div class="bm_zpzs_zan">
-                	<input onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);" type="button" class="bm_tp_an" value="投票"/>
+                	<input type="button" class="bm_tp_an" value="投票" onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);"/>
                     <span  id="vote_<?php echo $val['id']?>"><?php echo $val['vote_num']?></span>
                 </div>
             </div>
-            <?php endforeach;?>  
+            <?php endforeach;?>
         
-       </div>
+        </div>
         <div class="clear"></div>
     </div>
     <div class="clear"></div>
     <!--微直播-->
-    <a name="top"></a>
     <div class="bm_wzb">
+    <a name="top"></a>
     	<div class="bm_zpzs_title">
         	<span>微直播</span>
             <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_zpzs_more.jpg" /></a>
@@ -137,8 +130,8 @@
     <div class="bm_x1">
     	<div class="bm_hd_title">
         	<ul>
-        		<li><a href="javascript:;" class="hymenuon" id=menuTabmenu013_12 onclick="setTimeout('Show_menuTab013(1,2)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico4.gif" /><span>X1</span></a></li>
-            	<li><a href="javascript:;" class="hymenuff" id=menuTabmenu013_11 onclick="setTimeout('Show_menuTab013(1,1)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico4.gif" /><span>3系</span></a></li>
+        		<li><a href="javascript:;" class="hymenuon" id=menuTabmenu013_12 onclick="setTimeout('Show_menuTab013(1,2)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico4.gif" /><span>3系</span></a></li>
+            	<li><a href="javascript:;" class="hymenuff" id=menuTabmenu013_11 onclick="setTimeout('Show_menuTab013(1,1)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico4.gif" /><span>X1</span></a></li>
            		<li><a href="javascript:;" class="hymenuff" id=menuTabmenu013_10 onclick="setTimeout('Show_menuTab013(1,0)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico4.gif" /><span>5系</span></a></li>
             </ul>
         </div>
@@ -187,7 +180,7 @@
 				</ul>
 			</div>
 			<!-- /botton-scroll --></div>
-		<!-- /block --><a class="prev" href="javascript:void();">Previous</a><a class="next" href="javascript:void();">Next</a>
+		<!-- /block --><a class="prev" href="javascript:void();;">Previous</a><a class="next" href="javascript:void();;">Next</a>
 	</div>
 		    </div>
         </div>
@@ -199,13 +192,13 @@
 				<ul class="featureUL">
 					<li class="featureBox">
 					<div class="box">
-						<a href="sctp.html" target="_blank">
+						<a href="sctpx1.html" target="_blank">
 						<img alt="Paracletos" src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_x1_pic2.jpg" width="265" height="176">
 						</a></div>
 					<!-- /box --></li>
 					<li class="featureBox">
 					<div class="box">
-						<a href="sctp.html" target="_blank">
+						<a href="sctpx1.html" target="_blank">
 						<img alt="Natural Touch Soap" src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_x1_pic2.jpg"  width="265" height="176">
 						</a></div>
 					<!-- /box --></li>
@@ -236,7 +229,7 @@
 				</ul>
 			</div>
 			<!-- /botton-scroll --></div>
-		<!-- /block --><a class="prev" href="javascript:void();">Previous</a><a class="next" href="javascript:void();">Next</a>
+		<!-- /block --><a class="prev" href="javascript:void();;">Previous</a><a class="next" href="javascript:void();;">Next</a>
 	</div>
 		    </div>
         </div>
@@ -285,7 +278,7 @@
 				</ul>
 			</div>
 			<!-- /botton-scroll --></div>
-		<!-- /block --><a class="prev" href="javascript:void();">Previous</a><a class="next" href="javascript:void();">Next</a>
+		<!-- /block --><a class="prev" href="javascript:void();;">Previous</a><a class="next" href="javascript:void();;">Next</a>
 	</div>
 		    </div>
         </div>
@@ -296,7 +289,7 @@
 </div>
 <!--上传图片-->
 <div class="zc_tck mydiv" id="popDiv" style="display:none;">
-	<div class="zc_tck_title"><span>上传图片</span><a href="javascript:closeDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_gb.jpg" /></a></div>
+	<div class="zc_tck_title"><span>上传图片</span><a href="javascript:closeDiv();"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_gb.jpg" /></a></div>
     <div class="zc_tck_main3">
     	<table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
@@ -325,7 +318,7 @@
 </div>
 <!--注册账号-->
 <div class="zc_tck mydiv" id="popDiv2"  style="display:none;">
-	<div class="zc_tck_title"><span>注册账号</span><a href="javascript:closeDiv2()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_gb.jpg" /></a></div>
+	<div class="zc_tck_title"><span>注册账号</span><a href="javascript:closeDiv2();"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_gb.jpg" /></a></div>
     <div class="zc_tck_main">
     	<table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
@@ -363,7 +356,7 @@
 </div>
 <!--登陆与注册-->
 <div class="zc_tck mydiv" id="popDiv3" style="display:none;">
-	<div class="zc_tck_title"><span>登陆与注册</span><a href="javascript:closeDiv3()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_gb.jpg" /></a></div>
+	<div class="zc_tck_title"><span>登陆与注册</span><a href="javascript:closeDiv3();"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_gb.jpg" /></a></div>
     <div class="zc_tck_main2">
     	<table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
@@ -389,4 +382,3 @@
 <iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
 </body>
 </html>
-

@@ -1,25 +1,26 @@
+<script type="text/javascript">
+function top_vote(wid,num)
+{
+	var url = '/index.php/api/vote';
+	$.ajax({'url':url,'async':false,'data':{'wid':wid},'dataType':'json',
+	'success':function(rs){
+	    if(rs == 1){
 
+            $('#vote_'+wid).html(parseInt(num) + 1);
+            alert('投票成功');
+            
+    	}else if(rs == 2){
+	    	alert('投票失败');
+	    }else{
+            alert('你已经投过该作品了');
+	    }
+	}
+	});
+}
+</script>
 <div class="bm_index">
-	<div class="bm_top">
-    	<div class="bm_top_logo">
-        	<ul>
-            	<li><a href="#"><img src="images/logo1.jpg" /></a></li>
-                <li><a href="#"><img src="images/logo2.jpg" /></a></li>
-            </ul>
-        </div>
-        <!--导航-->
-        <div class="bm_top_nav">
-        	<div class="bm_nav_main">
-            	<a href="#"><strong>X1</strong></a>
-                <a href="#">微直播</a>
-                <a href="#">3系</a>
-                <a href="#">5系</a>
-                <a href="#">上传图片</a>
-                </ul>
-            </div>
-        </div>
-        <!--导航结束-->
-    </div>
+	<?php $this->beginContent('//index/nav'); ?>
+    <?php $this->endContent(); ?>
     <!--作品展示-->
     <div class="bm_cpzs">
     	<div class="bm_cpzs_title">
@@ -32,125 +33,27 @@
 		<div id="OriginalPic">
 			<div id="aPrev" class="CursorL"></div>
 			<div id="aNext" class="CursorR"></div>
-			<p class="Hidden">
-				<span class="Summary FlLeft">
-                <span class="bm_nr">
-                    <span class="bm_wz">
-                    <strong>感谢参与，恭候试驾</strong><br />作者：张小盒<br />票数：200<br />非常感谢您的参与，BMW车展本年我们联系，我们将在第一时间送上您最喜欢的车型及丰富经验车型，感受创新
-                    </span>
-                     <span><input name="" type="button" class="bm_tp" value="投票"/></span>		
-                </span>
-                 	 <span class="wb_fx"><span class="bshare-custom"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></span><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script></span>
-                 </span>
-                 
-				<span class="SliderPicBorder FlRight"><img src="pic/127e5101-309d-4699-9e14-93150b1eb36f.jpg" /></span>
-				<span class="Clearer"></span>
-				<span class="More"></span>
-			</p>
-            
-            
+			<?php foreach($works_user_list as $key=>$val):?>
 			<p class="Hidden">
 				<span class="Summary FlLeft">
                 	<span class="bm_nr">
-                    <span class="bm_wz">
-                    <strong>感谢参与，恭候试驾</strong><br />作者：陈毅然<br />票数：200<br />非常感谢您的参与，BMW车展本年我们联系，我们将在第一时间送上您最喜欢的车型及丰富经验车型，感受创新
+                    <span class="bm_wz2">
+                    <strong><?php echo $val['name'];?></strong><br />作者：<?php echo $val['username'];?><br />票数：<span  id="vote_<?php echo $val['id']?>"><?php echo $val['vote_num']?></span><br /><?php echo $val['description'];?>
                     </span>
-                     <span><input name="" type="button" class="bm_tp" value="投票"/></span>		
+                     <span><input  type="button" class="bm_tp" value="投票" onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);"/></span>		
+                     <span class="wb_fx">
+                     <span class="bshare-custom">
+                     <a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></span><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+                     </span>
                 </span>
-                 	 <span class="wb_fx"><span class="bshare-custom"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></span><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script></span>
-                
                 </span>
-				<span class="SliderPicBorder FlRight"><img src="pic/fd020de3-5596-4abf-b77a-09b693203376.jpg" /></span>
+				<span class="SliderPicBorder FlRight"><img src="<?php echo $val['img_url'];?>" /></span>
 				<span class="Clearer"></span>
-				<span class="More">
-				
-				</span>
-			</p>
-			<p class="Hidden">
-				<span class="Summary FlLeft">
-                	<span class="bm_nr">
-                    <span class="bm_wz">
-                    <strong>感谢参与，恭候试驾</strong><br />作者：张小盒<br />票数：200<br />非常感谢您的参与，BMW车展本年我们联系，我们将在第一时间送上您最喜欢的车型及丰富经验车型，感受创新
-                    </span>
-                     <span><input name="" type="button" class="bm_tp" value="投票"/></span>		
-                </span>
-                 	 <span class="wb_fx"><span class="bshare-custom"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></span><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script></span>
-                
-                </span>
-				<span class="SliderPicBorder FlRight"><img src="pic/8144f000-4c92-4f66-bd5a-dae48ca37b0d.jpg" /></span>
-				<span class="Clearer"></span>
-				<span class="More">
-				
-				</span>
-			</p>
-			<p class="Hidden">
-				<span class="Summary FlLeft">
-                	<span class="bm_nr">
-                    <span class="bm_wz">
-                    <strong>感谢参与，恭候试驾</strong><br />作者：成婚<br />票数：200<br />非常感谢您的参与，BMW车展本年我们联系，我们将在第一时间送上您最喜欢的车型及丰富经验车型，感受创新
-                    </span>
-                     <span><input name="" type="button" class="bm_tp" value="投票"/></span>		
-                </span>
-                 	 <span class="wb_fx"><span class="bshare-custom"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></span><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script></span>
-                </span>
-				<span class="SliderPicBorder FlRight"><img src="pic/5a1b9d3a-7846-4ccc-a634-09593b89595f.jpg" /></span>
-				<span class="Clearer"></span>
-				<span class="More">
-				
-				</span>
-			</p>
-			<p class="Hidden">
-				<span class="Summary FlLeft">
-                	<span class="bm_nr">
-                    <span class="bm_wz">
-                    <strong>感谢参与，恭候试驾</strong><br />作者：张小盒<br />票数：200<br />非常感谢您的参与，BMW车展本年我们联系，我们将在第一时间送上您最喜欢的车型及丰富经验车型，感受创新
-                    </span>
-                     <span><input name="" type="button" class="bm_tp" value="投票"/></span>		
-                </span>
-                 	 <span class="wb_fx"><span class="bshare-custom"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></span><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script></span>
-                </span>
-				<span class="SliderPicBorder FlRight"><img src="pic/9c30ceb5-dece-4278-9717-27df61d69a69.jpg" /></span>
-				<span class="Clearer"></span>
-				<span class="More">
-				
-				</span>
-			</p>
-			<p class="Hidden">
-				<span class="Summary FlLeft">
-                    <span class="bm_nr">
-                        <span class="bm_wz">
-                        <strong>感谢参与，恭候试驾</strong><br />作者：超级大国<br />票数：200<br />非常感谢您的参与，BMW车展本年我们联系，我们将在第一时间送上您最喜欢的车型及丰富经验车型，感受创新
-                        </span>
-                         <span><input name="" type="button" class="bm_tp" value="投票"/></span>		
-                    </span>
-                         <span class="wb_fx"><span class="bshare-custom"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></span><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script></span>
-                	
-                </span>
-				<span class="SliderPicBorder FlRight"><img src="pic/b047fbe5-eaa9-418a-a9bd-ad01925f6005.jpg" /></span>
-				<span class="Clearer"></span>
-				<span class="More">
-				
-				</span>
-			</p>
-			<p class="Hidden">
-				<span class="Summary FlLeft">
-				<span class="bm_nr">
-                    <span class="bm_wz">
-                    <strong>感谢参与，恭候试驾</strong><br />作者：和几个地方的<br />票数：200<br />非常感谢您的和攻击对方很干净估计就参与，BMW车展本年我们联系，我们将在第一时间送上您最喜欢的车型及丰富经验车型，感受创新
-                    </span>
-                     <span><input name="" type="button" class="bm_tp" value="投票"/></span>		
-                </span>
-                 	 <span class="wb_fx"><span class="bshare-custom"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></span><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script></span>
-                
-                </span>
-                               
-				<span class="SliderPicBorder FlRight"><img src="pic/15af3ea6-10f1-45ef-9dfa-6bf9013a3915.jpg" /></span>
-				<span class="Clearer"></span>
-
 				<span class="More">
 				</span>
 			</p>
-		</div>
+            <?php endforeach;?>
+        </div>
 	</div>
 	
 	<div class="SpaceLine"></div>
@@ -159,20 +62,16 @@
 	
 
 	<div class="ThumbPicBorder">
-		<img src="images/ArrowL.jpg" id="btnPrev" class="FlLeft" style="cursor:pointer;" />
+		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowL.jpg" id="btnPrev" class="FlLeft" style="cursor:pointer;" />
 		<div class="jCarouselLite FlLeft">
 			<ul id="ThumbPic">
-				<li rel='1'><img src="pic/127e5101-309d-4699-9e14-93150b1eb36f_T.jpg" /></li>
-				<li rel='2'><img src="pic/fd020de3-5596-4abf-b77a-09b693203376_T.jpg" /></li>
-				<li rel='3'><img src="pic/8144f000-4c92-4f66-bd5a-dae48ca37b0d_T.jpg" /></li>
-				<li rel='4'><img src="pic/5a1b9d3a-7846-4ccc-a634-09593b89595f_T.jpg" /></li>
-				<li rel='5'><img src="pic/9c30ceb5-dece-4278-9717-27df61d69a69_T.jpg" /></li>
-				<li rel='6'><img src="pic/b047fbe5-eaa9-418a-a9bd-ad01925f6005_T.jpg" /></li>
-				<li rel='7'><img src="pic/15af3ea6-10f1-45ef-9dfa-6bf9013a3915_T.jpg" /></li>
+				<?php foreach($works_user_list as $key=>$val):?>
+				<li rel='<?php echo $key+1;?>'><img src="<?php echo $val['img_url'];?>" /></li>
+				<?php endforeach;?>
 			</ul>
 			<div class="Clearer"></div>
 		</div>
-		<img src="images/ArrowR.jpg" id="btnNext" class="FlLeft" style="cursor:pointer;" />
+		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowR.jpg" id="btnNext" class="FlLeft" style="cursor:pointer;" />
 		<div class="Clearer"></div>
 	</div>
 
@@ -183,7 +82,9 @@
             </div>
     </div>
     
-
+   <?php $this->beginContent('//layout/footer'); ?>
+      <?php $this->endContent(); ?>
+</div>
 <script type="text/javascript">
 //缩略图滚动事件
 $(".jCarouselLite").jCarouselLite({
@@ -295,3 +196,5 @@ $(".OriginalPicBorder").ready(function(){
 });
 </script>
 
+</body>
+</html>
