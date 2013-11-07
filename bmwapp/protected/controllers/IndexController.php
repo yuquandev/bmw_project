@@ -24,22 +24,22 @@ class IndexController extends Controller {
     public function actionIndex()
     {
       
-    	//works  //后台推荐10个作品到首页
+    	//works  //后台推荐20个作品到首页
         $works = $this->works->selectWork(array('recommend'=>0,'review'=>0),0,20);
     	
     	//活动介绍，规则  
-    	$contentdis = $this->topic->selectTopic(array('id'=>1,'status'=>0),0,1);
+    	$contentdis = $this->topic->selectTopic(array('type'=>1,'status'=>0));
     	
     	//底部  x1 相关图片
-    	$bmw_x1 = $this->banner->selectBanner(array('topic_id'=>1,'status'=>0),0,9);
-    	$bmw_x3 = $this->banner->selectBanner(array('topic_id'=>2,'status'=>0),0,9);
-    	$bmw_x5 = $this->banner->selectBanner(array('topic_id'=>3,'status'=>0),0,9);
+    	$bmw_x1 = $this->banner->selectBanner(array('topic_id'=>4,'status'=>0),0,9);
+    	$bmw_x3 = $this->banner->selectBanner(array('topic_id'=>8,'status'=>0),0,9);
+    	$bmw_x5 = $this->banner->selectBanner(array('topic_id'=>13,'status'=>0),0,9);
     	$data = array(
     	   'works'=>$works,
     	   'bmw_x1'=>$bmw_x1,
     	   'bmw_x3'=>$bmw_x3,
     	   'bmw_x5'=>$bmw_x5,
-    	   'contentdis'=>$contentdis[0],
+    	   'contentdis'=>$contentdis,
     	);
         $this->render('index',$data);
     }

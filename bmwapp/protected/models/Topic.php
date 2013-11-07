@@ -137,7 +137,7 @@ class Topic extends CActiveRecord
            $order_list = trim($order);
         }
         $limit_sned = "{$limit},{$limit_offis}";
-        $sql = sprintf("SELECT `id`,`name`,`content`,`description`,`update_time`,`create_time` FROM %s where %s order by %s limit %s",$this->tableName(),$where,$order_list,$limit_sned);
+        $sql = sprintf("SELECT `id`,`name`,`description`,`update_time`,`create_time` FROM %s where %s order by %s limit %s",$this->tableName(),$where,$order_list,$limit_sned);
         
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
