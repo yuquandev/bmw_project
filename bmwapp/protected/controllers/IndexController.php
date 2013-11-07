@@ -10,38 +10,27 @@
 class IndexController extends Controller {
 
     public  $layout = "layout_bm";
-	private $works;
-	private $works_img ;
-	private $banner;
-	private $topic;
-	public function init(){
+	public  $top;   //微博
+    public  $nav;   //导航
+    public  $minjs; //JS
+    private $works;
+    private $user;
+	
+    public function init(){
         $this->works     = new Works();
-        $this->works_img = new WorkImg();
-        $this->banner    = new Banner();
-        $this->topic     = new Topic();
+        $this->user      = new User();
 	}
-    //BMW  INDEX
+    //BMW  INDEX 3X
     public function actionIndex()
     {
-      
-    	//works  //后台推荐20个作品到首页
-        $works = $this->works->selectWork(array('recommend'=>0,'review'=>0),0,20);
+        $this->nav = '2x';  //定义导航样式
     	
-    	//活动介绍，规则  
-    	$contentdis = $this->topic->selectTopic(array('type'=>1,'status'=>0));
-    	
-    	//底部  x1 相关图片
-    	$bmw_x1 = $this->banner->selectBanner(array('topic_id'=>4,'status'=>0),0,9);
-    	$bmw_x3 = $this->banner->selectBanner(array('topic_id'=>8,'status'=>0),0,9);
-    	$bmw_x5 = $this->banner->selectBanner(array('topic_id'=>13,'status'=>0),0,9);
+        //works  
+        $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>2),0,8);
     	$data = array(
     	   'works'=>$works,
-    	   'bmw_x1'=>$bmw_x1,
-    	   'bmw_x3'=>$bmw_x3,
-    	   'bmw_x5'=>$bmw_x5,
-    	   'contentdis'=>$contentdis,
     	);
-        $this->render('index',$data);
+    	$this->render('three',$data);
     }
 
     //宝马微直播
@@ -50,10 +39,17 @@ class IndexController extends Controller {
        $this->render('weibo');
     }
 
-    //宝马3系列
-    public function actionThreex()
+    //宝马1系列
+    public function actionOne()
     {
-       $this->render('threex');
+        $this->nav = '1x';
+    	$this->top =true;
+        //works  
+        $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>1),0,16);
+    	$data = array(
+    	   'works'=>$works,
+    	);
+        $this->render('index',$data);
     } 
     
     //宝马5系列
@@ -65,9 +61,29 @@ class IndexController extends Controller {
     //产品更多展示页
     public function actionMore()
     {
-       $id = isset($_GET['wid']) ? intval($_GET['wid']) : '';
-       $works_get_one = $this->works->getOneWork($id);
-       $this->render('more');
+       $this->minjs= $this->top  =false;
+       $list     = isset($_GET['uuid'])    ? trim($_GET['uuid']) : '';
+       if( strpos($list,',') !== false ){
+          list($uid,$type) = explode(',', $list);
+       } 
+       $this->nav = $type.'x';
+       if( !empty($uid) ){
+         $works_user_list = $this->works->selectWork(array('review'=>0,'user_id'=>$uid));
+       }else{
+         $works_user_list = $this->works->selectWork(array('review'=>0),0,20);
+         shuffle($works_user_list);
+       }
+       foreach($works_user_list as $k=>$val){
+          $user_info       = $this->user->getOneUser(array('id'=>$val['user_id']));
+       	  $works_user_list[$k]['username'] =!empty($user_info['nickname']) ?  $user_info['nickname'] : $user_info['username'];
+       }
+       //var_dump($works_user_list);
+       
+       //var_dump($user_info);die;
+       $data = array(
+           'works_user_list' => $works_user_list,
+       );
+       $this->render('more',$data);
     }
  
 
