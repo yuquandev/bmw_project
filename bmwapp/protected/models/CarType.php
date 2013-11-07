@@ -90,4 +90,30 @@ class CarType extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+       public function selectCartype($array,$limit = 0,$limit_offis = 10,$order='create_time desc')
+       {
+        $where = '';
+    	if( is_array($array) )
+        {
+            foreach($array as $key=>$val)
+            {
+               $where .= "`$key` = '$val' and";  
+            }
+        	$where = substr($where,0,-4); 
+        	
+        }else{
+            $where = 1;
+        }
+        
+        if( is_string($order) )
+        {
+           $order_list = trim($order);
+        }
+        $limit_sned = "{$limit},{$limit_offis}";
+        $sql = sprintf("SELECT `type_id`,`name`,`create_time` FROM %s where %s order by %s limit %s",$this->tableName(),$where,$order_list,$limit_sned);
+        
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+
 }
