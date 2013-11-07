@@ -109,7 +109,7 @@ class Works extends CActiveRecord
      * Enter description here ...
      * @param unknown_type $array  =>  array('id'=>2,'user_id'=>3,...); $order => $order='create_time desc'
      */
-    public function selectWork($array,$limit = 5,$limit_offis = 10,$order='create_time desc')
+    public function selectWork($array,$limit = 0,$limit_offis = 10,$order='create_time desc')
     {
         $where = '';
     	if( is_array($array) )
@@ -129,7 +129,8 @@ class Works extends CActiveRecord
            $order_list = trim($order);
         }
         $limit_sned = "{$limit},{$limit_offis}";
-        $sql = sprintf("SELECT `id`,`user_id`,`name`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM %s where %s order by %s limit %s",$this->tableName(),$where,$order_list,$limit_sned);
+        $sql = sprintf("SELECT `id`,`user_id`,`name`,`img_url`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM %s where %s order by %s limit %s",$this->tableName(),$where,$order_list,$limit_sned);
+        
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }
@@ -163,7 +164,7 @@ class Works extends CActiveRecord
         }else{
             return false;
         }
-        $sql = sprintf("SELECT `id`,`user_id`,`name`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM %s where %s limit 1",$this->tableName(),$where);
+        $sql = sprintf("SELECT `id`,`user_id`,`name`,`img_url`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM %s where %s limit 1",$this->tableName(),$where);
         $res = Yii::app()->db->createCommand($sql)->queryRow();
         return $res;
     } 
@@ -195,7 +196,7 @@ class Works extends CActiveRecord
      * 
      * Enter description here ...
      * @param unknown_type $array  array('id'=>2,'user_id'=>3,...);
-     * @param unknown_type $id  ��ƷID
+     * @param unknown_type $id  锟斤拷品ID
      */
     public function updateWork($array,$id)
     {
