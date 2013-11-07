@@ -148,4 +148,28 @@ class User extends CActiveRecord
         $res = Yii::app()->db->createCommand($sql)->queryRow();
         return $res;
     }
+    
+    public function getOneUser($array)
+    {
+        $where ='';
+    	if( is_array($array) )
+        {
+            foreach($array as $key=>$val)
+            {
+               $where .= "`$key` = '$val' and";  
+            }
+        	$where = substr($where,0,-4); 
+        }else{
+            return false;
+        }
+        $sql = sprintf("SELECT `id`,`username`,`nickname` FROM %s where %s limit 1",$this->tableName(),$where);
+        $res = Yii::app()->db->createCommand($sql)->queryRow();
+        return $res;
+    } 
+    
+    
+    
+    
+    
+    
 }

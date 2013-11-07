@@ -128,9 +128,14 @@ class Works extends CActiveRecord
         {
            $order_list = trim($order);
         }
-        $limit_sned = "{$limit},{$limit_offis}";
-        $sql = sprintf("SELECT `id`,`user_id`,`name`,`img_url`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM %s where %s order by %s limit %s",$this->tableName(),$where,$order_list,$limit_sned);
-        
+        if( !empty($limit) )
+        {
+           $limit_sned = "limit {$limit},{$limit_offis}";
+        }else{
+           $limit_sned ='';
+        }
+        $sql = sprintf("SELECT `id`,`user_id`,`name`,`img_url`,`description`,`type`,`vote_num`,`update_time`,`create_time` FROM %s where %s order by %s %s",$this->tableName(),$where,$order_list,$limit_sned);
+        //echo $sql;
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }
