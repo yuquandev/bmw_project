@@ -167,7 +167,7 @@ class AdminController extends Controller {
         }else if($act == 'works_list'){
             $this->works     = new Works();
             $this->works_img = new WorkImg();
-            $data = $this->works->selectWork(1,$page,$rows,'create_time desc');
+            $data = $this->works->selectWork(0,$page,$rows,'create_time desc');
             $count = $this->works->countWork(1);
             $res = array("total"=>$count[0]['total'],"rows"=>$data);
         }
@@ -215,11 +215,16 @@ class AdminController extends Controller {
         $name = isset($_POST['name']) ? trim($_POST['name']) : '';
         $des = isset($_POST['des']) ? trim($_POST['des']) : '';
         $resource = isset($_POST['resource']) ? trim($_POST['resource']) : '';
+        $act = isset($_POST['act']) ? trim($_POST['act']) : '';
         if (!empty($id) && !empty($name)){
-            $res = $this->topic_nav->add_nav_info($id,$name,$des,$resource);
-            echo 'success';
+            if ($act == 'add'){
+                $res = $this->topic_nav->add_nav_info($id,$name,$des,$resource);
+            }else if($act == 'set') {
+                $res = $this->topic_nav->set_nav_info($id,$name,$des,$resource);
+            }
+            echo json_encode(array('status'=>'success','res'=>$res));
         }else {
-            echo 'fails';
+            echo json_encode(array('status'=>'fails','res'=>0));
         }
     }
 
@@ -228,8 +233,28 @@ class AdminController extends Controller {
         $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
         if (!empty($id)){
             $info = $this->topic_nav->get_info_by_id($id);
-            print_r($info);
+            echo json_encode($info);
         }
+    }
+
+    public function actionNavStat(){
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+        $stat = isset($_POST['stat']) ? intval($_POST['stat']) : 0;
+        if (!empty($id) && !empty($stat)){
+            if ($stat == 1){
+                $stat = 2;
+            }else if ($stat == 2) {
+                $stat = 1;
+            }
+            $res = $this->topic_nav->set_nav_status($id,$stat);
+            if($res){
+                echo json_encode(array('status'=>'success','res'=>$res));
+            }else {
+                echo json_encode(array('status'=>'fails'));
+            }
+        }
+
+
     }
 
 }

@@ -154,5 +154,19 @@ class TopicNav extends CActiveRecord
         return $res;
     }
 
+    //更新单个导航信息
+    public function set_nav_info($id,$name,$des,$resource){
+        $sql = sprintf("update topic_nav_tbl set name='%s',description='%s',media_url='%s',update_time=NOW() where id=%d",$name,$des,$resource,$id);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
+
+    //设置导航开启关闭
+    public function set_nav_status($id,$status){
+        $sql = sprintf("update topic_nav_tbl set status = %d where id = %d;",$status,$id);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
+
 
 }
