@@ -130,5 +130,29 @@ class TopicNav extends CActiveRecord
 	
       }
 
+    //添加导航
+    public function add_nav_info($id,$name,$des,$resource,$status=1){
+        $sql = sprintf("insert into topic_nav_tbl (type_id,name,description,status,media_url,update_time,create_time) value (%d,'%s','%s',%d,'%s',NOW(),NOW())",$id,$name,$des,$status,$resource);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        if ($res){
+            return Yii::app()->db->getLastInsertID();
+        }else {
+            return 0;
+        }
+    }
+
+    //获取导航列表
+    public function get_nav_list(){
+        $sql = sprintf("select id,type_id,name from topic_nav_tbl ;");
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+
+    public function get_info_by_id($id){
+        $sql = sprintf("select * from topic_nav_tbl where id = %d",$id);
+        $res = Yii::app()->db->createCommand($sql)->queryRow();
+        return $res;
+    }
+
 
 }

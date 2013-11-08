@@ -7,6 +7,6 @@
  * To change this template use File | Settings | File Templates.
  */
 ?>
-
+<div id="infodata"></div>
 <div id="dg" class="easyui-datagrid" >
 </div>

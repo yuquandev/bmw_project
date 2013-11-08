@@ -115,5 +115,24 @@ class CarType extends CActiveRecord
         
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
+       }
+
+    //添加分类
+    public function add_cartype_info($name,$status=1){
+        $sql = sprintf("insert into car_type_tbl (name,status,create_time) value ('%s',%d,NOW())",$name,$status);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        if ($res){
+            return Yii::app()->db->getLastInsertID();
+        }else {
+            return 0;
+        }
+    }
+
+    //获取列表
+    public function get_car_list(){
+        $sql = sprintf("select * from car_type_tbl where status = 1");
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
 
 }

@@ -15,12 +15,21 @@ class AdminController extends Controller {
     public static $is_login;
     public $login_key = '@_yu)*quan!=dev';
     private $works;
-	private $works_img ;
-	
-    
+    private $works_img ;
+
+    public $car_type;
+    public $car_list;
+    public $topic_nav;
+    public $nav_list;
+    public $topic_image;
+
+
     public function init(){
         $this->check_login();
         $this->admin_user = new Admin();
+        $this->car_type = new CarType();
+        $this->topic_nav = new TopicNav();
+        $this->topic_image = new TopicImage();
     }
 
     //验证用户是否登录
@@ -40,9 +49,13 @@ class AdminController extends Controller {
         if (!self::$is_login){
             $this->redirect("/index.php/admin/login");
         }
-        #print_r($this->admin_user->get_admin_user_list());
-        $data = array("key"=>array(1,2,3));
-        $this->render("/admin/index",$data);
+
+
+        $this->car_list = $this->car_type->get_car_list();
+
+        $this->nav_list = $this->topic_nav->get_nav_list();
+
+        $this->render("/admin/index");
     }
 
     public function actionLogin(){
@@ -129,8 +142,8 @@ class AdminController extends Controller {
         }
         echo json_encode($res);
     }
-    
-    
+
+
     //异步获取表数据
     public function actionDatajson(){
         $act = isset($_GET['act']) ? trim($_GET['act']) : "";
@@ -187,8 +200,36 @@ class AdminController extends Controller {
         }
 
     }
-    
-    
-    
-   
+
+    //添加汽车分类
+    public function actionAddcardtype(){
+        $name = isset($_POST['name']) ? trim($_POST['name']) : '';
+        if (!empty($name)){
+            $this->car_type->add_cartype_info($name);
+        }
+    }
+
+    //添加专题导航
+    public function actionAddnav(){
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+        $name = isset($_POST['name']) ? trim($_POST['name']) : '';
+        $des = isset($_POST['des']) ? trim($_POST['des']) : '';
+        $resource = isset($_POST['resource']) ? trim($_POST['resource']) : '';
+        if (!empty($id) && !empty($name)){
+            $res = $this->topic_nav->add_nav_info($id,$name,$des,$resource);
+            echo 'success';
+        }else {
+            echo 'fails';
+        }
+    }
+
+    //获取单个导航详情
+    public function actionNavinfo(){
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+        if (!empty($id)){
+            $info = $this->topic_nav->get_info_by_id($id);
+            print_r($info);
+        }
+    }
+
 }
