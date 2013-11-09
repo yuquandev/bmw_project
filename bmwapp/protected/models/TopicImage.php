@@ -127,4 +127,44 @@ class TopicImage extends CActiveRecord
         return $res;
 	
       }
+
+    //
+    public function get_image_list_by_type($type_id,$page=1,$rows=10){
+        $offset = ($page-1) * $rows;
+        $sql = sprintf("SELECT * FROM `topic_image_tbl` WHERE type_id = %d order by id desc LIMIT %d, %d",$type_id,$offset,$rows);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+
+    public function get_image_total_by_type($type_id){
+        $sql = sprintf("SELECT count(1) as total FROM topic_image_tbl WHERE type_id = %d",$type_id);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+
+    //添加图片
+    public function add_image_info($type_id,$name,$image_url,$stat){
+        $sql = sprintf("insert into topic_image_tbl (type_id,name,image_url,status,update_time,create_time) value (%d,'%s','%s',%d,NOW(),NOW()); ",$type_id,$name,$image_url,$stat);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        if ($res){
+            return Yii::app()->db->getLastInsertID();
+        }else {
+            return 0;
+        }
+    }
+
+    //设置图片开启关闭
+    public function set_img_status($id,$status){
+        $sql = sprintf("update topic_image_tbl set status = %d where id = %d;",$status,$id);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
+
+    //更新单个图片信息
+    public function set_img_info($id,$name,$image_url,$stat){
+        $sql = sprintf("update topic_image_tbl set name='%s',$image_url='%s',status='%s',update_time=NOW() where id=%d",$name,image_url,$stat,$id);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
+
 }     

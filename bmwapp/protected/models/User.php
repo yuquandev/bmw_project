@@ -125,7 +125,7 @@ class User extends CActiveRecord
     }
 
     public function get_user_total(){
-        $sql = sprintf("SELECT count(1) as total FROM bmw_cms.user_tbl");
+        $sql = sprintf("SELECT count(1) as total FROM user_tbl");
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }
