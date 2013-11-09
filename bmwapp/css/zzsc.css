@@ -190,129 +190,27 @@ opacity:0;/*FF*/
 
 
 /*ÊÓÆµÇÐ»»Ð§¹û*/
-.index_mov_list a:hover img,.top_list a:hover img {
-	border-color:#8c4600;
-}
-
-
-.pgmiddle {
-	color:#fff;
-	margin-bottom:8px;
-}
-.pages a,.pages em,.pages span,.more,.submit,.face_bat {
-	background:#448000;
-	border-radius:2px 2px 2px 2px;
-	color:#fff;
-	font-size:12px;
-	line-height:12px;
-	padding:2px 3px;
-}
-.pages a:hover,.pages span,.more:hover,#msg a:hover {
-	background:#8c4600;
-	color:#fff;
-}
-#example {
-	background:url(/img/slidesbg.png) no-repeat -49px 0;
-	height:330px;
-	margin:0 auto;
-	position:relative;
-	width:400px;
-}
-#ribbon_1,#ribbon_2 {
-	background:url(/img/main.png) repeat  -140px -50px;
-	height:90px;
-	left:auto;
-	position:absolute;
-	right:22px;
-	top:17px;
-	width:93px;
-	z-index:3;
-}
-#ribbon_2 {
-	background:url(/img/main.png) no-repeat  -140px 0;
-	height:33px;
-	top:297px;
-	width:120px;
-}
-#slides {
-	height:100%;
-	overflow:hidden;
-	position:relative;
-}
-#next,#prev {
-	background:url(/img/main.png) no-repeat  -140px -150px;
-	cursor:pointer;
-	display:block;
-	height:57px;
-	left:3px;
-	position:absolute;
-	top:157px;
-	width:22px;
-	z-index:2;
-}
-#next {
-	background-position:-162px -150px;
-	left:977px;
-}
-#next:hover {
-	background-position:-212px -150px;
-}
-#prev:hover {
-	background-position:-190px -150px;
-}
-#slides .scroimg {
-	background:url("/img/loading.gif") no-repeat  center center;
-	height:330px;
-	left:400px;
-	margin:0;
-	position:absolute;
-	width:400px;
-	top:20px;
-	color:#000;
-}
-.scroimg h2{ line-height:24px; padding-bottom:10px; font-size:20px;}
-.scrotext {
-	top:0px;
-	height:20px;
-	left:0;
-	padding:0 150px 0 20px;
-	position:absolute;
-	width:780px;
-	z-index:1;
-}
-.scrotext a {
-	color:#87ff00;
-	font-size:16px;
-	line-height:25px;
-}
-.scrotext a:hover {
-	color:#fff;
-}
-.scrotext p {
-	line-height:20px;
-	margin:0;
-}
-#pagination {
-	height:12px;
-	left:50%;
-	margin-left:-45px;
-	overflow:hidden;
-	position:absolute;
-	text-align:center;
-	top:287px;
-	width:100px;
-	z-index:5;
-}
-#pagination span {
-	background:url(/img/main.png) no-repeat  -250px -50px;
-	cursor:pointer;
-	float:left;
-	font-size:0;
-	line-height:0;
-	margin:0 3px;
-	overflow:hidden;
-	padding:6px;
-}
-#pagination span.current {
-	background-position:-250px -62px;
-}
+#focus{position: relative;height: 210px;width: 400px; margin-top:40px;}
+#focus .bd{position: relative}
+#focus .btn-prev, #focus .btn-next{display: none;position: absolute;top: 130px;width: 40px;height: 80px;z-index: 2}
+#focus .btn-prev{left: 0;background: url(/img/left-arrow.png) no-repeat;_background: 0;
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/left-arrow.png")}
+#focus .btn-next{right: 0;background: url(/img/right-arrow.png) no-repeat;_background: 0;
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/right-arrow.png")}
+#focus .focus-bar-box{width: 100%;height: 230px;position: relative;overflow: hidden}
+#focus .focus-bar{width: 10000px}
+#focus .focus-bar li{float: left;width: 750px;height: 210px}
+#focus .focus-bar li a{width: 100%;height: 100%;display: block}
+#focus .focus-bar li img{width: 100%;min-height: 100%}
+#focus .ft{position: absolute;left: 0;bottom:-50px;z-index: 1;width: 240px;height: 20px; right:100px;}
+#focus .change{position: absolute;right: 0;bottom: 15px;height: 10px}
+#focus .change a{float: left;width:6px;height: 6px;margin-right: 10px;background: url(/img/btn-normal.png) no-repeat;_background: 0;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/btn-normal.png");cursor: pointer}
+#focus .change a.on{background: url(/img/btn-active.png) no-repeat;_background: 0;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/btn-active.png")}
+#focus .hd{position: absolute;left: 0;bottom: 0;z-index: 2;width: 400px;height: 40px; top:-50px; padding-left:10px;}
+#focus .focus-title{overflow: hidden;position: absolute;top: 0;left: 0;height: 30px;line-height: 30px;font-size: 24px;}
+#focus .focus-title .title{color: #64d734}
+#focus .hdicon{position: absolute;left:10px;bottom: 10px;width: 59px;height: 59px;background: url(/img/play-btn.png) no-repeat;_background: 0;
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/play-btn.png")}
+#focus .focus-title a{display: none;color: #000}
