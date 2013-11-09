@@ -139,6 +139,16 @@ class AdminController extends Controller {
                 array("field"=>"create_time","title"=>"创建时间"),
                 array("field"=>"editor","title"=>"编辑"),
             );
+        }elseif (substr($act,0,10) == 'image_list'){
+            $res = array(
+                array("field"=>"id","title"=>"图片id"),
+                array("field"=>"name","title"=>"名称"),
+                array("field"=>"image_url","title"=>"图片地址"),
+                array("field"=>"status","title"=>"图片状态"),
+                array("field"=>"update_time","title"=>"更新时间"),
+                array("field"=>"create_time","title"=>"更新时间"),
+                array("field"=>"editor","title"=>"编辑"),
+            );
         }
         echo json_encode($res);
     }
@@ -169,6 +179,11 @@ class AdminController extends Controller {
             $this->works_img = new WorkImg();
             $data = $this->works->selectWork(0,$page,$rows,'create_time desc');
             $count = $this->works->countWork(1);
+            $res = array("total"=>$count[0]['total'],"rows"=>$data);
+        }else if (substr($act,0,10) == 'image_list'){
+            $type_id = substr($act,11,strlen($act)-10);
+            $data = $this->topic_image->get_image_list_by_type($type_id,$page,$rows);
+            $count = $this->topic_image->get_image_total_by_type($type_id);
             $res = array("total"=>$count[0]['total'],"rows"=>$data);
         }
         echo json_encode($res);
@@ -216,7 +231,7 @@ class AdminController extends Controller {
         $des = isset($_POST['des']) ? trim($_POST['des']) : '';
         $resource = isset($_POST['resource']) ? trim($_POST['resource']) : '';
         $act = isset($_POST['act']) ? trim($_POST['act']) : '';
-        if (!empty($id) && !empty($name)){
+        if (!empty($name)){
             if ($act == 'add'){
                 $res = $this->topic_nav->add_nav_info($id,$name,$des,$resource);
             }else if($act == 'set') {
@@ -247,6 +262,70 @@ class AdminController extends Controller {
                 $stat = 1;
             }
             $res = $this->topic_nav->set_nav_status($id,$stat);
+            if($res){
+                echo json_encode(array('status'=>'success','res'=>$res));
+            }else {
+                echo json_encode(array('status'=>'fails'));
+            }
+        }
+
+
+    }
+
+    public function actionUpload(){
+
+        if (!isset($_FILES["Filedata"]) || !is_uploaded_file($_FILES["Filedata"]["tmp_name"]) || $_FILES["Filedata"]["error"] != 0) {
+            echo 'fails';
+        }
+
+        /* save to tmp */
+        $file = $_FILES["Filedata"];
+        if (!is_dir(Yii::app()->params['root_dir'].'uploads/topic')){
+            mkdir(Yii::app()->params['root_dir'].'uploads/topic',0777);
+        }
+        $new_file = $_COOKIE['bmw_ad_uid'].'_'.time().'.jpg';
+        $target = Yii::app()->params['root_dir'].'uploads/topic/'.$new_file;
+//		$target = '/tmp/1-1373267407.jpg';
+
+        if(!move_uploaded_file($file['tmp_name'], $target)){
+            echo 'fails';
+        }
+
+        echo  '/uploads/topic/'.$new_file;
+
+    }
+
+    //添加图片
+    public function actionAddtimg(){
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+        $type_id = isset($_POST['type_id']) ? intval($_POST['type_id']) : 0;
+        $name = isset($_POST['name']) ? trim($_POST['name']) : '';
+        $img_url = isset($_POST['image_url']) ? trim($_POST['image_url']) : '';
+        $stat = isset($_POST['stat']) ? trim($_POST['stat']) : '';
+        $act = isset($_POST['act']) ? trim($_POST['act']) : '';
+        if (!empty($type_id) && !empty($name)){
+            if ($act == 'add'){
+                $res = $this->topic_image->add_image_info($type_id,$name,$img_url,$stat);
+            }else if($act == 'set') {
+                $res = $this->topic_image->set_img_info($id,$name,$img_url,$stat);
+            }
+            echo json_encode(array('status'=>'success','res'=>$res));
+        }else {
+            echo json_encode(array('status'=>'fails','res'=>0));
+        }
+    }
+
+    //修改状态imgstat
+    public function actionImgstat(){
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+        $stat = isset($_POST['stat']) ? intval($_POST['stat']) : 0;
+        if (!empty($id) && !empty($stat)){
+            if ($stat == 1){
+                $stat = 2;
+            }else if ($stat == 2) {
+                $stat = 1;
+            }
+            $res = $this->topic_image->set_img_status($id,$stat);
             if($res){
                 echo json_encode(array('status'=>'success','res'=>$res));
             }else {
