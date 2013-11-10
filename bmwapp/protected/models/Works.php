@@ -249,8 +249,34 @@ class Works extends CActiveRecord
        $res = Yii::app()->db->createCommand($sql)->execute();
        return $res;
     }
-    
-    
+
+    public function get_works_list_by_type($type_id,$page=1,$rows=10){
+        $offset = ($page-1) * $rows;
+        $sql = sprintf("SELECT w.id,w.user_id,w.name,w.img_url,w.description,w.status,w.review,w.recommend,w.type,w.vote_num,w.update_time,w.create_time,u.username as username FROM `works_tbl` as w left join user_tbl as u on w.user_id = u.id  where type=%d order by w.id desc LIMIT %d, %d",$type_id,$offset,$rows);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        //print_r($res);
+        return $res;
+    }
+
+    public function get_works_total_by_type($type_id){
+        $sql = sprintf("SELECT count(1) as total FROM works_tbl where type=%d",$type_id);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+
+    public function set_work_review($id,$stat){
+        $sql = sprintf("update works_tbl set review = %d,update_time=NOW() where id = %d",$stat,$id);
+        //print_r($sql);exit();
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
+
+    public function set_work_recommend($id,$stat){
+        $sql = sprintf("update works_tbl set recommend = %d,update_time=NOW() where id = %d",$stat,$id);
+        //print_r($sql);exit();
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
     
 
     

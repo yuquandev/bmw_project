@@ -23,6 +23,8 @@ class AdminController extends Controller {
     public $nav_list;
     public $topic_image;
 
+    public $user_info;
+
 
     public function init(){
         $this->check_login();
@@ -30,6 +32,7 @@ class AdminController extends Controller {
         $this->car_type = new CarType();
         $this->topic_nav = new TopicNav();
         $this->topic_image = new TopicImage();
+        $this->works = new Works();
     }
 
     //验证用户是否登录
@@ -50,6 +53,7 @@ class AdminController extends Controller {
             $this->redirect("/index.php/admin/login");
         }
 
+        $this->user_info['username'] = $_COOKIE['bmw_ad_username'];
 
         $this->car_list = $this->car_type->get_car_list();
 
@@ -108,14 +112,14 @@ class AdminController extends Controller {
         if ($act == 'user_list') {
             $res = array(
                 array("field"=>"id","title"=>"用户id"),
-                array("field"=>"username","title"=>"用户名"),
-                array("field"=>"nickname","title"=>"昵称"),
+                array("field"=>"username","title"=>"用户名(邮箱)"),
+                array("field"=>"nickname","title"=>"真实姓名"),
                 array("field"=>"telephone","title"=>"手机"),
                 array("field"=>"ip","title"=>"ip"),
-                array("field"=>"status","title"=>"状态"),
+                //array("field"=>"status","title"=>"状态"),
                 array("field"=>"last_login","title"=>"登录时间"),
                 array("field"=>"create_time","title"=>"注册时间"),
-                array("field"=>"editor","title"=>"编辑"),
+                //array("field"=>"editor","title"=>"编辑"),
             );
         }elseif ($act == 'topic_list'){
             $res = array(
@@ -125,11 +129,11 @@ class AdminController extends Controller {
                 array("field"=>"create_time","title"=>"创建时间"),
                 array("field"=>"editor","title"=>"编辑"),
             );
-        }elseif($act == 'works_list')
+        }elseif(substr($act,0,10) == 'works_list')
         {
             $res = array(
-                array("field"=>"id","title"=>"作品id"),
-                array("field"=>"user_name","title"=>"用户名"),
+                //array("field"=>"id","title"=>"作品id"),
+                array("field"=>"username","title"=>"用户名"),
                 array("field"=>"name","title"=>"作品名称"),
                 array("field"=>"img_url","title"=>"作品图片"),
                 array("field"=>"description","title"=>"作品描述"),
@@ -137,7 +141,7 @@ class AdminController extends Controller {
                 array("field"=>"recommend","title"=>"推荐状态"),
                 array("field"=>"vote_num","title"=>"投票数"),
                 array("field"=>"create_time","title"=>"创建时间"),
-                array("field"=>"editor","title"=>"编辑"),
+                //array("field"=>"editor","title"=>"编辑"),
             );
         }elseif (substr($act,0,10) == 'image_list'){
             $res = array(
@@ -148,6 +152,15 @@ class AdminController extends Controller {
                 array("field"=>"update_time","title"=>"更新时间"),
                 array("field"=>"create_time","title"=>"更新时间"),
                 array("field"=>"editor","title"=>"编辑"),
+            );
+        }elseif ($act == 'admin_list'){
+            $res = array(
+                array("field"=>"id","title"=>"id"),
+                array("field"=>"username","title"=>"管理员名称"),
+                array("field"=>"ip","title"=>"ip"),
+                //array("field"=>"status","title"=>"状态"),
+                //array("field"=>"last_login","title"=>"登录时间"),
+                array("field"=>"create_time","title"=>"注册时间"),
             );
         }
         echo json_encode($res);
@@ -174,16 +187,23 @@ class AdminController extends Controller {
             $this->topic = new Topic();
             $data = $this->topic->get_topic_info_by_id($id);
             $res = array("total"=>1,"rows"=>$data);
-        }else if($act == 'works_list'){
-            $this->works     = new Works();
-            $this->works_img = new WorkImg();
-            $data = $this->works->selectWork(0,$page,$rows,'create_time desc');
-            $count = $this->works->countWork(1);
+        }else if(substr($act,0,10) == 'works_list'){
+            #$this->works     = new Works();
+            #$this->works_img = new WorkImg();
+            $type_id = substr($act,11,strlen($act)-10);
+            $data = $this->works->get_works_list_by_type($type_id,$page,$rows,'create_time desc');
+            $count = $this->works->get_works_total_by_type($type_id);
             $res = array("total"=>$count[0]['total'],"rows"=>$data);
         }else if (substr($act,0,10) == 'image_list'){
             $type_id = substr($act,11,strlen($act)-10);
             $data = $this->topic_image->get_image_list_by_type($type_id,$page,$rows);
             $count = $this->topic_image->get_image_total_by_type($type_id);
+            $res = array("total"=>$count[0]['total'],"rows"=>$data);
+        }else if ($act == 'admin_list'){
+            $data = $this->admin_user->get_user_list($page,$rows);
+            #print_r($data);
+            $count = $this->admin_user->get_user_total();
+            #print_r($count);
             $res = array("total"=>$count[0]['total'],"rows"=>$data);
         }
         echo json_encode($res);
@@ -334,6 +354,29 @@ class AdminController extends Controller {
         }
 
 
+    }
+
+    public function actionWorkstat(){
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+        $stat = isset($_POST['stat']) ? intval($_POST['stat']) : 0;
+        $act = isset($_POST['act']) ? trim($_POST['act']) : 0;
+        if (!empty($id)){
+            if ($stat == 1){
+                $stat = 0;
+            }else if ($stat == 0) {
+                $stat = 1;
+            }
+            if ($act == 'review'){
+                $res = $this->works->set_work_review($id,$stat);
+            }else if ($act == 'recommend'){
+                $res = $this->works->set_work_recommend($id,$stat);
+            }
+            if($res){
+                echo json_encode(array('status'=>'success','res'=>$res));
+            }else {
+                echo json_encode(array('status'=>'fails'));
+            }
+        }
     }
 
 }

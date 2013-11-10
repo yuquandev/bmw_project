@@ -135,8 +135,8 @@ class TopicImage extends CActiveRecord
         return $res;
 
 	}
-	
-   //
+
+    //
     public function get_image_list_by_type($type_id,$page=1,$rows=10){
         $offset = ($page-1) * $rows;
         $sql = sprintf("SELECT * FROM `topic_image_tbl` WHERE type_id = %d order by id desc LIMIT %d, %d",$type_id,$offset,$rows);
@@ -170,7 +170,7 @@ class TopicImage extends CActiveRecord
 
     //更新单个图片信息
     public function set_img_info($id,$name,$image_url,$stat){
-        $sql = sprintf("update topic_image_tbl set name='%s',$image_url='%s',status='%s',update_time=NOW() where id=%d",$name,image_url,$stat,$id);
+        $sql = sprintf("update topic_image_tbl set name='%s',image_url='%s',status=%s,update_time=NOW() where id=%d",$name,$image_url,$stat,$id);
         $res = Yii::app()->db->createCommand($sql)->execute();
         return $res;
     }

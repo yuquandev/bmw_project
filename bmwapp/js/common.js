@@ -62,8 +62,8 @@ function bulid_upload(){
 
         custom_settings : {
             upload_target : "divFileProgressContainer",
-            thumbnail_height: 400,
-            thumbnail_width: 400,
+            thumbnail_height: 200,
+            thumbnail_width: 200,
             thumbnail_quality: 100
         },
 
@@ -192,7 +192,7 @@ function reload_datagrid(table,title,columns,id){
         method : "post",
         nowrap : false,
         idField : "3",
-        loadMsg : "努力加载中...",
+        loadMsg : "加载中...",
         pagination : true,
         rownumbers : false,
         singleSelect : false,
@@ -204,6 +204,9 @@ function reload_datagrid(table,title,columns,id){
         rowStyler: function(index,row){
             if (table.substr(0,10) == 'image_list'){
                 for (var n in row){
+                    if (n == 'id'){
+                        var tmp = '{id:'+row['id']+',type_id:'+row['type_id']+',name:\''+row['name']+'\',image_url:\''+row['image_url']+'\',status:'+row['status']+'}';
+                    }
                     if (n == 'status' && row['status']==1){
                         row['status'] = '已禁用  <a href="javascript:void(0);" onclick="set_image_stat('+row['id']+','+row['status']+');">启用</a>';
                     }else if(n == 'status' && row['status'] == 2){
@@ -211,11 +214,36 @@ function reload_datagrid(table,title,columns,id){
                     }
                     if (n == 'image_url'){
                         row[n] = '<img src="'+row[n]+'" height="100" />';
-                        row['editor'] = '<a href="javascript" onclick="add_topic_img('+row['type_id']+','+row+');">修改</a>';
+                        row['editor'] = '<a href="javascript:void(0);" onclick="add_topic_img('+row['id']+','+tmp+');">修改</a>';
                     }
 
                 }
             }
+
+            if (table.substr(0,10) == 'works_list'){
+                for (var n in row){
+                    if (n == 'id'){
+
+                    }
+                    if (n == 'review' && row['review'] == 0){
+                        row['review'] = '已通过  <a href="javascript:void(0);" onclick="set_work_stat('+row['id']+','+row['review']+',\'review\');">关闭</a>';
+                    }else if (n == 'review' && row['review'] == 1){
+                        row['review'] = '未通过  <a href="javascript:void(0);" onclick="set_work_stat('+row['id']+','+row['review']+',\'review\');">开启</a>';
+                    }
+                    if (n == 'recommend' && row['recommend'] == 0){
+                        row['recommend'] = '已推荐  <a href="javascript:void(0);" onclick="set_work_stat('+row['id']+','+row['recommend']+',\'recommend\');">关闭</a>';
+                    }else if (n == 'recommend' && row['recommend'] == 1){
+                        row['recommend'] = '未推荐  <a href="javascript:void(0);" onclick="set_work_stat('+row['id']+','+row['recommend']+',\'recommend\');">开启</a>';
+                    }
+                    if (n == 'vote_num'){
+                        row['vote_num'] = row['vote_num']+'票  <a href="javascript:void(0);" onclick="">修改</a>';
+                    }
+                    if (n == 'img_url'){
+                        row[n] = '<img src="'+row[n]+'" height="100" />';
+                    }
+                }
+            }
+
             if(index%2==0){
                 return "background-color:#fff";
             }else {
@@ -403,9 +431,13 @@ function add_topic_img(type_id,info) {
     if(!!info){
         act = 'set';
         title = '修改图片';
+        id = info.id;
         $('#t_img_name').val(info.name);
         $('#t_img_url').val(info.image_url);
         $('#t_img_stat').val(info.status);
+        $('#thumbnails').html('<img style="margin: 5px; vertical-align: middle; opacity: 1;width: 200px;" src="'+info.image_url+'" />');
+        $('.combo-value').val(info.status);
+        //$('#t_img_stat option')[info.status-1].setAttribute('selected','1');
     }else {
         act = 'add';
         title = '新建图片';
@@ -440,6 +472,7 @@ function add_topic_img(type_id,info) {
                                 $('#dg').datagrid('reload');
                             }else if (act == 'set'){
                                 //get_nav_info(info.id);
+                                $('#dg').datagrid('reload');
                             }
                             $('#t_img_dialog').dialog('close');
                         }if (data.status == 'fails'){
@@ -480,6 +513,30 @@ function set_image_stat(id,stat){
         }
     });
 }
+
+function set_work_stat(id,stat,act){
+    $.ajax({url: '/index.php/admin/workstat?_n='+ new Date().getTime(),
+        type: 'POST',
+        data: {id : id, stat:stat,act:act},
+        dataType: 'json',
+        beforeSend : function(){
+        },
+        error: function(){
+        },
+        success: function(data){
+            //location.href = '/index.php/admin';ç
+            if (data.status == 'success'){
+                $('#dg').datagrid('reload');
+            }if (data.status == 'fails'){
+                alert('提交失败');
+            }
+        },
+        complete : function(){
+        }
+    });
+}
+
+
 
 
 
