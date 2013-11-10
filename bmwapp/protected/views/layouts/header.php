@@ -27,6 +27,8 @@
 <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 <?php }?>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/com_dialog.js"></script>
+    <script type="text/javascript" src="/js/lib/swfupload/swfupload.js"></script>
+    <script type="text/javascript" src="/js/lib/project.handlers.js"></script>
 </head>
 <body>
 

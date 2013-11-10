@@ -21,7 +21,7 @@
         	<div class="bm_hd_left">
         	
         	<?php if (!empty($this->userinfo)){?>
-        	<a href="javascript:void(0);" onclick="uplade_img(2);">
+        	<a href="javascript:void(0);" onclick="com_dialog('uploads');">
         	<?php }else {?>
         	<a href="javascript:com_dialog('login')">
         	<?php }?>
@@ -34,7 +34,7 @@
         <div class="bm_hd_main" style="display:none" id="menuTabcontent012_11">
         	<div class="bm_hd_left">
         	<?php if (!empty($this->userinfo)){?>
-        	<a href="javascript:void(0);" onclick="uplade_img(2);">
+        	<a href="javascript:void(0);" onclick="com_dialog('uploads');">
         	<?php }else {?>
         	<a href="javascript:com_dialog('login')">
         	<?php }?>
@@ -47,7 +47,7 @@
         <div class="bm_hd_main" id="menuTabcontent012_10" style="display:none">
         	<div class="bm_hd_left">
         	<?php if (!empty($this->userinfo)){?>
-        	<a href="javascript:void(0);" onclick="uplade_img(2);">
+        	<a href="javascript:void(0);" onclick="com_dialog('uploads');">
         	<?php }else {?>
         	<a href="javascript:com_dialog('login')">
         	<?php }?>

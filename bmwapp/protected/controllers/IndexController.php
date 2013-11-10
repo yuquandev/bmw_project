@@ -152,5 +152,28 @@ class IndexController extends Controller {
        
        $this->render('footerimg',$data);
     }
+
+    public function actionUploads(){
+
+        if (!isset($_FILES["Filedata"]) || !is_uploaded_file($_FILES["Filedata"]["tmp_name"]) || $_FILES["Filedata"]["error"] != 0) {
+            echo 'fails';
+        }
+
+        /* save to tmp */
+        $file = $_FILES["Filedata"];
+        if (!is_dir(Yii::app()->params['root_dir'].'uploads/works')){
+            mkdir(Yii::app()->params['root_dir'].'uploads/works',0777);
+        }
+        $new_file = $this->userinfo['uid'].'_'.time().'.jpg';
+        $target = Yii::app()->params['root_dir'].'uploads/works/'.$new_file;
+//		$target = '/tmp/1-1373267407.jpg';
+
+        if(!move_uploaded_file($file['tmp_name'], $target)){
+            echo 'fails';
+        }
+
+        echo  '/uploads/works/'.$new_file;
+
+    }
     
 }
