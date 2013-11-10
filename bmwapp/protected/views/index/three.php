@@ -5,9 +5,9 @@
     <div class="bm_hd">
     	<div class="bm_hd_title">
         	<ul>
-        		<li><a href="javascript:;"  class="hymenuon" id=menuTabmenu012_12 onclick="setTimeout('Show_menuTab012(1,2)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico.jpg" /><span>活动介绍</span></a></li>
-            	<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu012_11 onclick="setTimeout('Show_menuTab012(1,1)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico2.jpg" /><span>活动规则</span></a></li>
-           		<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu012_10 onclick="setTimeout('Show_menuTab012(1,0)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico3.gif" /><span>视频</span></a></li>
+        		<li><a href="javascript:;"  class="hymenuon" id=menuTabmenu012_12 onclick="setTimeout('Show_menuTab012(1,2)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico.jpg" /><span><?php echo $name_title[0];?></span></a></li>
+            	<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu012_11 onclick="setTimeout('Show_menuTab012(1,1)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico2.jpg" /><span><?php echo $name_title[1];?></span></a></li>
+           		<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu012_10 onclick="setTimeout('Show_menuTab012(1,0)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico3.gif" /><span><?php echo $name_title[2];?></span></a></li>
             </ul>
             <div class="bm_dl">
             	<a href="javascript:showDiv3()">登陆 | </a><a href="javascript:showDiv2()">注册</a>
@@ -15,49 +15,30 @@
         </div>
         <div class="bm_hd_main" id="menuTabcontent012_12">
         	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
-            <div class="bm_hd_zj">
-            <h2>　　　　你的运动宣言有奖活动征集3x</h2><br />
-            <span>　　　　参与活动即可获得宝马中国提供的BMW<br />
-   　　　精英驾驶培训课程、BMW精美车模、BMW<br />
-　　 U盘以及BMW精美钥匙链等。</span><br /><br />
- 			<p>　　1.拍摄现场活动照片</p><br />
-            <p>　2.使用美图秀秀的BMW3系专属模板进行拼<br />图并保存</p><br />
-            <p>3.上传至活动官网参与有奖活动</p>
-            </div>
+            <?php echo $description[0];?>
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tu.jpg" /></div>
             </div>
         </div>
         <div class="bm_hd_main" style="display:none" id="menuTabcontent012_11">
         	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
-            <div class="bm_hd_zj">
-            <h2>　　　　你的运动宣活动征集23x</h2><br />
-            <span>　　　　参与活动即可获得宝马中国提供的BMW<br />
-   　　　精英驾驶培训课程、BMW精美车模、BMW<br />
-　　 U盘以及BMW精美钥匙链等。</span><br /><br />
- 			<p>　　1.拍摄现场活动照片</p><br />
-            <p>　2.使用美图秀秀的BMW3系专属模板进行拼<br />图并保存</p><br />
-            <p>3.上传至活动官网参与有奖活动</p>
-            </div>
+            <?php echo $description[1];?>
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tu.jpg" /></div>
             </div>
         </div>
         <div class="bm_hd_main" id="menuTabcontent012_10" style="display:none">
         	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
-            <div class="bm_hd_zj">
-            <h2>　　　　你的运动宣言有动征集33x</h2><br />
-            <span>　　　　　BMW 3系的历史在这里一览无疑，由于脾<br />　　　　气火爆，性格直率，所以被人们常常亲切称为<br />　　　“三哥”。
-</span><br /><br />
- 			<p>　漂亮的甩尾，灵动的转弯，澎湃的动力，都刺<br />激着你的肾上腺素</p><br />
-            <h2>　BMW 3系</h2><br />
-            <h2>运动王者 领衔起跑</h2>
-            </div>
+            <?php echo $description[2];?>
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu">
                 	<div class="bm_3x_st">
                         <div class="bm_3x_bt"><a href="#">运动王者 领衔起跑</a></div>
-                        <div class="bm_3x_sp"> <embed height="243" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="http://player.pps.tv/player/sid/36628KXUMQSM/v.swf" type="application/x-shockwave-flash" wmode="Opaque"></div>
+                        <div class="bm_3x_sp">
+                        
+                        <embed height="243" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="<?php echo $video[0];?>" type="application/x-shockwave-flash" wmode="Opaque">
+                        
+                        </div>
                 	</div>
                 </div>
             </div>
@@ -120,7 +101,7 @@
 					<?php foreach($image_list as $key=>$val):?>
 					<li class="featureBox">
 					<div class="box">
-						<a href="#" target="_blank">
+						<a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/footerlg?id=<?php echo $val['id']?>,<?php echo $val['type_id']?>" target="_blank">
 						<img alt="Catherine Sherwood" src="<?php echo $val['image_url'];?>"  width="265" height="176">
 						</a>
 					</div>

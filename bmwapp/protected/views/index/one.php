@@ -22,9 +22,9 @@
     <div class="bm_hd">
     	<div class="bm_hd_title">
         	<ul>
-        		<li><a href="javascript:;"  class="hymenuon" id=menuTabmenu012_12 onclick="setTimeout('Show_menuTab012(1,2)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico.jpg" /><span>活动介绍</span></a></li>
-            	<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu012_11 onclick="setTimeout('Show_menuTab012(1,1)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico2.jpg" /><span>活动规则</span></a></li>
-           		<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu012_10 onclick="setTimeout('Show_menuTab012(1,0)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico3.gif" /><span>视频</span></a></li>
+        		<li><a href="javascript:;"  class="hymenuon" id=menuTabmenu012_12 onclick="setTimeout('Show_menuTab012(1,2)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico.jpg" /><span><?php echo $name_title[0];?></span></a></li>
+            	<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu012_11 onclick="setTimeout('Show_menuTab012(1,1)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico2.jpg" /><span><?php echo $name_title[1];?></span></a></li>
+           		<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu012_10 onclick="setTimeout('Show_menuTab012(1,0)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico3.gif" /><span><?php echo $name_title[2];?></span></a></li>
             </ul>
             <div class="bm_dl">
             	<a href="javascript:showDiv3()">登陆 | </a><a href="javascript:showDiv2()">注册</a>
@@ -32,44 +32,21 @@
         </div>
         <div class="bm_hd_main bm_hd_main2" id="menuTabcontent012_12">
         	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
-            <div class="bm_hd_zj">
-            <h2></h2><br />
-            <span>　　　　　 从X1的视角解读随访内容，剪辑病毒视频，<br />
-       　　　　 将每个城市不同的自由态度呈现出来。视频将<br />
-    　　　 通过积极的、正能量的基调来关联X1以及X1车<br />
-　　　主的自由理念以及对城市、对生活的热爱。<br />
-　　 通过积极的、正能量的基调来关联X1以及X1车<br />
-　　　主的自由理念以及对城市、对生活的热爱。<br /><br /><br /><br /><br /><br />
-			<h2>FREEDOM IN CITIES</h2>
-            </div>
+            <?php echo $description[0];?>
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu2"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_x1_sp.jpg" /></div>
             </div>
         </div>
         <div class="bm_hd_main bm_hd_main2" style="display:none" id="menuTabcontent012_11">
         	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
-            <div class="bm_hd_zj">
-            <h2></h2><br />
-               <span>　　　　　 从X1的视角解读随访内容，剪辑病毒视频，<br />
-       　　　　 将每个城市不同的自由态度呈现出来。视频将<br />
-    　　　 通过积极的、正能量的基调来关联X1以及X1车<br />
-　　　主的自由理念以及对城市、对生活的热爱。<br /><br /><br /><br /><br /><br />
-			<h2>FREEDOM IN CITIES</h2>
-            </div>
+            <?php echo $description[1];?>
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu2"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_x1_sp.jpg" /></div>
             </div>
         </div>
         <div class="bm_hd_main bm_hd_main2" id="menuTabcontent012_10" style="display:none">
         	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
-            <div class="bm_hd_zj">
-            <h2></h2><br />
-            <span>　　　　　 从X1的视角解读随访内容，剪辑病毒视频，<br />
-       　　　　 将每个城市不同的自由态度呈现出来。视频将<br />
-    　　　 通过积极的、正能量的基调来关联X1以及X1车<br />
-　　　主的自由理念以及对城市、对生活的热爱。<br /><br /><br /><br /><br /><br />
-			<h2>FREEDOM IN CITIES</h2>
-            </div>
+            <?php echo $description[2];?>
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu">
                 	<div class="bm_3x_st">
@@ -83,9 +60,9 @@
                                 </div>
                                 <div class="focus-bar-box" id="focus-bar-box">
                                   <ul class="focus-bar">
-                                    <li><a href="#"> <embed height="243" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="http://player.pps.tv/player/sid/36628KXUMQSM/v.swf" type="application/x-shockwave-flash" wmode="Opaque"></a></li>
-                                    <li><a href="#"> <embed height="243" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="http://player.pps.tv/player/sid/36628KXUMQSM/v.swf" type="application/x-shockwave-flash" wmode="Opaque"></a></li>
-                                    <li><a href="#"> <embed height="243" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="http://player.pps.tv/player/sid/36628KXUMQSM/v.swf" type="application/x-shockwave-flash" wmode="Opaque"></a></li>
+                                   <?php foreach($video as $vdo):?>
+                                    <li> <embed height="243" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="<?php echo $vdo;?>" type="application/x-shockwave-flash" wmode="Opaque"></li>
+                                   <?php endforeach;?>
                                   </ul>
                                 </div>
                               <div class="ft">
@@ -153,42 +130,16 @@
 		<div id="block">
 			<div id="botton-scroll2">
 				<ul class="featureUL2">
-					<li class="featureBox">
-					<div class="box2">
-						<a href="sctpx11.html" target="_blank">
-						<img alt="Paracletos" src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_x1_pic2.jpg" width="265" height="176">
-						</a></div>
-					<!-- /box --></li>
+					<?php foreach($image_list as $key=>$val):?>
 					<li class="featureBox">
 					<div class="box">
-						<a href="sctpx11.html" target="_blank">
-						<img alt="Natural Touch Soap" src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_x1_pic2.jpg"  width="265" height="176">
-						</a></div>
-					<!-- /box --></li>
-					<li class="featureBox">
-					<div class="box2">
-						<a href="#" target="_blank">
-						<img alt="LRTK" src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_x1_pic.jpg" width="265" height="176">
-						</a></div>
-					<!-- /box --></li>
-					<li class="featureBox">
-					<div class="box2">
-						<a href="#" target="_blank">
-						<img alt="Natalie Reid" src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_x1_pic.jpg" width="265" height="176">
-						</a></div>
-					<!-- /box --></li>
-					<li class="featureBox">
-					<div class="box2">
-						<a href="#" target="_blank">
-						<img alt="酷站代码" src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_x1_pic2.jpg" width="265" height="176">
-						</a></div>
-					<!-- /box --></li>
-					<li class="featureBox">
-					<div class="box2">
-						<a href="#" target="_blank">
-						<img alt="Catherine Sherwood" src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_x1_pic.jpg"  width="265" height="176">
-						</a></div>
-					<!-- /box --></li>
+						<a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/footerlg?id=<?php echo $val['id']?>,<?php echo $val['type_id']?>" target="_blank">
+						<img alt="Catherine Sherwood" src="<?php echo $val['image_url'];?>"  width="265" height="176">
+						</a>
+					</div>
+					<!-- /box -->
+					</li>
+					<?php endforeach;?>
 				</ul>
 			</div>
 			<!-- /botton-scroll --></div>

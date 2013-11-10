@@ -12,10 +12,10 @@
 <script type="text/javascript" charset="utf-8" src="<?php echo Yii::app()->request->baseUrl; ?>/js/scroll.js"></script>
 <?php }?>
 
-<?php if($this->nav == '2xmoer'){?>
+
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.jcarousellite.min.js"></script>
-<?php }?>
+
 
 <?php if($this->nav == '1x'){?>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.min.js"></script>
@@ -28,8 +28,6 @@
 <?php }?>
 </head>
 <body>
-
-
 
 
 

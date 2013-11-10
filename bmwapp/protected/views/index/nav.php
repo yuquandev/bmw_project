@@ -3,6 +3,7 @@
 <?php }else{?>
 <div class="bm_top_3x">
 <?php }?>
+    	
     	<div class="bm_top_logo">
         	<ul>
             	<li><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo.png" /></a></li>
