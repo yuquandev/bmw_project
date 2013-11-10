@@ -62,9 +62,9 @@ function bulid_upload(){
 
         custom_settings : {
             upload_target : "divFileProgressContainer",
-            thumbnail_height: 200,
-            thumbnail_width: 200,
-            thumbnail_quality: 100
+            thumbnail_height: 500,
+            thumbnail_width: 500,
+            thumbnail_quality: 500
         },
 
         // Debug Settings
