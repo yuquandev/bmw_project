@@ -134,15 +134,9 @@ class TopicImage extends CActiveRecord
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
 
+	}
 	
-
-    }
-	
-	
-	
-	
-
-    //
+   //
     public function get_image_list_by_type($type_id,$page=1,$rows=10){
         $offset = ($page-1) * $rows;
         $sql = sprintf("SELECT * FROM `topic_image_tbl` WHERE type_id = %d order by id desc LIMIT %d, %d",$type_id,$offset,$rows);
