@@ -18,6 +18,15 @@ class UserController extends Controller {
         $this->user = new User();
     }
 
+    static public function getuserinfo(){
+        UserController::check_login();
+        if (self::$is_login){
+            return array('username'=>$_COOKIE['bmw_username'],'uid'=>$_COOKIE['bmw_uid']);
+        }else {
+            return array();
+        }
+    }
+
     //验证用户是否登录
     static public function check_login(){
         if (isset($_COOKIE['bmw_uid']) && isset($_COOKIE['bmw_username']) && isset($_COOKIE['bmw_ses']) && isset($_COOKIE['bmw_t'])){
@@ -116,7 +125,32 @@ class UserController extends Controller {
         setcookie('bmw_username', '', $time - 3600, "/");
         setcookie('bmw_uid', '', $time - 3600, "/");
         setcookie('bmw_t','', $time - 3600, "/");
-        $this->redirect("/index.php/user/login");
+        $this->redirect("/");
+    }
+
+    public function actionAjax_login(){
+        if (self::$is_login){
+            echo json_encode(array('status'=>'success','msg'=>'已经登陆了'));exit();
+        }
+
+        $username = isset($_POST['username']) ? trim($_POST['username']) : '';
+        $password = isset($_POST['password']) ? trim($_POST['password']) : '';
+
+        if (!empty($username) && !empty($password)){
+            $userinfo = $this->user->get_userinfo_by_username($username);
+            if (!empty($userinfo) && $userinfo['password'] == md5($password.$userinfo['salt'])){
+                $life_time = 60*60;
+                $time = time();
+                setcookie('bmw_ses', md5($userinfo['id'].UserController::LOGIN_KEY.$userinfo['username'].$time), $time+$life_time, "/");
+                setcookie('bmw_username', $userinfo['username'], $time + $life_time, "/");
+                setcookie('bmw_uid', $userinfo['id'], $time + $life_time, "/");
+                setcookie('bmw_t', $time, $time + $life_time, "/");
+                echo json_encode(array('status'=>'success','msg'=>'登陆成功'));exit();
+            }else {
+                echo json_encode(array('status'=>'falis','msg'=>'密码错误'));exit();
+            }
+        }
+        echo json_encode(array('status'=>'falis','msg'=>'请出入用户名和密码'));exit();
     }
 
 }

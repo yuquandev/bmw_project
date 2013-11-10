@@ -10,7 +10,11 @@
            		<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu012_10 onclick="setTimeout('Show_menuTab012(1,0)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico3.gif" /><span><?php if(isset($name_title[2])){ echo $name_title[2];}?></span></a></li>
             </ul>
             <div class="bm_dl">
-            	<a href="javascript:showDiv3()">登陆 | </a><a href="javascript:showDiv2()">注册</a>
+                <?php if (empty($this->userinfo)){?>
+            	<a href="javascript:com_dialog('login')">登陆 | </a><a href="javascript:com_dialog('reg');">注册</a>
+                <?php }else {
+                    echo '<a href="/index.php/?uid='.$this->userinfo['uid'].'">'.$this->userinfo['username'].'</a> | <a href="/index.php/user/logout">退出</a>';
+                }?>
             </div>
         </div>
         <div class="bm_hd_main" id="menuTabcontent012_12">
@@ -126,7 +130,7 @@
 
 <!--登陆与注册-->
 
-
+<div id="com_dialog"></div>
 
 <div id="bg" class="bg" style="display:none;"></div>
 <iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
