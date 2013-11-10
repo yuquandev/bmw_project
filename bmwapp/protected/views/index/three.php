@@ -9,7 +9,7 @@
             	<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu012_11 onclick="setTimeout('Show_menuTab012(1,1)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico2.jpg" /><span><?php if(isset($name_title[1])){ echo $name_title[1];}?></span></a></li>
            		<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu012_10 onclick="setTimeout('Show_menuTab012(1,0)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico3.gif" /><span><?php if(isset($name_title[2])){ echo $name_title[2];}?></span></a></li>
             </ul>
-            <div class="bm_dl">
+             <div class="bm_dl">
                 <?php if (empty($this->userinfo)){?>
             	<a href="javascript:com_dialog('login')">登陆 | </a><a href="javascript:com_dialog('reg');">注册</a>
                 <?php }else {
@@ -18,21 +18,40 @@
             </div>
         </div>
         <div class="bm_hd_main" id="menuTabcontent012_12">
-        	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
+        	<div class="bm_hd_left">
+        	
+        	<?php if (!empty($this->userinfo)){?>
+        	<a href="javascript:void(0);" onclick="uplade_img(2);">
+        	<?php }else {?>
+        	<a href="javascript:com_dialog('login')">
+        	<?php }?>
+        	<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
             <?php if(isset($description[0])){ echo $description[0];}?>
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tu.jpg" /></div>
             </div>
         </div>
         <div class="bm_hd_main" style="display:none" id="menuTabcontent012_11">
-        	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
+        	<div class="bm_hd_left">
+        	<?php if (!empty($this->userinfo)){?>
+        	<a href="javascript:void(0);" onclick="uplade_img(2);">
+        	<?php }else {?>
+        	<a href="javascript:com_dialog('login')">
+        	<?php }?>
+        	<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
             <?php if(isset($description[1])){ echo $description[1];}?>
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tu.jpg" /></div>
             </div>
         </div>
         <div class="bm_hd_main" id="menuTabcontent012_10" style="display:none">
-        	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
+        	<div class="bm_hd_left">
+        	<?php if (!empty($this->userinfo)){?>
+        	<a href="javascript:void(0);" onclick="uplade_img(2);">
+        	<?php }else {?>
+        	<a href="javascript:com_dialog('login')">
+        	<?php }?>
+        	<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
             <?php if(isset($description[2])){ echo $description[2];}?>
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu">
@@ -125,6 +144,7 @@
     <?php $this->endContent(); ?>
 </div>
 <!--上传图片-->
+<span id="uplode_img"></span>
 
 <!--注册账号-->
 

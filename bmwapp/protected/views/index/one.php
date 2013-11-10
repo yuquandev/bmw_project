@@ -60,17 +60,21 @@
                                 </div>
                                 <div class="focus-bar-box" id="focus-bar-box">
                                   <ul class="focus-bar">
-                                   <?php foreach($video as $vdo):?>
-                                    <li> <embed height="243" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="<?php if(isset($video[0])){ echo $video[0]; }?>" type="application/x-shockwave-flash" wmode="Opaque"></li>
+                                   <?php foreach($video as $vdo):
+                                   
+                                   ?>
+                                    <li> <embed height="243" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="<?php if(isset($vdo)){ echo $vdo; }?>" type="application/x-shockwave-flash" wmode="Opaque"></li>
                                    <?php endforeach;?>
                                   </ul>
                                 </div>
                               <div class="ft">
                                 <div class="ftbg"></div>
                                 <div id="focus-num" class="change">
+                                   
                                     <a class=""></a>
                                     <a class=""></a>
                                     <a class=""></a>
+                                   
                                 </div>
                               </div>
                             </div>

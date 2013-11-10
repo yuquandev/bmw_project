@@ -37,7 +37,7 @@ class IndexController extends Controller {
     	$name_title = $video = $description = array(); 
     	
     	//topicnav
-        $topicnav = $this->topicnav->selectTopicnav(array('type_id'=>2,'status'=>0),0,0,'id ASC');
+        $topicnav = $this->topicnav->selectTopicnav(array('type_id'=>2,'status'=>0),'','','id ASC');
     	foreach($topicnav as $k=>$val)
     	{
     	    $name_title[] = $val['name'];

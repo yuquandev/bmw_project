@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="bm_hd_main" id="menuTabcontent012_12">
-        	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
+        	<div class="bm_hd_left"><a href="javascript:void(0);" onclick="uplade_img();"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
             <div class="bm_hd_zj">
             <h2>　　　　你的运动宣言有奖活动征集3x</h2><br />
             <span>　　　　参与活动即可获得宝马中国提供的BMW<br />
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="bm_hd_main" style="display:none" id="menuTabcontent012_11">
-        	<div class="bm_hd_left"><a href="javascript:showDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
+        	<div class="bm_hd_left"><a href="javascript:void(0);" onclick="uplade_img();"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
             <div class="bm_hd_zj">
             <h2>　　　　你的运动宣活动征集23x</h2><br />
             <span>　　　　参与活动即可获得宝马中国提供的BMW<br />
@@ -219,34 +219,8 @@
     <?php $this->endContent(); ?>
 </div>
 <!--上传图片-->
-<div class="zc_tck mydiv" id="popDiv" style="display:none;">
-	<div class="zc_tck_title"><span>上传图片</span><a href="javascript:closeDiv()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_gb.jpg" /></a></div>
-    <div class="zc_tck_main3">
-    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td width="15%" height="40" align="right" valign="middle"><strong>标题：</strong></td>
-            <td width="59%" height="40" align="left" valign="middle"><input name="" type="text" class="zck_text4"/></td>
-            <td width="26%" height="40" align="left" valign="middle">&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="40" align="right" valign="middle"><strong>图片地址：</strong></td>
-            <td height="40" align="left" valign="middle"><input name="" type="text" class="zck_text4"/></td>
-            <td height="40" align="left" valign="middle"><input name="" type="button" class="zck_ll" value="浏览"/></td>
-          </tr>
-          <tr>
-            <td height="100" align="right" valign="top"><strong>活动宣言：</strong></td>
-            <td height="100" align="left" valign="middle"><textarea name="" cols="" rows="" class="zck_xy"></textarea></td>
-            <td height="100" align="left" valign="middle">&nbsp;</td>
-          </tr>
-          <tr>
-            <td height="56" align="right" valign="middle">&nbsp;</td>
-            <td height="56" align="left" valign="middle"><input name="" type="button" class="tck_an" value="立即提交" style="margin-left:0" /></td>
-            <td height="56" align="left" valign="middle">&nbsp;</td>
-          </tr>
-        </table>
+<span id="uplode_img"></span>
 
-  </div>
-</div>
 <!--注册账号-->
 <div class="zc_tck mydiv" id="popDiv2"  style="display:none;">
 	<div class="zc_tck_title"><span>注册账号</span><a href="javascript:closeDiv2()"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_gb.jpg" /></a></div>

@@ -86,7 +86,7 @@ function bm_login(){
         success: function(data){
             if (data['status'] == 'success'){
                 //alert(data['msg']);
-                location.href = location.href;
+                window.location.reload();
             }else if(data['status'] == 'falis'){
                 alert(data['msg']);
             }
@@ -95,3 +95,65 @@ function bm_login(){
         }
     });
 }
+function uplade_img()
+{
+    var html_al = ['<div class="zc_tck mydiv" id="popDiv">',
+                '<div class="zc_tck_title">',
+                '<span>上传图片</span>',
+                '<a href="javascript:closeDiv()"><img src="/img/bm_gb.jpg" /></a></div>',
+                '<div class="zc_tck_main3">',
+	            '<form action="" enctype="multipart/form-data" method="post" onsubmit="return uplodedata();">',
+                '<tr>',
+                '<td width="15%" height="40" align="right" valign="middle"',
+                '<strong>标题：</strong></td>',
+                '<td width="59%" height="40" align="left" valign="middle">',
+                '<input name="bmw_title" id="bmw_title" type="text" class="zck_text4"/></td>',
+                '<td width="26%" height="40" align="left" valign="middle">&nbsp;</td>',
+                '</tr>',
+                '<tr>',
+                '<td height="40" align="right" valign="middle">',
+                '<strong>图片地址：</strong>',
+                '</td>',
+                '<td height="40" align="left" valign="middle">',
+                '<input name="img_file" id="img_file" type="file"  class="zck_ll" value="浏览"/>',
+                '</td>',
+                '</tr>',
+                '<tr>',
+                '<td height="100" align="right" valign="top"><strong>活动宣言：</strong></td>',
+                '<td height="100" align="left" valign="middle">',
+                '<textarea name="bmw_text" id="bmw_text" cols="" rows="" class="zck_xy"></textarea></td>',
+                '<td height="100" align="left" valign="middle">&nbsp;</td>',
+                '</tr>',
+                '<tr>',
+                '<td height="56" align="right" valign="middle">&nbsp;</td>',
+                '<td height="56" align="left" valign="middle">',
+                '<input name="submit" type="submit" class="tck_an" value="立即提交" style="margin-left:0" />',
+                '</td>',
+                '<td height="56" align="left" valign="middle">&nbsp;</td>',
+                '</tr>',
+                '</form>',
+                '</div>',
+                '</div>'].join('');	
+
+       $("#uplode_img").html(html_al);
+
+}
+function uplodedata()
+{
+    var title = $("#bmw_title").val();	
+    var file  = $("#img_file").val();
+    var text  =  $("#bmw_text").val();
+    if(title == ''){
+        alert('请输入标题'); return false;
+    }
+    if(file == ''){
+        alert('请长传张图片吧'); return false;
+    }
+    if(text ==''){
+    	alert('说点什么吧。'); return false;
+    }
+    
+    
+    false;
+}
+

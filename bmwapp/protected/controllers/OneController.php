@@ -32,15 +32,20 @@ class OneController extends Controller {
         $name_title = $video = $description = array(); 
     	
     	//topicnav
-        $topicnav = $this->topicnav->selectTopicnav(array('type_id'=>1,'status'=>0));
-    	foreach($topicnav as $k=>$val)
+        $topicnav = $this->topicnav->selectTopicnav(array('type_id'=>1,'status'=>0),'','','id ASC');
+    	
+        foreach($topicnav as $k=>$val)
     	{
     	    $name_title[] = $val['name'];
     		if( !empty($val['media_url']))
     	    {
     		  $video[] = $val['media_url'];
     	    }
-    	    $description[] = $val['description'];
+    	    
+    	    if( !empty($val['description']))
+    	    {
+    	       $description[] = $val['description'];
+    	    }
     	}
     	
     	//works  
@@ -52,9 +57,10 @@ class OneController extends Controller {
            'image_list'=>$image_list,
            'topicnav'=>$topicnav,
            'name_title'=>array_unique($name_title),
-           'description'=>array_slice($description, 3), 
-    	   'video'      =>$video,
+           'description'=>array_slice($description,0, 3), 
+    	   'video'      =>array_slice($video,0,3)
     	);
+    	
     	$this->render('/index/one',$data);
     }
 

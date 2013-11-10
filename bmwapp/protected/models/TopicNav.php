@@ -130,7 +130,7 @@ class TopicNav extends CActiveRecord
            $limit_sned ='';
         }
         $sql = sprintf("SELECT `id`,`type_id`,`name`,`description`,`status`,`media_url`,`update_time`,`create_time` FROM %s where %s order by %s  %s",$this->tableName(),$where,$order_list,$limit_sned);
-        
+        //echo $sql;
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
 	
