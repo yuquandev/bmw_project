@@ -21,7 +21,7 @@ function com_dialog(act){
         '</div>',
     '</div>'].join('');
 
-    var reg_html = ['<div class="zc_tck mydiv" id="popDiv2"  style="display:none;">',
+    var reg_html = ['<div class="zc_tck mydiv" id="popDiv2"  style="display:none; height:auto;">',
         '<div class="zc_tck_title"><span>注册账号</span><a href="javascript:closeDiv2()"><img src="/img/bm_gb.jpg" /></a></div>',
         '<div class="zc_tck_main"><table width="100%" border="0" cellspacing="0" cellpadding="0">',
                 '<tr><td width="13%" height="42" align="right" valign="middle"><strong>用户名：</strong></td>',
@@ -62,19 +62,17 @@ function com_dialog(act){
         '<td height="40" align="right" valign="middle"><strong>图片地址：</strong></td>',
         '<td height="40" align="left" valign="middle"><div id="divFileProgressContainer" style="display: none;"></div><input name="" type="text" class="zck_text4" id="bm_uploads_name"/><input type="hidden" id="bm_uploads_url" value="" /></td>',
         '<td height="40" align="left" valign="middle"><div id="spanButtonPlaceholder"></div></td>',
-        '</tr><tr><div id="thumbnails" ><img style="margin: 5px; vertical-align: middle; opacity: 1;width: 200px;" src="" /></div></tr>',
+        '</tr>',
         '<tr>',
         '<td height="100" align="right" valign="top"><strong>活动宣言：</strong></td>',
         '<td height="100" align="left" valign="middle"><textarea name="" cols="" rows="" class="zck_xy"></textarea></td>',
         '<td height="100" align="left" valign="middle">&nbsp;</td>',
         '</tr>',
-        '<tr>',
-        '<td height="56" align="right" valign="middle">&nbsp;</td>',
-        '<td height="56" align="left" valign="middle"><input name="" type="button" class="tck_an" value="立即提交" style="margin-left:0" /></td>',
-        '<td height="56" align="left" valign="middle">&nbsp;</td>',
-        '</tr>',
         '</table>',
-        '</div>',
+        '<div style="padding-left: 80px;"><input name="" type="button" class="tck_an" value="立即提交" style="margin-left:0" />',
+            '<div id="thumbnails" >',
+            '<img style="margin: 5px; vertical-align: middle; opacity: 1;width: 200px;" src="" /></div>',
+            '</div></div>',
         '</div>'].join('');
 
     if (act == 'login'){
@@ -254,7 +252,7 @@ function base_upload_success(file, serverData) {
             $('#divFileProgressContainer').css("display","none");
             $('#bm_uploads_name').val($('.progressName').html());
             $('#bm_uploads_url').val(serverData);
-
+            $('#popDiv').css('height','444px');
             progress.setStatus("Upload Complete.");
             progress.toggleCancel(false);
         } else if(serverData == '') {
