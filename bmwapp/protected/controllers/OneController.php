@@ -12,7 +12,7 @@ class OneController extends Controller {
     public  $layout = "layout_bm";
 	public  $top;   //微博
     public  $nav;   //导航
-   
+    public $userinfo = array();
     private $works;
     private $user;
 	private $topicimage;
@@ -22,6 +22,8 @@ class OneController extends Controller {
         $this->user      = new User();
         $this->topicimage  = new TopicImage();
         $this->topicnav    = new TopicNav();
+        include_once(Yii::app()->params['root_dir'].'protected/controllers/UserController.php');
+        $this->userinfo = UserController::getuserinfo();
 	}
     //BMW  INDEX 3X
     public function actionIndex()
