@@ -282,10 +282,10 @@ class AdminController extends Controller {
     public function actionNavStat(){
         $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
         $stat = isset($_POST['stat']) ? intval($_POST['stat']) : 0;
-        if (!empty($id) && !empty($stat)){
+        if (!empty($id)){
             if ($stat == 1){
-                $stat = 2;
-            }else if ($stat == 2) {
+                $stat = 0;
+            }else if ($stat == 0) {
                 $stat = 1;
             }
             $res = $this->topic_nav->set_nav_status($id,$stat);
@@ -346,10 +346,10 @@ class AdminController extends Controller {
     public function actionImgstat(){
         $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
         $stat = isset($_POST['stat']) ? intval($_POST['stat']) : 0;
-        if (!empty($id) && !empty($stat)){
+        if (!empty($id)){
             if ($stat == 1){
-                $stat = 2;
-            }else if ($stat == 2) {
+                $stat = 0;
+            }else if ($stat == 0) {
                 $stat = 1;
             }
             $res = $this->topic_image->set_img_status($id,$stat);
