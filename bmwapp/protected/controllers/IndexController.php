@@ -57,7 +57,7 @@ class IndexController extends Controller {
         $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>2),0,8);
     	//footer img
         $image_list = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0),0,12);
-      
+        
         $data = array(
            'topicnav'=>$topicnav,
            'works'=>$works,
@@ -139,7 +139,12 @@ class IndexController extends Controller {
        }
        
        $all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>$type));
-       
+       foreach($all_img as $key=>$v)
+       {
+           if($v['id'] == $id){
+              unset($all_img[$key]);
+           }
+       }
        $data = array(
           'one_img'=>$one_img,
           'all_img'=>$all_img
