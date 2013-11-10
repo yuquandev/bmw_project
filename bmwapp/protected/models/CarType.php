@@ -135,4 +135,17 @@ class CarType extends CActiveRecord
         return $res;
     }
 
+    //删除详情
+    public function del_id($id){
+        $sql = sprintf("delete from car_type_tbl where type_id = %d;",$id);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
+
+    public function set_cartype_info($type_id,$name){
+        $sql = sprintf("update car_type_tbl set name = '%s' where type_id = %d",$name,$type_id);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
+
 }

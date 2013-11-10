@@ -71,13 +71,14 @@ class AdminController extends Controller {
         $username = isset($_POST['username']) ? trim($_POST['username']) : '';
         $password = isset($_POST['password']) ? trim($_POST['password']) : '';
 
+        $msg = '';
         if (empty($username) || empty($password)){
-            echo "参数错误";
+            $msg = "请出入用户名和密码";
         }else {
             $userinfo = $this->admin_user->get_admin_info_by_name($username);
 
             if ( $userinfo['password'] != md5($password.$userinfo['salt'])){
-                echo "密码错误";
+                $msg =  "密码错误";
             }else {
                 $lifeTime = 60*60;
                 $time = time();
@@ -89,7 +90,8 @@ class AdminController extends Controller {
             }
         }
 
-        $this->render("/admin/login");
+        $data = array('msg'=>$msg,'userinfo'=>$username,'password'=>$password);
+        $this->render("/admin/login",$data);
     }
 
     public function actionLogout(){
@@ -239,8 +241,13 @@ class AdminController extends Controller {
     //添加汽车分类
     public function actionAddcardtype(){
         $name = isset($_POST['name']) ? trim($_POST['name']) : '';
+        $type_id = isset($_POST['type_id']) ? intval($_POST['type_id']) : 0;
         if (!empty($name)){
-            $this->car_type->add_cartype_info($name);
+            if (empty($type_id)){
+                $this->car_type->add_cartype_info($name);
+            }else {
+                $this->car_type->set_cartype_info($type_id,$name);
+            }
         }
     }
 
@@ -372,11 +379,32 @@ class AdminController extends Controller {
                 $res = $this->works->set_work_recommend($id,$stat);
             }
             if($res){
-                echo json_encode(array('status'=>'success','res'=>$res));
+                echo json_encode(array('status'=>'success','res'=>$res));exit();
             }else {
-                echo json_encode(array('status'=>'fails'));
+                echo json_encode(array('status'=>'fails'));exit();
             }
         }
+        echo json_encode(array('status'=>'fails'));exit();
+    }
+
+    public function actionAjaxdelid(){
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+        $act = isset($_POST['act']) ? trim($_POST['act']) : 0;
+        if (!empty($id)){
+            if ($act == 'car_type'){
+                $res = $this->car_type->del_id($id);
+            }else if($act == 'topic_nav'){
+                $res = $this->topic_nav->del_id($id);
+            }else if ($act == 'topic_image'){
+                $res = $this->topic_image->del_id($id);
+            }
+            if($res){
+                echo json_encode(array('status'=>'success','res'=>$res));exit();
+            }else {
+                echo json_encode(array('status'=>'fails'));exit();
+            }
+        }
+        echo json_encode(array('status'=>'fails'));exit();
     }
 
 }

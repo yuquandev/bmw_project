@@ -10,17 +10,17 @@
         <div class="row-fluid">
             <div class="well span5 center login-box">
                 <div class="alert alert-info">
-                    Please login with your Username and Password.
+                    <?php echo $msg;?>
                 </div>
                 <form class="form-horizontal" action="/index.php/admin/login" method="post">
                     <fieldset>
                         <div class="input-prepend" title="Username" data-rel="tooltip">
-                            <span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10" name="username" id="username" type="text" value="admin" />
+                            <span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10" name="username" id="username" type="text" value="<?php echo $userinfo;?>" />
                         </div>
                         <div class="clearfix"></div>
 
                         <div class="input-prepend" title="Password" data-rel="tooltip">
-                            <span class="add-on"><i class="icon-lock"></i></span><input class="input-large span10" name="password" id="password" type="password" value="admin" />
+                            <span class="add-on"><i class="icon-lock"></i></span><input class="input-large span10" name="password" id="password" type="password" value="<?php echo $password;?>" />
                         </div>
                         <div class="clearfix"></div>
 

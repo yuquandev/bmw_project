@@ -35,8 +35,8 @@
         </div>-->
         <?php foreach ($this->car_list as $k=>$v){?>
             <div title="专题页 - <?php echo $v['name'];?>" data-options="" style="padding:10px;">
-                <li style="padding-bottom: 10px;">[<a href="javascript:void(0);" onclick="">专题名称修改</a>]</li>
-                <li style="padding-bottom: 10px;">[<a href="javascript:void(0);" onclick="add_nav_dialog(<?php echo $v['type_id'];?>);">新建导航</a>]</li>
+                <li style="padding-bottom: 10px;">[<a href="javascript:void(0);" onclick="add_car_dialog(<?php echo $v['type_id'];?>,'<?php echo $v['name'];?>');">修改专题</a>]  [<a href="javascript:void(0);" onclick="confirm_dialog(<?php echo $v['type_id'];?>,'car_type');">删除专题</a>]</li>
+                <li style="padding-top: 10px;padding-bottom: 10px;">[<a href="javascript:void(0);" onclick="add_nav_dialog(<?php echo $v['type_id'];?>);">新建导航</a>]</li>
                 <?php foreach ($this->nav_list as $kk=>$vv){
                     if ($vv['type_id'] == $v['type_id']){?>
                         <li style="padding-bottom: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="get_nav_info(<?php echo $vv['id'];?>);"><?php echo $vv['name'];?></a></li>
@@ -88,6 +88,7 @@
     </div>
     <input id="t_img_url"  type="hidden" class="easyui-validatebox"  required="true" runat="server" /><br />
 </div>
+<div id="dd"><div style="padding: 18px;">确定要删除吗？</div></div>
 <script type="text/javascript">
     $('#tt').tree({
         onClick: function(node){

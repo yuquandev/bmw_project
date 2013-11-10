@@ -214,7 +214,7 @@ function reload_datagrid(table,title,columns,id){
                     }
                     if (n == 'image_url'){
                         row[n] = '<img src="'+row[n]+'" height="100" />';
-                        row['editor'] = '<a href="javascript:void(0);" onclick="add_topic_img('+row['id']+','+tmp+');">修改</a>';
+                        row['editor'] = '<a href="javascript:void(0);" onclick="add_topic_img('+row['id']+','+tmp+');">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'topic_image\')">删除</a>';
                     }
 
                 }
@@ -254,7 +254,12 @@ function reload_datagrid(table,title,columns,id){
 }
 
 //开启汽车分类对话框
-function add_car_dialog() {
+function add_car_dialog(type_id,name) {
+    type_id = type_id || 0;
+    name = name || '';
+    if(type_id > 0){
+        $('#car_type_name').val(name);
+    }
     $('#mydialog').show();
     $('#mydialog').dialog({
         collapsible: false,
@@ -266,14 +271,14 @@ function add_car_dialog() {
             handler: function() {
                 $.ajax({url: '/index.php/admin/addcardtype?_n='+ new Date().getTime(),
                     type: 'POST',
-                    data: {name : $('#car_type_name').val()},
+                    data: {name : $('#car_type_name').val(),type_id:type_id},
                     dataType: 'text',
                     beforeSend : function(){
                     },
                     error: function(){
                     },
                     success: function(data){
-                        //location.href = '/index.php/admin';
+                        location.href = '/index.php/admin';
                     },
                     complete : function(){
                     }
@@ -368,8 +373,9 @@ function get_nav_info(id){
         },
         success: function(data){
             //location.href = '/index.php/admin';
-            $('#main_button').html('<a href="javascript:void(0)" id="update_btn"></a><a href="javascript:void(0)" id="status_btn"></a>');
+            $('#main_button').html('<a href="javascript:void(0)" id="update_btn"></a><a href="javascript:void(0)" id="status_btn"></a><a href="javascript:void(0)" id="del_btn"></a>');
             bulid_button('update_btn','修改');
+            bulid_button('del_btn','删除');
             if (data.status == 1){
                 bulid_button('status_btn','启动');
                 var stat = '已关闭';
@@ -386,6 +392,10 @@ function get_nav_info(id){
 
             $('#update_btn').click(function(){
                 add_nav_dialog(data.type_id,data);
+            });
+
+            $('#del_btn').click(function(){
+                confirm_dialog(data.id,'topic_nav');
             });
 
 
@@ -514,6 +524,7 @@ function set_image_stat(id,stat){
     });
 }
 
+//设置作品
 function set_work_stat(id,stat,act){
     $.ajax({url: '/index.php/admin/workstat?_n='+ new Date().getTime(),
         type: 'POST',
@@ -524,7 +535,7 @@ function set_work_stat(id,stat,act){
         error: function(){
         },
         success: function(data){
-            //location.href = '/index.php/admin';ç
+            //location.href = '/index.php/admin';
             if (data.status == 'success'){
                 $('#dg').datagrid('reload');
             }if (data.status == 'fails'){
@@ -536,7 +547,58 @@ function set_work_stat(id,stat,act){
     });
 }
 
+function confirm_dialog(id,act){
+    $('#dd').dialog({
+        title: '删除提示',
+        width: 220,
+        height: 130,
+        collapsible: false,
+        minimizable: false,
+        maximizable: false,
+        buttons: [{
+            text: '确定',
+            iconCls: '',
+            handler: function() {
+                ajax_del_id(id,act);
+            }
+        }, {
+            text: '取消',
+            handler: function() {
+                $('#dd').dialog('close');
+            }
+        }]
+    });
+}
 
+//删除模块
+function ajax_del_id(id,act){
+    $.ajax({url: '/index.php/admin/ajaxdelid?_n='+ new Date().getTime(),
+        type: 'POST',
+        data: {id : id, act : act},
+        dataType: 'json',
+        beforeSend : function(){
+        },
+        error: function(){
+        },
+        success: function(data){
+            if (data.status == 'success'){
+                if (act == 'car_type'){
+                    location.href = '/index.php/admin';
+                }else if (act == 'topic_nav'){
+                    location.href = '/index.php/admin';
+                }else if (act == 'topic_image'){
+                    $('#dg').datagrid('reload');
+                    $('#dd').dialog('close');
+                }
+                //$('#dg').datagrid('reload');
+            }if (data.status == 'fails'){
+                alert('提交失败');
+            }
+        },
+        complete : function(){
+        }
+    });
+}
 
 
 

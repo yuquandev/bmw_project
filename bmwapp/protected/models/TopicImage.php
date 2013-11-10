@@ -193,4 +193,10 @@ class TopicImage extends CActiveRecord
         return $res;
     }
 
+    //删除详情
+    public function del_id($id){
+        $sql = sprintf("delete from topic_image_tbl where id = %d;",$id);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
 }     

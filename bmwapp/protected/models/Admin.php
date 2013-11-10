@@ -124,4 +124,17 @@ class Admin extends CActiveRecord
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }
+
+    public function get_user_list($page=1,$rows=10){
+        $offset = ($page-1) * $rows;
+        $sql = sprintf("SELECT * FROM `admin_tbl` order by id desc LIMIT %d, %d",$offset,$rows);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+
+    public function get_user_total(){
+        $sql = sprintf("SELECT count(1) as total FROM admin_tbl");
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
 }
