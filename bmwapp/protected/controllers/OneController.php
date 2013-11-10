@@ -52,7 +52,7 @@ class OneController extends Controller {
            'image_list'=>$image_list,
            'topicnav'=>$topicnav,
            'name_title'=>array_unique($name_title),
-           'description'=>$description,
+           'description'=>array_slice($description, 3), 
     	   'video'      =>$video,
     	);
     	$this->render('/index/one',$data);
@@ -93,7 +93,7 @@ class OneController extends Controller {
        $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
        $page_limit = 16;
        
-       $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>1),$page,$page_limit);
+       $works = $this->works->selectWork(array('review'=>0,'type'=>1),$page,$page_limit);
        $count_number = $this->works->countWork(array('recommend'=>0,'review'=>0,'type'=>1));
        
        $page_html = $this->page_limit($count_number,$page,$page_limit,4);

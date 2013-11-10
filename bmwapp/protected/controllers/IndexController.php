@@ -33,7 +33,7 @@ class IndexController extends Controller {
     	$name_title = $video = $description = array(); 
     	
     	//topicnav
-        $topicnav = $this->topicnav->selectTopicnav(array('type_id'=>2,'status'=>0));
+        $topicnav = $this->topicnav->selectTopicnav(array('type_id'=>2,'status'=>0),0,0,'id ASC');
     	foreach($topicnav as $k=>$val)
     	{
     	    $name_title[] = $val['name'];
@@ -43,9 +43,8 @@ class IndexController extends Controller {
     	    }
     	    $description[] = $val['description'];
     	}
-    	//var_dump(array_unique($name_title))."<br>";
-    	//var_dump($description);
-        //works  
+    	
+    	//works  
         $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>2),0,8);
     	//footer img
         $image_list = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0),0,12);
@@ -100,7 +99,7 @@ class IndexController extends Controller {
        $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
        $page_limit = 8;
        
-       $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>2),$page,$page_limit);
+       $works = $this->works->selectWork(array('review'=>0,'type'=>2),$page,$page_limit);
        $count_number = $this->works->countWork(array('recommend'=>0,'review'=>0,'type'=>2));
        
        $page_html = $this->page_limit($count_number,$page,$page_limit,4);
