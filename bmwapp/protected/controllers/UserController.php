@@ -153,4 +153,56 @@ class UserController extends Controller {
         echo json_encode(array('status'=>'falis','msg'=>'请出入用户名和密码'));exit();
     }
 
+    public function actionAjax_join(){
+        if (self::$is_login){
+            //$this->redirect("/index.php");
+            echo json_encode(array('status'=>'success','msg'=>'登陆成功'));exit();
+        }
+
+        $username = isset($_POST['username']) ? trim($_POST['username']) : '';
+        $nickname = isset($_POST['nickname']) ? trim($_POST['nickname']) : '';
+        $password = isset($_POST['password']) ? trim($_POST['password']) : '';
+        $password_confim = isset($_POST['password_confim']) ? trim($_POST['password_confim']) : '';
+        $telephone = isset($_POST['telephone']) ? intval($_POST['telephone']) : '';
+
+        if (!empty($username) && !empty($password) && !empty($telephone) && ($password == $password_confim)){
+            $userinfo = $this->user->get_userinfo_by_username($username);
+            if (!empty($userinfo)){
+                //echo "已经被注册了";
+                echo json_encode(array('status'=>'falis','msg'=>'已经被注册了'));exit();
+            }else {
+                $salt = rand(1,32767);
+                $password = md5($password.$salt);
+                $ip = self::get_client_ip();
+                $data = array(
+                    'username'  =>  $username,
+                    'nickname'  =>  $nickname,
+                    'password'  =>  $password,
+                    'salt'      =>  $salt,
+                    'telephone' =>  $telephone,
+                    'ip'        =>  $ip
+                );
+                $res = $this->user->add_user_info($data);
+                if ($res){
+                    $life_time = 60*60;
+                    $time = time();
+                    setcookie('bmw_ses', md5($res.UserController::LOGIN_KEY.$username.$time), $time+$life_time, "/");
+                    setcookie('bmw_username', $username, $time + $life_time, "/");
+                    setcookie('bmw_uid', $res, $time + $life_time, "/");
+                    setcookie('bmw_t', $time, $time + $life_time, "/");
+                    //echo "注册成功";
+                    echo json_encode(array('status'=>'success','msg'=>'注册成功'));exit();
+                }else {
+                    //echo "注册失败";
+                    echo json_encode(array('status'=>'falis','msg'=>'注册失败'));exit();
+                }
+            }
+        }else {
+            //echo "参数错误";
+            echo json_encode(array('status'=>'falis','msg'=>'参数错误'));exit();
+        }
+
+        //$this->render("/user/join");
+    }
+
 }
