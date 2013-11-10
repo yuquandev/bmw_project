@@ -37,7 +37,7 @@
         <div class="bm_hd_main bm_hd_main2" id="menuTabcontent012_12">
         	<div class="bm_hd_left">
         	<?php if (!empty($this->userinfo)){?>
-        	<a href="javascript:void(0);" onclick="uplade_img(1);">
+        	<a href="javascript:void(0);" onclick="com_dialog('uploads');">
         	<?php }else {?>
         	<a href="javascript:com_dialog('login')">
         	<?php }?>
@@ -50,7 +50,7 @@
         <div class="bm_hd_main bm_hd_main2" style="display:none" id="menuTabcontent012_11">
         	<div class="bm_hd_left">
         	<?php if (!empty($this->userinfo)){?>
-        	<a href="javascript:void(0);" onclick="uplade_img(1);">
+        	<a href="javascript:void(0);" onclick="com_dialog('uploads');">
         	<?php }else {?>
         	<a href="javascript:com_dialog('login')">
         	<?php }?>
@@ -64,7 +64,7 @@
         <div class="bm_hd_main bm_hd_main2" id="menuTabcontent012_10" style="display:none">
         	<div class="bm_hd_left">
         	<?php if (!empty($this->userinfo)){?>
-        	<a href="javascript:void(0);" onclick="uplade_img(1);">
+        	<a href="javascript:void(0);" onclick="com_dialog('uploads');">
         	<?php }else {?>
         	<a href="javascript:com_dialog('login')">
         	<?php }?>
@@ -184,7 +184,7 @@
 
 <span id="uplode_img"></span>
 
-
+<input type="hidden" id="ty_id" value="<?php echo $this->type;?>">
 
 <div id="bg" class="bg" style="display:none;"></div>
 <iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>

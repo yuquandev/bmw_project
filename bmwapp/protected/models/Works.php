@@ -195,15 +195,15 @@ class Works extends CActiveRecord
      */
     public function insertWork($array)
     {
-        $k  = $r = array();
+        $ky  = $ry = array();
     	if( is_array($array) )
         {
            foreach($array as $key=>$val){
-                  $key[] = "`$k`";
-                  $row[] = "'$val'";
+                  $ky[] = "`$key`";
+                  $ry[] = "'$val'";
             }
-    		$k  = implode(',',$key);
-    		$r  = implode(',',$row);
+    		$k  = implode(',',$ky);
+    		$r  = implode(',',$ry);
             $time = date('Y-m-d H:i:s');
         }else{
            return false;

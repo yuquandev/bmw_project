@@ -13,12 +13,12 @@ class IndexController extends Controller {
 	public  $top;   //微博
     public  $nav;   //导航
     public $userinfo = array();
-   
+    public $type;
     private $works;
     private $user;
 	private $topicimage;
 	private $topicnav;
-
+   
     public function init(){
         $this->works       = new Works();
         $this->user        = new User();
@@ -26,6 +26,7 @@ class IndexController extends Controller {
         $this->topicnav    = new TopicNav();
         include_once(Yii::app()->params['root_dir'].'protected/controllers/UserController.php');
         $this->userinfo = UserController::getuserinfo();
+        $this->type = 2;
     }
     //BMW  INDEX 3X
     public function actionIndex()
@@ -152,7 +153,7 @@ class IndexController extends Controller {
        
        $this->render('footerimg',$data);
     }
-
+    //图片上传
     public function actionUploads(){
 
         if (!isset($_FILES["Filedata"]) || !is_uploaded_file($_FILES["Filedata"]["tmp_name"]) || $_FILES["Filedata"]["error"] != 0) {

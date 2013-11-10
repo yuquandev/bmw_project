@@ -145,7 +145,7 @@
 </div>
 <!--上传图片-->
 <span id="uplode_img"></span>
-
+<input type="hidden" id="ty_id" value="<?php echo $this->type;?>">
 <!--注册账号-->
 
 <!--登陆与注册-->

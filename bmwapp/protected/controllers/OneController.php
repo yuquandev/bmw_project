@@ -17,6 +17,7 @@ class OneController extends Controller {
     private $user;
 	private $topicimage;
 	private $topicnav;
+	 public $type;
     public function init(){
         $this->works     = new Works();
         $this->user      = new User();
@@ -24,6 +25,7 @@ class OneController extends Controller {
         $this->topicnav    = new TopicNav();
         include_once(Yii::app()->params['root_dir'].'protected/controllers/UserController.php');
         $this->userinfo = UserController::getuserinfo();
+        $this->type = 1;
 	}
     //BMW  INDEX 3X
     public function actionIndex()

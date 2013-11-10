@@ -9,9 +9,12 @@ class ApiController extends Controller {
 
     private $vote_log_tbl;
     private $works;
+    public $userinfo = array();
 	public function init(){
         $this->vote_log_tbl = new VoteLog();  //作品投票
         $this->works        = new Works();
+        include_once(Yii::app()->params['root_dir'].'protected/controllers/UserController.php');
+        $this->userinfo = UserController::getuserinfo();
 	}
        
     /**
@@ -41,6 +44,36 @@ class ApiController extends Controller {
        }
     }
 
+   public function actionuplodewords()
+   {
+   	   if(!$this->userinfo['uid'])
+   	   {
+   	   	    return false;
+   	   }
+   	   $title = isset($_POST['title']) ? trim($_POST['title']) : '';
+   	   $file  = isset($_POST['file']) ? trim($_POST['file']) :   '';
+   	   $text  = isset($_POST['text']) ? trim($_POST['text']) :   '';
+	   $type  = isset($_POST['type']) ? intval($_POST['type']) :   '';
+   	   $uplade = $this->works->insertWork(array(
+	                             'user_id'=>$this->userinfo['uid'],
+	                             'name'=>$title,
+	                             'img_url'=>$file,
+	                             'description'=>$text,
+	                             'status'=>1,
+	                             'review'=>1,
+	                             'recommend'=>1,
+	                             'type'=>$type
+	    )); 
+      
+   	   if($uplade){ 
+          echo json_encode(array('status'=>'true'));	
+       }else{  
+          echo json_encode(array('status'=>'false'));
+       }
+   }
+   
+   
+   
    /**
      * 获取当前登录的ip
      * @return string ip地址
@@ -58,6 +91,8 @@ class ApiController extends Controller {
         }
         return $ip;
     }
+
+
 
 }
 
