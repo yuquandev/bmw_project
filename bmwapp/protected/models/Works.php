@@ -195,19 +195,20 @@ class Works extends CActiveRecord
      */
     public function insertWork($array)
     {
-        if( is_array($array) )
+        $k  = $r = array();
+    	if( is_array($array) )
         {
            foreach($array as $key=>$val){
                   $key[] = "`$k`";
                   $row[] = "'$val'";
             }
-    		$key  = implode(',',$key);
-    		$row  = implode(',',$row);
+    		$k  = implode(',',$key);
+    		$r  = implode(',',$row);
             $time = date('Y-m-d H:i:s');
         }else{
            return false;
         }
-    	$sql = sprintf("INSERT INTO %s ( %s ,`create_time`) VALUES ( %s ,'$time')",$this->tableName(),$key,$row);
+    	$sql = sprintf("INSERT INTO %s ( %s ,`create_time`) VALUES ( %s ,'$time')",$this->tableName(),$k,$r);
         $res = Yii::app()->db->createCommand($sql)->execute();
         return $res;
     }

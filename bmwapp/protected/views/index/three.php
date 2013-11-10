@@ -56,10 +56,10 @@
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu">
                 	<div class="bm_3x_st">
-                        <div class="bm_3x_bt"><a href="#">运动王者 领衔起跑</a></div>
+                        <div class="bm_3x_bt"><a><?php if(isset($video_title[0])){ echo $video_title[0]; }?></a></div>
                         <div class="bm_3x_sp">
                         
-                        <embed height="243" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="<?php if(isset($video[0])){ echo $video[0]; }?>" type="application/x-shockwave-flash" wmode="Opaque">
+                        <embed height="243" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="<?php if(isset($video_url[0])){ echo $video_url[0]; }?>" type="application/x-shockwave-flash" wmode="Opaque">
                         
                         </div>
                 	</div>

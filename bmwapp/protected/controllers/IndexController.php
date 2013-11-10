@@ -40,14 +40,19 @@ class IndexController extends Controller {
         $topicnav = $this->topicnav->selectTopicnav(array('type_id'=>2,'status'=>0),'','','id ASC');
     	foreach($topicnav as $k=>$val)
     	{
-    	    $name_title[] = $val['name'];
-    		if( !empty($val['media_url']))
+    	    if($val['name'] && empty($val['media_url']))
     	    {
-    		  $video[] = $val['media_url'];
+    	       $name_title[] = $val['name'];
+    	       $description[] = $val['description'];
     	    }
-    	    $description[] = $val['description'];
+    		
+    		if($val['name'] && $val['media_url'])
+    		{
+    		    $video_title[] = $val['media_url'];
+    			$video_url[] = $val['media_url'];
+    		}
     	}
-    	
+    	//var_dump($video_url);die;
     	//works  
         $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>2),0,8);
     	//footer img
@@ -55,11 +60,12 @@ class IndexController extends Controller {
       
         $data = array(
            'topicnav'=>$topicnav,
-           'name_title'=>array_unique($name_title),
-           'description'=>$description,
-    	   'video'      =>$video,
            'works'=>$works,
            'image_list'=>$image_list,
+            'name_title'=>$name_title,
+           'description'=>$description, 
+    	   'video_title'=>$video,
+    	   'video_url'  =>$video_url,
     	);
     	$this->render('three',$data);
     }

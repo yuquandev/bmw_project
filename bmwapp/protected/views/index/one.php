@@ -77,14 +77,15 @@
                         <div id="focus">
                             <div class="hd">
                             <div class="focus-title" id="focus-title">
-                                <a href="#">Movement of Kings</a>
-                                <a href="#">the launching</a>
-                                <a href="#">Movement of Kings</a>
+                                
+                                <?php foreach($video_title as $val):?>
+                                <a><?php echo $val;?></a>
+                                <?php endforeach;?>
                             </div>
                                 </div>
                                 <div class="focus-bar-box" id="focus-bar-box">
                                   <ul class="focus-bar">
-                                   <?php foreach($video as $vdo):?>
+                                   <?php foreach($video_url as $vdo):?>
                                     <li> <embed height="243" width="401" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="<?php if(isset($vdo)){ echo $vdo; }?>" type="application/x-shockwave-flash" wmode="Opaque"></li>
                                    <?php endforeach;?>
                                   </ul>
