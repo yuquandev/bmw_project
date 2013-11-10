@@ -16,23 +16,46 @@ class IndexController extends Controller {
     private $works;
     private $user;
 	private $topicimage;
+	private $topicnav;
     public function init(){
         $this->works       = new Works();
         $this->user        = new User();
 	    $this->topicimage  = new TopicImage();
+        $this->topicnav    = new TopicNav();
     }
     //BMW  INDEX 3X
     public function actionIndex()
     {
         $this->nav = '2x';  //定义导航样式
     	$this->top = true;
+        
+    	
+    	$name_title = $video = $description = array(); 
+    	
+    	//topicnav
+        $topicnav = $this->topicnav->selectTopicnav(array('type_id'=>2,'status'=>0));
+    	foreach($topicnav as $k=>$val)
+    	{
+    	    $name_title[] = $val['name'];
+    		if( !empty($val['media_url']))
+    	    {
+    		  $video[] = $val['media_url'];
+    	    }
+    	    $description[] = $val['description'];
+    	}
+    	//var_dump(array_unique($name_title))."<br>";
+    	//var_dump($description);
         //works  
         $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>2),0,8);
     	//footer img
         $image_list = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0),0,12);
-       
+      
         $data = array(
-    	   'works'=>$works,
+           'topicnav'=>$topicnav,
+           'name_title'=>array_unique($name_title),
+           'description'=>$description,
+    	   'video'      =>$video,
+           'works'=>$works,
            'image_list'=>$image_list,
     	);
     	$this->render('three',$data);
@@ -89,7 +112,31 @@ class IndexController extends Controller {
        $this->render('threemoer',$data);
     }
 
-    
-    
+    //轮播详细
+    public function actionfooterlg()
+    {
+       
+       $id_type = isset($_GET['id']) ? trim($_GET['id']) : '';
+       if( strpos($id_type, ',') !==false )
+       {
+          list($id,$type) = explode(',', $id_type);
+       }
+       $this->nav = $type.'x';
+       $array = array();
+       if($id && $type){
+         $one_img = $this->topicimage->getOneTopicImage(array('id'=>$id,'type_id'=>$type));
+       }else{
+         $one_img = '';
+       }
+       
+       $all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>$type));
+       
+       $data = array(
+          'one_img'=>$one_img,
+          'all_img'=>$all_img
+       );
+       
+       $this->render('footerimg',$data);
+    }  
     
 }

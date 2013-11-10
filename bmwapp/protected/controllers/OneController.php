@@ -15,20 +15,45 @@ class OneController extends Controller {
    
     private $works;
     private $user;
-	
+	private $topicimage;
+	private $topicnav;
     public function init(){
         $this->works     = new Works();
         $this->user      = new User();
+        $this->topicimage  = new TopicImage();
+        $this->topicnav    = new TopicNav();
 	}
     //BMW  INDEX 3X
     public function actionIndex()
     {
         $this->nav = '1x';  //定义导航样式
     	$this->top = true;
-        //works  
+        
+        $name_title = $video = $description = array(); 
+    	
+    	//topicnav
+        $topicnav = $this->topicnav->selectTopicnav(array('type_id'=>1,'status'=>0));
+    	foreach($topicnav as $k=>$val)
+    	{
+    	    $name_title[] = $val['name'];
+    		if( !empty($val['media_url']))
+    	    {
+    		  $video[] = $val['media_url'];
+    	    }
+    	    $description[] = $val['description'];
+    	}
+    	
+    	//works  
         $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>1),0,16);
-    	$data = array(
+    	//footer img
+        $image_list = $this->topicimage->selectCarTopicimage(array('type_id'=>1,'status'=>0),0,12);
+        $data = array(
     	   'works'=>$works,
+           'image_list'=>$image_list,
+           'topicnav'=>$topicnav,
+           'name_title'=>array_unique($name_title),
+           'description'=>$description,
+    	   'video'      =>$video,
     	);
     	$this->render('/index/one',$data);
     }
