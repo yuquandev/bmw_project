@@ -136,6 +136,24 @@ class TopicImage extends CActiveRecord
 
 	}
 
+	
+	public function getOneTopicImage($array)
+    {
+        $where =''; 
+    	if( is_array($array) )
+        {
+            foreach($array as $key=>$val)
+            {
+               $where .= "`$key` = '$val' and";  
+            }
+        	$where = substr($where,0,-4); 
+        }else{
+            return false;
+        }
+        $sql = sprintf("SELECT `id`,`type_id`,`name`,`image_url`,`update_time`,`create_time` FROM %s where %s limit 1",$this->tableName(),$where);
+        $res = Yii::app()->db->createCommand($sql)->queryRow();
+        return $res;
+    } 
     //
     public function get_image_list_by_type($type_id,$page=1,$rows=10){
         $offset = ($page-1) * $rows;

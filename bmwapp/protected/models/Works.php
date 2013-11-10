@@ -173,7 +173,8 @@ class Works extends CActiveRecord
      */
     public function getOneWork($array)
     {
-        if( is_array($array) )
+        $where =''; 
+    	if( is_array($array) )
         {
             foreach($array as $key=>$val)
             {

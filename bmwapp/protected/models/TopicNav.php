@@ -122,8 +122,14 @@ class TopicNav extends CActiveRecord
         {
            $order_list = trim($order);
         }
-        $limit_sned = "{$limit},{$limit_offis}";
-        $sql = sprintf("SELECT `id`,`type_id`,`name`,`image_url`,`description`,`media_url`,`update_time`,`create_time` FROM %s where %s order by %s limit %s",$this->tableName(),$where,$order_list,$limit_sned);
+        if( !empty($limit) )
+        {
+            $limit = ($limit - 1) * $limit_offis;
+        	$limit_sned = "limit {$limit},{$limit_offis}";
+        }else{
+           $limit_sned ='';
+        }
+        $sql = sprintf("SELECT `id`,`type_id`,`name`,`description`,`status`,`media_url`,`update_time`,`create_time` FROM %s where %s order by %s  %s",$this->tableName(),$where,$order_list,$limit_sned);
         
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
