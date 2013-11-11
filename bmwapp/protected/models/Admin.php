@@ -137,4 +137,8 @@ class Admin extends CActiveRecord
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }
+
+    public function add_admin_info(){
+
+    }
 }

@@ -313,6 +313,8 @@ function base_upload_success(file, serverData) {
             $('#bm_uploads_name').val($('.progressName').html());
             $('#bm_uploads_url').val(serverData);
             $('#popDiv').css('height','444px');
+            $('#thumbnails img')[0].style.width='200px';
+            $('#thumbnails img')[0].style.height='200px';
             progress.setStatus("Upload Complete.");
             progress.toggleCancel(false);
         } else if(serverData == '') {
