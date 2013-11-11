@@ -105,6 +105,30 @@ class AdminController extends Controller {
         setcookie('bmw_ad_t','', $time - 3600, "/");
         $this->redirect("/index.php/admin/login");
     }
+
+    public function actionAddadmin(){
+        $username = isset($_POST['username']) ? trim($_POST['username']) : '';
+        $password = isset($_POST['password']) ? trim($_POST['password']) : '';
+        if (!empty($username) && !empty($password) ){
+            $userinfo = $this->admin_user->get_admin_info_by_name($username);
+            if (!empty($userinfo)){
+                //echo "已经被注册了";
+                echo json_encode(array('status'=>'fails','msg'=>'已经被注册了'));exit();
+            }else {
+                $salt = rand(1,32767);
+                $password = md5($password.$salt);
+                $ip = self::get_client_ip();
+                $res = $this->admin_user->add_admin_info($username,$password,$salt,$ip);
+                if ($res){
+                    echo json_encode(array('status'=>'success','msg'=>'注册成功'));exit();
+                }else {
+                    echo json_encode(array('status'=>'fails','msg'=>'注册失败'));exit();
+                }
+            }
+        }
+        echo json_encode(array('status'=>'fails','msg'=>'参数错误'));exit();
+    }
+
     //用户管理部分
     //异步获取表的字段名
     public function actionColumns(){

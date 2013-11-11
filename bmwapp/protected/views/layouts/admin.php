@@ -19,7 +19,7 @@
 <div data-options="region:'north'" style="overflow: hidden">
     <div style="padding:5px;border:1px solid #ddd">
         <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true" style="" onclick="add_car_dialog();">新建专题</a>
-        <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true" style="" onclick=";">新建管理员</a>
+        <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true" style="" onclick="ajax_reg_admin();">新建管理员</a>
         <a href="/index.php/admin/logout" class="easyui-linkbutton" data-options="plain:true" style="float:right;">退出</a>
         <a style="float:right;padding-top: 8px;"><?php echo $this->user_info['username'];?></a>
         <div style="clear: both;"></div>
@@ -88,7 +88,13 @@
     </div>
     <input id="t_img_url"  type="hidden" class="easyui-validatebox"  required="true" runat="server" /><br />
 </div>
-<div id="dd"><div style="padding: 18px;">确定要删除吗？</div></div>
+<div id="dd" style="display: none;"><div style="padding: 18px;">确定要删除吗？</div></div>
+<div id="regdialog" style="display:none;padding:10px;width:400px;" title="管理员注册">
+    <label class="lbInfo">用户名：</label>
+    <input id="reg_username" type="text" class="easyui-validatebox" required="true" runat="server" /><br />
+    <label class="lbInfo">密  码：</label>
+    <input id="reg_password" type="password" class="easyui-validatebox" required="true" runat="server" /><br />
+</div>
 <script type="text/javascript">
     $('#tt').tree({
         onClick: function(node){

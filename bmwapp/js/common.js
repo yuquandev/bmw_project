@@ -549,6 +549,7 @@ function set_work_stat(id,stat,act){
 }
 
 function confirm_dialog(id,act){
+    $('#dd').show();
     $('#dd').dialog({
         title: '删除提示',
         width: 220,
@@ -598,6 +599,45 @@ function ajax_del_id(id,act){
         },
         complete : function(){
         }
+    });
+}
+
+function ajax_reg_admin(){
+    $('#regdialog').show();
+    $('#regdialog').dialog({
+        collapsible: false,
+        minimizable: false,
+        maximizable: false,
+        buttons: [{
+            text: '确定',
+            iconCls: '',
+            handler: function() {
+                $.ajax({url: '/index.php/admin/addadmin?_n='+ new Date().getTime(),
+                    type: 'POST',
+                    data: {username : $('#reg_username').val(), password : $('#reg_password').val()},
+                    dataType: 'json',
+                    beforeSend : function(){
+                    },
+                    error: function(){
+                    },
+                    success: function(data){
+                        if (data.status == 'success'){
+                                location.href = '/index.php/admin';
+                            //$('#dg').datagrid('reload');
+                        }if (data.status == 'fails'){
+                            alert(data.msg);
+                        }
+                    },
+                    complete : function(){
+                    }
+                });
+            }
+        }, {
+            text: '取消',
+            handler: function() {
+                $('#regdialog').dialog('close');
+            }
+        }]
     });
 }
 

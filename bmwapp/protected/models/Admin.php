@@ -114,13 +114,13 @@ class Admin extends CActiveRecord
 
     //根据用户名获取管理员信息
     public function get_admin_info_by_name($username,$status=0){
-        $sql = sprintf("SELECT * FROM bmw_cms.admin_tbl WHERE username = '%s' AND STATUS = %d;",$username,$status);
+        $sql = sprintf("SELECT * FROM admin_tbl WHERE username = '%s' AND STATUS = %d;",$username,$status);
         $res = Yii::app()->db->createCommand($sql)->queryRow();
         return $res;
     }
 
     public function get_admin_user_list(){
-        $sql = sprintf("SELECT * FROM bmw_cms.admin_tbl");
+        $sql = sprintf("SELECT * FROM admin_tbl");
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }
@@ -138,7 +138,13 @@ class Admin extends CActiveRecord
         return $res;
     }
 
-    public function add_admin_info(){
-
+    public function add_admin_info($username,$password,$salt,$ip){
+        $sql = sprintf("insert into admin_tbl (username,password,salt,ip,create_time) value ('%s','%s',%d,'%s',NOW())",$username,$password,$salt,$ip);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        if ($res){
+            return Yii::app()->db->getLastInsertID();
+        }else {
+            return 0;
+        }
     }
 }
