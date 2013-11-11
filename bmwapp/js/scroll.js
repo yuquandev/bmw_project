@@ -103,7 +103,7 @@ function Show_menuTab013(menuTabid_num,menuTabnum){
 
 
 
-/*µ¯³ö¿ò*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 
 $(function(){
 	$("#a1").click(function(){
@@ -163,4 +163,13 @@ document.getElementById('popIframe').style.display='none';
 }
 
 
-
+function showDiv4(){
+	document.getElementById('popDiv4').style.display='block';
+	document.getElementById('popIframe').style.display='block';
+	document.getElementById('bg').style.display='block';
+	}
+	function closeDiv4(){
+	document.getElementById('popDiv4').style.display='none';
+	document.getElementById('bg').style.display='none';
+	document.getElementById('popIframe').style.display='none';
+	}

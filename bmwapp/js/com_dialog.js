@@ -14,6 +14,9 @@ function com_dialog(act){
                     '<td width="65%" height="32"><div class="zck_wj"><a href="#">其它方式登陆 | </a><a href="#">忘记密码？</a></div></td>',
                 '</tr>',
                 '<tr>',
+                '<span id="login_text"></span>',
+                '</tr>',
+                '<tr>',
                     '<td height="50"><input name="" type="button" class="tck_an2" value="立即登陆" onclick="bm_login();" /></td>',
                     '<td height="50"><input name="" type="button" class="tck_zc" value="注 册" onclick="com_dialog(\'reg\');"/></td>',
                 '</tr>',
@@ -26,22 +29,22 @@ function com_dialog(act){
         '<div class="zc_tck_main"><table width="100%" border="0" cellspacing="0" cellpadding="0">',
                 '<tr><td width="13%" height="42" align="right" valign="middle"><strong>用户名：</strong></td>',
                     '<td width="42%" height="42" align="left" valign="middle"><input id="reg_username" name="" type="text" class="zck_text3"/></td>',
-                    '<td width="45%" height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="images/tck_pic.jpg" style="display:none"/><span>请输入用户或邮箱</span></div></td></tr>',
+                    '<td width="45%" height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="images/tck_pic.jpg" style="display:none"/><span id="reg_name">请输入用户或邮箱</span></div></td></tr>',
         '<tr><td height="42" align="right" valign="middle"><strong>姓名：</strong></td>',
         '<td height="42" align="left" valign="middle"><input id="reg_nickname" name="" type="text" class="zck_text3"/></td>',
-        '<td height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="images/tck_pic.jpg" style="display:none"/><span>请输入真实姓名</span></div></td>',
+        '<td height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_nkname">请输入真实姓名</span></div></td>',
         '</tr><tr><td height="42" align="right" valign="middle"><strong>手机：</strong></td>',
                     '<td height="42" align="left" valign="middle"><input id="reg_telephone" name="" type="text" class="zck_text3"/></td>',
-                    '<td height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="images/tck_pic.jpg" style="display:none"/><span>请输入手机号码</span></div></td></tr>',
+                    '<td height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_phone">请输入手机号码</span></div></td></tr>',
                 '<tr><td height="42" align="right" valign="middle"><strong>设置密码：</strong></td>',
                     '<td height="42" align="left" valign="middle"><input id="reg_password" name="" type="password" class="zck_text3"/></td>',
-                    '<td height="42" align="left" valign="middle"><div class="tck_pd2"><img src="images/tck_pic.jpg" style="display:none"/><span>密码长度8~16位，数字、字母、<br />字符至少包含两种</span></div></td></tr>',
+                    '<td height="42" align="left" valign="middle"><div class="tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_pwd">密码长度8~16位，数字、字母、<br />字符至少包含两种</span></div></td></tr>',
                 '<tr><td height="42" align="right" valign="middle"><strong>确认密码：</strong></td>',
                     '<td height="42" align="left" valign="middle"><input id="reg_password_confim" name="" type="password" class="zck_text3"/></td>',
-                    '<td height="42" align="left" valign="middle"><div class="tck_pd2"><img src="images/tck_pic.jpg" style="display:none"/><span></span></div></td>',
-                '</tr><!--<tr><td height="50" align="right" valign="middle"><strong>验证码：</strong></td>'+
-                    '<td height="50" align="left" valign="middle"><input name="" type="text" class="zck_text3" style="width:85px;float:left;"/><img src="images/tck_yzm.jpg" style="float:left;margin-left:17px;"/></td>',
-                    '<td height="50" align="left" valign="middle"><div class="tck_pd"><img src="images/tck_pic.jpg" style="display:none"/><span>点击图片刷新验证码</span></div></td></tr>-->',
+                    '<td height="42" align="left" valign="middle"><div class="tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_cpwd"></span></div></td>',
+                '</tr><tr><td height="50" align="right" valign="middle"><strong>验证码：</strong></td>'+
+                    '<td height="50" align="left" valign="middle"><input name="" type="text" class="zck_text3" style="width:85px;float:left;"/><img src="/img/tck_yzm.jpg" style="float:left;margin-left:17px;"/></td>',
+                    '<td height="50" align="left" valign="middle"><div class="tck_pd"><img src="/img/tck_pic.jpg" style="display:none"/><span>点击图片刷新验证码</span></div></td></tr>',
                 '<tr><td height="42" align="right" valign="middle">&nbsp;</td>',
                     '<td height="42" align="left" valign="middle"><input onclick="bm_reg();return false;" name="" type="button" class="tck_an" value="立即注册"/></td>',
                     '<td height="42" align="left" valign="middle">&nbsp;</td></tr>',
@@ -55,17 +58,17 @@ function com_dialog(act){
         '<table width="100%" border="0" cellspacing="0" cellpadding="0">',
         '<tr>',
         '<td width="15%" height="40" align="right" valign="middle"><strong>标题：</strong></td>',
-        '<td width="59%" height="40" align="left" valign="middle"><input name="" id="bmw_title" type="text" class="zck_text4"/></td>',
+        '<td width="59%" height="40" align="left" valign="middle"><input name="" id="bmw_title" type="text" class="zck_text4"/><span id="pop_title"></span></td>',
         '<td width="26%" height="40" align="left" valign="middle">&nbsp;</td>',
         '</tr>',
         '<tr>',
         '<td height="40" align="right" valign="middle"><strong>图片地址：</strong></td>',
-        '<td height="40" align="left" valign="middle"><div id="divFileProgressContainer" style="display: none;"></div><input name="" type="text" class="zck_text4" id="bm_uploads_name"/><input type="hidden" id="bm_uploads_url" value="" /></td>',
+        '<td height="40" align="left" valign="middle"><div id="divFileProgressContainer" style="display: none;"></div><input name="" type="text" class="zck_text4" id="bm_uploads_name"/><input type="hidden" id="bm_uploads_url" value="" /><span id="pop_img"></span></td>',
         '<td height="40" align="left" valign="middle"><div id="spanButtonPlaceholder"></div></td>',
         '</tr>',
         '<tr>',
         '<td height="100" align="right" valign="top"><strong>活动宣言：</strong></td>',
-        '<td height="100" align="left" valign="middle"><textarea name="" id="textconten"  cols="" rows="" class="zck_xy"></textarea></td>',
+        '<td height="100" align="left" valign="middle"><textarea name="" id="textconten"  cols="" rows="" class="zck_xy"></textarea><span id="pop_text"></span></td>',
         '<td height="100" align="left" valign="middle">&nbsp;</td>',
         '</tr>',
         '</table>',
@@ -102,7 +105,7 @@ function bm_login(){
                 //alert(data['msg']);
                 window.location.reload();
             }else if(data['status'] == 'falis'){
-                alert(data['msg']);
+            	$("#login_text").html(data['msg']);
             }
         },
         complete : function(){
@@ -110,7 +113,44 @@ function bm_login(){
     });
 }
 function bm_reg(){
-    $.ajax({url: '/index.php/user/ajax_join?_n='+ new Date().getTime(),
+	
+    if( $("#reg_username").val() == null )
+    {
+    	 $("reg_name").html('请输入用户名'); 
+    	 return false;
+    }else{
+    	 $("reg_name").html('');
+    }
+	if( $("#reg_nickname").val() == null )
+    {
+    	 $("#reg_nkname").html('请输入真实姓名');
+    	 return false;
+    }else{
+    	$("#reg_nkname").html('');
+    }
+	if( $("#reg_telephone").val() == null )
+    {
+    	 $("#reg_phone").html('请输入手机号');
+    	 return false;
+    }else{
+    	$("#reg_phone").html('');
+    }
+	if( $("#reg_password").val() == null ){
+    	$("#reg_pwd").html('请输入密码');
+   	    return false;
+    }else{
+    	$("#reg_pwd").html('');
+    }
+	if( $("#reg_password_confim").val() == null ){
+    	$("#reg_cpwd").html('请输入密码');
+   	    return false;
+    }else{
+    	$("#reg_cpwd").html('');
+    }
+	
+	
+	
+	$.ajax({url: '/index.php/user/ajax_join?_n='+ new Date().getTime(),
         type: 'POST',
         data: {username : $('#reg_username').val(),nickname:$('reg_nickname').val(), password : $('#reg_password').val(),password_confim : $('#reg_password_confim').val(),telephone: $('#reg_telephone').val()},
         dataType: 'json',
@@ -123,7 +163,7 @@ function bm_reg(){
                 //alert(data['msg']);
                 window.location.reload();
             }else if(data['status'] == 'falis'){
-                alert(data['msg']);
+            	alert(data['msg']);
             }
         },
         complete : function(){
@@ -138,22 +178,32 @@ function uplodedata()
     var text  = $("#textconten").val();
     var ty    = $("#ty_id").val();
     if(title == ''){
-        alert('请输入标题'); return false;
+    	 $("#pop_title").html('<span style="color:red;">请填写作品标题!</span>'); 
+    	 return false;
+    }else{
+    	$("#pop_title").html('');
     }
     if(file == ''){
-        alert('请长传张图片吧'); return false;
+    	$("#pop_img").html('<span style="color:red;">请上传作品图片!</span>');
+    	return false;
+    }else{
+    	$("#pop_img").html('');
     }
     if(text ==''){
-    	alert('说点什么吧。'); return false;
+      	$("#pop_text").html('<span style="color:red;">请描述宣言!</span>');
+    	return false;
+    }else{
+    	$("#pop_text").html('');
     }
     var url = '/index.php/api/uplodewords?_j='+ new Date().getTime();
 	$.ajax({'url':url,'data':{'title':title,'file':file,'text':text,'type':ty},type: 'POST','dataType':'json',
 	'success':function(rs){
 	    if(rs.status =='true'){
-	    	 alert('上传成功，请待定审核');
-	    	 window.location.relode();
+	    	 $("#popDiv").css('display','none');
+	    	 pop_msg('上传成功，请等待审核!');
+	    	 //window.location.relode();
 	    }else{
-	    	 alert('上传失败');
+	    	 pop_msg('上传失败，请重新上传!');
 	    }
 	}
 	});
@@ -284,13 +334,30 @@ function top_vote(wid,num)
 	    if(rs == 1){
 
             $('#vote_'+wid).html(parseInt(num) + 1);
-            alert('投票成功');
+            pop_msg('恭喜你，投票成功!');
             
     	}else if(rs == 2){
-	    	alert('投票失败');
+    		pop_msg('投票失败，请不要恶意投票!');
 	    }else{
-            alert('你已经投过该作品了');
+	    	pop_msg('你已经投过票了!');
 	    }
 	}
 	});
 }
+
+function pop_msg(msg)
+{
+    var pop = ['<div class="bm_tp_tck mydiv" id="popDiv4" style="display">',
+               '<div class="bm_tck_title"><span>提示</span><a href="javascript:closeDiv4()">X</a></div>',
+               '<div class="bm_tck_main">',
+	           '<div class="bm_main_sm">',
+               '<img src="/img/bm_tck_pic.jpg" />',
+	           '<span>'+msg+'</span>',
+	           '</div>',
+               '<div class="bm_main_an">',
+               '<input  type="button" class="bm_tck_an" value="确 定" onclick="closeDiv4();" /></div>',
+               '</div>',
+               '</div>'].join('');	
+   $("#popmsg").html(pop);     
+}
+
