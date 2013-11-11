@@ -126,3 +126,16 @@ img{ border:none;}
 .news_page{ height:40px; float:right; padding-top:10px;}
 .news_page_1{ float:left; padding-top:4px; margin-left:4px;}
 .news_page_2{ line-height:28px; float:left; margin-left:4px; margin-right:4px;}
+
+
+/*投票*/
+.bm_tp_tck{ width:498px; height:188px; background:#fff; border:1px solid #b7b7b7;border-radius: 3px 3px 3px 3px;}
+.bm_tck_title{ height:34px; line-height:34px; background:url(/img/bm_tp_tu.jpg) repeat-x;border-radius: 3px 3px 3px 3px;}
+.bm_tck_title span{float:left; padding-left:10px; color:#fff; font-weight:bold; font-size:14px;}
+.bm_tck_title a{float:right; padding-right:10px; color:#fff;}
+.bm_tck_main{ margin:0 auto;  padding:40px; overflow:hidden;}
+.bm_main_sm{ margin:0 auto; padding-left:125px; overflow:hidden;}
+.bm_main_sm img{float:left; padding-right:6px;}
+.bm_main_sm span{ float:left; line-height:30px; font-weight:bold; font-size:14px;}
+.bm_main_an{ margin:0 auto; overflow:hidden; width:93px; text-align:center; margin-top:10px;}
+.bm_tck_an{ background:url(/img/bm_tck_pic2.jpg) repeat-x; width:93px; height:33px; border:none; cursor:pointer; font-size:12px; color:#fff;border-radius: 3px 3px 3px 3px;}
