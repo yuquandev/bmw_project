@@ -1,4 +1,4 @@
-<script type="text/javascript">
+﻿<script type="text/javascript">
 	$(function(){
 			$("#focus").hover(function(){$("#focus-prev,#focus-next").show();},function(){$("#focus-prev,#focus-next").hide();});
 			$("#focus").slide({ 
@@ -181,7 +181,7 @@
     <?php $this->beginContent('//layouts/footer'); ?>
     <?php $this->endContent(); ?>
 </div>
-
+<span id="popmsg"></span>
 <span id="uplode_img"></span>
 
 <div id="com_dialog"></div>

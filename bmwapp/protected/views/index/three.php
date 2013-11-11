@@ -1,4 +1,4 @@
-<div class="bm_index">
+﻿<div class="bm_index">
     <?php $this->beginContent('//index/nav'); ?>
     <?php $this->endContent(); ?>
     <!--活动细则-->
@@ -147,7 +147,7 @@
 <span id="uplode_img"></span>
 <input type="hidden" id="ty_id" value="<?php echo $this->type;?>">
 <!--注册账号-->
-
+<span id="popmsg"></span>
 <!--登陆与注册-->
 
 <div id="com_dialog"></div>
