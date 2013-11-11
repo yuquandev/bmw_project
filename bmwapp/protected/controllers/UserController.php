@@ -11,6 +11,7 @@ class UserController extends Controller {
     #public $layout = "";
     public $user;
     public static $is_login;
+    public $vcode;
     const LOGIN_KEY = 'bmw!_yu*@quan=)';
 
     public function init(){
@@ -169,7 +170,7 @@ class UserController extends Controller {
             $userinfo = $this->user->get_userinfo_by_username($username);
             if (!empty($userinfo)){
                 //echo "已经被注册了";
-                echo json_encode(array('status'=>'falis','msg'=>'已经被注册了'));exit();
+                echo json_encode(array('status'=>'falis','msg'=>'用户名已经被注册了'));exit();
             }else {
                 $salt = rand(1,32767);
                 $password = md5($password.$salt);
@@ -204,5 +205,8 @@ class UserController extends Controller {
 
         //$this->render("/user/join");
     }
-
+    public function actionvcode()
+    {
+         return json_encode($this->authcode());
+    }
 }

@@ -52,13 +52,10 @@ class OneController extends Controller {
     			$video_url[] = $val['media_url'];
     		}
     	}
-    	
-    	
-    	
     	//works  
-        $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>1),0,16);
+        $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>1),1,16);
     	//footer img
-        $image_list = $this->topicimage->selectCarTopicimage(array('type_id'=>1,'status'=>0),0,12);
+        $image_list = $this->topicimage->selectCarTopicimage(array('type_id'=>1,'status'=>0),1,12);
         $data = array(
     	   'works'=>$works,
            'image_list'=>$image_list,
@@ -126,7 +123,7 @@ class OneController extends Controller {
         $this->nav = '1x';
     	$this->top =false;
         //works  
-        $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>1),0,16);
+        $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>1),1,16);
     	$data = array(
     	   'works'=>$works,
     	);

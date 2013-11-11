@@ -55,9 +55,9 @@ class IndexController extends Controller {
     	}
     	//var_dump($video_url);die;
     	//works  
-        $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>2),0,8);
+        $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>2),1,8);
     	//footer img
-        $image_list = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0),0,12);
+        $image_list = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0),1,12);
         
         $data = array(
            'topicnav'=>$topicnav,
