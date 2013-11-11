@@ -170,7 +170,7 @@ function bulid_upload(){
         post_params: {},
 
         // File Upload Settings
-        file_size_limit : "500",
+        file_size_limit : "5000",
         file_types : "*.jpg;*.png;*.jpeg;*.bmp;",
         file_types_description : "JPG Images; PNG Image",
         file_upload_limit : 0,
@@ -205,8 +205,8 @@ function bulid_upload(){
 
         custom_settings : {
             upload_target : "divFileProgressContainer",
-            thumbnail_height: 200,
-            thumbnail_width: 200,
+            //thumbnail_height: 200,
+            //thumbnail_width: 200,
             thumbnail_quality: 100
         },
 
