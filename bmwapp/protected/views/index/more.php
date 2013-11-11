@@ -21,10 +21,7 @@
                     <strong><?php echo $val['name'];?></strong><br />作者：<?php echo $val['username'];?><br />票数：<span  id="vote_<?php echo $val['id']?>"><?php echo $val['vote_num']?></span><br /><?php echo $val['description'];?>
                     </span>
                      <span><input  type="button" class="bm_tp" value="投票" onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);"/></span>		
-                     <span class="wb_fx">
-                     <span class="bshare-custom">
-                     <a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></span><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
-                     </span>
+                     
                 </span>
                 </span>
 				<span class="SliderPicBorder FlRight"><img src="<?php echo $val['img_url'];?>" /></span>
@@ -33,6 +30,24 @@
 				</span>
 			</p>
             <?php endforeach;?>
+            <span class="wb_fx">
+                <!-- Baidu Button BEGIN -->
+				<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+				<span class="bds_more">分享到：</span>
+				<a class="bds_qzone"></a>
+				<a class="bds_tsina"></a>
+				<a class="bds_tqq"></a>
+				<a class="bds_renren"></a>
+				<a class="bds_t163"></a>
+				<a class="shareCount"></a>
+				</div>
+				<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1285861" ></script>
+				<script type="text/javascript" id="bdshell_js"></script>
+				<script type="text/javascript">
+				document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+				</script>
+				<!-- Baidu Button END -->
+			</span>
         </div>
 	</div>
 	

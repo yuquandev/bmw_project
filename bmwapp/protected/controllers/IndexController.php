@@ -82,13 +82,16 @@ class IndexController extends Controller {
        if( strpos($list,',') !== false ){
           list($uid,$type) = explode(',', $list);
        } 
-       
+       if($type !='')
+       {
+          $this->nav = $type.'x';
+       }
        if($uid == '' || $type =='')
        {
           $this->redirect('/',5);
        }
        
-       $works_user_list = $this->works->selectWork(array('review'=>0,'user_id'=>$uid,'type'=>2));
+       $works_user_list = $this->works->selectWork(array('review'=>0,'user_id'=>$uid,'type'=>$type));
        
        foreach($works_user_list as $k=>$val){
           $user_info       = $this->user->getOneUser(array('id'=>$val['user_id']));
