@@ -29,24 +29,24 @@ function com_dialog(act){
         '<div class="zc_tck_main"><table width="100%" border="0" cellspacing="0" cellpadding="0">',
                 '<tr><td width="13%" height="42" align="right" valign="middle"><strong>用户名：</strong></td>',
                     '<td width="42%" height="42" align="left" valign="middle"><input id="reg_username" name="" type="text" class="zck_text3"/></td>',
-                    '<td width="45%" height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="images/tck_pic.jpg" style="display:none"/><span id="reg_name">请输入用户或邮箱</span></div></td></tr>',
+                    '<td width="45%" height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><span id="reg_name"></span></div></td></tr>',
         '<tr><td height="42" align="right" valign="middle"><strong>姓名：</strong></td>',
         '<td height="42" align="left" valign="middle"><input id="reg_nickname" name="" type="text" class="zck_text3"/></td>',
-        '<td height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_nkname">请输入真实姓名</span></div></td>',
+        '<td height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_nkname"></span></div></td>',
         '</tr><tr><td height="42" align="right" valign="middle"><strong>手机：</strong></td>',
                     '<td height="42" align="left" valign="middle"><input id="reg_telephone" name="" type="text" class="zck_text3"/></td>',
-                    '<td height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_phone">请输入手机号码</span></div></td></tr>',
+                    '<td height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_phone"></span></div></td></tr>',
                 '<tr><td height="42" align="right" valign="middle"><strong>设置密码：</strong></td>',
                     '<td height="42" align="left" valign="middle"><input id="reg_password" name="" type="password" class="zck_text3"/></td>',
-                    '<td height="42" align="left" valign="middle"><div class="tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_pwd">密码长度8~16位，数字、字母、<br />字符至少包含两种</span></div></td></tr>',
+                    '<td height="42" align="left" valign="middle"><div class="tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_pwd"></span></div></td></tr>',
                 '<tr><td height="42" align="right" valign="middle"><strong>确认密码：</strong></td>',
                     '<td height="42" align="left" valign="middle"><input id="reg_password_confim" name="" type="password" class="zck_text3"/></td>',
                     '<td height="42" align="left" valign="middle"><div class="tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_cpwd"></span></div></td>',
-                '</tr><tr><td height="50" align="right" valign="middle"><strong>验证码：</strong></td>'+
-                    '<td height="50" align="left" valign="middle"><input name="" type="text" class="zck_text3" style="width:85px;float:left;"/><img src="/img/tck_yzm.jpg" style="float:left;margin-left:17px;"/></td>',
-                    '<td height="50" align="left" valign="middle"><div class="tck_pd"><img src="/img/tck_pic.jpg" style="display:none"/><span>点击图片刷新验证码</span></div></td></tr>',
+                '</tr><!--<tr><td height="50" align="right" valign="middle"><strong>验证码：</strong></td>'+
+                    '<td height="50" align="left" valign="middle"><input name="" type="text" class="zck_text3" style="width:85px;float:left;"/><span id="vcode"><script>svcode();</script></span></td>',
+                    '<td height="50" align="left" valign="middle"><div class="tck_pd"><img src="/img/tck_pic.jpg" style="display:none"/><span>点击图片刷新验证码</span></div></td></tr>-->',
                 '<tr><td height="42" align="right" valign="middle">&nbsp;</td>',
-                    '<td height="42" align="left" valign="middle"><input onclick="bm_reg();return false;" name="" type="button" class="tck_an" value="立即注册"/></td>',
+                    '<td height="42" align="left" valign="middle"><input onclick="bm_reg();" name="" type="button" class="tck_an" value="立即注册"/></td>',
                     '<td height="42" align="left" valign="middle">&nbsp;</td></tr>',
             '</table>',
         '</div>',
@@ -114,45 +114,62 @@ function bm_login(){
 }
 function bm_reg(){
 	
-    if( $("#reg_username").val() == null )
+    if( $("#reg_username").val() == '' )
     {
-    	 $("reg_name").html('请输入用户名'); 
+    	 $("#reg_name").html('<img src="/img/tck_pic.jpg" />请输入用户名'); 
     	 return false;
     }else{
-    	 $("reg_name").html('');
+    	 $("#reg_name").html('');
     }
-	if( $("#reg_nickname").val() == null )
+	if( $("#reg_nickname").val() == '' )
     {
-    	 $("#reg_nkname").html('请输入真实姓名');
+    	 $("#reg_nkname").html('<img src="/img/tck_pic.jpg" />请输入真实姓名');
     	 return false;
     }else{
     	$("#reg_nkname").html('');
     }
-	if( $("#reg_telephone").val() == null )
+	if( $("#reg_telephone").val() == '' )
     {
-    	 $("#reg_phone").html('请输入手机号');
+    	 $("#reg_phone").html('<img src="/img/tck_pic.jpg" />请输入手机号');
     	 return false;
     }else{
+    	var regphone = /^(((1[0-9][0-9]{1})|159|153)+\d{8})$/;
+        if(!regphone.test($("#reg_telephone").val()) || $("#reg_telephone").lenght < 11)
+        {
+        	$("#reg_phone").html('<img src="/img/tck_pic.jpg" />请输入有效的手机号');
+            return false;
+        }
     	$("#reg_phone").html('');
     }
-	if( $("#reg_password").val() == null ){
-    	$("#reg_pwd").html('请输入密码');
+	if( $("#reg_password").val() == '' ){
+    	$("#reg_pwd").html('<img src="/img/tck_pic.jpg" />请输入密码');
    	    return false;
     }else{
+    	if($("#reg_password").val().length < 8)
+   	    {
+   	    	$("#reg_pwd").html('<img src="/img/tck_pic.jpg" />密码长度8~16位，数字、字母');
+   	        return false;
+   	    }
     	$("#reg_pwd").html('');
     }
-	if( $("#reg_password_confim").val() == null ){
-    	$("#reg_cpwd").html('请输入密码');
+	if( $("#reg_password_confim").val() == '' ){
+    	$("#reg_cpwd").html('<img src="/img/tck_pic.jpg" />请再次请输入密码');
+   	    return false;
+    }else{
+    	$("#reg_cpwd").html('');
+    }
+	if($("#reg_password").val() != $("#reg_password_confim").val())
+	{
+	 	$("#reg_cpwd").html('<img src="/img/tck_pic.jpg" />俩次输入的密码不一样');
    	    return false;
     }else{
     	$("#reg_cpwd").html('');
     }
 	
 	
-	
 	$.ajax({url: '/index.php/user/ajax_join?_n='+ new Date().getTime(),
         type: 'POST',
-        data: {username : $('#reg_username').val(),nickname:$('reg_nickname').val(), password : $('#reg_password').val(),password_confim : $('#reg_password_confim').val(),telephone: $('#reg_telephone').val()},
+        data: {username : $('#reg_username').val(),nickname:$('#reg_nickname').val(), password : $('#reg_password').val(),password_confim : $('#reg_password_confim').val(),telephone: $('#reg_telephone').val()},
         dataType: 'json',
         beforeSend : function(){
         },
@@ -163,7 +180,8 @@ function bm_reg(){
                 //alert(data['msg']);
                 window.location.reload();
             }else if(data['status'] == 'falis'){
-            	alert(data['msg']);
+            	closeDiv2();
+            	pop_msg(data['msg']);
             }
         },
         complete : function(){
@@ -330,7 +348,7 @@ function base_upload_success(file, serverData) {
 //投票
 function top_vote(wid,num)
 {
-	var url = '/index.php/api/vote';
+	var url = '/index.php/api/vote?_j=' + new Date().getTime();;
 	$.ajax({'url':url,'async':false,'data':{'wid':wid},'dataType':'json',
 	'success':function(rs){
 	    if(rs == 1){
@@ -346,6 +364,20 @@ function top_vote(wid,num)
 	}
 	});
 }
+
+function svcode()
+{
+	
+	var url = '/index.php/user/vcode?_v='+ new Date().getTime();
+	$.ajax({'url':url,'async':false,'data':{'s':1},'dataType':'json',
+		'success':function(rs){
+		    
+			$("#vcode").html('<img src="'+rs+'" style="float:left;margin-left:17px;"/>123123');
+		}
+		});
+}
+
+
 
 function pop_msg(msg)
 {
