@@ -184,6 +184,8 @@
 
 <span id="uplode_img"></span>
 
+<div id="com_dialog"></div>
+
 <input type="hidden" id="ty_id" value="<?php echo $this->type;?>">
 
 <div id="bg" class="bg" style="display:none;"></div>
