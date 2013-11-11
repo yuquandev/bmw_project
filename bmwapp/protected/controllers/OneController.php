@@ -32,7 +32,7 @@ class OneController extends Controller {
     {
         $this->nav = '1x';  //定义导航样式
     	$this->top = true;
-        
+       
         $name_title = $video = $description = array(); 
     	
     	//topicnav
