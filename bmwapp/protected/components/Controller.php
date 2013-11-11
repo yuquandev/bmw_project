@@ -35,6 +35,110 @@ class Controller extends CController
         return preg_match ( '/[\d\.]{7,15}/', $ip, $matches ) ? $matches [0] : '';
     }
 
+
+
+ /**
+     * 验证码
+     */
+    public static function authcode()
+    {
+		$w = 80; //设置图片宽和高
+		$h = 26;
+		$str = Array(); //用来存储随机码
+		$string = "ABCDEFGHIJKLMNDPBRSTUVWXYZF123456789";//随机挑选其中4个字符，也可以选择更多，注意循环的时候加上，宽度适当调整
+		for($i = 0;$i < 4;$i++){
+		   $str[$i] = $string[rand(0,35)];
+		   $vcode .= $str[$i];
+		}
+		$session = new session;
+		$session->start();
+		
+		$_SESSION['VCODE'] = strtolower($vcode);
+		
+		$im = imagecreatetruecolor($w,$h);
+		$white = imagecolorallocate($im,255,255,255); //第一次调用设置背景色
+		$black = imagecolorallocate($im,0,0,0); //边框颜色
+		imagefilledrectangle($im,0,0,$w,$h,$white); //画一矩形填充
+		imagerectangle($im,0,0,$w-1,$h-1,$black); //画一矩形框
+		//生成雪花背景
+		for($i = 1;$i < 200;$i++){
+		   $x = mt_rand(1,$w-9);
+		   $y = mt_rand(1,$h-9);
+		   $color = imagecolorallocate($im,mt_rand(200,255),mt_rand(200,255),mt_rand(200,255));
+		   imagechar($im,1,$x,$y,"*",$color);
+		}
+		//将验证码写入图案
+		for($i = 0;$i < count($str);$i++){
+		   $x = 13 + $i * ($w - 15)/4;
+		   $y = mt_rand(3,$h / 3);
+		   $color = imagecolorallocate($im,mt_rand(0,225),mt_rand(0,150),mt_rand(0,225));
+		   imagechar($im,5,$x,$y,$str[$i],$color);
+		}
+		header("Content-type:image/jpeg"); //以jpeg格式输出，注意上面不能输出任何字符，否则出错
+		imagejpeg($im);
+		imagedestroy($im);
+}
+   
+
+
+
+	/**
+	 * 图片简单上传
+	 * @auth  gexiaogang
+	 * @createdate  2013.3.29
+	 * @param $file_field 	   上传文件的文件域名字
+	 * @param $max_file_size   上传文件大小,默认2M
+	 * @return array 
+	 */
+	public static function uploadImage($file_field='upfile',$max_file_size=LUNBOTU_SIZI_LIMIT)
+	{
+		$uptypes=array('jpg'=>'image/jpg','jpeg'=>'image/jpeg','png'=>'image/png','gif'=>'image/gif','bmp'=>'image/bmp');
+		$file=$_FILES[$file_field];
+		if($max_file_size < $file["size"])
+		{
+			return array('state'=>false,'describe'=>'文件太大');
+		}
+		if(!in_array($file["type"], $uptypes))
+		{
+			return array('state'=>false,'describe'=>'只能上传图像文件');
+		}
+		$pace_path=ROOT_PATH.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.'upload'.DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR;
+		if (!is_dir($pace_path))
+		{
+			mkdir($pace_path,0700,true);
+		}
+		$file_type=$file['type'];
+		$file_name='';
+		switch ($file_type)
+		{
+			case $uptypes['jpg']:
+				$file_name=md5(microtime(true).self::random(4).$file["size"]).'.jpg';
+				break;
+			case $uptypes['jpeg']:
+				$file_name=md5(microtime(true).self::random(4).$file["size"]).'.jpeg';
+				break;
+			case $uptypes['png']:
+				$file_name=md5(microtime(true).self::random(4).$file["size"]).'.png';
+				break;
+			case $uptypes['gif']:
+				$file_name=md5(microtime(true).self::random(4).$file["size"]).'.gif';
+				break;
+			case $uptypes['bmp']:
+				$file_name=md5(microtime(true).self::random(4).$file["size"]).'.bmp';
+				break;
+		}
+		if (!move_uploaded_file($file['tmp_name'],$pace_path.$file_name))
+		{
+			return array('state'=>false,'describe'=>'移动上传图片失败','error'=>$file['error']);
+		}
+		else
+		{
+			return array('state'=>true,'describe'=>'上传图像文件成功','filename'=>$file_name);
+		} 
+	}
+
+
+
 	 /**
 	 * 分页代码
 	 * Enter description here ...
@@ -100,5 +204,6 @@ class Controller extends CController
 HTML;
       return $page_html;
 }
+
 
 }
