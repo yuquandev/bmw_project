@@ -25,7 +25,7 @@
     <embed type="application/x-shockwave-flash" src="/img/cms/brakeenergy_Overview_bg.swf" width="1024" height="634" style="undefined" id="mainFlashMovie" name="mainFlashMovie" bgcolor="#ffffff" quality="autohigh" allowscriptaccess="sameDomain" wmode="transparent" flashvars="prm_corelib=/img/cms/bmw_as3_corelib_1_1.swf&amp;prm_components=/img/cms/bmw_as3_components_2_0.swf">
 </div>
 <div id="bmw_north" data-options="region:'north'" style="overflow: hidden;">
-    <div id="bmw_cms_nav" style="padding:5px;border:1px solid #ddd;padding-top: 16px; height:40px; background: #fff;">
+    <div id="bmw_cms_nav" style="padding:5px;border:1px solid #ddd;padding-top: 16px; height:40px; background: #fff; opacity: 0.84;">
         <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true" style="" onclick="add_car_dialog();">新建专题</a>
         <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true" style="" onclick="ajax_reg_admin();">新建管理员</a>
         <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true" style="" onclick="location.href='/';">访问站点</a>
