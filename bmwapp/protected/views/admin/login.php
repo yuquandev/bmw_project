@@ -3,7 +3,7 @@
 
         <div class="row-fluid">
             <div class="span12 center login-header">
-                <h2 style="font-size: 30px;padding-top: 20px;">BMW to CMS</h2>
+                <h2 style="font-size: 30px;padding-top: 20px;color:#e24800; "><span>BMW to CMS<span></span></h2>
             </div><!--/span-->
         </div><!--/row-->
 

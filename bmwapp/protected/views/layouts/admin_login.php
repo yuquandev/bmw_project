@@ -35,7 +35,7 @@
     <script type="text/javascript" src="/js/easyui-1.3.4/jquery.min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </head>
-<body style="background: url('/img/cms/cms_bg1.jpg') no-repeat 10% 40% ;">
+<body style="background: url('/img/cms/cms_bg1.jpg') no-repeat 10% 22% ;">
 <?php echo $content;?>
 
 </body>
