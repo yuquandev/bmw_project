@@ -214,3 +214,57 @@ _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingM
 #focus .hdicon{position: absolute;left:10px;bottom: 10px;width: 59px;height: 59px;background: url(/img/play-btn.png) no-repeat;_background: 0;
 filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/play-btn.png")}
 #focus .focus-title a{display: none;color: #000}
+
+
+
+
+
+/*3系视频切换*/
+.pilot .pilotmain{
+	width:460px;
+	height:245px;
+	position:absolute;
+	left:27px;
+}
+.pilotpic{
+	width:400px;
+	height:245px;
+	position:absolute;
+	overflow:hidden;
+	left:24px;
+	}
+.pilotpic .ScrCont{
+	width:100000px;
+	}	
+.pilotpic #List1,.pilotpic #List2{
+	float:left;
+	}
+.pilotpic ul li{
+	width:400px;
+	height:245px;
+    border: 1px solid #BFD2D9;
+    border-radius: 3px;
+	display:block;
+	float:left;
+	margin-right:12px;
+	}
+.pilotleft{
+	width:23px;
+	height:44px;
+	position:absolute;
+	background:url(/img/fc_left.png) no-repeat;
+	top:100px;
+	cursor:pointer;
+	}
+.pilotright{
+	width:23px;
+	height:44px;
+	position:absolute;
+	background:url(/img/fc_right.png) no-repeat;
+	top:100px;
+	right:10px;
+	cursor:pointer;
+	}
+/*3系视频切换*/
+
+
