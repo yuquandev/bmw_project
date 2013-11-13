@@ -4,7 +4,8 @@
     <!--作品展示-->
     <div class="bm_cpzs">
     	<div class="bm_cpzs_title">
-        	<div class="bm_cpzs_zi">作品展示</div>
+        	<div class="bm_cpzs_zi"><?php if($center =='center'){?>我上传的作品<?php }else{ ?>作品展示<?php }?></div>
+        	
         </div> 
              <div class="bm_cpzs_main">
             		<!--作品展示-->
@@ -20,7 +21,13 @@
                     <span class="bm_wz2">
                     <strong><?php echo $val['name'];?></strong><br />作者：<?php echo $val['username'];?><br />票数：<span  id="vote_<?php echo $val['id']?>"><?php echo $val['vote_num']?></span><br /><?php echo $val['description'];?>
                     </span>
-                     <span><input  type="button" class="bm_tp" value="投票" onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);"/></span>		
+                    <span>
+                    <?php  if($center =='center'){?>
+                       <span style="color:red">状态：<?php if($val['review'] == 0 ){echo '审核通过'; }else{ echo '审核未通过';}?></span>
+                    <?php }else{?>
+                       <input  type="button" class="bm_tp" value="投票" onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);"/>
+                    <?php }?>
+                    </span>		
                      
                 </span>
                 </span>
@@ -190,6 +197,6 @@ $(".OriginalPicBorder").ready(function(){
 	});
 });
 </script>
-
+<span id="popmsg"></span>
 </body>
 </html>

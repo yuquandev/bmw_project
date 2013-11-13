@@ -78,18 +78,19 @@ function com_dialog(act){
         '<table width="100%" border="0" cellspacing="0" cellpadding="0">',
         '<tr>',
         '<td width="15%" height="40" align="right" valign="middle"><strong>标题：</strong></td>',
-        '<td width="59%" height="40" align="left" valign="middle"><input name="" id="bmw_title" type="text" class="zck_text4"/><span id="pop_title"></span></td>',
-        '<td width="26%" height="40" align="left" valign="middle">&nbsp;</td>',
+        '<td width="59%" height="40" align="left" valign="middle"><input name="" id="bmw_title" type="text" class="zck_text4"/></td>',
+        '<td width="26%" height="40" align="left" valign="middle"><span id="pop_title" style="color:red;"></span></td>',
         '</tr>',
         '<tr>',
         '<td height="40" align="right" valign="middle"><strong>图片地址：</strong></td>',
-        '<td height="40" align="left" valign="middle"><div id="divFileProgressContainer" style="display: none;"></div><input name="" type="text" class="zck_text4" id="bm_uploads_name"/><input type="hidden" id="bm_uploads_url" value="" /><span id="pop_img"></span></td>',
-        '<td height="40" align="left" valign="middle"><div id="spanButtonPlaceholder"></div></td>',
+        '<td height="20" align="left" valign="middle"><div id="divFileProgressContainer" style="display: none;"></div><input name="" type="text" class="zck_text4" id="bm_uploads_name"/><input type="hidden" id="bm_uploads_url" value="" /></td>',
+        '<td width="10%"><div id="spanButtonPlaceholder"></div></td>',
+        '<td height="20" align="left" valign="middle"><span id="pop_img" style="color:red;"></span></div></td>',
         '</tr>',
         '<tr>',
-        '<td height="100" align="right" valign="top"><strong>活动宣言：</strong></td>',
-        '<td height="100" align="left" valign="middle"><textarea name="" id="textconten"  cols="" rows="" class="zck_xy"></textarea><span id="pop_text"></span></td>',
-        '<td height="100" align="left" valign="middle">&nbsp;</td>',
+        '<td width="15%" height="40" align="right" valign="top"><strong>活动宣言：</strong></td>',
+        '<td width="59%" height="40" align="left" valign="middle"><textarea name="" id="textconten"  cols="" rows="" class="zck_xy"></textarea></td>',
+        '<td width="26%" height="40" align="left" valign="middle"><span id="pop_text" style="color:red;"></span></td>',
         '</tr>',
         '</table>',
         '<div style="padding-left: 80px;"><input name="" type="button" class="tck_an" value="立即提交" style="margin-left:0" onclick="uplodedata();"/>',
@@ -217,22 +218,22 @@ function uplodedata()
     var text  = $("#textconten").val();
     var ty    = $("#ty_id").val();
     if(title == ''){
-    	 $("#pop_title").html('<span style="color:red;">请填写作品标题!</span>'); 
+    	 $("#pop_title").html('请填写作品标题!'); 
     	 return false;
     }else{
-    	$("#pop_title").html('');
+    	$("#pop_title").html('<img src="/img/bm_tck_dg.jpg" />');
     }
     if(file == ''){
-    	$("#pop_img").html('<span style="color:red;">请上传作品图片!</span>');
+    	$("#pop_img").html('请上传作品图片!');
     	return false;
     }else{
-    	$("#pop_img").html('');
+    	$("#pop_img").html('<img src="/img/bm_tck_dg.jpg" />');
     }
     if(text ==''){
-      	$("#pop_text").html('<span style="color:red;">请描述宣言!</span>');
+      	$("#pop_text").html('请描述活动宣言!');
     	return false;
     }else{
-    	$("#pop_text").html('');
+    	$("#pop_text").html('<img src="/img/bm_tck_dg.jpg" />');
     }
     var url = '/index.php/api/uplodewords?_j='+ new Date().getTime();
 	$.ajax({'url':url,'data':{'title':title,'file':file,'text':text,'type':ty},type: 'POST','dataType':'json',
@@ -252,7 +253,6 @@ function uplodedata()
 function bulid_upload(){
     $('#divFileProgressContainer').html('');
     $('#thumbnails').html('<img style="margin: 5px; vertical-align: middle; opacity: 1;width: 300px;" src="" />');
-
     var swfu = new SWFUpload({
         // Backend Settings
         upload_url: "/index.php/index/uploads",
@@ -281,7 +281,7 @@ function bulid_upload(){
         button_placeholder_id : "spanButtonPlaceholder",
         button_width: 53,
         button_height:28,
-        button_text : '<span class="zck_ll"  >上传</span>',
+        button_text : '<span class="zck_ll"  id="uplode_img">上传</span>',
         button_text_style : '',
         button_text_top_padding: 8,
         //button_text_left_padding: 18,
@@ -393,7 +393,7 @@ function svcode()
 	$.ajax({'url':url,'async':false,'data':{'s':1},'dataType':'json',
 		'success':function(rs){
 		    
-			$("#vcode").html('<img src="'+rs+'" style="float:left;margin-left:17px;"/>123123');
+			$("#vcode").html('<img src="'+rs+'" style="float:left;margin-left:17px;"/>');
 		}
 		});
 }
