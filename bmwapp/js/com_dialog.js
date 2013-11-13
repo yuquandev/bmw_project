@@ -105,7 +105,7 @@ function com_dialog(act){
         $('#com_dialog').html(reg_html);
         showDiv2();
     }else if (act = 'uploads'){
-        $('#com_dialog').html(uploads_html);
+        $('#uplode_img').html(uploads_html);
         showDiv();
         bulid_upload();
     }
