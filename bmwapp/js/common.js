@@ -400,7 +400,7 @@ function get_nav_info(id){
             });
 
 
-            $('#infodata').html('<table border="1" "><body><tr><td>状态</td><td>'+stat+'</td></tr><tr><td>名称</td><td>'+data['name']+'</td></tr><tr><td>描述</td><td>'+data['description']+'</td></tr><tr><td>资源</td><td>'+data['media_url']+'</td></tr><tr><td>更新时间</td><td>'+data['update_time']+'</td></tr><tr><td>创建时间</td></td><td>'+data['create_time']+'</td></tr></body></table>');
+            $('#infodata').html('<div class="nav_tbl_info"><div class="left">状态：</div><div class="right">'+stat+'</div></div><div class="nav_tbl_info"><div class="left">名称：</div><div class="right">'+data['name']+'</div></div><div class="nav_tbl_info"><div class="left">描述：</div><div class="right">'+data['description']+'</div></div><div class="nav_tbl_info"><div class="left">视频：</div><div class="right">'+data['media_url']+'</div></div><div class="nav_tbl_info"><div class="left">更新时间：</div><div class="right">'+data['update_time']+'</div></div><div class="nav_tbl_info"><div class="left">创建时间：</div><div class="right">'+data['create_time']+'</div></div><div style="clear: both;"></div>');
         },
         complete : function(){
         }

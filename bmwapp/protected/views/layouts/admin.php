@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" type="text/css" href="/js/easyui-1.3.4/themes/bootstrap/easyui.css">
-    <link rel="stylesheet" type="text/css" href="/js/easyui-1.3.4/themes/icon.css">
-    <script type="text/javascript" src="/js/easyui-1.3.4/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/easyui-1.3.4/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/js/jquery-easyui-1.3.2/themes/bootstrap/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/js/jquery-easyui-1.3.2/themes/icon.css">
+    <script type="text/javascript" src="/js/jquery-easyui-1.3.2/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-easyui-1.3.2/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="/js/common.js"></script>
     <script type="text/javascript" src="/js/lib/swfupload/swfupload.js"></script>
     <script type="text/javascript" src="/js/lib/project.handlers.js"></script>
@@ -15,19 +15,24 @@
         .datagrid-row-selected {background: #fff;color:#333;}
         .panel-body {background:none; }
         #main_button {background-color: #ffffff;}
-        .panel-body .accordion-body li {list-style: none;}
-        .panel-body .accordion-body li a {text-decoration: none; color: #666;}
-        .panel-body .accordion-body li a:hover { color: #0044cc;}
+        .bmw_acc_li {list-style: none;}
+        .bmw_acc_li a {text-decoration: none; color: #666;}
+        .bmw_acc_li a:hover { color: #0044cc;}
         .bmw_nav_a {color:#ddd;font-weight: 600; text-decoration: none;padding:0 8px 0 8px; font-size: 14px;text-shadow: 0 1px 1px #000; text-transform: uppercase;}
         a.bmw_nav_a:hover {color: #fff;text-shadow: 0 1px 1px #ddd;}
-        .datagrid-body {background: #fff; }
+        .datagrid-body {background: #fff;}
+        #infodata {background: #fff;border-left:2px solid #eee;}
+        .nav_tbl_info {background: #fff;}
+        .nav_tbl_info .left {float: left;width:100px;font-size: 16px;color:#0044cc;font-weight: bold;padding-top: 20px; text-align: right;padding-right:10px; }
+        .nav_tbl_info .right {float: left;width:550px;font-size: 16px;color:#666; padding-top: 20px;}
     </style>
 </head>
-<body class="easyui-layout" style="width:100%;height:100%">
+<body style="width: 100%;height:100%;text-align: center;margin:0 auto; background: #eee;" >
+<div style="position: relative;width: 960px;height: 100%; margin: 0 auto;text-align: left;padding:0px;">
 <div id="stage_flash" style="display:block;  position: absolute;">
-    <embed type="application/x-shockwave-flash" src="/img/cms/brakeenergy_Overview_bg.swf" width="1024" height="634" style="undefined" id="mainFlashMovie" name="mainFlashMovie" bgcolor="#ffffff" quality="autohigh" allowscriptaccess="sameDomain" wmode="transparent" flashvars="prm_corelib=/img/cms/bmw_as3_corelib_1_1.swf&amp;prm_components=/img/cms/bmw_as3_components_2_0.swf">
+    <embed type="application/x-shockwave-flash" src="/img/cms/brakeenergy_Overview_bg.swf" width="960" height="634" style="undefined" id="mainFlashMovie" name="mainFlashMovie" bgcolor="#ffffff" quality="autohigh" allowscriptaccess="sameDomain" wmode="transparent" flashvars="prm_corelib=/img/cms/bmw_as3_corelib_1_1.swf&amp;prm_components=/img/cms/bmw_as3_components_2_0.swf">
 </div>
-<div id="bmw_north" data-options="region:'north'" style="overflow: hidden;">
+<div id="bmw_north" data-options="region:'north'" style="overflow: hidden;position: absolute; width: 960px;">
     <div id="bmw_cms_nav" style="padding:5px;border:1px solid #ddd;padding-top: 30px;padding-left: 10px; height:26px; background: none; ;">
         <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="add_car_dialog();">新建专题</a>
         <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="ajax_reg_admin();">新建管理员</a>
@@ -38,8 +43,8 @@
         <div style="clear: both;"></div>
     </div>
 </div>
-<div data-options="region:'south',split:true" style="height:0px;"></div>
-<div data-options="region:'west',split:true" title="" style="width:200px;">
+<!--<div data-options="region:'south',split:true" style="height:0px;"></div>-->
+<div data-options="region:'west',split:true" title="" style="width:200px;min-height:572px; position: absolute;top:63px;">
     <div class="easyui-accordion" data-options="fit:true,border:false" >
         <!--<div title="专题管理" data-options="" style="padding:10px;">
             <ul id="tt" class="easyui-tree"
@@ -48,29 +53,29 @@
         </div>-->
         <?php foreach ($this->car_list as $k=>$v){?>
             <div title="专题页 - <?php echo $v['name'];?>" data-options="" style="padding:10px;">
-                <li style="padding-bottom: 10px;border-bottom: 1px solid #666;">[<a href="javascript:void(0);" onclick="add_car_dialog(<?php echo $v['type_id'];?>,'<?php echo $v['name'];?>');">修改专题</a>]  <!--[<a href="javascript:void(0);" onclick="confirm_dialog(<?php echo $v['type_id'];?>,'car_type');">删除专题</a>]--></li>
-                <li style="padding-top: 10px;padding-bottom: 10px;">[<a href="javascript:void(0);" onclick="add_nav_dialog(<?php echo $v['type_id'];?>);">新建导航</a>]</li>
+                <li class="bmw_acc_li" style="padding-bottom: 10px;border-bottom: 1px solid #bbb;">[<a href="javascript:void(0);" onclick="add_car_dialog(<?php echo $v['type_id'];?>,'<?php echo $v['name'];?>');">修改专题</a>]  <!--[<a href="javascript:void(0);" onclick="confirm_dialog(<?php echo $v['type_id'];?>,'car_type');">删除专题</a>]--></li>
+                <li class="bmw_acc_li" style="padding-top: 10px;padding-bottom: 10px;">[<a href="javascript:void(0);" onclick="add_nav_dialog(<?php echo $v['type_id'];?>);">新建导航</a>]</li>
                 <?php foreach ($this->nav_list as $kk=>$vv){
                     if ($vv['type_id'] == $v['type_id']){?>
-                        <li style="padding-bottom: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="get_nav_info(<?php echo $vv['id'];?>);"><?php echo $vv['name'];?></a></li>
+                        <li class="bmw_acc_li" style="padding-bottom: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="get_nav_info(<?php echo $vv['id'];?>);"><?php echo $vv['name'];?></a></li>
                     <?php }
                 }?>
-                <li style="padding-top: 10px; padding-bottom: 10px;border-top: 1px solid #666;"><a href="javascript:void(0);" onclick="ajax_get_columns('image_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>图片列表');">图片列表 - <?php echo $v['name'];?></a></li>
+                <li class="bmw_acc_li" style="padding-top: 10px; padding-bottom: 10px;border-top: 1px solid #bbb;"><a href="javascript:void(0);" onclick="ajax_get_columns('image_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>图片列表');">图片列表 - <?php echo $v['name'];?></a></li>
             </div>
         <?php } ?>
         <div title="用户作品管理" data-options="" style="padding:10px;">
             <?php foreach ($this->car_list as $k=>$v){?>
-                <li style="padding-bottom: 10px;"><a href="javascript:void(0);" onclick="ajax_get_columns('works_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>作品列表');"><?php echo $v['name'];?>作品列表</a></li>
+                <li class="bmw_acc_li" style="padding-bottom: 10px;"><a href="javascript:void(0);" onclick="ajax_get_columns('works_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>作品列表');"><?php echo $v['name'];?>作品列表</a></li>
             <?php } ?>
         </div>
         <div title="用户管理" data-options="" style="overflow:auto;padding:10px;">
-            <li style="padding-bottom: 10px;"><a href="javascript:void(0);" onclick="ajax_get_columns('user_list','用户列表');">用户列表</a></li>
-            <li style="padding-bottom: 10px;"><a href="javascript:void(0);" onclick="ajax_get_columns('admin_list','管理员列表');">管理员列表</a></li>
+            <li class="bmw_acc_li" style="padding-bottom: 10px;"><a href="javascript:void(0);" onclick="ajax_get_columns('user_list','用户列表');">用户列表</a></li>
+            <li class="bmw_acc_li" style="padding-bottom: 10px;"><a href="javascript:void(0);" onclick="ajax_get_columns('admin_list','管理员列表');">管理员列表</a></li>
         </div>
 
     </div>
 </div>
-<div data-options="region:'center'"><!-- region:'center',title:'Main Title',iconCls:'icon-ok',border:false -->
+<div data-options="region:'center'" style="position: absolute;left:200px;top:63px;width:760px;"><!-- region:'center',title:'Main Title',iconCls:'icon-ok',border:false -->
     <div style="padding:5px;border:1px solid #ddd;display: none;"></div>
     <?php echo $content;?>
 </div>
@@ -108,8 +113,9 @@
     <label class="lbInfo">密  码：</label>
     <input id="reg_password" type="password" class="" required="true" runat="server" /><br />
 </div>
-<div id="idModuls" style="position: absolute;top:0px;z-index: 1000;right:150px;">
+<div id="idModuls" style="position: absolute;top:0px;z-index: 1000;right:64px;">
     <img src="/img/cms/id_moduls.png" alt="">
+</div>
 </div>
 <script type="text/javascript">
     $('#tt').tree({
