@@ -8,7 +8,7 @@
         </div><!--/row-->
 
         <div class="row-fluid" style="opacity: 0.9;">
-            <div class="well span5 center login-box">
+            <div class="well span5 center login-box" style="background: #fff;">
                 <div class="alert alert-info">
                     <?php echo $msg;?>
                 </div>

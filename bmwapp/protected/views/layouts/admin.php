@@ -20,6 +20,7 @@
         .panel-body .accordion-body li a:hover { color: #0044cc;}
         .bmw_nav_a {color:#ddd;font-weight: 600; text-decoration: none;padding:0 8px 0 8px; font-size: 14px;text-shadow: 0 1px 1px #000; text-transform: uppercase;}
         a.bmw_nav_a:hover {color: #fff;text-shadow: 0 1px 1px #ddd;}
+        .datagrid-body {background: #fff; }
     </style>
 </head>
 <body class="easyui-layout" style="width:100%;height:100%">

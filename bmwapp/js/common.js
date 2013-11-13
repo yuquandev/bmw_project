@@ -169,7 +169,7 @@ function ajax_get_columns(table,title,id){
         success: function(data){
             for (var n in data){
                 if(data[n]){
-                    columns.push({field:data[n]['field'],title:data[n]['title'],width:100});
+                    columns.push({field:data[n]['field'],title:data[n]['title']});
                 }
             }
             //console.log(columns);
