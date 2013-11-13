@@ -226,7 +226,50 @@ class Video extends CActiveRecord
        return $res;
     }
 
-    
+    //添加导航
+    public function add_nav_info($id,$name,$video_url,$c_url,$status=1){
+        $sql = sprintf("insert into video_tbl (type_id,name,video_url,status,c_url,create_time) value (%d,'%s','%s',%d,'%s',NOW())",$id,$name,$video_url,$status,$c_url);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        if ($res){
+            return Yii::app()->db->getLastInsertID();
+        }else {
+            return 0;
+        }
+    }
+
+    //获取导航列表
+    public function get_nav_list(){
+        $sql = sprintf("select id,type_id,name from video_tbl ;");
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+
+    public function get_info_by_id($id){
+        $sql = sprintf("select * from video_tbl where id = %d",$id);
+        $res = Yii::app()->db->createCommand($sql)->queryRow();
+        return $res;
+    }
+
+    //更新单个导航信息
+    public function set_nav_info($id,$name,$video_url,$c_url){
+        $sql = sprintf("update video_tbl set name='%s',video_url='%s',c_url='%s' where id=%d",$name,$video_url,$c_url,$id);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
+
+    //设置导航开启关闭
+    public function set_nav_status($id,$status){
+        $sql = sprintf("update video_tbl set status = %d where id = %d;",$status,$id);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
+
+    //删除详情
+    public function del_id($id){
+        $sql = sprintf("delete from video_tbl where id = %d;",$id);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
    
 
 

@@ -25,6 +25,9 @@ class AdminController extends Controller {
 
     public $user_info;
 
+    public $video;
+    public $video_list;
+
 
     public function init(){
         $this->check_login();
@@ -33,6 +36,7 @@ class AdminController extends Controller {
         $this->topic_nav = new TopicNav();
         $this->topic_image = new TopicImage();
         $this->works = new Works();
+        $this->video = new Video();
     }
 
     //验证用户是否登录
@@ -59,6 +63,8 @@ class AdminController extends Controller {
 
         $this->nav_list = $this->topic_nav->get_nav_list();
 
+        $this->video_list = $this->video->get_nav_list();
+
         $this->render("/admin/index");
     }
 
@@ -73,7 +79,7 @@ class AdminController extends Controller {
 
         $msg = '';
         if (empty($username) || empty($password)){
-            $msg = "请出入用户名和密码";
+            $msg = "请输入用户名和密码";
         }else {
             $userinfo = $this->admin_user->get_admin_info_by_name($username);
 
@@ -421,6 +427,8 @@ class AdminController extends Controller {
                 $res = $this->topic_nav->del_id($id);
             }else if ($act == 'topic_image'){
                 $res = $this->topic_image->del_id($id);
+            }else if ($act == 'video'){
+                $res = $this->video->del_id($id);
             }
             if($res){
                 echo json_encode(array('status'=>'success','res'=>$res));exit();
@@ -429,6 +437,54 @@ class AdminController extends Controller {
             }
         }
         echo json_encode(array('status'=>'fails'));exit();
+    }
+
+    //添加专题视频
+    public function actionAddvideo(){
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+        $name = isset($_POST['name']) ? trim($_POST['name']) : '';
+        $des = isset($_POST['des']) ? trim($_POST['des']) : '';
+        $resource = isset($_POST['resource']) ? trim($_POST['resource']) : '';
+        $act = isset($_POST['act']) ? trim($_POST['act']) : '';
+        if (!empty($name)){
+            if ($act == 'add'){
+                $res = $this->video->add_nav_info($id,$name,$des,$resource);
+            }else if($act == 'set') {
+                $res = $this->video->set_nav_info($id,$name,$des,$resource);
+            }
+            echo json_encode(array('status'=>'success','res'=>$res));
+        }else {
+            echo json_encode(array('status'=>'fails','res'=>0));
+        }
+    }
+
+    //获取单个视频详情
+    public function actionvideoinfo(){
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+        if (!empty($id)){
+            $info = $this->video->get_info_by_id($id);
+            echo json_encode($info);
+        }
+    }
+
+    public function actionVideoStat(){
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+        $stat = isset($_POST['stat']) ? intval($_POST['stat']) : 0;
+        if (!empty($id)){
+            if ($stat == 1){
+                $stat = 0;
+            }else if ($stat == 0) {
+                $stat = 1;
+            }
+            $res = $this->video->set_nav_status($id,$stat);
+            if($res){
+                echo json_encode(array('status'=>'success','res'=>$res));
+            }else {
+                echo json_encode(array('status'=>'fails'));
+            }
+        }
+
+
     }
 
 }

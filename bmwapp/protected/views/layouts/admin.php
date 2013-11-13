@@ -60,7 +60,13 @@
                         <li class="bmw_acc_li" style="padding-bottom: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="get_nav_info(<?php echo $vv['id'];?>);"><?php echo $vv['name'];?></a></li>
                     <?php }
                 }?>
-                <li class="bmw_acc_li" style="padding-top: 10px; padding-bottom: 10px;border-top: 1px solid #bbb;"><a href="javascript:void(0);" onclick="ajax_get_columns('image_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>图片列表');">图片列表 - <?php echo $v['name'];?></a></li>
+                <li class="bmw_acc_li" style="padding-top: 10px;padding-bottom: 10px;">[<a href="javascript:void(0);" onclick="add_video_dialog(<?php echo $v['type_id'];?>);">新建视频</a>]</li>
+                <?php foreach ($this->video_list as $kk=>$vv){
+                    if ($vv['type_id'] == $v['type_id']){?>
+                        <li class="bmw_acc_li" style="padding-bottom: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="get_video_info(<?php echo $vv['id'];?>);"><?php echo $vv['name'];?></a></li>
+                    <?php }
+                }?>
+                <li class="bmw_acc_li" style="padding-top: 10px; padding-bottom: 10px;border-top: 1px solid #bbb;"><a href="javascript:void(0);" onclick="ajax_get_columns('image_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>底部轮播图');">底部轮播图 - <?php echo $v['name'];?></a></li>
             </div>
         <?php } ?>
         <div title="用户作品管理" data-options="" style="padding:10px;">
@@ -90,6 +96,14 @@
     <textarea id="nav_des" type="text" class="" style="width:300px;height:200px;" required="true" runat="server" ></textarea><br />
     <label class="lbInfo">资源：</label>
     <input id="nav_resource" type="text" class="" required="true" runat="server" /><br />
+</div>
+<div id="nav_dialog_" style="display:none;padding:10px;width:400px;" title="新建导航">
+    <label class="lbInfo_">名称：</label>
+    <input id="nav_name_" type="text" class="" required="true" runat="server" /><br />
+    <label class="lbInfo">视频地址：</label>
+    <input id="nav_des_" type="text" class="" required="true" runat="server" /><br />
+    <label class="lbInfo">链接：</label>
+    <input id="nav_resource_" type="text" class="" required="true" runat="server" /><br />
 </div>
 <div id="t_img_dialog" style="display:none;padding:10px;width:400px;" title="新建图片">
     <label class="lbInfo">名称：</label>

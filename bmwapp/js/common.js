@@ -586,7 +586,7 @@ function ajax_del_id(id,act){
             if (data.status == 'success'){
                 if (act == 'car_type'){
                     location.href = '/index.php/admin';
-                }else if (act == 'topic_nav'){
+                }else if (act == 'topic_nav' || act == 'video'){
                     location.href = '/index.php/admin';
                 }else if (act == 'topic_image'){
                     $('#dg').datagrid('reload');
@@ -642,7 +642,141 @@ function ajax_reg_admin(){
 }
 
 
+//添加导航对话框
+function add_video_dialog(type_id,info) {
+    type_id = type_id || 0;
+    info = info || null;
+    var act = '';
+    var title = '';
+    var id = 0;
+    if(!!info){
+        id = info.id;
+        act = 'set';
+        title = '修改视频';
+        $('#nav_name_').val(info.name);
+        $('#nav_des_').val(info.video_url);
+        $('#nav_resource_').val(info.c_url);
+    }else {
+        id = type_id;
+        act = 'add';
+        title = '新建视频';
+        $('#nav_name_').val('');
+        $('#nav_des_').val('');
+        $('#nav_resource_').val('');
+    }
+    $('#nav_dialog_').show();
+    $('#nav_dialog_').dialog({
+        title:title,
+        collapsible: false,
+        minimizable: false,
+        maximizable: false,
+        buttons: [{
+            text: '提交',
+            iconCls: '',
+            handler: function() {
+                $.ajax({url: '/index.php/admin/addvideo?_n='+ new Date().getTime(),
+                    type: 'POST',
+                    data: {id:id,name : $('#nav_name_').val(),des: $('#nav_des_').val(),resource: $('#nav_resource_').val(),act:act},
+                    dataType: 'json',
+                    beforeSend : function(){
+                    },
+                    error: function(){
+                    },
+                    success: function(data){
+                        //location.href = '/index.php/admin';
+                        if (data.status == 'success'){
+                            if (act == 'add'){
+                                //get_video_info(data.res);
+                                location.href = '/index.php/admin';
+                            }else if (act == 'set'){
+                                get_video_info(info.id);
+                            }
+                            $('#nav_dialog_').dialog('close');
+                        }if (data.status == 'fails'){
+                            alert('提交失败');
+                        }
+                    },
+                    complete : function(){
+                    }
+                });
+            }
+        }, {
+            text: '取消',
+            handler: function() {
+                $('#nav_dialog_').dialog('close');
+            }
+        }]
+    });
+}
 
+//展示导航数据
+function get_video_info(id){
+    init_main();
+    $.ajax({url: '/index.php/admin/videoinfo?_n='+ new Date().getTime(),
+        type: 'POST',
+        data: {id:id},
+        dataType: 'json',
+        beforeSend : function(){
+        },
+        error: function(){
+            //location.href = '/index.php/admin';
+        },
+        success: function(data){
+            //location.href = '/index.php/admin';
+            $('#main_button').html('<a href="javascript:void(0)" id="update_btn"></a><a href="javascript:void(0)" id="status_btn"></a><a href="javascript:void(0)" id="del_btn"></a>');
+            bulid_button('update_btn','修改');
+            bulid_button('del_btn','删除');
+            if (data.status == 1){
+                bulid_button('status_btn','启动');
+                var stat = '已关闭';
+            }else if (data.status == 0){
+                bulid_button('status_btn','关闭');
+                var stat = '已开启';
+            }
+            bulid_button_line();
+            bulid_infodata();
+
+            $('#status_btn').click(function(){
+                set_video_stat(data.id,data.status);
+            });
+
+            $('#update_btn').click(function(){
+                add_video_dialog(data.type_id,data);
+            });
+
+            $('#del_btn').click(function(){
+                confirm_dialog(data.id,'video');
+            });
+
+
+            $('#infodata').html('<div class="nav_tbl_info"><div class="left">状态：</div><div class="right">'+stat+'</div></div><div class="nav_tbl_info"><div class="left">名称：</div><div class="right">'+data['name']+'</div></div><div class="nav_tbl_info"><div class="left">视频地址：</div><div class="right">'+data['video_url']+'</div></div><div class="nav_tbl_info"><div class="left">链接：</div><div class="right">'+data['c_url']+'</div></div><div class="nav_tbl_info"><div class="left">创建时间：</div><div class="right">'+data['create_time']+'</div></div><div style="clear: both;"></div>');
+        },
+        complete : function(){
+        }
+    });
+}
+
+function set_video_stat(id,stat){
+    $.ajax({url: '/index.php/admin/videostat?_n='+ new Date().getTime(),
+        type: 'POST',
+        data: {id : id, stat:stat},
+        dataType: 'json',
+        beforeSend : function(){
+        },
+        error: function(){
+        },
+        success: function(data){
+            //location.href = '/index.php/admin';
+            if (data.status == 'success'){
+                get_video_info(id);
+            }if (data.status == 'fails'){
+                alert('提交失败');
+            }
+        },
+        complete : function(){
+        }
+    });
+}
 
 
 
