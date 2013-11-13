@@ -1,3 +1,5 @@
+<?php $this->beginContent('//index/header'); ?>
+<?php $this->endContent(); ?>
 <div class="bm_index">
     <?php $this->beginContent('//index/nav'); ?>
     <?php $this->endContent(); ?>
