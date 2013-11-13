@@ -83,9 +83,9 @@ function com_dialog(act){
         '</tr>',
         '<tr>',
         '<td height="40" align="right" valign="middle"><strong>图片地址：</strong></td>',
-        '<td height="20" align="left" valign="middle"><div id="divFileProgressContainer" style="display: none;"></div><input name="" type="text" class="zck_text4" id="bm_uploads_name"/><input type="hidden" id="bm_uploads_url" value="" /></td>',
-        '<td width="10%"><div id="spanButtonPlaceholder"></div></td>',
-        '<td height="20" align="left" valign="middle"><span id="pop_img" style="color:red;"></span></div></td>',
+        '<td height="59" align="left" valign="middle"><div id="divFileProgressContainer" style="display: none;"></div><input name="" type="text" class="zck_text4" id="bm_uploads_name"/><input type="hidden" id="bm_uploads_url" value="" /></td>',
+        '<td width="20%"><div id="spanButtonPlaceholder"></div><span id="pop_img" style="color:red;"></span></td>',
+        
         '</tr>',
         '<tr>',
         '<td width="15%" height="40" align="right" valign="top"><strong>活动宣言：</strong></td>',
@@ -224,7 +224,7 @@ function uplodedata()
     	$("#pop_title").html('<img src="/img/bm_tck_dg.jpg" />');
     }
     if(file == ''){
-    	$("#pop_img").html('请上传作品图片!');
+    	$("#pop_img").html('请上传作品!');
     	return false;
     }else{
     	$("#pop_img").html('<img src="/img/bm_tck_dg.jpg" />');
