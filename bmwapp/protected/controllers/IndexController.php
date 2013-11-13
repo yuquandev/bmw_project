@@ -33,12 +33,9 @@ class IndexController extends Controller {
     {
         $this->nav = '2x';  //定义导航样式
     	$this->top = true;
-        
-    	
-    	$name_title = $video = $description = array(); 
-    	
+        $name_title = $video = $description = array(); 
     	//topicnav
-        $topicnav = $this->topicnav->selectTopicnav(array('type_id'=>2,'status'=>0),'','','id ASC');
+        $topicnav = $this->topicnav->selectTopicnav(array('type_id'=>2,'status'=>0),'','');
     	foreach($topicnav as $k=>$val)
     	{
     	    if($val['name'] && empty($val['media_url']))
@@ -55,7 +52,7 @@ class IndexController extends Controller {
     	}
     	//var_dump($video_url);die;
     	//works  
-        $works = $this->works->selectWork(array('recommend'=>0,'review'=>0,'type'=>2),1,8);
+        $works = $this->works->selectWork(array('review'=>0,'type'=>2),1,8,'`vote_num` desc ,`update_time` desc');
     	//footer img
         $image_list = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0),1,12);
         
@@ -134,7 +131,6 @@ class IndexController extends Controller {
        {
           list($id,$type) = explode(',', $id_type);
        }
-       $this->nav = $type.'x';
        $array = array();
        if($id && $type){
          $one_img = $this->topicimage->getOneTopicImage(array('id'=>$id,'type_id'=>$type));
