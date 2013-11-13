@@ -11,7 +11,7 @@ function com_dialog(act){
                 '</tr>',
                 '<tr>',
                     '<td width="35%" height="32"><input name="" type="checkbox" value="" class="zck_k"/><div class="zck_zi">两周内自动登录</div></td>',
-                    '<td width="65%" height="32"><div class="zck_wj"><a href="#">其它方式登陆 | </a><a href="#">忘记密码？</a></div></td>',
+                    '<!--<td width="65%" height="32"><div class="zck_wj"><a href="#">其它方式登陆 | </a><a href="#">忘记密码？</a></div></td>-->',
                 '</tr>',
                 '<tr>',
                 '<span id="login_text"></span>',
@@ -24,33 +24,53 @@ function com_dialog(act){
         '</div>',
     '</div>'].join('');
 
-    var reg_html = ['<div class="zc_tck mydiv" id="popDiv2"  style="display:none; height:auto;">',
-        '<div class="zc_tck_title"><span>注册账号</span><a href="javascript:closeDiv2()"><img src="/img/bm_gb.jpg" /></a></div>',
-        '<div class="zc_tck_main"><table width="100%" border="0" cellspacing="0" cellpadding="0">',
-                '<tr><td width="13%" height="42" align="right" valign="middle"><strong>用户名：</strong></td>',
-                    '<td width="42%" height="42" align="left" valign="middle"><input id="reg_username" name="" type="text" class="zck_text3"/></td>',
-                    '<td width="45%" height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><span id="reg_name"></span></div></td></tr>',
-        '<tr><td height="42" align="right" valign="middle"><strong>姓名：</strong></td>',
-        '<td height="42" align="left" valign="middle"><input id="reg_nickname" name="" type="text" class="zck_text3"/></td>',
-        '<td height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_nkname"></span></div></td>',
-        '</tr><tr><td height="42" align="right" valign="middle"><strong>手机：</strong></td>',
-                    '<td height="42" align="left" valign="middle"><input id="reg_telephone" name="" type="text" class="zck_text3"/></td>',
-                    '<td height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_phone"></span></div></td></tr>',
-                '<tr><td height="42" align="right" valign="middle"><strong>设置密码：</strong></td>',
-                    '<td height="42" align="left" valign="middle"><input id="reg_password" name="" type="password" class="zck_text3"/></td>',
-                    '<td height="42" align="left" valign="middle"><div class="tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_pwd"></span></div></td></tr>',
-                '<tr><td height="42" align="right" valign="middle"><strong>确认密码：</strong></td>',
-                    '<td height="42" align="left" valign="middle"><input id="reg_password_confim" name="" type="password" class="zck_text3"/></td>',
-                    '<td height="42" align="left" valign="middle"><div class="tck_pd2"><img src="/img/tck_pic.jpg" style="display:none"/><span id="reg_cpwd"></span></div></td>',
-                '</tr><!--<tr><td height="50" align="right" valign="middle"><strong>验证码：</strong></td>'+
-                    '<td height="50" align="left" valign="middle"><input name="" type="text" class="zck_text3" style="width:85px;float:left;"/><span id="vcode"><script>svcode();</script></span></td>',
-                    '<td height="50" align="left" valign="middle"><div class="tck_pd"><img src="/img/tck_pic.jpg" style="display:none"/><span>点击图片刷新验证码</span></div></td></tr>-->',
-                '<tr><td height="42" align="right" valign="middle">&nbsp;</td>',
-                    '<td height="42" align="left" valign="middle"><input onclick="bm_reg();" name="" type="button" class="tck_an" value="立即注册"/></td>',
-                    '<td height="42" align="left" valign="middle">&nbsp;</td></tr>',
-            '</table>',
-        '</div>',
-    '</div>'].join('');
+    var reg_html =  ['<div class="zc_tck mydiv" id="popDiv2"  style="display:none;">',
+              	   	 '<div class="zc_tck_title"><span>注册账号</span><a href="javascript:closeDiv2()"><img src="/img/bm_gb.jpg" /></a></div>',
+                     '<div class="zc_tck_main">',
+               	     '<table width="100%" border="0" cellspacing="0" cellpadding="0">',
+                     '<tr>',
+                     '<td width="13%" height="42" align="right" valign="middle">',
+           			 '<strong>用户名：</strong>',
+           			 '</td>',
+                     '<td width="42%" height="42" align="left" valign="middle">',
+           			 '<input name="" id="reg_username" type="text" class="zck_text3"/>',
+           			 '</td>',
+                     '<td width="45%" height="42" align="left" valign="middle">',
+           			 '<div class="tck_pd tck_pd2">',
+           			 '<span id="reg_name"></span></div></td>',
+                     '</tr>',
+           			 '<tr>',  
+           			 '<td width="13%" height="42" align="right" valign="middle"><strong> 真实姓名：</strong></td>',
+                     '<td width="42%" height="42" align="left" valign="middle"><input id="reg_nickname" name="" type="text" class="zck_text3"/></td>',
+                     '<td width="45%" height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><span id="reg_nkname"></span></div></td></tr>',
+                     '<tr>',
+                     '<td height="42" align="right" valign="middle"><strong>手机：</strong></td>',
+                     '<td height="42" align="left" valign="middle"><input name="" id="reg_telephone" type="text" class="zck_text3"/></td>',
+                     '<td height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><span id="reg_phone"></span></div></td>',
+                     '</tr>',
+                     '<tr>',
+                     '<td height="42" align="right" valign="middle"><strong>设置密码：</strong></td>',
+                     '<td height="42" align="left" valign="middle"><input name="" type="password" id="reg_password" class="zck_text3"/></td>',
+                     '<td height="42" align="left" valign="middle"><div class="tck_pd2"><span id="reg_pwd"></span></div></td>',
+                     '</tr>',
+                     '<tr>',
+                     '<td height="42" align="right" valign="middle"><strong>确认密码：</strong></td>',
+                     '<td height="42" align="left" valign="middle"><input name="" type="password" id="reg_password_confim" class="zck_text3"/></td>',
+                     '<td height="42" align="left" valign="middle"><div class="tck_pd2"><span id="reg_cpwd"></span></div></td>',
+                     '</tr>',
+                     '<!--<tr>',
+                     '<td height="50" align="right" valign="middle"><strong>验证码：</strong></td>',
+                     '<td height="50" align="left" valign="middle"><input name="" type="text" class="zck_text3" style="width:85px;float:left;"/><img src="images/tck_yzm.jpg" style="float:left;margin-left:17px;"/></td>',
+                     '<td height="50" align="left" valign="middle"><div class="tck_pd"><span>点击图片刷新验证码</span></div></td>',
+                     '</tr>-->',
+                     '<tr>',
+                     '<td height="42" align="right" valign="middle">&nbsp;</td>',
+                     '<td height="42" align="left" valign="middle"><input name="" type="button" class="tck_an" onclick="bm_reg();"  value="立即注册"/></td>',
+                     '<td height="42" align="left" valign="middle">&nbsp;</td>',
+                     '</tr>',
+                     '</table>',
+                     '</div>',
+                     '</div>'].join('');
 
     var uploads_html = ['<div class="zc_tck mydiv" id="popDiv" style="display:none;">',
         '<div class="zc_tck_title"><span>上传图片</span><a href="javascript:closeDiv()"><img src="/img/bm_gb.jpg" /></a></div>',
@@ -119,51 +139,52 @@ function bm_reg(){
     	 $("#reg_name").html('<img src="/img/tck_pic.jpg" />请输入用户名'); 
     	 return false;
     }else{
-    	 $("#reg_name").html('');
+    	 $("#reg_name").html('<img src="/img/bm_tck_dg.jpg" />');
     }
 	if( $("#reg_nickname").val() == '' )
     {
     	 $("#reg_nkname").html('<img src="/img/tck_pic.jpg" />请输入真实姓名');
     	 return false;
     }else{
-    	$("#reg_nkname").html('');
+    	$("#reg_nkname").html('<img src="/img/bm_tck_dg.jpg" />');
     }
 	if( $("#reg_telephone").val() == '' )
     {
     	 $("#reg_phone").html('<img src="/img/tck_pic.jpg" />请输入手机号');
     	 return false;
     }else{
-    	var regphone = /^(((1[0-9][0-9]{1})|159|153)+\d{8})$/;
-        if(!regphone.test($("#reg_telephone").val()) || $("#reg_telephone").lenght < 11)
+    	var regphone = /1(?:[38]\d|4[57]|5[01256789])\d{8}/;
+        if(!regphone.test($("#reg_telephone").val()))
         {
         	$("#reg_phone").html('<img src="/img/tck_pic.jpg" />请输入有效的手机号');
             return false;
         }
-    	$("#reg_phone").html('');
+    	$("#reg_phone").html('<img src="/img/bm_tck_dg.jpg" />');
     }
 	if( $("#reg_password").val() == '' ){
     	$("#reg_pwd").html('<img src="/img/tck_pic.jpg" />请输入密码');
    	    return false;
     }else{
-    	if($("#reg_password").val().length < 8)
+    	var eig_pwd =  /^(?!\D+$)(?![^a-zA-Z]+$)\S{8,16}$/; 
+    	if(!eig_pwd.test($("#reg_password").val()))
    	    {
-   	    	$("#reg_pwd").html('<img src="/img/tck_pic.jpg" />密码长度8~16位，数字、字母');
+   	    	$("#reg_pwd").html('<img src="/img/tck_pic.jpg" />密码长度8~16位,包含数字、字母');
    	        return false;
    	    }
-    	$("#reg_pwd").html('');
+    	$("#reg_pwd").html('<img src="/img/bm_tck_dg.jpg" />');
     }
 	if( $("#reg_password_confim").val() == '' ){
     	$("#reg_cpwd").html('<img src="/img/tck_pic.jpg" />请再次请输入密码');
    	    return false;
     }else{
-    	$("#reg_cpwd").html('');
+    	$("#reg_cpwd").html('<img src="/img/bm_tck_dg.jpg" />');
     }
 	if($("#reg_password").val() != $("#reg_password_confim").val())
 	{
 	 	$("#reg_cpwd").html('<img src="/img/tck_pic.jpg" />俩次输入的密码不一样');
    	    return false;
     }else{
-    	$("#reg_cpwd").html('');
+    	$("#reg_cpwd").html('<img src="/img/bm_tck_dg.jpg" />');
     }
 	
 	

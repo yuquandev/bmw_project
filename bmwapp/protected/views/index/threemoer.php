@@ -1,5 +1,4 @@
 <div class="bm_index">
-
     <?php $this->beginContent('//index/nav'); ?>
     <?php $this->endContent(); ?>
     <!--作品展示-->
@@ -35,10 +34,13 @@
     <?php $this->endContent(); ?>
    
 </div>
-
-
-
-
+<!--上传图片-->
+<span id="uplode_img"></span>
+<input type="hidden" id="ty_id" value="<?php echo $this->type;?>">
+<!--注册账号-->
+<span id="popmsg"></span>
+<!--登陆与注册-->
+<div id="com_dialog"></div>
 <div id="bg" class="bg" style="display:none;"></div>
 <iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
 </body>
