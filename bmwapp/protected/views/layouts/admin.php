@@ -18,6 +18,8 @@
         .panel-body .accordion-body li {list-style: none;}
         .panel-body .accordion-body li a {text-decoration: none; color: #666;}
         .panel-body .accordion-body li a:hover { color: #0044cc;}
+        .bmw_nav_a {color:#ddd;font-weight: 600; text-decoration: none;padding:0 8px 0 8px; font-size: 14px;text-shadow: 0 1px 1px #000; text-transform: uppercase;}
+        a.bmw_nav_a:hover {color: #fff;text-shadow: 0 1px 1px #ddd;}
     </style>
 </head>
 <body class="easyui-layout" style="width:100%;height:100%">
@@ -25,13 +27,13 @@
     <embed type="application/x-shockwave-flash" src="/img/cms/brakeenergy_Overview_bg.swf" width="1024" height="634" style="undefined" id="mainFlashMovie" name="mainFlashMovie" bgcolor="#ffffff" quality="autohigh" allowscriptaccess="sameDomain" wmode="transparent" flashvars="prm_corelib=/img/cms/bmw_as3_corelib_1_1.swf&amp;prm_components=/img/cms/bmw_as3_components_2_0.swf">
 </div>
 <div id="bmw_north" data-options="region:'north'" style="overflow: hidden;">
-    <div id="bmw_cms_nav" style="padding:5px;border:1px solid #ddd;padding-top: 16px; height:40px; background: #fff; opacity: 0.84;">
-        <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true" style="" onclick="add_car_dialog();">新建专题</a>
-        <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true" style="" onclick="ajax_reg_admin();">新建管理员</a>
-        <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true" style="" onclick="location.href='/';">访问站点</a>
-        <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true" style="" onclick="window.location.reload();">刷新页面</a>
-        <a href="/index.php/admin/logout" class="easyui-linkbutton" data-options="plain:true" style="float:right;">退出</a>
-        <a style="float:right;padding-top: 8px;"><?php echo $this->user_info['username'];?> | </a>
+    <div id="bmw_cms_nav" style="padding:5px;border:1px solid #ddd;padding-top: 30px;padding-left: 10px; height:26px; background: none; ;">
+        <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="add_car_dialog();">新建专题</a>
+        <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="ajax_reg_admin();">新建管理员</a>
+        <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="location.href='/';">访问站点</a>
+        <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="window.location.reload();">刷新页面</a>
+        <a href="/index.php/admin/logout" class="easyui-linkbutton"  style="float:right;">退出</a>
+        <a class="easyui-linkbutton" style="float:right;"><?php echo $this->user_info['username'];?></a>
         <div style="clear: both;"></div>
     </div>
 </div>
@@ -105,7 +107,7 @@
     <label class="lbInfo">密  码：</label>
     <input id="reg_password" type="password" class="" required="true" runat="server" /><br />
 </div>
-<div id="idModuls" style="position: absolute;top:0px;z-index: 1000;right:10%">
+<div id="idModuls" style="position: absolute;top:0px;z-index: 1000;right:150px;">
     <img src="/img/cms/id_moduls.png" alt="">
 </div>
 <script type="text/javascript">
@@ -118,14 +120,14 @@
             }
         }
     });
-
+    /*
     $('#bmw_cms_nav').bind('mouseover',function(){
         $(this).css('opacity', '1');
     });
     $('#bmw_cms_nav').bind('mouseout',function(){
         $(this).css('opacity', '0.84');
     });
-
+*/
 </script>
 
 </body>
