@@ -1,7 +1,7 @@
-var Speed = 1; //ËÙ¶È(ºÁÃë)
-var Space = 10; //Ã¿´ÎÒÆ¶¯(px)
-var PageWidth = 415; //·­Ò³¿í¶È
-var fill = 0; //ÕûÌåÒÆÎ»
+var Speed = 1; //é€Ÿåº¦(æ¯«ç§’)
+var Space = 10; //æ¯æ¬¡ç§»åŠ¨(px)
+var PageWidth = 412; //ç¿»é¡µå®½åº¦
+var fill = 0; //æ•´ä½“ç§»ä½
 var MoveLock = false;
 var MoveTimeObj;
 var Comp = 0;
@@ -12,17 +12,17 @@ GetObj("ISL_Cont").onmouseover = function(){clearInterval(AutoPlayObj);}
 GetObj("ISL_Cont").onmouseout = function(){AutoPlay();}
 AutoPlay();
 function GetObj(objName){if(document.getElementById){return eval('document.getElementById("'+objName+'")')}else{return eval('document.all.'+objName)}}
-function AutoPlay(){ //×Ô¶¯¹ö¶¯
+function AutoPlay(){ //è‡ªåŠ¨æ»šåŠ¨
 clearInterval(AutoPlayObj);
-AutoPlayObj = setInterval('ISL_GoDown();ISL_StopDown();',1000); //¼ä¸ôÊ±¼ä
+AutoPlayObj = setInterval('ISL_GoDown();ISL_StopDown();',4000); //é—´éš”æ—¶é—´
 }
-function ISL_GoUp(){ //ÉÏ·­¿ªÊ¼
+function ISL_GoUp(){ //ä¸Šç¿»å¼€å§‹
 if(MoveLock) return;
 clearInterval(AutoPlayObj);
 MoveLock = true;
 MoveTimeObj = setInterval('ISL_ScrUp();',Speed);
 }
-function ISL_StopUp(){ //ÉÏ·­Í£Ö¹
+function ISL_StopUp(){ //ä¸Šç¿»åœæ­¢
 clearInterval(MoveTimeObj);
 if(GetObj('ISL_Cont').scrollLeft % PageWidth - fill != 0){
 Comp = fill - (GetObj('ISL_Cont').scrollLeft % PageWidth);
@@ -32,11 +32,11 @@ MoveLock = false;
 }
 AutoPlay();
 }
-function ISL_ScrUp(){ //ÉÏ·­¶¯×÷
+function ISL_ScrUp(){ //ä¸Šç¿»åŠ¨ä½œ
 if(GetObj('ISL_Cont').scrollLeft <= 0){GetObj('ISL_Cont').scrollLeft = GetObj('ISL_Cont').scrollLeft + GetObj('List1').offsetWidth}
 GetObj('ISL_Cont').scrollLeft -= Space ;
 }
-function ISL_GoDown(){ //ÏÂ·­
+function ISL_GoDown(){ //ä¸‹ç¿»
 clearInterval(MoveTimeObj);
 if(MoveLock) return;
 clearInterval(AutoPlayObj);
@@ -44,7 +44,7 @@ MoveLock = true;
 ISL_ScrDown();
 MoveTimeObj = setInterval('ISL_ScrDown()',Speed);
 }
-function ISL_StopDown(){ //ÏÂ·­Í£Ö¹
+function ISL_StopDown(){ //ä¸‹ç¿»åœæ­¢
 clearInterval(MoveTimeObj);
 if(GetObj('ISL_Cont').scrollLeft % PageWidth - fill != 0 ){
 Comp = PageWidth - GetObj('ISL_Cont').scrollLeft % PageWidth + fill;
@@ -54,14 +54,14 @@ MoveLock = false;
 }
 AutoPlay();
 }
-function ISL_ScrDown(){ //ÏÂ·­¶¯×÷
+function ISL_ScrDown(){ //ä¸‹ç¿»åŠ¨ä½œ
 if(GetObj('ISL_Cont').scrollLeft >= GetObj('List1').scrollWidth){GetObj('ISL_Cont').scrollLeft = GetObj('ISL_Cont').scrollLeft - GetObj('List1').scrollWidth;}
 GetObj('ISL_Cont').scrollLeft += Space ;
 }
 function CompScr(){
 var num;
 if(Comp == 0){MoveLock = false;return;}
-if(Comp < 0){ //ÉÏ·­
+if(Comp < 0){ //ä¸Šç¿»
 if(Comp < -Space){
  Comp += Space;
  num = Space;
@@ -71,7 +71,7 @@ if(Comp < -Space){
 }
 GetObj('ISL_Cont').scrollLeft -= num;
 setTimeout('CompScr()',Speed);
-}else{ //ÏÂ·­
+}else{ //ä¸‹ç¿»
 if(Comp > Space){
  Comp -= Space;
  num = Space;

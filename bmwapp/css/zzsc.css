@@ -222,13 +222,13 @@ filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMe
 /*3œµ ”∆µ«–ªª*/
 .pilot .pilotmain{
 	width:460px;
-	height:245px;
+	height:275px;
 	position:absolute;
 	left:27px;
 }
 .pilotpic{
 	width:400px;
-	height:245px;
+	height:275px;
 	position:absolute;
 	overflow:hidden;
 	left:24px;
@@ -241,19 +241,19 @@ filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMe
 	}
 .pilotpic ul li{
 	width:400px;
-	height:245px;
-    border: 1px solid #BFD2D9;
+	height:275px;
     border-radius: 3px;
 	display:block;
 	float:left;
 	margin-right:12px;
 	}
+.wz_js{ font-size:20px; line-height:24px; padding-bottom:5px; padding-left:20px;}
 .pilotleft{
 	width:23px;
 	height:44px;
 	position:absolute;
 	background:url(/img/fc_left.png) no-repeat;
-	top:100px;
+	top:130px;
 	cursor:pointer;
 	}
 .pilotright{
@@ -261,7 +261,7 @@ filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMe
 	height:44px;
 	position:absolute;
 	background:url(/img/fc_right.png) no-repeat;
-	top:100px;
+	top:130px;
 	right:10px;
 	cursor:pointer;
 	}
