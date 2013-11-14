@@ -148,7 +148,7 @@ function ajax_get_columns(table,title,id){
     init_main();
     id = id || 0;
 
-    console.log(table.substr(0,10));
+    //console.log(table.substr(0,10));
     if (table.substr(0,10) == 'image_list'){
         $('#main_button').html('<a href="javascript:void(0)" id="add_btn"></a>');
         bulid_button('add_btn','添加');
@@ -184,7 +184,7 @@ function ajax_get_columns(table,title,id){
 
 //异步获取datagrid数据
 function reload_datagrid(table,title,columns,id){
-    console.log(table);
+    //console.log(table);
     $('#dg').datagrid({
         title : title,
         url:'/index.php/admin/datajson?act='+table+'&id='+id,
