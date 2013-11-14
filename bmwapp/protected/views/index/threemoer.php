@@ -21,15 +21,9 @@
                 </div>
             </div>
             <?php endforeach;?>  
-            
-        
-        
         </div>
-        
        <?php echo $page;?>
-        
-        
-        <div class="clear"></div>
+       <div class="clear"></div>
     </div>
     <div class="clear"></div>
      <?php $this->beginContent('//index/footer'); ?>

@@ -100,6 +100,18 @@ class ApiController extends Controller {
     {
          echo $this->authcode();
     }
+  
+    public function actionregvcode()
+    {
+       $vcode  = $_SESSION['VCODE'];
+       $pvcode = isset($_GET['vcode']) ? trim($_GET['vcode']) : false;
+       if($vcode == $pvcode){
+          echo json_encode(array('status'=>'true'));
+       }else{
+       	  echo json_encode(array('status'=>'false'));
+       }
+    
+    }
 
 }
 
