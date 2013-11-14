@@ -23,8 +23,10 @@
         .datagrid-body {background: #fff;}
         #infodata {background: #fff;border-left:2px solid #eee;}
         .nav_tbl_info {background: #fff;}
-        .nav_tbl_info .left {float: left;width:100px;font-size: 16px;color:#0044cc;font-weight: bold;padding-top: 20px; text-align: right;padding-right:10px; }
-        .nav_tbl_info .right {float: left;width:550px;font-size: 16px;color:#666; padding-top: 20px;}
+        .nav_tbl_info .left {float: left;width:100px;font-size: 16px;color:#0044cc;font-weight: bold;padding-top: 20px; text-align: right;padding-right:10px; min-height: 20px;}
+        .nav_tbl_info .right {float: left;width:550px;font-size: 16px;color:#666; padding-top: 20px; min-height:20px;}
+        .datagrid-btable,.datagrid-header-inner{width:100%;
+        .datagrid-htable {}
     </style>
 </head>
 <body style="width: 100%;height:100%;text-align: center;margin:0 auto; background: #eee;" >
@@ -38,8 +40,7 @@
         <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="ajax_reg_admin();">新建管理员</a>
         <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="location.href='/';">访问站点</a>
         <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="window.location.reload();">刷新页面</a>
-        <a href="/index.php/admin/logout" class="easyui-linkbutton"  style="float:right;">退出</a>
-        <a class="easyui-linkbutton" style="float:right;"><?php echo $this->user_info['username'];?></a>
+        <a href="/index.php/admin/logout" class="bmw_nav_a"  style="float:right;">退出</a>
         <div style="clear: both;"></div>
     </div>
 </div>
@@ -126,6 +127,10 @@
     <input id="reg_username" type="text" class="" required="true" runat="server" /><br />
     <label class="lbInfo">密  码：</label>
     <input id="reg_password" type="password" class="" required="true" runat="server" /><br />
+</div>
+<div id="vote_dialog" style="display:none;padding:10px;width:400px;" title="修改投票">
+    <label class="lbInfo">投票数：</label>
+    <input id="vote_num_id" type="text" class="" required="true" runat="server" /><br />
 </div>
 <div id="idModuls" style="position: absolute;top:0px;z-index: 1000;right:64px;">
     <img src="/img/cms/id_moduls.png" alt="">

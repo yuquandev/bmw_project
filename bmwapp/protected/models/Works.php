@@ -280,7 +280,12 @@ class Works extends CActiveRecord
         return $res;
     }
     
-
+    public function set_vote_num($id,$vote){
+        $sql = sprintf("update works_tbl set vote_num = %d,update_time=NOW() where id = %d",$vote,$id);
+        //print_r($sql);exit();
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
     
 
 

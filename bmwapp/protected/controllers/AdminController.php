@@ -487,4 +487,17 @@ class AdminController extends Controller {
 
     }
 
+    public function actionVotenum(){
+        $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+        $vote = isset($_POST['vote']) ? intval($_POST['vote']) : 0;
+        if (!empty($id)){
+            $res = $this->works->set_vote_num($id,$vote);
+            if($res){
+                echo json_encode(array('status'=>'success','res'=>$res));
+            }else {
+                echo json_encode(array('status'=>'fails'));
+            }
+        }
+    }
+
 }

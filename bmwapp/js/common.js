@@ -6,7 +6,7 @@ function bulid_button(id,text){
     $('#'+id).html(text);
     $('#'+id).linkbutton({
     });
-    $('#'+id).css('margin','10px');
+    $('#'+id).css('margin','2px');
 }
 
 function bulid_button_line(){
@@ -199,6 +199,7 @@ function reload_datagrid(table,title,columns,id){
         checkOnSelect : false,
         selectOnCheck : false,
         showHeader : true,
+        height : 'auto',
         showFooter : true,
         columns:[columns],
         rowStyler: function(index,row){
@@ -213,7 +214,7 @@ function reload_datagrid(table,title,columns,id){
                         row['status'] = '已启用  <a href="javascript:void(0);" onclick="set_image_stat('+row['id']+','+row['status']+');">禁用</a>';
                     }
                     if (n == 'image_url'){
-                        row[n] = '<img src="'+row[n]+'" height="100" />';
+                        row[n] = '<img src="'+row[n]+'" width="200" />';
                         row['editor'] = '<a href="javascript:void(0);" onclick="add_topic_img('+row['id']+','+tmp+');">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'topic_image\')">删除</a>';
                     }
 
@@ -236,10 +237,10 @@ function reload_datagrid(table,title,columns,id){
                         row['recommend'] = '未推荐  <a href="javascript:void(0);" onclick="set_work_stat('+row['id']+','+row['recommend']+',\'recommend\');">开启</a>';
                     }
                     if (n == 'vote_num'){
-                        row['vote_num'] = row['vote_num']+'票  <a href="javascript:void(0);" onclick="">修改</a>';
+                        row['vote_num'] = row['vote_num']+'票  <a href="javascript:void(0);" onclick="set_vote_num('+row['id']+','+row['vote_num']+');">修改</a>';
                     }
                     if (n == 'img_url'){
-                        row[n] = '<img src="'+row[n]+'" height="100" />';
+                        row[n] = '<img src="'+row[n]+'" width="200" />';
                     }
                 }
             }
@@ -775,6 +776,49 @@ function set_video_stat(id,stat){
         },
         complete : function(){
         }
+    });
+}
+
+function set_vote_num(id,num){
+    $('#vote_num_id').val(num);
+    $('#vote_dialog').show();
+    $('#vote_dialog').dialog({
+        title: '修改投票',
+        collapsible: false,
+        minimizable: false,
+        maximizable: false,
+        buttons: [{
+            text: '确定',
+            iconCls: '',
+            handler: function() {
+                $.ajax({url: '/index.php/admin/votenum?_n='+ new Date().getTime(),
+                    type: 'POST',
+                    data: {id:id,vote:$('#vote_num_id').val()},
+                    dataType: 'json',
+                    beforeSend : function(){
+                    },
+                    error: function(){
+                    },
+                    success: function(data){
+                        //location.href = '/index.php/admin';
+                        if (data.status == 'success'){
+                            $('#dg').datagrid('reload');
+
+                            $('#vote_dialog').dialog('close');
+                        }if (data.status == 'fails'){
+                            alert('提交失败');
+                        }
+                    },
+                    complete : function(){
+                    }
+                });
+            }
+        }, {
+            text: '取消',
+            handler: function() {
+                $('#vote_dialog').dialog('close');
+            }
+        }]
     });
 }
 
