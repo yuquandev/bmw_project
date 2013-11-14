@@ -52,7 +52,6 @@ class Controller extends CController
 		   $vcode .= $str[$i];
 		}
 		$_SESSION['VCODE'] = strtolower($vcode);
-		
 		$im = imagecreatetruecolor($w,$h);
 		$white = imagecolorallocate($im,255,255,255); //第一次调用设置背景色
 		$black = imagecolorallocate($im,0,0,0); //边框颜色

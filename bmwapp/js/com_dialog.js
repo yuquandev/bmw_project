@@ -26,7 +26,7 @@ function com_dialog(act){
 
     var reg_html =  ['<div class="zc_tck mydiv" id="popDiv2"  style="display:none;">',
               	   	 '<div class="zc_tck_title"><span>注册账号</span><a href="javascript:closeDiv2()"><img src="/img/bm_gb.jpg" /></a></div>',
-                     '<div class="zc_tck_main">',
+                     '<div class="zc_tck_main" style="padding-top:5px;">',
                	     '<table width="100%" border="0" cellspacing="0" cellpadding="0">',
                      '<tr>',
                      '<td width="13%" height="42" align="right" valign="middle">',
@@ -60,8 +60,8 @@ function com_dialog(act){
                      '</tr>',
                      '<tr>',
                      '<td height="50" align="right" valign="middle"><strong>验证码：</strong></td>',
-                     '<td height="50" align="left" valign="middle"><input name="" type="text" class="zck_text3" style="width:85px;float:left;"/><img src="/index.php/api/vcode" id="vcode" style="float:left;margin-left:17px;"/></td>',
-                     '<td height="50" align="left" valign="middle"><div class="tck_pd"><span>点击图片刷新验证码</span></div></td>',
+                     '<td height="50" align="left" valign="middle"><input name="" id="vcode_value" type="text" class="zck_text3" style="width:85px;float:left;"/><a href="javascript:void(0);" onclick="lvcode();"><img src="/index.php/api/vcode" id="vcode" style="float:left;margin-left:17px;"/></a></td>',
+                     '<td height="50" align="left" valign="middle"><div class="tck_pd"><span id="reg_vcode">点击图片刷新验证码</span></div></td>',
                      '</tr>',
                      '<tr>',
                      '<td height="42" align="right" valign="middle">&nbsp;</td>',
@@ -187,6 +187,18 @@ function bm_reg(){
     }else{
     	$("#reg_cpwd").html('<img src="/img/bm_tck_dg.jpg" />');
     }
+	
+	var gvcode = document.cookie('VCODE');
+	alert(gvcode);
+	if($("#vcode_value").val() == '')
+    {
+	 	
+    	$("#reg_vcode").html('<img src="/img/tck_pic.jpg" />请输入验证码');
+   	    return false;
+    }else{
+    	$("#reg_vcode").html('<img src="/img/bm_tck_dg.jpg" />');
+    }
+	
 	
 	
 	$.ajax({url: '/index.php/user/ajax_join?_n='+ new Date().getTime(),
@@ -385,17 +397,12 @@ function top_vote(wid,num)
 	}
 	});
 }
-
-function svcode()
+//换验证码
+function lvcode()
 {
-	
-	var url = '/index.php/user/vcode?_v='+ new Date().getTime();
-	$.ajax({'url':url,'async':false,'data':{'s':1},'dataType':'json',
-		'success':function(rs){
-		    
-			$("#vcode").html('<img src="'+rs+'" style="float:left;margin-left:17px;"/>');
-		}
-		});
+	var gvcode = document.cookie;
+	alert(gvcode);
+	document.getElementById('vcode').src='/index.php/api/vcode?_j='+Math.random();	
 }
 
 

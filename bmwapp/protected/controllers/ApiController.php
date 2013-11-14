@@ -93,7 +93,7 @@ class ApiController extends Controller {
     }
     
     /**
-     * 输入验证码
+     * 验证码
      * Enter description here ...
      */
     public function actionvcode()
