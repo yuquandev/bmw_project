@@ -188,15 +188,26 @@ function bm_reg(){
     	$("#reg_cpwd").html('<img src="/img/bm_tck_dg.jpg" />');
     }
 	
-	var gvcode = document.cookie('VCODE');
-	alert(gvcode);
+
 	if($("#vcode_value").val() == '')
-    {
-	 	
-    	$("#reg_vcode").html('<img src="/img/tck_pic.jpg" />请输入验证码');
+    {   
+		$("#reg_vcode").html('<img src="/img/tck_pic.jpg" />请输入验证码');
    	    return false;
     }else{
-    	$("#reg_vcode").html('<img src="/img/bm_tck_dg.jpg" />');
+    	var url = '/index.php/api/regvcode?_j='+ new Date().getTime();
+    	$.ajax({'url':url,'async':false,'data':{'vcode':$("#vcode_value").val()},'dataType':'json',
+    	'success':function(rs){
+    	       if( rs.status == 'false' )
+               {
+                  var vcode = false;	   
+                  $("#reg_vcode").html('<img src="/img/tck_pic.jpg" />请输入正确的验证码');
+               }else{  
+            	  $("#reg_vcode").html('<img src="/img/bm_tck_dg.jpg" />');
+               }
+    	   }     
+    	});
+    	if( vcode == false ) return false;
+    	
     }
 	
 	
@@ -381,7 +392,7 @@ function base_upload_success(file, serverData) {
 //投票
 function top_vote(wid,num)
 {
-	var url = '/index.php/api/vote?_j=' + new Date().getTime();;
+	var url = '/index.php/api/vote?_j=' + new Date().getTime();
 	$.ajax({'url':url,'async':false,'data':{'wid':wid},'dataType':'json',
 	'success':function(rs){
 	    if(rs == 1){
@@ -397,11 +408,9 @@ function top_vote(wid,num)
 	}
 	});
 }
-//换验证码
+//更换验证码
 function lvcode()
 {
-	var gvcode = document.cookie;
-	alert(gvcode);
 	document.getElementById('vcode').src='/index.php/api/vcode?_j='+Math.random();	
 }
 
