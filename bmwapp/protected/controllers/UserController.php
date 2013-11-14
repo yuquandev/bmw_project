@@ -205,8 +205,5 @@ class UserController extends Controller {
 
         //$this->render("/user/join");
     }
-    public function actionvcode()
-    {
-         return json_encode($this->authcode());
-    }
+  
 }

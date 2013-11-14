@@ -91,8 +91,15 @@ class ApiController extends Controller {
         }
         return $ip;
     }
-
-
+    
+    /**
+     * 输入验证码
+     * Enter description here ...
+     */
+    public function actionvcode()
+    {
+         echo $this->authcode();
+    }
 
 }
 
