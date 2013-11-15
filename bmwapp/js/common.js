@@ -74,6 +74,7 @@ function bulid_upload(){
 
 function add_error(id,msg){
     $('#'+id).html(msg);
+    $('#'+id).css('color','#ff0000');
     $('#'+id+'_style').addClass('error');
     return false;
 }
@@ -92,23 +93,23 @@ function base_fileQueueError(file, errorCode, message) {
         }
 
         if (errorName !== "") {
-            add_error(error_banner,errorName);
+            add_error('error_banner',errorName);
             return;
         }
 
         switch (errorCode) {
             case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
                 imageName = "zerobyte.gif";
-                add_error(error_banner,'图片尺寸小于1K，请重新选择图片');
+                add_error('error_banner','图片尺寸小于1K，请重新选择图片');
                 break;
             case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
                 imageName = "toobig.gif";
-                add_error(error_banner,'图片尺寸大于500K，请重新选择图片');
+                add_error('error_banner','图片尺寸大于5M，请重新选择图片');
                 break;
             case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
-                add_error(error_banner,'请上传正确的格式图片');
+                add_error('error_banner','请上传正确的格式图片');
             case SWFUpload.QUEUE_ERROR.INVALID_FILETYPE:
-                add_error(error_banner,'请上传正确的格式图片');
+                add_error('error_banner','请上传正确的格式图片');
             default:
                 //add_error(error_banner,message);
                 break;
@@ -126,8 +127,13 @@ function base_upload_success(file, serverData) {
     try {
         var progress = new FileProgress(file,  this.customSettings.upload_target);
         if (serverData) {
+            del_error('error_banner');
             addImage(serverData);
+            $('#t_img_file').val($('.progressName').html());
             $('#t_img_url').val(serverData);
+            $('#thumbnails img').css('width','200px');
+            $('#thumbnails img').css('height','200px');
+            $('#t_img_dialog').css('height','360px');
 
             progress.setStatus("Upload Complete.");
             progress.toggleCancel(false);
@@ -214,7 +220,7 @@ function reload_datagrid(table,title,columns,id){
                         row['status'] = '已启用  <a href="javascript:void(0);" onclick="set_image_stat('+row['id']+','+row['status']+');">禁用</a>';
                     }
                     if (n == 'image_url'){
-                        row[n] = '<img src="'+row[n]+'" width="200" />';
+                        row[n] = '<img src="'+row[n]+'" width="150" height="150" />';
                         row['editor'] = '<a href="javascript:void(0);" onclick="add_topic_img('+row['id']+','+tmp+');">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'topic_image\')">删除</a>';
                     }
 
@@ -240,7 +246,7 @@ function reload_datagrid(table,title,columns,id){
                         row['vote_num'] = row['vote_num']+'票  <a href="javascript:void(0);" onclick="set_vote_num('+row['id']+','+row['vote_num']+');">修改</a>';
                     }
                     if (n == 'img_url'){
-                        row[n] = '<img src="'+row[n]+'" width="200" />';
+                        row[n] = '<img src="'+row[n]+'" width="150" height="150" />';
                     }
                 }
             }
