@@ -25,8 +25,9 @@
         .nav_tbl_info {background: #fff;}
         .nav_tbl_info .left {float: left;width:100px;font-size: 16px;color:#0044cc;font-weight: bold;padding-top: 20px; text-align: right;padding-right:10px; min-height: 20px;}
         .nav_tbl_info .right {float: left;width:550px;font-size: 16px;color:#666; padding-top: 20px; min-height:20px;}
-        .datagrid-btable,.datagrid-header-inner{width:100%;
+        .datagrid-btable {}
         .datagrid-htable {}
+        .datagrid-header-inner {}
     </style>
 </head>
 <body style="width: 100%;height:100%;text-align: center;margin:0 auto; background: #eee;" >
