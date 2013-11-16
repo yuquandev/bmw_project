@@ -40,7 +40,29 @@ class UserController extends Controller {
             self::$is_login = false;
         }
     }
-
+    
+    //检查用户名
+    public function actionRegusername()
+    {
+       $username = isset($_GET['username']) ? trim($_GET['username']) : '';
+       $userinfo =$this->user->get_userinfo_by_username($username);
+       if(!empty($userinfo)){
+          echo json_encode(array('status'=>false));
+       }else{ 
+          echo json_encode(array('status'=>true));
+       }   
+    }
+    //检查手机号
+    public function axtionRegphone()
+    {
+       $telephone = isset($_POST['telephone']) ? intval($_POST['telephone']) : '';
+       $userinfo = $this->user->getOneUser(array('telephone'=>$telephone));
+       if(!empty($userinfo))
+          echo json_encode(array('status'=>false));
+       else 
+          echo json_encode(array('status'=>true));
+    }
+    
     //注册
     public function actionJoin(){
         if (self::$is_login){
@@ -151,7 +173,7 @@ class UserController extends Controller {
                 echo json_encode(array('status'=>'falis','msg'=>'密码错误'));exit();
             }
         }
-        echo json_encode(array('status'=>'falis','msg'=>'请出入用户名和密码'));exit();
+        echo json_encode(array('status'=>'falis','msg'=>'请输入用户名和密码'));exit();
     }
 
     public function actionAjax_join(){

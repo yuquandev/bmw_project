@@ -7,6 +7,7 @@
 <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/img/bmw.ico"/>
 <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/css.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/zzsc.css">
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lazyload/jquery.js"></script><script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lazyload/jquery.lazyload.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.js"></script>
 <script type="text/javascript" charset="utf-8" src="<?php echo Yii::app()->request->baseUrl; ?>/js/scroll.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.4.2.min.js"></script>
@@ -18,7 +19,4 @@
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/swfupload/swfupload.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/project.handlers.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/scrollpic.js"></script>
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lazyload/jquery.js"></script>
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lazyload/jquery.lazyload.js"></script>
-
 </head>

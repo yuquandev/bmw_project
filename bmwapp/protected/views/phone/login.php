@@ -13,7 +13,7 @@
         	<div class="sjb_main_title"></div>
             <div class="sjb_sp">
            		<table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
+            <tr>
             <td height="58" colspan="2"><input name="textfield" id="bm_username" type="text" class="zck_text2"   value="请输入用户名" onfocus="if (value =='请输入用户名'){value =''}" onblur="if (value ==''){value='请输入用户名'}"/></td>
           </tr>
           <tr>

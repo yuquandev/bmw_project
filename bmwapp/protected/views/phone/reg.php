@@ -14,49 +14,83 @@
             <div class="sjb_sp">
            		<table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                <td width="28%" height="42" align="right" valign="middle"><strong>邮箱：</strong></td>
-                <td height="42" colspan="2" align="left" valign="middle"><input name="" type="text" class="zck_text3"/></td>
+                <td width="28%" height="42" align="right" valign="middle"><strong>用户名：</strong></td>
+                <td height="42" colspan="2" align="left" valign="middle">
+                <input name="" type="text" class="zck_text3" id="reg_username" onblur="onblureg('user');"/></td>
                 </tr>
-                
-                  <tr>
+                <tr>
                      <td width="28%" height="22" align="right" valign="middle"></td>
-                    <td height="22" colspan="2" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/phone/tck_pic.jpg" style="display:none"/><strong>*</strong><span>请输入邮箱</span></div></td>
-                  </tr>
+                    <td height="22" colspan="2" align="left" valign="middle">
+                    <div class="tck_pd tck_pd2">
+                       <span id="reg_name"></span>
+                    </div></td>
+               </tr>
+              
+                <tr>
+                <td width="28%" height="42" align="right" valign="middle"><strong>真实姓名：</strong></td>
+                <td height="42" colspan="2" align="left" valign="middle">
+                <input name="" type="text" class="zck_text3" id="reg_nickname" onblur="onblureg();"/></td>
+                </tr>
+                <tr>
+                     <td width="28%" height="22" align="right" valign="middle"></td>
+                    <td height="22" colspan="2" align="left" valign="middle"><div class="tck_pd tck_pd2">
+                    <span id="reg_nkname"></span></div></td>
+               </tr>
+              
               <tr>
                 <td height="42" align="right" valign="middle"><strong>手机：</strong></td>
-                <td height="42" colspan="2" align="left" valign="middle"><input name="" type="text" class="zck_text3"/></td>
+                <td height="42" colspan="2" align="left" valign="middle">
+                <input name="" type="text" class="zck_text3" id="reg_telephone" onblur="onblureg();"/></td>
                 </tr>
         	  <tr>
                      <td width="28%" height="22" align="right" valign="middle"></td>
-                    <td height="22" colspan="2" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/phone/tck_pic.jpg" style="display:none"/><strong>*</strong><span>请输入手机号码</span></div></td>
+                    <td height="22" colspan="2" align="left" valign="middle">
+                    <div class="tck_pd tck_pd2">
+                    <span id="reg_phone"></span></div></td>
                   </tr>
               <tr>
                 <td height="42" align="right" valign="middle"><strong>设置密码：</strong></td>
-                <td height="42" colspan="2" align="left" valign="middle"><input name="" type="password" class="zck_text3"/></td>
+                <td height="42" colspan="2" align="left" valign="middle">
+                <input name="" type="password" class="zck_text3" id="reg_password" onblur="onblureg();"/></td>
                 </tr>
           <tr>
                      <td width="28%" height="32" align="right" valign="middle"></td>
-                    <td height="32" colspan="2" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/phone/tck_pic.jpg" style="display:none"/><strong>*</strong><span>密码长度8~16位，数字、字母、<br />字符至少包含两种</span></div></td>
+                    <td height="32" colspan="2" align="left" valign="middle">
+                    <div class="tck_pd tck_pd2">
+                    <span id="reg_pwd"></span></div></td>
                   </tr>
               <tr>
                 <td height="42" align="right" valign="middle"><strong>确认密码：</strong></td>
-                <td height="42" colspan="2" align="left" valign="middle"><input name="" type="password" class="zck_text3"/></td>
+                <td height="42" colspan="2" align="left" valign="middle">
+                <input name="" type="password" id="reg_password_confim" class="zck_text3" onblur="onblureg();"/>
+                </td>
                 </tr>
-          <tr>
+          		<tr>
                      <td width="28%" height="22" align="right" valign="middle"></td>
-                    <td height="22" colspan="2" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/phone/tck_pic.jpg" style="display:none"/><strong>*</strong><span>请输入确认密码</span></div></td>
+                    <td height="22" colspan="2" align="left" valign="middle">
+                    <div class="tck_pd tck_pd2">
+                    <span id="reg_cpwd"></span></div></td>
                   </tr>
               <tr>
                 <td height="50" align="right" valign="middle"><strong>验证码：</strong></td>
-                <td height="50" colspan="2" align="left" valign="middle"><input name="" type="text" class="zck_text3" style="width:30%;float:left;"/><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/phone/tck_yzm.jpg" style="float:left;margin-left:17px;"/></td>
+                <td height="50" colspan="2" align="left" valign="middle">
+                <input name="" type="text" id="vcode_value" onblur="onblureg();" class="zck_text3" style="width:30%;float:left;"/>
+                <a href="javascript:void(0);" onclick="lvcode();"><img src="/index.php/api/vcode" id="vcode" style="float:left;margin-left:17px;"/></a>
+                </td>
                 </tr>
           <tr>
-                     <td width="28%" height="32" align="right" valign="middle"></td>
-                    <td height="32" colspan="2" align="left" valign="middle"><div class="tck_pd tck_pd2"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/phone/tck_pic.jpg" style="display:none"/><strong style="color:#ff0000">*</strong><a href="#" style="color:#ff0000">点击图片刷新验证码</a></div></td>
+                    <td width="28%" height="32" align="right" valign="middle"></td>
+                    <td height="32" colspan="2" align="left" valign="middle"><div class="tck_pd tck_pd2">
+                    
+                    <span id="reg_vcode"><strong style="color:#ff0000">*</strong>点击图片更换验证码</span>
+                    
+                    </div>
+                    </td>
                   </tr>
               <tr>
                 <td height="42" align="right" valign="middle">&nbsp;</td>
-                <td width="46%" height="42" align="left" valign="middle"><input name="" type="button" class="tck_an" value="立即注册"/></td>
+                <td width="46%" height="42" align="left" valign="middle">
+                <input name="" type="button" class="tck_an" value="立即注册" onclick="onblureg();"/></td>
                 <td width="26%" height="42" align="left" valign="middle">&nbsp;</td>
           </tr>
       </table>
