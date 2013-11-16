@@ -223,13 +223,13 @@ function reload_datagrid(table,title,columns,id){
                         var tmp = '{id:'+row['id']+',type_id:'+row['type_id']+',name:\''+row['name']+'\',image_url:\''+row['image_url']+'\',status:'+row['status']+'}';
                     }
                     if (n == 'status' && row['status']==1){
-                        row['status'] = '已禁用  <a href="javascript:void(0);" onclick="set_image_stat('+row['id']+','+row['status']+');">启用</a>';
+                        row['status'] = '已禁用<br /><a href="javascript:void(0);" onclick="set_image_stat('+row['id']+','+row['status']+');">启用</a>';
                     }else if(n == 'status' && row['status'] == 0){
-                        row['status'] = '已启用  <a href="javascript:void(0);" onclick="set_image_stat('+row['id']+','+row['status']+');">禁用</a>';
+                        row['status'] = '已启用<br /><a href="javascript:void(0);" onclick="set_image_stat('+row['id']+','+row['status']+');">禁用</a>';
                     }
                     if (n == 'image_url'){
                         row[n] = '<img src="'+row[n]+'" width="150" height="150" />';
-                        row['editor'] = '<a href="javascript:void(0);" onclick="add_topic_img('+row['id']+','+tmp+');">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'topic_image\')">删除</a>';
+                        row['editor'] = '<a href="javascript:void(0);" onclick="add_topic_img('+row['id']+','+tmp+');">修改</a><br /><a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'topic_image\')">删除</a>';
                     }
 
                 }
@@ -241,17 +241,17 @@ function reload_datagrid(table,title,columns,id){
 
                     }
                     if (n == 'review' && row['review'] == 0){
-                        row['review'] = '已通过  <a href="javascript:void(0);" onclick="set_work_stat('+row['id']+','+row['review']+',\'review\');">关闭</a>';
+                        row['review'] = '已通过<br /><a href="javascript:void(0);" onclick="set_work_stat('+row['id']+','+row['review']+',\'review\');">关闭</a>';
                     }else if (n == 'review' && row['review'] == 1){
-                        row['review'] = '未通过  <a href="javascript:void(0);" onclick="set_work_stat('+row['id']+','+row['review']+',\'review\');">开启</a>';
+                        row['review'] = '未通过<br /><a href="javascript:void(0);" onclick="set_work_stat('+row['id']+','+row['review']+',\'review\');">开启</a>';
                     }
                     if (n == 'recommend' && row['recommend'] == 0){
-                        row['recommend'] = '已推荐  <a href="javascript:void(0);" onclick="set_work_stat('+row['id']+','+row['recommend']+',\'recommend\');">关闭</a>';
+                        row['recommend'] = '已推荐<br /><a href="javascript:void(0);" onclick="set_work_stat('+row['id']+','+row['recommend']+',\'recommend\');">关闭</a>';
                     }else if (n == 'recommend' && row['recommend'] == 1){
-                        row['recommend'] = '未推荐  <a href="javascript:void(0);" onclick="set_work_stat('+row['id']+','+row['recommend']+',\'recommend\');">开启</a>';
+                        row['recommend'] = '未推荐<br /><a href="javascript:void(0);" onclick="set_work_stat('+row['id']+','+row['recommend']+',\'recommend\');">开启</a>';
                     }
                     if (n == 'vote_num'){
-                        row['vote_num'] = row['vote_num']+'票  <a href="javascript:void(0);" onclick="set_vote_num('+row['id']+','+row['vote_num']+');">修改</a>';
+                        row['vote_num'] = row['vote_num']+'票<br /><a href="javascript:void(0);" onclick="set_vote_num('+row['id']+','+row['vote_num']+');">修改</a>';
                     }
                     if (n == 'img_url'){
                         row[n] = '<img src="'+row[n]+'" width="150" height="150" />';
@@ -265,12 +265,12 @@ function reload_datagrid(table,title,columns,id){
                         var tmp = '{id:'+row['id']+',video_url:\''+row['video_url']+'\',name:\''+row['name']+'\',c_url:\''+row['c_url']+'\',status:'+row['status']+'}';
                     }
                     if (n == 'status' && row['status']==1){
-                        row['status'] = '已禁用  <a href="javascript:void(0);" onclick="set_video_stat('+row['id']+','+row['status']+');">启用</a>';
+                        row['status'] = '已禁用<br /><a href="javascript:void(0);" onclick="set_video_stat('+row['id']+','+row['status']+');">启用</a>';
                     }else if(n == 'status' && row['status'] == 0){
-                        row['status'] = '已启用  <a href="javascript:void(0);" onclick="set_video_stat('+row['id']+','+row['status']+');">禁用</a>';
+                        row['status'] = '已启用<br /><a href="javascript:void(0);" onclick="set_video_stat('+row['id']+','+row['status']+');">禁用</a>';
                     }
                     if (n == 'status'){
-                        row['editor'] = '<a href="javascript:void(0);" onclick="add_video_dialog('+row['id']+','+tmp+');">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'video\')">删除</a>';
+                        row['editor'] = '<a href="javascript:void(0);" onclick="add_video_dialog('+row['id']+','+tmp+');">修改</a><br /><a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'video\')">删除</a>';
                     }
                 }
             }

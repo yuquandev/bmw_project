@@ -136,7 +136,7 @@
     <label class="lbInfo">投票数：</label>
     <input id="vote_num_id" type="text" class="" required="true" runat="server" /><br />
 </div>
-<div id="idModuls" style="position: absolute;top:0px;z-index: 1000;right:64px;">
+<div id="idModuls" style="position: absolute;top:0px;z-index: 1000;right:64px;display: none">
     <img src="/img/cms/id_moduls.png" alt="">
 </div>
 </div>
