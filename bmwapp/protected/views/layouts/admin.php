@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>宝马后台</title>
     <link rel="stylesheet" type="text/css" href="/js/jquery-easyui-1.3.2/themes/bootstrap/easyui.css">
     <link rel="stylesheet" type="text/css" href="/js/jquery-easyui-1.3.2/themes/icon.css">
     <script type="text/javascript" src="/js/jquery-easyui-1.3.2/jquery-1.8.0.min.js"></script>
@@ -19,8 +19,8 @@
         .bmw_acc_li a {text-decoration: none; color: #000; }
         /*.bmw_acc_li a {text-decoration: none; color: #666;}
         .bmw_acc_li a:hover { color: #0044cc;}*/
-        .bmw_nav_a {color:#ddd;font-weight: 600; text-decoration: none;padding:0 8px 0 8px; font-size: 14px;text-shadow: 0 1px 1px #000; text-transform: uppercase;}
-        a.bmw_nav_a:hover {color: #fff;text-shadow: 0 1px 1px #ddd;}
+        .bmw_nav_a {color:#666;font-weight: 600; text-decoration: none;padding:0 8px 0 8px; font-size: 14px;text-shadow: 0 1px 1px #ccc; text-transform: uppercase;}
+        a.bmw_nav_a:hover {color: #0044cc;text-shadow: 0 1px 1px #ccc;}
         .datagrid-body {background: #fff;}
         #infodata {background: #fff;border-left:2px solid #eee;}
         .nav_tbl_info {background: #fff;}
@@ -33,9 +33,8 @@
     </style>
 </head>
 <body style="width: 100%;height:100%;text-align: center;margin:0 auto; background: #eee;" >
-<div style="position: relative;width: 960px;height: 100%; margin: 0 auto;text-align: left;padding:0px;">
+<div style="position: relative;width: 960px;height: 634px; margin: 0 auto;text-align: left;padding:0px; background: url(/img/htbg.jpg)">
 <div id="stage_flash" style="display:block;  position: absolute;">
-    <embed type="application/x-shockwave-flash" src="/img/cms/brakeenergy_Overview_bg.swf" width="960" height="634" style="undefined" id="mainFlashMovie" name="mainFlashMovie" bgcolor="#ffffff" quality="autohigh" allowscriptaccess="sameDomain" wmode="transparent" flashvars="prm_corelib=/img/cms/bmw_as3_corelib_1_1.swf&amp;prm_components=/img/cms/bmw_as3_components_2_0.swf">
 </div>
 <div id="bmw_north" data-options="region:'north'" style="overflow: hidden;position: absolute; width: 960px;">
     <div id="bmw_cms_nav" style="padding:5px;border:1px solid #ddd;padding-top: 30px;padding-left: 10px; height:26px; background: none; ;">

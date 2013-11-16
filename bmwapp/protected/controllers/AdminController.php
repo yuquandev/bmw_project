@@ -73,15 +73,18 @@ class AdminController extends Controller {
             $this->redirect("/index.php/admin");
         }
 
-        $this->layout = "admin_login";
+        $this->layout = "admin_login_1";
         $username = isset($_POST['username']) ? trim($_POST['username']) : '';
         $password = isset($_POST['password']) ? trim($_POST['password']) : '';
 
         $msg = '';
         if (empty($username) || empty($password)){
-            $msg = "请输入用户名和密码";
+            $msg = "";
         }else {
             $userinfo = $this->admin_user->get_admin_info_by_name($username);
+            if (empty($userinfo)){
+                $msg = '帐号不存在';
+            }else {
 
             if ( $userinfo['password'] != md5($password.$userinfo['salt'])){
                 $msg =  "密码错误";
@@ -94,10 +97,11 @@ class AdminController extends Controller {
                 setcookie('bmw_ad_t',$time, $time + $lifeTime, "/");
                 $this->redirect("/index.php/admin");
             }
+            }
         }
 
         $data = array('msg'=>$msg,'userinfo'=>$username,'password'=>$password);
-        $this->render("/admin/login",$data);
+        $this->render("/admin/login_1",$data);
     }
 
     public function actionLogout(){
