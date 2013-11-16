@@ -204,7 +204,7 @@ function reload_datagrid(table,title,columns,id){
         url:'/index.php/admin/datajson?act='+table+'&id='+id,
         striped : true,
         method : "post",
-        nowrap : false,
+        nowrap : true,
         idField : "3",
         loadMsg : "加载中...",
         pagination : true,
