@@ -181,12 +181,10 @@ class AdminController extends Controller {
             );
         }elseif (substr($act,0,10) == 'image_list'){
             $res = array(
-                array("field"=>"id","title"=>"图片id"),
                 array("field"=>"name","title"=>"名称"),
                 array("field"=>"image_url","title"=>"图片地址"),
                 array("field"=>"status","title"=>"图片状态"),
-                array("field"=>"update_time","title"=>"更新时间"),
-                array("field"=>"create_time","title"=>"更新时间"),
+                array("field"=>"create_time","title"=>"创建时间"),
                 array("field"=>"editor","title"=>"编辑"),
             );
         }elseif (substr($act,0,10) == 'video_list'){

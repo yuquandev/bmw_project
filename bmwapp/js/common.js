@@ -39,10 +39,10 @@ function bulid_upload(){
         swfupload_load_failed_handler : loadFailed,
         file_queue_error_handler : base_fileQueueError,
         file_dialog_complete_handler : fileDialogComplete,
-        upload_progress_handler : uploadProgress,
+        upload_progress_handler : base_uploadProgress,
         upload_error_handler : uploadError,
         upload_success_handler : base_upload_success,
-        upload_complete_handler : uploadComplete,
+        upload_complete_handler : base_uploadComplete,
 
         // Button Settings
         //button_image_url : "images/SmallSpyGlassWithTransperancy_17x18.png",
@@ -133,7 +133,7 @@ function base_upload_success(file, serverData) {
             $('#t_img_url').val(serverData);
             $('#thumbnails img').css('width','200px');
             $('#thumbnails img').css('height','200px');
-            $('#t_img_dialog').css('height','360px');
+            $('#t_img_dialog').css('height','380px');
 
             progress.setStatus("Upload Complete.");
             progress.toggleCancel(false);
@@ -148,6 +148,35 @@ function base_upload_success(file, serverData) {
     }
 }
 
+function base_uploadProgress(file, bytesLoaded) {
+
+    try {
+        $('.progressBarStatus').show();
+        var percent = Math.ceil((bytesLoaded / file.size) * 100);
+        var progress = new FileProgress(file,  this.customSettings.upload_target);
+        progress.setProgress(percent);
+        progress.setStatus("上传中...");
+        progress.toggleCancel(true, this);
+    } catch (ex) {
+        this.debug(ex);
+    }
+}
+
+function base_uploadComplete(file) {
+    try {
+        /*  I want the next upload to continue automatically so I'll call startUpload here */
+        if (this.getStats().files_queued > 0) {
+            this.startResizedUpload(this.getFile(0).ID, this.customSettings.thumbnail_width, this.customSettings.thumbnail_height, SWFUpload.RESIZE_ENCODING.JPEG, this.customSettings.thumbnail_quality, false);
+        } else {
+            var progress = new FileProgress(file,  this.customSettings.upload_target);
+            progress.setComplete();
+            progress.setStatus("上传成功");
+            progress.toggleCancel(false);
+        }
+    } catch (ex) {
+        this.debug(ex);
+    }
+}
 
 //异步获取datagrid字段
 function ajax_get_columns(table,title,id){
@@ -204,7 +233,7 @@ function reload_datagrid(table,title,columns,id){
         url:'/index.php/admin/datajson?act='+table+'&id='+id,
         striped : true,
         method : "post",
-        nowrap : true,
+        nowrap : false,
         idField : "3",
         loadMsg : "加载中...",
         pagination : true,
@@ -213,7 +242,8 @@ function reload_datagrid(table,title,columns,id){
         checkOnSelect : false,
         selectOnCheck : false,
         showHeader : true,
-        height : 'auto',
+        height : '544',
+        width : '760',
         showFooter : true,
         columns:[columns],
         rowStyler: function(index,row){
@@ -228,7 +258,7 @@ function reload_datagrid(table,title,columns,id){
                         row['status'] = '已启用<br /><a href="javascript:void(0);" onclick="set_image_stat('+row['id']+','+row['status']+');">禁用</a>';
                     }
                     if (n == 'image_url'){
-                        row[n] = '<img src="'+row[n]+'" width="150" height="150" />';
+                        row[n] = '<img src="'+row[n]+'" width="100" height="100" />';
                         row['editor'] = '<a href="javascript:void(0);" onclick="add_topic_img('+row['id']+','+tmp+');">修改</a><br /><a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'topic_image\')">删除</a>';
                     }
 
@@ -254,7 +284,7 @@ function reload_datagrid(table,title,columns,id){
                         row['vote_num'] = row['vote_num']+'票<br /><a href="javascript:void(0);" onclick="set_vote_num('+row['id']+','+row['vote_num']+');">修改</a>';
                     }
                     if (n == 'img_url'){
-                        row[n] = '<img src="'+row[n]+'" width="150" height="150" />';
+                        row[n] = '<img src="'+row[n]+'" width="100" height="100" />';
                     }
                 }
             }

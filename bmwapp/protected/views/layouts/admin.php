@@ -30,6 +30,7 @@
         .datagrid-htable {}
         .datagrid-header-inner {}
         .combo-p {height:38px; background: #fff;}
+        .progressName {display:none;}
     </style>
 </head>
 <body style="width: 100%;height:100%;text-align: center;margin:0 auto; background: #eee;" >
@@ -48,7 +49,7 @@
 </div>
 
 <!--<div data-options="region:'south',split:true" style="height:0px;"></div>-->
-<div data-options="region:'west',split:true" title="" style="width:200px;min-height:572px; position: absolute;top:63px;">
+<div data-options="region:'west',split:true" title="" style="width:198px;min-height:572px; position: absolute;top:63px;border:1px solid #ddd;">
     <div class="easyui-accordion" data-options="fit:true,border:false" >
         <!--<div title="专题管理" data-options="" style="padding:10px;">
             <ul id="tt" class="easyui-tree"
@@ -118,7 +119,7 @@
         <option value="1">关闭</option>
         <option value="0">开启</option>
     </select><br />
-    <label class="lbInfo">上传图片：<input id="t_img_file" type="text" value="" /><div id="divFileProgressContainer" style="display: none;"></div><a style="vertical-align:middle;" href="javascript:void(0)" id="add_btn" class="l-btn" group="" ><span class="l-btn-left"><span class="l-btn-text"><div id="spanButtonPlaceholder"></div></span></span></a></label><br />
+    <label class="lbInfo">上传图片：<input id="t_img_file" type="text" value="" /><a style="vertical-align:middle;" href="javascript:void(0)" id="add_btn" class="l-btn" group="" ><span class="l-btn-left"><span class="l-btn-text"><div id="spanButtonPlaceholder"></div></span></span></a></label><div id="divFileProgressContainer" style=""></div><br />
     <div id="error_banner"></div>
     <div id="thumbnails" >
         <img style="margin: 5px; vertical-align: middle; opacity: 1;width: 200px; height: 200px;" src="" />
