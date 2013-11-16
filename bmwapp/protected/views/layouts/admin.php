@@ -39,9 +39,9 @@
 </div>
 <div id="bmw_north" data-options="region:'north'" style="overflow: hidden;position: absolute; width: 960px;">
     <div id="bmw_cms_nav" style="padding:5px;border:1px solid #ddd;padding-top: 30px;padding-left: 10px; height:26px; background: none; ;">
-        <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="add_car_dialog();">新建专题</a>
+        <!--<a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="add_car_dialog();">新建专题</a>-->
         <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="ajax_reg_admin();">新建管理员</a>
-        <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="location.href='/';">访问站点</a>
+        <a href="/" class="bmw_nav_a" data-options="plain:true" style="" target="_blank" ">访问站点</a>
         <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="window.location.reload();">刷新页面</a>
         <a href="/index.php/admin/logout" class="bmw_nav_a"  style="float:right;">退出</a>
         <div style="clear: both;"></div>
@@ -58,19 +58,20 @@
         </div>-->
         <?php foreach ($this->car_list as $k=>$v){?>
             <div title="专题页 - <?php echo $v['name'];?>" data-options="" style="padding:10px;">
-                <li onclick="add_car_dialog(<?php echo $v['type_id'];?>,'<?php echo $v['name'];?>');" class="bmw_acc_li" style="border-bottom: 1px solid #bbb;"><a href="javascript:void(0);" >[修改专题]</a>  <!--[<a href="javascript:void(0);" onclick="confirm_dialog(<?php echo $v['type_id'];?>,'car_type');">删除专题</a>]--></li>
-                <li onclick="add_nav_dialog(<?php echo $v['type_id'];?>);" class="bmw_acc_li" ><a href="javascript:void(0);" >[新建导航]</a></li>
-                <?php foreach ($this->nav_list as $kk=>$vv){
+                <!--<li onclick="add_car_dialog(<?php echo $v['type_id'];?>,'<?php echo $v['name'];?>');" class="bmw_acc_li" style="border-bottom: 1px solid #bbb;"><a href="javascript:void(0);" >[修改专题]</a>  [<a href="javascript:void(0);" onclick="confirm_dialog(<?php echo $v['type_id'];?>,'car_type');">删除专题</a>]</li>-->
+                <!--<li onclick="add_nav_dialog(<?php echo $v['type_id'];?>);" class="bmw_acc_li" ><a href="javascript:void(0);" >[新建导航]</a></li>-->
+                <?php #foreach ($this->nav_list as $kk=>$vv){
                     if ($vv['type_id'] == $v['type_id']){?>
-                        <li onclick="get_nav_info(<?php echo $vv['id'];?>);" class="bmw_acc_li" style="">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" ><?php echo $vv['name'];?></a></li>
+                        <!--<li onclick="get_nav_info(<?php echo $vv['id'];?>);" class="bmw_acc_li" style="">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" ><?php echo $vv['name'];?></a></li>-->
                     <?php }
-                }?>
-                <li onclick="add_video_dialog(<?php echo $v['type_id'];?>);" class="bmw_acc_li" style="border-top: 1px solid #bbb"><a href="javascript:void(0);" >[新建视频]</a></li>
-                <?php foreach ($this->video_list as $kk=>$vv){
-                    if ($vv['type_id'] == $v['type_id']){?>
-                        <li onclick="get_video_info(<?php echo $vv['id'];?>);" class="bmw_acc_li" style="">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" ><?php echo $vv['name'];?></a></li>
-                    <?php }
-                }?>
+                #}?>
+                <!--<li onclick="add_video_dialog(<?php echo $v['type_id'];?>);" class="bmw_acc_li" style="border-top: 1px solid #bbb"><a href="javascript:void(0);" >[新建视频]</a></li>-->
+                <?php #foreach ($this->video_list as $kk=>$vv){
+                    #if ($vv['type_id'] == $v['type_id']){?>
+                        <!--<li onclick="get_video_info(<?php echo $vv['id'];?>);" class="bmw_acc_li" style="">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" ><?php echo $vv['name'];?></a></li>-->
+                    <?php #}
+                #}?>
+                <li onclick="ajax_get_columns('video_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>视频列表');" class="bmw_acc_li" style="pborder-top: 1px solid #bbb;"><a href="javascript:void(0);" >视频列表 - <?php echo $v['name'];?></a></li>
                 <li onclick="ajax_get_columns('image_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>底部轮播图');" class="bmw_acc_li" style="pborder-top: 1px solid #bbb;"><a href="javascript:void(0);" >底部轮播图 - <?php echo $v['name'];?></a></li>
             </div>
         <?php } ?>
@@ -103,17 +104,17 @@
     <input id="nav_resource" type="text" class="" required="true" runat="server" /><br />
 </div>
 <div id="nav_dialog_" style="display:none;padding:10px;width:400px;" title="新建导航">
-    <label class="lbInfo_">名称：</label>
+    <label class="lbInfo_">视频名称：</label>
     <input id="nav_name_" type="text" class="" required="true" runat="server" /><br />
     <label class="lbInfo">视频地址：</label>
-    <input id="nav_des_" type="text" class="" required="true" runat="server" /><br />
-    <label class="lbInfo">链接：</label>
-    <input id="nav_resource_" type="text" class="" required="true" runat="server" /><br />
+    <input id="nav_des_" type="text" class="" required="true" runat="server" style="width:260px;" /><br />
+    <label class="lbInfo">视频链接：</label>
+    <input id="nav_resource_" type="text" class="" required="true" runat="server" style="width:260px;" /><br />
 </div>
 <div id="t_img_dialog" style="display:none;padding:10px;width:400px;" title="新建图片">
-    <label class="lbInfo">名称：</label>
+    <label class="lbInfo">名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</label>
     <input id="t_img_name" type="text" class="" required="true" runat="server" /><br />
-    <label class="lbInfo">状态：</label>
+    <label class="lbInfo">状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态：</label>
     <select id="t_img_stat" class="easyui-combobox" name="dept" >
         <option value="1">关闭</option>
         <option value="0">开启</option>
@@ -129,7 +130,7 @@
 <div id="regdialog" style="display:none;padding:10px;width:400px;" title="管理员注册">
     <label class="lbInfo">用户名：</label>
     <input id="reg_username" type="text" class="" required="true" runat="server" /><br />
-    <label class="lbInfo">密  码：</label>
+    <label class="lbInfo">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
     <input id="reg_password" type="password" class="" required="true" runat="server" /><br />
 </div>
 <div id="vote_dialog" style="display:none;padding:10px;width:400px;" title="修改投票">

@@ -185,6 +185,15 @@ class AdminController extends Controller {
                 array("field"=>"create_time","title"=>"更新时间"),
                 array("field"=>"editor","title"=>"编辑"),
             );
+        }elseif (substr($act,0,10) == 'video_list'){
+            $res = array(
+                array("field"=>"name","title"=>"视频名称"),
+                array("field"=>"video_url","title"=>"视频地址"),
+                array("field"=>"c_url","title"=>"链接地址"),
+                array("field"=>"status","title"=>"视频状态"),
+                array("field"=>"create_time","title"=>"创建时间"),
+                array("field"=>"editor","title"=>"编辑"),
+            );
         }elseif ($act == 'admin_list'){
             $res = array(
                 array("field"=>"id","title"=>"id"),
@@ -230,6 +239,11 @@ class AdminController extends Controller {
             $type_id = substr($act,11,strlen($act)-10);
             $data = $this->topic_image->get_image_list_by_type($type_id,$page,$rows);
             $count = $this->topic_image->get_image_total_by_type($type_id);
+            $res = array("total"=>$count[0]['total'],"rows"=>$data);
+        }else if (substr($act,0,10) == 'video_list'){
+            $type_id = substr($act,11,strlen($act)-10);
+            $data = $this->video->get_video_list_by_type($type_id,$page,$rows);
+            $count = $this->video->get_video_total_by_type($type_id);
             $res = array("total"=>$count[0]['total'],"rows"=>$data);
         }else if ($act == 'admin_list'){
             $data = $this->admin_user->get_user_list($page,$rows);

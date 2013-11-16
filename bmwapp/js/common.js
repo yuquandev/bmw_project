@@ -163,6 +163,14 @@ function ajax_get_columns(table,title,id){
         });
     }
 
+    if (table.substr(0,10) == 'video_list'){
+        $('#main_button').html('<a href="javascript:void(0)" id="add_btn"></a>');
+        bulid_button('add_btn','添加');
+        $('#add_btn').click(function(){
+            add_video_dialog(table.substr(11,10));
+        });
+    }
+
     var columns = [{field:"ck",checkbox:true}];
     $.ajax({url: '/index.php/admin/columns?_n='+ new Date().getTime(),
         type: 'POST',
@@ -247,6 +255,22 @@ function reload_datagrid(table,title,columns,id){
                     }
                     if (n == 'img_url'){
                         row[n] = '<img src="'+row[n]+'" width="150" height="150" />';
+                    }
+                }
+            }
+
+            if (table.substr(0,10) == 'video_list'){
+                for (var n in row){
+                    if (n == 'id'){
+                        var tmp = '{id:'+row['id']+',video_url:\''+row['video_url']+'\',name:\''+row['name']+'\',c_url:\''+row['c_url']+'\',status:'+row['status']+'}';
+                    }
+                    if (n == 'status' && row['status']==1){
+                        row['status'] = '已禁用  <a href="javascript:void(0);" onclick="set_video_stat('+row['id']+','+row['status']+');">启用</a>';
+                    }else if(n == 'status' && row['status'] == 0){
+                        row['status'] = '已启用  <a href="javascript:void(0);" onclick="set_video_stat('+row['id']+','+row['status']+');">禁用</a>';
+                    }
+                    if (n == 'status'){
+                        row['editor'] = '<a href="javascript:void(0);" onclick="add_video_dialog('+row['id']+','+tmp+');">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'video\')">删除</a>';
                     }
                 }
             }
@@ -453,15 +477,17 @@ function add_topic_img(type_id,info) {
         $('#t_img_name').val(info.name);
         $('#t_img_url').val(info.image_url);
         $('#t_img_stat').val(info.status);
-        $('#thumbnails').html('<img style="margin: 5px; vertical-align: middle; opacity: 1;width: 200px;" src="'+info.image_url+'" />');
+        $('#thumbnails').html('<img style="margin: 5px; vertical-align: middle; opacity: 1;width: 200px; height:200px;" src="'+info.image_url+'" />');
         $('.combo-value').val(info.status);
         //$('#t_img_stat option')[info.status-1].setAttribute('selected','1');
+        $('#t_img_file').val('');
     }else {
         act = 'add';
         title = '新建图片';
         $('#t_img_name').val('');
         $('#t_img_url').val('');
         $('#t_img_stat').val('');
+        $('#t_img_file').val('');
     }
 
     $('#t_img_dialog').show();
@@ -591,11 +617,15 @@ function ajax_del_id(id,act){
         },
         success: function(data){
             if (data.status == 'success'){
+                alert('删除成功');
                 if (act == 'car_type'){
                     location.href = '/index.php/admin';
-                }else if (act == 'topic_nav' || act == 'video'){
+                }else if (act == 'topic_nav' ){
                     location.href = '/index.php/admin';
                 }else if (act == 'topic_image'){
+                    $('#dg').datagrid('reload');
+                    $('#dd').dialog('close');
+                }else if (act == 'video'){
                     $('#dg').datagrid('reload');
                     $('#dd').dialog('close');
                 }
@@ -629,6 +659,7 @@ function ajax_reg_admin(){
                     },
                     success: function(data){
                         if (data.status == 'success'){
+                            alert('添加成功');
                                 location.href = '/index.php/admin';
                             //$('#dg').datagrid('reload');
                         }if (data.status == 'fails'){
@@ -694,9 +725,13 @@ function add_video_dialog(type_id,info) {
                         if (data.status == 'success'){
                             if (act == 'add'){
                                 //get_video_info(data.res);
-                                location.href = '/index.php/admin';
+                                alert('添加成功');
+                                //location.href = '/index.php/admin';
+                                $('#dg').datagrid('reload');
                             }else if (act == 'set'){
-                                get_video_info(info.id);
+                                //get_video_info(info.id);
+                                alert('修改成功');
+                                $('#dg').datagrid('reload');
                             }
                             $('#nav_dialog_').dialog('close');
                         }if (data.status == 'fails'){
@@ -775,7 +810,9 @@ function set_video_stat(id,stat){
         success: function(data){
             //location.href = '/index.php/admin';
             if (data.status == 'success'){
-                get_video_info(id);
+                //alert('修改成功');
+                $('#dg').datagrid('reload');
+                //get_video_info(id);
             }if (data.status == 'fails'){
                 alert('提交失败');
             }
@@ -808,8 +845,8 @@ function set_vote_num(id,num){
                     success: function(data){
                         //location.href = '/index.php/admin';
                         if (data.status == 'success'){
+                            alert('修改成功');
                             $('#dg').datagrid('reload');
-
                             $('#vote_dialog').dialog('close');
                         }if (data.status == 'fails'){
                             alert('提交失败');

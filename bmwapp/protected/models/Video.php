@@ -237,6 +237,19 @@ class Video extends CActiveRecord
         }
     }
 
+    public function get_video_list_by_type($type_id,$page=1,$rows=10){
+        $offset = ($page-1) * $rows;
+        $sql = sprintf("SELECT * FROM `video_tbl` WHERE type_id = %d order by id desc LIMIT %d, %d",$type_id,$offset,$rows);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+
+    public function get_video_total_by_type($type_id){
+        $sql = sprintf("SELECT count(1) as total FROM video_tbl WHERE type_id = %d",$type_id);
+        $res = Yii::app()->db->createCommand($sql)->queryAll();
+        return $res;
+    }
+
     //获取导航列表
     public function get_nav_list(){
         $sql = sprintf("select id,type_id,name from video_tbl ;");
