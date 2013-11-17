@@ -140,7 +140,9 @@ class UserController extends Controller {
 
     //退出
     public function actionLogout(){
-        if (!self::$is_login){
+        
+    	$path_url  = $_SERVER["HTTP_REFERER"];
+    	if (!self::$is_login){
             $this->redirect("/index.php/user/login");
         }
         $time = time();
@@ -148,7 +150,7 @@ class UserController extends Controller {
         setcookie('bmw_username', '', $time - 3600*24, "/");
         setcookie('bmw_uid', '', $time - 3600*24, "/");
         setcookie('bmw_t','', $time - 3600*24, "/");
-        $this->redirect("/");
+        $this->redirect($path_url);
     }
 
     public function actionAjax_login(){

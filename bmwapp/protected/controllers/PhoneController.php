@@ -58,7 +58,7 @@ class PhoneController extends Controller
           
               'user_id' => $this->userinfo['uid'],
               'name'    => $title,
-              'img_url' => Yii::app()->params['root_dir'].'uploads/phone/'.$new_path[0],
+              'img_url' => Yii::app()->params['root_dir'].'/uploads/phone/'.$new_path[0],
               'description' =>$content,
               'status' =>1,
               'type'   =>2
