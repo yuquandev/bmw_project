@@ -212,7 +212,17 @@ function ajax_get_columns(table,title,id){
         success: function(data){
             for (var n in data){
                 if(data[n]){
-                    columns.push({field:data[n]['field'],title:data[n]['title']});
+                    if (data[n]['field'] == 'name'){
+                        columns.push({field:data[n]['field'],title:data[n]['title'],width:110});
+                    }else if (data[n]['field'] == 'video_url' || data[n]['field'] == 'c_url' ){
+                        columns.push({field:data[n]['field'],title:data[n]['title'],width:200});
+                    }else if (data[n]['field'] == 'create_time'){
+                        columns.push({field:data[n]['field'],title:data[n]['title'],width:80,sortable:true});
+                    }else if (data[n]['field'] == 'vote_num'){
+                        columns.push({field:data[n]['field'],title:data[n]['title'],sortable:true});
+                    }else {
+                        columns.push({field:data[n]['field'],title:data[n]['title']});
+                    }
                 }
             }
             //console.log(columns);
@@ -227,6 +237,12 @@ function ajax_get_columns(table,title,id){
 
 //异步获取datagrid数据
 function reload_datagrid(table,title,columns,id){
+    var tmp_height;
+    if (table.substr(0,10) == 'video_list' || table.substr(0,10) == 'image_list'){
+        tmp_height = '544';
+    }else {
+        tmp_height = '574';
+    }
     //console.log(table);
     $('#dg').datagrid({
         title : title,
@@ -242,11 +258,24 @@ function reload_datagrid(table,title,columns,id){
         checkOnSelect : false,
         selectOnCheck : false,
         showHeader : true,
-        height : '544',
+        height : tmp_height,
         width : '760',
         showFooter : true,
+        onLoadSuccess:function(){
+            if ($('.datagrid-view2 .datagrid-btable').height() > $('.datagrid-view2 .datagrid-body').height()){
+                $('.datagrid-view2 .datagrid-header .datagrid-header-inner .datagrid-htable ').css('width','743px');
+            }
+        },
         columns:[columns],
         rowStyler: function(index,row){
+            if (table == 'user_list'){
+                for (var n in row){
+                    if (n == 'id'){
+                        row['editor'] = '<a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'user\')">删除</a>';
+                        console.log(row['editor']);
+                    }
+                }
+            }
             if (table.substr(0,10) == 'image_list'){
                 for (var n in row){
                     if (n == 'id'){
@@ -655,7 +684,7 @@ function ajax_del_id(id,act){
                 }else if (act == 'topic_image'){
                     $('#dg').datagrid('reload');
                     $('#dd').dialog('close');
-                }else if (act == 'video'){
+                }else if (act == 'video' || act == 'user'){
                     $('#dg').datagrid('reload');
                     $('#dd').dialog('close');
                 }

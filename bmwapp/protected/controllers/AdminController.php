@@ -37,6 +37,7 @@ class AdminController extends Controller {
         $this->topic_image = new TopicImage();
         $this->works = new Works();
         $this->video = new Video();
+        $this->user = new User();
     }
 
     //验证用户是否登录
@@ -153,9 +154,9 @@ class AdminController extends Controller {
                 array("field"=>"telephone","title"=>"手机"),
                 array("field"=>"ip","title"=>"ip"),
                 //array("field"=>"status","title"=>"状态"),
-                array("field"=>"last_login","title"=>"登录时间"),
+                //array("field"=>"last_login","title"=>"登录时间"),
                 array("field"=>"create_time","title"=>"注册时间"),
-                //array("field"=>"editor","title"=>"编辑"),
+                array("field"=>"editor","title"=>"编辑"),
             );
         }elseif ($act == 'topic_list'){
             $res = array(
@@ -216,6 +217,8 @@ class AdminController extends Controller {
         $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
         $page = isset($_POST['page']) ? intval($_POST['page']) : 0;
         $rows = isset($_POST['rows']) ? intval($_POST['rows']) : 0;
+        $sort = isset($_POST['sort']) ? trim($_POST['sort']) : 'id';
+        $order = isset($_POST['order']) ? trim($_POST['order']) : 'desc';
         if(empty($table_name)){echo "";}
 
         $res = array();
@@ -234,7 +237,8 @@ class AdminController extends Controller {
             #$this->works     = new Works();
             #$this->works_img = new WorkImg();
             $type_id = substr($act,11,strlen($act)-10);
-            $data = $this->works->get_works_list_by_type($type_id,$page,$rows,'create_time desc');
+            $sort = $sort == 'id' ? 'vote_num' : $sort;
+            $data = $this->works->get_works_list_by_type($type_id,$page,$rows,$sort,$order);
             $count = $this->works->get_works_total_by_type($type_id);
             $res = array("total"=>$count[0]['total'],"rows"=>$data);
         }else if (substr($act,0,10) == 'image_list'){
@@ -437,7 +441,9 @@ class AdminController extends Controller {
         $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
         $act = isset($_POST['act']) ? trim($_POST['act']) : 0;
         if (!empty($id)){
-            if ($act == 'car_type'){
+            if ($act = 'user'){
+                $res = $this->user->del_id($id);
+            }else if ($act == 'car_type'){
                 $res = $this->car_type->del_id($id);
             }else if($act == 'topic_nav'){
                 $res = $this->topic_nav->del_id($id);

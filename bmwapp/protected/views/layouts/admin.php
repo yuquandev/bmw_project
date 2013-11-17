@@ -26,14 +26,15 @@
         .nav_tbl_info {background: #fff;}
         .nav_tbl_info .left {float: left;width:100px;font-size: 16px;color:#0044cc;font-weight: bold;padding-top: 20px; text-align: right;padding-right:10px; min-height: 20px;}
         .nav_tbl_info .right {float: left;width:550px;font-size: 16px;color:#666; padding-top: 20px; min-height:20px;}
-        .datagrid-btable {}
-        .datagrid-htable {}
+        .datagrid-btable {width: 100%;}
+        .datagrid-view2 .datagrid-header .datagrid-header-inner {width: 100%;}
+        .datagrid-view2 .datagrid-header .datagrid-header-inner .datagrid-htable  {width: 100%;}
         .datagrid-header-inner {}
         .combo-p {height:38px; background: #fff;}
         .progressName {display:none;}
     </style>
 </head>
-<body style="width: 100%;height:100%;text-align: center;margin:0 auto; background: #eee;" >
+<body style="width: 100%;height:100%;text-align: center;margin:0 auto; background: #eee;word-break:break-all;" >
 <div style="position: relative;width: 960px;height: 634px; margin: 0 auto;text-align: left;padding:0px; background: url(/img/htbg.jpg)">
 <div id="stage_flash" style="display:block;  position: absolute;">
 </div>
@@ -43,7 +44,7 @@
         <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="ajax_reg_admin();">新建管理员</a>
         <a href="/" class="bmw_nav_a" data-options="plain:true" style="" target="_blank" ">访问站点</a>
         <a href="javascript:void(0);" class="bmw_nav_a" data-options="plain:true" style="" onclick="window.location.reload();">刷新页面</a>
-        <a href="/index.php/admin/logout" class="bmw_nav_a"  style="float:right;">退出</a>
+        <a href="/index.php/admin/logout" class="bmw_nav_a"  style="">退出</a>
         <div style="clear: both;"></div>
     </div>
 </div>

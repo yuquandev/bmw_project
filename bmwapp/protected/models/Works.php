@@ -252,9 +252,9 @@ class Works extends CActiveRecord
        return $res;
     }
 
-    public function get_works_list_by_type($type_id,$page=1,$rows=10){
+    public function get_works_list_by_type($type_id,$page=1,$rows=10,$sort='vote_num',$order='desc'){
         $offset = ($page-1) * $rows;
-        $sql = sprintf("SELECT w.id,w.user_id,w.name,w.img_url,w.description,w.status,w.review,w.recommend,w.type,w.vote_num,w.update_time,w.create_time,u.username as username FROM `works_tbl` as w left join user_tbl as u on w.user_id = u.id  where type=%d order by w.vote_num desc LIMIT %d, %d",$type_id,$offset,$rows);
+        $sql = sprintf("SELECT w.id,w.user_id,w.name,w.img_url,w.description,w.status,w.review,w.recommend,w.type,w.vote_num,w.update_time,w.create_time,u.username as username FROM `works_tbl` as w left join user_tbl as u on w.user_id = u.id  where type=%d order by w.%s %s LIMIT %d, %d",$type_id,$sort,$order,$offset,$rows);
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         //print_r($res);
         return $res;

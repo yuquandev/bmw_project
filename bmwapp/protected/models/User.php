@@ -165,10 +165,15 @@ class User extends CActiveRecord
         $sql = sprintf("SELECT `id`,`username`,`nickname` FROM %s where %s limit 1",$this->tableName(),$where);
         $res = Yii::app()->db->createCommand($sql)->queryRow();
         return $res;
-    } 
-    
-    
-    
+    }
+
+
+    //删除详情
+    public function del_id($id){
+        $sql = sprintf("delete from user_tbl where id = %d;",$id);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
     
     
     
