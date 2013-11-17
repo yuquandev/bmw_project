@@ -286,6 +286,13 @@ class Works extends CActiveRecord
         $res = Yii::app()->db->createCommand($sql)->execute();
         return $res;
     }
+
+    public function del_id($id)
+    {
+        $sql =sprintf("DELETE FROM works_tbl WHERE `id` = %d ",$id);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
     
 
 

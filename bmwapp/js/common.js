@@ -220,6 +220,8 @@ function ajax_get_columns(table,title,id){
                         columns.push({field:data[n]['field'],title:data[n]['title'],width:80,sortable:true});
                     }else if (data[n]['field'] == 'vote_num'){
                         columns.push({field:data[n]['field'],title:data[n]['title'],sortable:true});
+                    }else if (data[n]['field'] == 'description'){
+                        columns.push({field:data[n]['field'],title:data[n]['title'],width:120});
                     }else {
                         columns.push({field:data[n]['field'],title:data[n]['title']});
                     }
@@ -314,6 +316,7 @@ function reload_datagrid(table,title,columns,id){
                     }
                     if (n == 'img_url'){
                         row[n] = '<img src="'+row[n]+'" width="100" height="100" />';
+                        row['editor'] = '<a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'works\')">删除</a>';
                     }
                 }
             }
@@ -684,7 +687,7 @@ function ajax_del_id(id,act){
                 }else if (act == 'topic_image'){
                     $('#dg').datagrid('reload');
                     $('#dd').dialog('close');
-                }else if (act == 'video' || act == 'user'){
+                }else if (act == 'video' || act == 'user' || act == 'works'){
                     $('#dg').datagrid('reload');
                     $('#dd').dialog('close');
                 }

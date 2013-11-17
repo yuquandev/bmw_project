@@ -178,7 +178,7 @@ class AdminController extends Controller {
                 array("field"=>"recommend","title"=>"推荐状态"),
                 array("field"=>"vote_num","title"=>"投票数"),
                 array("field"=>"create_time","title"=>"创建时间"),
-                //array("field"=>"editor","title"=>"编辑"),
+                array("field"=>"editor","title"=>"编辑"),
             );
         }elseif (substr($act,0,10) == 'image_list'){
             $res = array(
@@ -441,7 +441,7 @@ class AdminController extends Controller {
         $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
         $act = isset($_POST['act']) ? trim($_POST['act']) : 0;
         if (!empty($id)){
-            if ($act = 'user'){
+            if ($act == 'user'){
                 $res = $this->user->del_id($id);
             }else if ($act == 'car_type'){
                 $res = $this->car_type->del_id($id);
@@ -451,6 +451,8 @@ class AdminController extends Controller {
                 $res = $this->topic_image->del_id($id);
             }else if ($act == 'video'){
                 $res = $this->video->del_id($id);
+            }else if ($act == 'works'){
+                $res = $this->works->del_id($id);
             }
             if($res){
                 echo json_encode(array('status'=>'success','res'=>$res));exit();

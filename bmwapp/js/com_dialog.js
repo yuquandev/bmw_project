@@ -83,19 +83,17 @@ function com_dialog(act){
         '</tr>',
         '<tr>',
         '<td height="40" align="right" valign="middle"><strong>图片地址：</strong></td>',
-        '<td height="59" align="left" valign="middle"><div id="divFileProgressContainer" style="display: none;"></div><input name="" type="text" class="zck_text4" id="bm_uploads_name"/><input type="hidden" id="bm_uploads_url" value="" /></td>',
+        '<td height="59" align="left" valign="middle"><input name="" type="text" class="zck_text4" id="bm_uploads_name"/><input type="hidden" id="bm_uploads_url" value="" /><div id="divFileProgressContainer" style="display: none;"></div></td>',
         '<td width="20%"><div id="spanButtonPlaceholder"></div><span id="pop_img" style="color:red;"></span></td>',
         
         '</tr>',
         '<tr>',
         '<td width="15%" height="40" align="right" valign="top"><strong>活动宣言：</strong></td>',
         '<td width="59%" height="40" align="left" valign="middle"><textarea name="" id="textconten"  cols="" rows="" class="zck_xy"></textarea></td>',
-        '<td width="26%" height="40" align="left" valign="middle"><span id="pop_text" style="color:red;"></span></td>',
+        '<td width="26%" height="40" align="left" valign="middle"><div id="thumbnails" style="width:100px;height:100px;" ><img style="margin: 5px; vertical-align: middle; opacity: 1;width: 100px;" src="" /></div></td>',
         '</tr>',
         '</table>',
         '<div style="padding-left: 80px;margin-top:15px;"><input name="" type="button" class="tck_an" value="立即提交" style="margin-left:0" onclick="uplodedata();"/>',
-            '<div id="thumbnails" >',
-            '<img style="margin: 5px; vertical-align: middle; opacity: 1;width: 200px;" src="" /></div>',
             '</div></div>',
         '</div>'].join('');
 
@@ -374,9 +372,9 @@ function base_upload_success(file, serverData) {
             $('#divFileProgressContainer').css("display","none");
             $('#bm_uploads_name').val($('.progressName').html());
             $('#bm_uploads_url').val(serverData);
-            $('#popDiv').css('height','444px');
-            $('#thumbnails img')[0].style.width='200px';
-            $('#thumbnails img')[0].style.height='200px';
+            //$('#popDiv').css('height','444px');
+            $('#thumbnails img')[0].style.width='100px';
+            $('#thumbnails img')[0].style.height='100px';
             progress.setStatus("Upload Complete.");
             progress.toggleCancel(false);
         } else if(serverData == '') {
