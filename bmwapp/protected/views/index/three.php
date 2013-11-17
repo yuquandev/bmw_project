@@ -287,7 +287,8 @@ setTimeout('CompScr()',Speed);
 //--><!]]>
 </script>
 <script type="text/javascript">
-    (function(){
+
+    $(function(){
         var tmp = 0;
         $('.bm_zpzs_tu a').each(function(){
             //console.log($(this).find('img').width());
