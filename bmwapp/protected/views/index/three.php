@@ -119,8 +119,8 @@
         </div>
           <div class="bm_zpzs_main">
         	<?php foreach($works as $key=>$val):?>
-        	<div class="bm_zpzs_list" style="background: url(/js/lazyload/grey.gif) no-repeat center center;">
-            	<div class="bm_zpzs_tu" style="position: relative;"><a style="position: absolute;"  href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><img src="<?php echo $val['img_url']; ?>" width="" height="366"/></a></div>
+        	<div class="bm_zpzs_list">
+            	<div class="bm_zpzs_tu" style="position: relative;background: url(/js/lazyload/grey.gif) no-repeat center center;"><a style="position: absolute;"  href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><img src="<?php echo $val['img_url']; ?>" width="" height="366"/></a></div>
                 <div class="bm_zpzs_zi"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><?php echo $val['name'];?></a></div>
                 <div class="bm_zpzs_zan">
                 	<input onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);" type="button" class="bm_tp_an" value="投票"/>
@@ -158,10 +158,10 @@
 			<div id="botton-scroll">
 				<ul class="featureUL">
 					<?php foreach($image_list as $key=>$val):?>
-					<li class="featureBox" style="background: url(/js/lazyload/grey.gif) no-repeat center center;">
-					<div class="box">
+					<li class="featureBox" >
+					<div class="box" style="background: url(/js/lazyload/grey.gif) no-repeat center center;">
 						<a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/footerlg?id=<?php echo $val['id']?>,<?php echo $val['type_id']?>" target="_blank">
-						<img alt="Catherine Sherwood" src="<?php echo $val['image_url'];?>"  width="265" height="176">
+						<img src="<?php echo $val['image_url'];?>"  width="265" height="176">
 						</a>
 					</div>
 					<!-- /box -->
