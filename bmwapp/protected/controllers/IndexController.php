@@ -92,7 +92,7 @@ class IndexController extends Controller {
        $page_limit = 8;
        
        $works = $this->works->selectWork(array('review'=>0,'type'=>2),$page,$page_limit);
-       $count_number = $this->works->countWork(array('recommend'=>0,'review'=>0,'type'=>2));
+       $count_number = $this->works->countWork(array('review'=>0,'type'=>2));
        
        $page_html = $this->page_limit($count_number,$page,$page_limit,4);
        

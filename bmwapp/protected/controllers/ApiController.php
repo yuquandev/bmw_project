@@ -18,6 +18,7 @@ class ApiController extends Controller {
 	}
        
     /**
+     * PC
      * 作品投票  限制，一个作品一个IP只能投票一次
      * Enter description here ...
      */
@@ -43,7 +44,8 @@ class ApiController extends Controller {
        	     echo json_encode(3); 
        }
     }
-
+    
+    
    public function actionuplodewords()
    {
    	   if(!$this->userinfo['uid'])
