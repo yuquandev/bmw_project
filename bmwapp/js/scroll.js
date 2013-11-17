@@ -173,3 +173,14 @@ function showDiv4(){
 	document.getElementById('bg').style.display='none';
 	document.getElementById('popIframe').style.display='none';
 	}
+
+	function showDiv5(){
+		document.getElementById('popDiv5').style.display='block';
+		document.getElementById('popIframe').style.display='block';
+		document.getElementById('bg').style.display='block';
+		}
+		function closeDiv5(){
+		document.getElementById('popDiv5').style.display='none';
+		document.getElementById('bg').style.display='none';
+		document.getElementById('popIframe').style.display='none';
+		}
