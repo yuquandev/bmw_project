@@ -368,6 +368,12 @@ class AdminController extends Controller {
             echo 'fails';
         }
 
+        //include_once(Yii::app()->params['root_dir'].'protected/components/Common.php');
+
+        //$filename=(_UPLOADPIC($_FILES["upload"],$maxsize,$updir,$newname='date'));
+        //$show_pic_scal=show_pic_scal(256, 176, $target);
+        //resize($target,$show_pic_scal[0],$show_pic_scal[1]);
+
         echo  '/uploads/topic/'.$new_file;
 
     }

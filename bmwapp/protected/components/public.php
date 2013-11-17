@@ -261,7 +261,7 @@ class Public_class
 	 * @param $copytype 图片的缩放方式（默认为1 - 长宽按同一比例缩放  2 - 长宽按各自比例分别缩放）
 	 × @return 无
 	**/
-	private static function resizeImage($im,$maxwidth,$maxheight,$name,$filetype,$copytype)
+	public static function resizeImage($im,$maxwidth,$maxheight,$name,$filetype,$copytype)
 	{
 		$pic_width = imagesx($im);
 		$pic_height = imagesy($im);
@@ -556,8 +556,9 @@ HTML;
 	}
 	return $str;
     }
-  
-	 
+
+
 }
+
 		
 	
