@@ -188,6 +188,27 @@ class Works extends CActiveRecord
         $res = Yii::app()->db->createCommand($sql)->queryRow();
         return $res;
     } 
+    
+    public function getUpwork($array,$sel = '',$order)
+    {
+        $where =''; 
+        if($sel === '') return ;
+    	if( is_array($array) )
+        {
+            foreach($array as $key=>$val)
+            {
+               $where .= "`$key` $sel '$val' and";  
+            }
+        	$where = substr($where,0,-4); 
+        }else{
+            return false;
+        }
+    	$sql = sprintf("SELECT `id`,`user_id`,`name`,`img_url`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM %s where review=0 and %s order by %s limit 1",$this->tableName(),$where,$order);
+        //echo $sql;
+    	$res = Yii::app()->db->createCommand($sql)->queryRow();
+        return $res;
+    }
+    
     /**
      * 
      * Enter description here ...
