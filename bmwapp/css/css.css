@@ -139,3 +139,39 @@ img{ border:none;}
 .bm_main_sm span{ float:left; line-height:30px; font-weight:bold; font-size:14px;}
 .bm_main_an{ margin:0 auto; overflow:hidden; width:93px; text-align:center; margin-top:10px;}
 .bm_tck_an{ background:url(/img/bm_tck_pic2.jpg) repeat-x; width:93px; height:33px; border:none; cursor:pointer; font-size:12px; color:#fff;border-radius: 3px 3px 3px 3px;}
+
+
+.wz_js{ font-size:20px; line-height:24px; padding-bottom:5px;}
+.rollBox img{border:none;}
+.rollBox{width:450px;overflow:hidden;margin:0 auto;}
+.rollBox .Cont{width:400px;overflow:hidden;margin:0 auto;}
+.rollBox .ScrCont{width:10000000px;}
+.rollBox .Cont .pic{width:400px;float:left;padding-right:19px;}
+*+html .rollBox .Cont .pic{width:400px;float:left;text-align:center;padding-right:30px;}
+.rollBox .Cont .pic img{padding:4px;background:#fff;border:1px solid #ccc;display:block;margin:0 auto;}
+.rollBox .Cont .pic p{line-height:26px;color:#505050;}
+.rollBox .Cont a:link,.rollBox .Cont a:visited{text-decoration:none;}
+.rollBox .Cont a:hover{color:#f00;text-decoration:underline;}
+.rollBox #List1,.rollBox #List2{float:left;}
+.img1,.img2,.Cont{float:left;}
+.img1,.img2{width:24px;height:243px;display:block;cursor:pointer;margin-top:10px;}
+.img1{
+	background-image:url(/img/fc_left.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	top:40px;
+	}
+.img2{
+	background-image:url(/img/fc_right.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+
+/*投票分享*/
+.bm_tck_main2{ margin:0 auto;  padding:20px 40px; overflow:hidden;}
+.bm_main_sm2{ margin:0 auto; width:320px; overflow:hidden; padding-left:70px;}
+.bm_main_sm2 img{float:left; padding-right:6px; padding-top:12px;}
+.bm_main_sm2 span{ float:left; line-height:30px; font-weight:bold; font-size:14px; display:block; width:280px}
+.bm_main_an2{ margin:0 auto; overflow:hidden; width:300px;  margin-top:10px; padding-left:50px;}
+.bm_tck_an2{ background:url(/img/bm_tck_pic2.jpg) repeat-x; width:93px; height:33px; border:none; cursor:pointer; font-size:12px; color:#fff;border-radius: 3px 3px 3px 3px; float:left; margin-right:5px;}
