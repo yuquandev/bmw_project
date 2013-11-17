@@ -70,7 +70,7 @@
 		<div class="jCarouselLite FlLeft">
 			<ul id="ThumbPic">
 				<?php foreach($works_user_list as $key=>$val):?>
-				<li rel='<?php echo $key+1;?>'><img src="<?php echo $val['img_url'];?>" /></li>
+				<li rel='<?php echo $key?>'><img src="<?php echo $val['img_url'];?>" /></li>
 				<?php endforeach;?>
 			</ul>
 			<div class="Clearer"></div>

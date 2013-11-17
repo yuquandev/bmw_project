@@ -35,6 +35,7 @@
 <input type="hidden" id="ty_id" value="<?php echo $this->type;?>">
 <!--注册账号-->
 <span id="popmsg"></span>
+<span id="popmsg2"></span>
 <!--登陆与注册-->
 <div id="com_dialog"></div>
 <div id="bg" class="bg" style="display:none;"></div>

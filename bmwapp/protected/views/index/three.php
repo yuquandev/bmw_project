@@ -1,5 +1,6 @@
 ﻿<?php $this->beginContent('//index/header'); ?>
 <?php $this->endContent(); ?>
+
 <div class="bm_index">
     <?php $this->beginContent('//index/nav'); ?>
     <?php $this->endContent(); ?>
@@ -15,7 +16,7 @@
             	 <?php if (empty($this->userinfo)){?>
             	    <a href="javascript:com_dialog('login');">登陆 | </a><a href="javascript:com_dialog('reg');">注册</a>
                 <?php }else { ?>
-                    <a href="/index.php/index/more?uuid=<?php echo $this->userinfo['uid'];?>,2,center"><?php echo $this->userinfo['username'] ?></a> | <a href='/index.php/user/logout'>退出</a>
+                    欢迎您，<?php echo $this->userinfo['username'] ?>&nbsp;<a href="/index.php/index/more?uuid=<?php echo $this->userinfo['uid'];?>,2,center"><span style="color:red;">查看作品</span></a> | <a href='/index.php/user/logout'>退出</a>
                 <?php }?>
             </div>
         </div>
@@ -77,25 +78,24 @@
             	<div class="bm_hd_tu">
                 	<div class="bm_3x_st">
                         <div class="bm_3x_sp">
-                            <div class="pilot">
-                                <div class="pilotmain">
-                                    <div class="pilotleft" onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp()" onmouseout="ISL_StopUp()"></div>
-                                    <div class="pilotpic" id="ISL_Cont" name="video">
-                                        <div class="ScrCont">
-                                            <div id="List1">
-                                            <ul>
-                                            <?php foreach($video as $v):?>
-                                            <li><div class="wz_js"><a target="_blank" href="http://<?php if(isset($v['c_url'])){ echo $v['c_url'];}else{ echo '/'; }?>"><?php echo $v['name'];?></a></div><embed height="243" width="400" name="v_36628K" id="video_player_other" allowscriptaccess="always" pluginspage="http://get.adobe.com/cn/flashplayer/" flashvars="url_key=36628K" allowfullscreen="true" quality="hight" src="<?php echo $v['video_url'];?>" type="application/x-shockwave-flash" wmode="Opaque"></li>
-                                            <?php endforeach;?>
-                                            <div class="clear"></div>
-                                            </ul>
-                                            </div>
-                                      	    <div id="List2"></div>
-                                        </div>
-                                    </div>
-                                    <div class="pilotright" onmousedown="ISL_GoDown()" onmouseup="ISL_StopDown()" onmouseout="ISL_StopDown()"></div>
-                                </div>
-                            </div>
+                            <div class="rollBox">                           
+<a href="javascript:;" onmousedown="ISL_GoDown()" onmouseup="ISL_StopDown()" onmouseout="ISL_StopDown()" class="img1" hidefocus="true"></a>
+     <div class="Cont" id="ISL_Cont" name="video">
+      <div class="ScrCont">
+       <div id="List1">
+        <!-- 图片列表 begin -->
+        <?php foreach($video as $v):?>
+        <div class="pic">
+          <a><div class="wz_js"><a target="_blank" href="http://<?php if(isset($v['c_url'])){ echo $v['c_url'];}else{ echo '/'; }?>"><?php echo $v['name'];?></a></div><embed src="<?php echo $v['video_url'];?>" allowFullScreen="true" quality="high" width="400" height="243" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed></a>
+         </div>
+        <?php endforeach;?>
+        <!-- 图片列表 end -->
+       </div>
+       <div id="List2"></div>
+      </div>
+     </div>
+<a href="javascript:;"  onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp()" onmouseout="ISL_StopUp()" class="img2" hidefocus="true"></a>
+    </div>
                         	
                         </div>
                 	</div>
@@ -120,7 +120,7 @@
           <div class="bm_zpzs_main">
         	<?php foreach($works as $key=>$val):?>
         	<div class="bm_zpzs_list">
-            	<div class="bm_zpzs_tu"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><img src="<?php echo $val['img_url']; ?>" width="228" height="366"/></a></div>
+            	<div class="bm_zpzs_tu" style="position: relative;"><a style="position: absolute;"  href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><img src="<?php echo $val['img_url']; ?>" width="" height="366"/></a></div>
                 <div class="bm_zpzs_zi"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><?php echo $val['name'];?></a></div>
                 <div class="bm_zpzs_zan">
                 	<input onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);" type="button" class="bm_tp_an" value="投票"/>
@@ -138,15 +138,15 @@
     	<div class="bm_zpzs_title">
         	<span>微直播</span>
         </div>
-        <div class="bm_wzb_main">
-      <wb:topic column="n" border="y" width="978" height="910" tags="mmw%2CM.M.W" color="333333%2Cffffff%2C0078b6%2Ccccccc%2C333333%2Cfafeff%2C0078b6%2Ccccccc%2C%2Ce9f4fb" language="zh_cn" version="base" refer="y" footbar="y" url="http%3A%2F%2Fbaidu.com" filter="n" ></wb:topic>
+        <div class="bm_wzb_main">   
+     <wb:topic topmid="z8ClGsZa8" column="n" border="n" title="BMW%203%E7%B3%BB%20%E8%BF%90%E5%8A%A8%E7%8E%8B%E8%80%85%20%E5%B0%BD%E5%9C%A8%E5%92%AB%E5%B0%BA" width="978" height="1165" tags="%E5%83%8F%E5%AE%9D%E9%A9%AC%E4%B8%80%E6%A0%B7%E5%A5%94%E8%B7%91%2C%E6%88%91%E7%9A%84%E7%A5%9E%E9%A9%AC%E7%85%A7%2C%E5%AE%9D%E9%A9%AC%E7%AC%91%E8%84%B8%E5%A2%99" color="333333%2Cffffff%2C0078b6%2Ccccccc%2C333333%2Cfafeff%2C0078b6%2Ccccccc%2Ccccccc%2Ce9f4fb" language="zh_cn" version="base" refer="y" footbar="y" url="http%3A%2F%2Fwww.bmw3-sport.com" filter="n" ></wb:topic>
         </div>
     </div>
     <!--X1-->
     <div class="bm_x1">
-    	<div class="bm_hd_title">
-        	<ul  style="width:122px">
-        		<li><a href="javascript:;"  id=menuTabmenu013_12 onclick="setTimeout('Show_menuTab013(1,2)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico4.gif" /><span>3系</span></a></li>
+    	<div class="bm_hd_title bm_hd_title2">
+        	<ul   style="width:182px">
+        		<li style="width:182px"><a href="javascript:;"  id=menuTabmenu013_12 onclick="setTimeout('Show_menuTab013(1,2)',200);" style="width:182px"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico4.gif" style="padding-left:10px;"/><span style="width:120px">BMW 3系精彩图赏</span></a></li>
             	
             </ul>
         </div>
@@ -186,7 +186,121 @@
 <!--登陆与注册-->
 <!--投票成功-->
 <span id="popmsg"></span>
+<span id="popmsg2"></span>
 <div id="bg" class="bg" style="display:none;"></div>
 <iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
+
+<script language="javascript" type="text/javascript">
+<!--//--><![CDATA[//><!--
+//图片滚动列表 mengjia 070816
+var Speed = 10; //速度(毫秒)
+var Space = 10; //每次移动(px)
+var PageWidth = 419; //翻页宽度
+var fill = 0; //整体移位
+var MoveLock = false;
+var MoveTimeObj;
+var Comp = 0;
+var AutoPlayObj = null;
+GetObj("List2").innerHTML = GetObj("List1").innerHTML;
+GetObj('ISL_Cont').scrollLeft = fill;
+GetObj("ISL_Cont").onmouseover = function(){clearInterval(AutoPlayObj);}
+GetObj("ISL_Cont").onmouseout = function(){AutoPlay();}
+AutoPlay();
+function GetObj(objName){if(document.getElementById){return eval('document.getElementById("'+objName+'")')}else{return eval
+
+('document.all.'+objName)}}
+function AutoPlay(){ //自动滚动
+clearInterval(AutoPlayObj);
+AutoPlayObj = setInterval('ISL_GoDown();ISL_StopDown();',5000); //间隔时间
+}
+function ISL_GoUp(){ //上翻开始
+if(MoveLock) return;
+clearInterval(AutoPlayObj);
+MoveLock = true;
+MoveTimeObj = setInterval('ISL_ScrUp();',Speed);
+}
+function ISL_StopUp(){ //上翻停止
+clearInterval(MoveTimeObj);
+if(GetObj('ISL_Cont').scrollLeft % PageWidth - fill != 0){
+Comp = fill - (GetObj('ISL_Cont').scrollLeft % PageWidth);
+CompScr();
+}else{
+MoveLock = false;
+}
+AutoPlay();
+}
+function ISL_ScrUp(){ //上翻动作
+if(GetObj('ISL_Cont').scrollLeft <= 0){GetObj('ISL_Cont').scrollLeft = GetObj
+
+('ISL_Cont').scrollLeft + GetObj('List1').offsetWidth}
+GetObj('ISL_Cont').scrollLeft -= Space ;
+}
+function ISL_GoDown(){ //下翻
+clearInterval(MoveTimeObj);
+if(MoveLock) return;
+clearInterval(AutoPlayObj);
+MoveLock = true;
+ISL_ScrDown();
+MoveTimeObj = setInterval('ISL_ScrDown()',Speed);
+}
+function ISL_StopDown(){ //下翻停止
+clearInterval(MoveTimeObj);
+if(GetObj('ISL_Cont').scrollLeft % PageWidth - fill != 0 ){
+Comp = PageWidth - GetObj('ISL_Cont').scrollLeft % PageWidth + fill;
+CompScr();
+}else{
+MoveLock = false;
+}
+AutoPlay();
+}
+function ISL_ScrDown(){ //下翻动作
+if(GetObj('ISL_Cont').scrollLeft >= GetObj('List1').scrollWidth){GetObj('ISL_Cont').scrollLeft =
+
+GetObj('ISL_Cont').scrollLeft - GetObj('List1').scrollWidth;}
+GetObj('ISL_Cont').scrollLeft += Space ;
+}
+function CompScr(){
+var num;
+if(Comp == 0){MoveLock = false;return;}
+if(Comp < 0){ //上翻
+if(Comp < -Space){
+   Comp += Space;
+   num = Space;
+}else{
+   num = -Comp;
+   Comp = 0;
+}
+GetObj('ISL_Cont').scrollLeft -= num;
+setTimeout('CompScr()',Speed);
+}else{ //下翻
+if(Comp > Space){
+   Comp -= Space;
+   num = Space;
+}else{
+   num = Comp;
+   Comp = 0;
+}
+GetObj('ISL_Cont').scrollLeft += num;
+setTimeout('CompScr()',Speed);
+}
+}
+//--><!]]>
+</script>
+<script type="text/javascript">
+    (function(){
+        var tmp = 0;
+        $('.bm_zpzs_tu a').each(function(){
+            console.log($(this).find('img').width());
+            //if ($(this).find('img').height() > 366){
+                tmp = - $(this).find('img').width() / 2 + 228/2;
+            //}else {
+            //    tmp = - $(this).find('img').width() / 2 + 183;
+            //}
+           $(this).css('margin-left',tmp+'px');
+           $(this).find('img').height(366);
+        });
+    })();
+</script>
+
 </body>
 </html>

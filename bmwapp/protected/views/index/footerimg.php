@@ -6,7 +6,7 @@
     <!--作品展示-->
     <div class="bm_cpzs">
     	<div class="bm_cpzs_title">
-        	<div class="bm_cpzs_zi">作品展示</div>
+        	<div class="bm_cpzs_zi">BMW 3系精彩图赏</div>
         </div> 
              <div class="bm_cpzs_main">
             		<!--作品展示-->
