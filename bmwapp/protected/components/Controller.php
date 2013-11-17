@@ -200,7 +200,249 @@ class Controller extends CController
                     </div>
 HTML;
       return $page_html;
-}
+      
+    }
+      	/**
+	 * 执行上传一个张图片文件或一个压缩包的功能,如果图片文件，自动生成原图的大中小三幅图，文件名为原文件名依次加“_1” “_2” “_3”
+	 * 
+	 * @createdate  2013.2.18
+	 * @param $filefield 上传的文本控件名称
+	 * @param $userid 上传的用户ID
+	 * @param $maxsize 上传文件最大尺寸（默认2M）
+	 * @param $ImgType 上传图片的种类（默认为1   1 - 普通图片  2 - 头像图片）
+	 * @return  
+	 *          '2'      文件尺寸过大
+	 *          '3'      文件类型不符合要求
+	 *			array   上传成功，返回文件路径和文件大小
+	 *			Array
+	 *			(
+	 *				[path] => D:\xampp\perl\lib\CGI\c_1.jpeg
+	 *				[size] => 2313213
+	 *			)
+	**/
+public static function uploadfile_r($filefield,$userid,$maxsize=2097152,$ImgType=1)
+	{
+		$arr1 = array('gif'=>'image/gif','jpg'=>'image/jpg','jpeg'=>'image/jpeg','kkk'=>'image/pjpeg','png'=>'image/png','rar'=>'application/octet-stream','zip'=>'application/x-zip-compressed');
+		$arr2 = array('image/gif'=>'gif','image/jpg'=>'jpg','image/jpeg'=>'jpg','image/pjpeg'=>'jpg','image/png'=>'png','application/octet-stream'=>'rar','application/x-zip-compressed'=>'zip');
+		$arr3 = array('jpg'=>'image/jpg','jpeg'=>'image/jpeg','kkkk'=>'image/pjpeg');
+
+		$filearr = $filefield;//$_FILES[$filefield];
+
+		if ((int)$filearr['size']>$maxsize) return '2';
+
+		if (!in_array($filearr['type'],$arr1) || ($ImgType==2 && !in_array($filearr['type'],$arr3))) return '3';
+
+		if ($ImgType == 1)
+		{
+			$returnPath = date("Ym",time()).DIRECTORY_SEPARATOR.$userid;
+			$path		= Yii::app()->params['root_dir'].'uploads/phone/'.$returnPath;
+			$filname	= date('Y-m-d').mt_rand(1,100).time().$userid;
+		}
+		elseif ($ImgType == 2)
+			{
+				$returnPath = $userid;
+				$path		= Yii::app()->params['root_dir'].'uploads/phone/'.$returnPath;
+				$filname	= $userid;
+			}
+		if (!is_dir($path))
+		{
+			mkdir($path,0700,true);
+		}
+		$fileType	 = $arr2[$filearr['type']];
+		$path1		 = $path.DIRECTORY_SEPARATOR.$filname.'.'.$fileType;
+		$returnPath .= DIRECTORY_SEPARATOR.$filname.'.'.$fileType;
+
+		move_uploaded_file($filearr['tmp_name'],$path1);
+
+		//如果是上传图片，生成大中小三付图片
+		if ($fileType == 'jpg' || $fileType == 'png' || $fileType == 'gif')
+		{
+			for ($i=1;$i<=3;$i++)
+			{
+				self::getIM($path1,$i,$ImgType);
+			}
+		}
+		return array('path'=>str_replace('\\','/',$returnPath),'size'=>$filearr['size']);
+	}
+	private static function getIM($path,$i,$ImgType)
+	{
+		$arr		= explode(DIRECTORY_SEPARATOR,$path);
+		$filename	= $arr[count($arr)-1];
+		$fileArr	= explode('.',$filename);
+		$fileType	= $fileArr[count($fileArr)-1];
+		
+		$fileArr[count($fileArr)-2] .= '_'.$i;
+		$arr[count($arr)-1]			 = implode('.',$fileArr);
+
+		$newPath	= implode(DIRECTORY_SEPARATOR,$arr);
+
+		switch ($fileType)
+		{
+			case 'jpg':
+				$im = imagecreatefromjpeg($path);
+				break;
+			case 'gif':
+				$im = imagecreatefromgif($path);
+				break;
+			case 'png':
+				$im = imagecreatefrompng($path);
+				break;
+			default:
+				$im = '';
+		}
+		if ($im)
+		{
+			switch ($i)
+			{
+				case 1:
+					
+					$a = 130;
+					$b = 193;
+					break;
+				case 2:
+					$a = 100;
+					$b = 130;
+					
+					break;
+				case 3:
+					$a = 80;
+					$b = 130;
+					break;
+				default:
+					$a = 10;
+			}
+			self::resizeImage($im,$a,$b,$newPath,$fileType,$ImgType);
+		}
+	}
+	 
 
 
+/**
+	 *实现缩放图片的函数
+	 * @auth  
+	 * @createdate  2013.2.20
+	 * @param $im 图片对象
+	 * @param $maxwidth 图片缩小后的宽度
+	 * @param $maxheight 图片缩小后的高度
+	 * @param $name 生成的图片不带后缀的绝对路径
+	 * @param $filetype 图片的后缀名
+	 * @param $copytype 图片的缩放方式（默认为1 - 长宽按同一比例缩放  2 - 长宽按各自比例分别缩放）
+	 × @return 无
+	**/
+	private static function resizeImage($im,$maxwidth,$maxheight,$name,$filetype,$copytype)
+	{
+		$pic_width = imagesx($im);
+		$pic_height = imagesy($im);
+
+		if(($maxwidth && $pic_width > $maxwidth) || ($maxheight && $pic_height > $maxheight))
+		{
+			if ($copytype == 1)
+			{
+				$ratio = self::Ratio1((int)$maxwidth,(int)$maxheight,(int)$pic_width,(int)$pic_height);
+				$newwidth = $pic_width * $ratio;
+				$newheight = $pic_height * $ratio;
+			}
+			elseif ($copytype == 2)
+				{
+					$ratio = self::Ratio2((int)$maxwidth,(int)$maxheight,(int)$pic_width,(int)$pic_height);
+					$newwidth = $pic_width * $ratio[0];
+					$newheight = $pic_height * $ratio[1];
+				}
+			if(function_exists("imagecopyresampled"))
+			{
+				$newim = imagecreatetruecolor($newwidth,$newheight);
+			   imagecopyresampled($newim,$im,0,0,0,0,$newwidth,$newheight,$pic_width,$pic_height);
+			}
+			else
+			{
+				$newim = imagecreate($newwidth,$newheight);
+			   imagecopyresized($newim,$im,0,0,0,0,$newwidth,$newheight,$pic_width,$pic_height);
+			}
+
+			$im_tmp = $newim;
+		}
+		else
+		{
+			$im_tmp = $im;
+		}           
+
+		switch ($filetype)
+		{
+			case 'jpg':
+				imagejpeg($im_tmp,$name);
+				break;
+			case 'gif':
+				imagegif($im_tmp,$name);
+				break;
+			case 'png':
+				imagepng($im_tmp,$name);
+				break;
+		}
+		imagedestroy($im_tmp);
+	}
+/**
+	 * 计算长宽相同缩放比例的比例
+	**/
+	private static function Ratio1($maxwidth,$maxheight,$pic_width,$pic_height)
+	{
+		if($maxwidth && $pic_width>$maxwidth)
+		{
+			$widthratio = $maxwidth/$pic_width;
+			$resizewidth_tag = true;
+		}
+
+		if($maxheight && $pic_height>$maxheight)
+		{
+			$heightratio = $maxheight/$pic_height;
+			$resizeheight_tag = true;
+		}
+       // $resizewidth_tag = $resizeheight_tag = true;
+		
+		if($resizewidth_tag && $resizeheight_tag)
+		{
+			if($widthratio<$heightratio)
+				$ratio = $widthratio;
+			else
+				$ratio = $heightratio;
+		}
+
+		if($resizewidth_tag && !$resizeheight_tag)
+			$ratio = $widthratio;
+		if($resizeheight_tag && !$resizewidth_tag)
+			$ratio = $heightratio;
+
+		return $ratio;
+	}
+/**
+	 *返回一幅原图的大中小图绝对地址
+	 * @auth  
+	 * @createdate  2013.2.20
+	 * @param $path 原图的绝对地址
+	 × @return array
+	 ×	
+	 ×	Array
+	 ×	(
+	 ×		[0] => 20/c_1.jpeg
+	 ×		[1] => 20/c_2.jpeg
+	 ×		[2] => 20/c_3.jpeg
+	 ×	)
+    **/
+	public static function getFileNameArr($path)
+	{
+		$newPath = array();
+
+		for ($i=1;$i<=3;$i++)
+		{
+			$arr		= explode('/',$path);
+			$filename	= $arr[count($arr)-1];
+			$fileArr	= explode('.',$filename);
+			
+			$fileArr[count($fileArr)-2] .= '_'.$i;
+			$arr[count($arr)-1]			 = implode('.',$fileArr);
+
+			$newPath[] = implode('/',$arr);
+		}
+
+		return $newPath;
+	}
 }

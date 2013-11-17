@@ -261,7 +261,7 @@ class Public_class
 	 * @param $copytype 图片的缩放方式（默认为1 - 长宽按同一比例缩放  2 - 长宽按各自比例分别缩放）
 	 × @return 无
 	**/
-	public static function resizeImage($im,$maxwidth,$maxheight,$name,$filetype,$copytype)
+	private static function resizeImage($im,$maxwidth,$maxheight,$name,$filetype,$copytype)
 	{
 		$pic_width = imagesx($im);
 		$pic_height = imagesy($im);
@@ -362,7 +362,7 @@ class Public_class
 	 *				[size] => 2313213
 	 *			)
 	**/
-	public static function uploadfile($filefield,$userid,$maxsize=2097152,$ImgType=1)
+	public static function uploadfile_r($filefield,$userid,$maxsize=2097152,$ImgType=1)
 	{
 		$arr1 = array('gif'=>'image/gif','jpg'=>'image/jpg','jpeg'=>'image/jpeg','kkk'=>'image/pjpeg','png'=>'image/png','rar'=>'application/octet-stream','zip'=>'application/x-zip-compressed');
 		$arr2 = array('image/gif'=>'gif','image/jpg'=>'jpg','image/jpeg'=>'jpg','image/pjpeg'=>'jpg','image/png'=>'png','application/octet-stream'=>'rar','application/x-zip-compressed'=>'zip');
@@ -437,18 +437,23 @@ class Public_class
 			switch ($i)
 			{
 				case 1:
-					$a = 80;
+					
+					$a = 228;
+					$b = 336;
 					break;
 				case 2:
-					$a = 50;
+					$a = 265;
+					$b = 176;
+					
 					break;
 				case 3:
-					$a = 30;
+					$a = 735;
+					$b = 615;
 					break;
 				default:
 					$a = 10;
 			}
-			self::resizeImage($im,$a,$a,$newPath,$fileType,$ImgType);
+			self::resizeImage($im,$a,$b,$newPath,$fileType,$ImgType);
 		}
 	}
 	 
@@ -556,9 +561,8 @@ HTML;
 	}
 	return $str;
     }
-
-
+  
+	 
 }
-
 		
 	
