@@ -59,17 +59,17 @@
         </div>-->
         <?php foreach ($this->car_list as $k=>$v){?>
             <div title="专题页 - <?php echo $v['name'];?>" data-options="" style="padding:10px;">
-                <!--<li onclick="add_car_dialog(<?php echo $v['type_id'];?>,'<?php echo $v['name'];?>');" class="bmw_acc_li" style="border-bottom: 1px solid #bbb;"><a href="javascript:void(0);" >[修改专题]</a>  [<a href="javascript:void(0);" onclick="confirm_dialog(<?php echo $v['type_id'];?>,'car_type');">删除专题</a>]</li>-->
-                <!--<li onclick="add_nav_dialog(<?php echo $v['type_id'];?>);" class="bmw_acc_li" ><a href="javascript:void(0);" >[新建导航]</a></li>-->
+                <!--<li onclick="add_car_dialog(<?php #echo $v['type_id'];?>,'<?php #echo $v['name'];?>');" class="bmw_acc_li" style="border-bottom: 1px solid #bbb;"><a href="javascript:void(0);" >[修改专题]</a>  [<a href="javascript:void(0);" onclick="confirm_dialog(<?php #echo $v['type_id'];?>,'car_type');">删除专题</a>]</li>-->
+                <!--<li onclick="add_nav_dialog(<?php #echo $v['type_id'];?>);" class="bmw_acc_li" ><a href="javascript:void(0);" >[新建导航]</a></li>-->
                 <?php #foreach ($this->nav_list as $kk=>$vv){
                     #if ($vv['type_id'] == $v['type_id']){?>
-                        <!--<li onclick="get_nav_info(<?php echo $vv['id'];?>);" class="bmw_acc_li" style="">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" ><?php echo $vv['name'];?></a></li>-->
+                        <!--<li onclick="get_nav_info(<?php #echo $vv['id'];?>);" class="bmw_acc_li" style="">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" ><?php #echo $vv['name'];?></a></li>-->
                     <?php #}
                 #}?>
-                <!--<li onclick="add_video_dialog(<?php echo $v['type_id'];?>);" class="bmw_acc_li" style="border-top: 1px solid #bbb"><a href="javascript:void(0);" >[新建视频]</a></li>-->
+                <!--<li onclick="add_video_dialog(<?php #echo $v['type_id'];?>);" class="bmw_acc_li" style="border-top: 1px solid #bbb"><a href="javascript:void(0);" >[新建视频]</a></li>-->
                 <?php #foreach ($this->video_list as $kk=>$vv){
                     #if ($vv['type_id'] == $v['type_id']){?>
-                        <!--<li onclick="get_video_info(<?php echo $vv['id'];?>);" class="bmw_acc_li" style="">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" ><?php echo $vv['name'];?></a></li>-->
+                        <!--<li onclick="get_video_info(<?php #echo $vv['id'];?>);" class="bmw_acc_li" style="">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" ><?php #echo $vv['name'];?></a></li>-->
                     <?php #}
                 #}?>
                 <li onclick="ajax_get_columns('video_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>视频列表');" class="bmw_acc_li" style="pborder-top: 1px solid #bbb;"><a href="javascript:void(0);" >视频列表 - <?php echo $v['name'];?></a></li>
