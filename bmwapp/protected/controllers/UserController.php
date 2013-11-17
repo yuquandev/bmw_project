@@ -93,7 +93,7 @@ class UserController extends Controller {
                 );
                 $res = $this->user->add_user_info($data);
                 if ($res){
-                    $life_time = 60*60;
+                    $life_time = 60*60*24;
                     $time = time();
                     setcookie('bmw_ses', md5($res.UserController::LOGIN_KEY.$username.$time), $time+$life_time, "/");
                     setcookie('bmw_username', $username, $time + $life_time, "/");
@@ -123,7 +123,7 @@ class UserController extends Controller {
         if (!empty($username) && !empty($password)){
             $userinfo = $this->user->get_userinfo_by_username($username);
             if (!empty($userinfo) && $userinfo['password'] == md5($password.$userinfo['salt'])){
-                $life_time = 60*60;
+                $life_time = 60*60*24;
                 $time = time();
                 setcookie('bmw_ses', md5($userinfo['id'].UserController::LOGIN_KEY.$userinfo['username'].$time), $time+$life_time, "/");
                 setcookie('bmw_username', $userinfo['username'], $time + $life_time, "/");
@@ -144,10 +144,10 @@ class UserController extends Controller {
             $this->redirect("/index.php/user/login");
         }
         $time = time();
-        setcookie('bmw_ses', '', $time - 3600, "/");
-        setcookie('bmw_username', '', $time - 3600, "/");
-        setcookie('bmw_uid', '', $time - 3600, "/");
-        setcookie('bmw_t','', $time - 3600, "/");
+        setcookie('bmw_ses', '', $time - 3600*24, "/");
+        setcookie('bmw_username', '', $time - 3600*24, "/");
+        setcookie('bmw_uid', '', $time - 3600*24, "/");
+        setcookie('bmw_t','', $time - 3600*24, "/");
         $this->redirect("/");
     }
 
@@ -162,7 +162,7 @@ class UserController extends Controller {
         if (!empty($username) && !empty($password)){
             $userinfo = $this->user->get_userinfo_by_username($username);
             if (!empty($userinfo) && $userinfo['password'] == md5($password.$userinfo['salt'])){
-                $life_time = 60*60;
+                $life_time = 60*60*24;
                 $time = time();
                 setcookie('bmw_ses', md5($userinfo['id'].UserController::LOGIN_KEY.$userinfo['username'].$time), $time+$life_time, "/");
                 setcookie('bmw_username', $userinfo['username'], $time + $life_time, "/");
@@ -207,7 +207,7 @@ class UserController extends Controller {
                 );
                 $res = $this->user->add_user_info($data);
                 if ($res){
-                    $life_time = 60*60;
+                    $life_time = 60*60*24;
                     $time = time();
                     setcookie('bmw_ses', md5($res.UserController::LOGIN_KEY.$username.$time), $time+$life_time, "/");
                     setcookie('bmw_username', $username, $time + $life_time, "/");

@@ -90,7 +90,7 @@ class AdminController extends Controller {
             if ( $userinfo['password'] != md5($password.$userinfo['salt'])){
                 $msg =  "密码错误";
             }else {
-                $lifeTime = 60*60;
+                $lifeTime = 60*60*24;
                 $time = time();
                 setcookie('bmw_ad_ses', md5($userinfo['id'].$this->login_key.$userinfo['username'].$time), $time + $lifeTime, "/");
                 setcookie('bmw_ad_username', $userinfo['username'], $time + $lifeTime, "/");
@@ -110,10 +110,10 @@ class AdminController extends Controller {
             $this->redirect("/index.php/admin/login");
         }
         $time = time();
-        setcookie('bmw_ad_ses', '', $time - 3600, "/");
-        setcookie('bmw_ad_username', '', $time - 3600, "/");
-        setcookie('bmw_ad_uid', '', $time - 3600, "/");
-        setcookie('bmw_ad_t','', $time - 3600, "/");
+        setcookie('bmw_ad_ses', '', $time - 3600*24, "/");
+        setcookie('bmw_ad_username', '', $time - 3600*24, "/");
+        setcookie('bmw_ad_uid', '', $time - 3600*24, "/");
+        setcookie('bmw_ad_t','', $time - 3600*24, "/");
         $this->redirect("/index.php/admin/login");
     }
 
