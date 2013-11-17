@@ -289,12 +289,15 @@ setTimeout('CompScr()',Speed);
 </script>
 <script type="text/javascript">
 
-    $(function(){
+    (function(){
         var tmp = 0;
         $('.bm_zpzs_tu a').each(function(){
-            //$(this).find('img').load(function(){
-            //    alert("123");
-            //});
+            var that = $(this);
+            $(this).find('img').bind('load',function(){
+                tmp = - that.find('img').width() / 2 + 228/2;
+                that.css('margin-left',tmp+'px');
+                that.find('img').height(366);
+            });
             //console.log($(this).find('img').width());
             //if ($(this).find('img').height() > 366){
                 tmp = - $(this).find('img').width() / 2 + 228/2;
@@ -304,7 +307,7 @@ setTimeout('CompScr()',Speed);
            $(this).css('margin-left',tmp+'px');
            $(this).find('img').height(366);
         });
-    });
+    })();
 </script>
 
 </body>
