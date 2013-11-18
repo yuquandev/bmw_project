@@ -72,7 +72,7 @@ function com_dialog(act){
                      '</div>',
                      '</div>'].join('');
 
-    var uploads_html = ['<div class="zc_tck mydiv" id="popDiv" style="display:none;">',
+    var uploads_html = ['<style>.progressName {display: none;} .progressBarComplete{background: #0099ff;height:3px;width:276px;}</style><div class="zc_tck mydiv" id="popDiv" style="display:none;">',
         '<div class="zc_tck_title"><span>上传图片</span><a href="javascript:closeDiv()"><img src="/img/bm_gb.jpg" /></a></div>',
         '<div class="zc_tck_main3">',
         '<table width="100%" border="0" cellspacing="0" cellpadding="0">',
@@ -83,10 +83,11 @@ function com_dialog(act){
         '</tr>',
         '<tr>',
         '<td height="40" align="right" valign="middle"><strong>图片地址：</strong></td>',
-        '<td height="59" align="left" valign="middle"><input name="" type="text" class="zck_text4" id="bm_uploads_name"/><input type="hidden" id="bm_uploads_url" value="" /><div id="divFileProgressContainer" style="display: none;"></div></td>',
+        '<td height="59" align="left" valign="middle"><input name="" type="text" class="zck_text4" id="bm_uploads_name"/><input type="hidden" id="bm_uploads_url" value="" /></td>',
         '<td width="20%"><div id="spanButtonPlaceholder"></div><span id="pop_img" style="color:red;"></span></td>',
         
         '</tr>',
+        '<tr><td width="15%" align="right" valign="top"></td><td width="59%" align="left" valign="middle"><div id="divFileProgressContainer" ></div></td></tr>',
         '<tr>',
         '<td width="15%" height="40" align="right" valign="top"><strong>活动宣言：</strong></td>',
         '<td width="59%" height="40" align="left" valign="middle"><textarea name="" id="textconten"  cols="" rows="" class="zck_xy"></textarea></td>',
@@ -232,6 +233,12 @@ function bm_reg(){
     });
 }
 
+function add_error(id,msg){
+    $('#'+id).html(msg);
+    $('#'+id).css('color','#ff0000');
+    return false;
+}
+
 function uplodedata()
 {
     var title = $("#bmw_title").val();	
@@ -292,17 +299,17 @@ function bulid_upload(){
         swfupload_load_failed_handler : loadFailed,
         file_queue_error_handler : base_fileQueueError,
         file_dialog_complete_handler : fileDialogComplete,
-        upload_progress_handler : uploadProgress,
+        upload_progress_handler : base_uploadProgress,
         upload_error_handler : uploadError,
         upload_success_handler : base_upload_success,
-        upload_complete_handler : uploadComplete,
+        upload_complete_handler : base_uploadComplete,
 
         // Button Settings
         //button_image_url : "images/SmallSpyGlassWithTransperancy_17x18.png",
         button_placeholder_id : "spanButtonPlaceholder",
         button_width: 53,
         button_height:28,
-        button_text : '<span  id="uplode_img">上传</span>',
+        button_text : '<span class="upload_button">上传</span>',
         button_text_style : '',
         button_text_top_padding: 8,
         //button_text_left_padding: 18,
@@ -334,23 +341,23 @@ function base_fileQueueError(file, errorCode, message) {
         }
 
         if (errorName !== "") {
-            add_error(error_banner,errorName);
+            add_error('pop_img',errorName);
             return;
         }
 
         switch (errorCode) {
             case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
                 imageName = "zerobyte.gif";
-                add_error(error_banner,'图片尺寸小于1K，请重新选择图片');
+                add_error('pop_img','图片尺寸小于1K，请重新选择图片');
                 break;
             case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
                 imageName = "toobig.gif";
-                add_error(error_banner,'图片尺寸大于500K，请重新选择图片');
+                add_error('pop_img','图片尺寸大于500K，请重新选择图片');
                 break;
             case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
-                add_error(error_banner,'请上传正确的格式图片');
+                add_error('pop_img','请上传正确的格式图片');
             case SWFUpload.QUEUE_ERROR.INVALID_FILETYPE:
-                add_error(error_banner,'请上传正确的格式图片');
+                add_error('pop_img','请上传正确的格式图片');
             default:
                 //add_error(error_banner,message);
                 break;
@@ -379,7 +386,7 @@ function base_upload_success(file, serverData) {
         }
         if (serverData) {
             addImage(serverData);
-            $('#divFileProgressContainer').css("display","none");
+            //$('#divFileProgressContainer').css("display","none");
             $('#bm_uploads_name').val($('.progressName').html());
             $('#bm_uploads_url').val(serverData);
             $('#popDiv').css('height','444px');
@@ -398,6 +405,37 @@ function base_upload_success(file, serverData) {
         this.debug(ex);
     }
 }
+
+function base_uploadProgress(file, bytesLoaded) {
+
+    try {
+        $('.progressBarStatus').show();
+        var percent = Math.ceil((bytesLoaded / file.size) * 100);
+        var progress = new FileProgress(file,  this.customSettings.upload_target);
+        progress.setProgress(percent);
+        progress.setStatus("上传中...");
+        progress.toggleCancel(true, this);
+    } catch (ex) {
+        this.debug(ex);
+    }
+}
+
+function base_uploadComplete(file) {
+    try {
+        /*  I want the next upload to continue automatically so I'll call startUpload here */
+        if (this.getStats().files_queued > 0) {
+            this.startResizedUpload(this.getFile(0).ID, this.customSettings.thumbnail_width, this.customSettings.thumbnail_height, SWFUpload.RESIZE_ENCODING.JPEG, this.customSettings.thumbnail_quality, false);
+        } else {
+            var progress = new FileProgress(file,  this.customSettings.upload_target);
+            progress.setComplete();
+            progress.setStatus("上传成功");
+            progress.toggleCancel(false);
+        }
+    } catch (ex) {
+        this.debug(ex);
+    }
+}
+
 //投票
 function top_vote(wid,num)
 {
