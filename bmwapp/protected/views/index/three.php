@@ -82,13 +82,14 @@
         	<?php }?>
         	<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
             <div class="bm_hd_zj">
-            <h2>　　　你的运动宣言有动征集33x</h2><br />
-            <span>　　　　　BMW 3系的历史在这里一览无疑，由于脾<br />　　　　气火爆，性格直率，所以被人们常常亲切称为<br />　　　“三哥”。
-</span><br /><br />
- 			<p>　漂亮的甩尾，灵动的转弯，澎湃的动力，都刺<br />激着你的肾上腺素</p><br />
-            <h2>　BMW 3系</h2><br />
-            <h2>运动王者 领衔起跑</h2>
+            <h2>　　　　　　　你的运动宣言有动征集33x</h2><br />
+            <span>　　　　　　　　BMW 3系的历史在这里一览无疑，由于脾<br />　　　　　　　气火爆，性格直率，所以被人们常常亲切称为<br />　　　　　　“三哥”。
+			</span><br /><br />
+ 			<p>　　　　漂亮的甩尾，灵动的转弯，澎湃的动力，都刺<br />　　　激着你的肾上腺素</p><br />
+            <h2>　　　　BMW 3系</h2><br />
+            <h2>　　　　运动王者 领衔起跑</h2>
             </div>
+
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu">
                 	<div class="bm_3x_st">
@@ -220,16 +221,16 @@ var Comp = 0;
 var AutoPlayObj = null;
 GetObj("List2").innerHTML = GetObj("List1").innerHTML;
 GetObj('ISL_Cont').scrollLeft = fill;
-GetObj("ISL_Cont").onmouseover = function(){clearInterval(AutoPlayObj);}
-GetObj("ISL_Cont").onmouseout = function(){AutoPlay();}
+//GetObj("ISL_Cont").onmouseover = function(){clearInterval(AutoPlayObj);}
+//GetObj("ISL_Cont").onmouseout = function(){AutoPlay();}
 AutoPlay();
 function GetObj(objName){if(document.getElementById){return eval('document.getElementById("'+objName+'")')}else{return eval
 
 ('document.all.'+objName)}}
-function AutoPlay(){ //自动滚动
-clearInterval(AutoPlayObj);
-AutoPlayObj = setInterval('ISL_GoDown();ISL_StopDown();',5000); //间隔时间
-}
+//function AutoPlay(){ //自动滚动
+//clearInterval(AutoPlayObj);
+//AutoPlayObj = setInterval('ISL_GoDown();ISL_StopDown();',5000); //间隔时间
+//}
 function ISL_GoUp(){ //上翻开始
 if(MoveLock) return;
 clearInterval(AutoPlayObj);
@@ -303,6 +304,29 @@ setTimeout('CompScr()',Speed);
 }
 //--><!]]>
 </script>
+<script type="text/javascript">
+
+    (function(){
+        var tmp = 0;
+        $('.bm_zpzs_tu a').each(function(){
+            var that = $(this);
+            $(this).find('img').bind('load',function(){
+                tmp = - that.find('img').width() / 2 + 228/2;
+                that.css('margin-left',tmp+'px');
+                that.find('img').height(366);
+            });
+            //console.log($(this).find('img').width());
+            //if ($(this).find('img').height() > 366){
+                tmp = - $(this).find('img').width() / 2 + 228/2;
+            //}else {
+            //    tmp = - $(this).find('img').width() / 2 + 183;
+            //}
+           $(this).css('margin-left',tmp+'px');
+           $(this).find('img').height(366);
+        });
+    })();
+</script>
+
 <script type="text/javascript">
 
     (function(){

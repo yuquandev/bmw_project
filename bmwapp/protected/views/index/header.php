@@ -20,5 +20,5 @@
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/com_dialog.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/swfupload/swfupload.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/project.handlers.js"></script>
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/scrollpic.js"></script>
+<!-- <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/scrollpic.js"></script> -->
 </head>
