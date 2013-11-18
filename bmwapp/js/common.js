@@ -213,15 +213,15 @@ function ajax_get_columns(table,title,id){
             for (var n in data){
                 if(data[n]){
                     if (data[n]['field'] == 'name'){
-                        columns.push({field:data[n]['field'],title:data[n]['title'],width:110});
+                        columns.push({field:data[n]['field'],title:data[n]['title'],width:100});
                     }else if (data[n]['field'] == 'video_url' || data[n]['field'] == 'c_url' ){
                         columns.push({field:data[n]['field'],title:data[n]['title'],width:200});
                     }else if (data[n]['field'] == 'create_time'){
-                        columns.push({field:data[n]['field'],title:data[n]['title'],width:80,sortable:true});
+                        columns.push({field:data[n]['field'],title:data[n]['title'],width:75,sortable:true});
                     }else if (data[n]['field'] == 'vote_num'){
                         columns.push({field:data[n]['field'],title:data[n]['title'],sortable:true});
                     }else if (data[n]['field'] == 'description'){
-                        columns.push({field:data[n]['field'],title:data[n]['title'],width:120});
+                        columns.push({field:data[n]['field'],title:data[n]['title'],width:110});
                     }else {
                         columns.push({field:data[n]['field'],title:data[n]['title']});
                     }
@@ -274,7 +274,7 @@ function reload_datagrid(table,title,columns,id){
                 for (var n in row){
                     if (n == 'id'){
                         row['editor'] = '<a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'user\')">删除</a>';
-                        console.log(row['editor']);
+                        //console.log(row['editor']);
                     }
                 }
             }
