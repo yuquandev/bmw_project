@@ -37,7 +37,7 @@ class IndexController extends Controller {
         $video = $this->video->selectVideo(array('status'=>0),1,5);
     	//var_dump($video);
         //works  
-        $works = $this->works->selectWork(array('review'=>0,'type'=>2),1,8,'`vote_num` desc ,`update_time` desc');
+        $works = $this->works->selectWork(array('review'=>0,'type'=>2),1,8,'`recommend` desc,`vote_num` desc ,`update_time` desc');
     	//footer img
         $image_list = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0),1,12);
         
@@ -58,18 +58,23 @@ class IndexController extends Controller {
        $this->nav = '2xmoer';
        $list     = isset($_GET['uuid'])    ? trim($_GET['uuid']) : '';
        if( strpos($list,',') !== false ){
-          list($uid,$type,$center) = explode(',', $list);
+          list($id,$uid,$type,$center) = explode(',', $list);
        } 
        if($uid == '')
        {
           $this->redirect('/',5);
        }
-       if($center === 'center')
+       //用户选择的图
+       $get_one_works = $this->works->getOneWork(array('id'=>$id));
+       if($center === 'center')  //用户中心
        {
-          $works_user_list = $this->works->selectWork(array('user_id'=>$uid,'type'=>$type));
+          $works_user_list = $this->works->selectWork(array('user_id'=>$uid,'type'=>$type),0,0,'create_time desc','and id !='.$id);
        }else{
-          $works_user_list = $this->works->selectWork(array('review'=>0,'user_id'=>$uid,'type'=>$type));
+          $works_user_list = $this->works->selectWork(array('review'=>0,'user_id'=>$uid,'type'=>$type),0,0,'create_time desc','and id !='.$id);
        }
+       
+       array_unshift($works_user_list,$get_one_works);
+       
        foreach($works_user_list as $k=>$val){
           $user_info       = $this->user->getOneUser(array('id'=>$val['user_id']));
        	  $works_user_list[$k]['username'] =!empty($user_info['nickname']) ?  $user_info['nickname'] : $user_info['username'];
@@ -91,7 +96,7 @@ class IndexController extends Controller {
        $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
        $page_limit = 8;
        
-       $works = $this->works->selectWork(array('review'=>0,'type'=>2),$page,$page_limit);
+       $works = $this->works->selectWork(array('review'=>0,'type'=>2),$page,$page_limit,'`recommend` desc,`vote_num` desc ,`update_time` desc');
        $count_number = $this->works->countWork(array('review'=>0,'type'=>2));
        
        $page_html = $this->page_limit($count_number,$page,$page_limit,4);

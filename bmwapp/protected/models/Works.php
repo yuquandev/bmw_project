@@ -109,7 +109,7 @@ class Works extends CActiveRecord
      * Enter description here ...
      * @param unknown_type $array  =>  array('id'=>2,'user_id'=>3,...); $order => $order='create_time desc'
      */
-    public function selectWork($array,$limit = 0,$limit_offis = 10,$order='create_time desc')
+    public function selectWork($array,$limit = 0,$limit_offis = 10,$order='create_time desc',$bash_where='')
     {
         $where = '';
     	if( is_array($array) )
@@ -135,7 +135,14 @@ class Works extends CActiveRecord
         }else{
            $limit_sned ='';
         }
-        $sql = sprintf("SELECT `id`,`user_id`,`name`,`img_url`,`description`,`type`,`vote_num`,`review`,`update_time`,`create_time` FROM %s where %s order by %s %s",$this->tableName(),$where,$order_list,$limit_sned);
+        if(!empty($bash_where))
+        {
+            $_bash_where = $bash_where;
+        }else{
+            $_bash_where = '';
+        }
+        
+        $sql = sprintf("SELECT `id`,`user_id`,`name`,`img_url`,`description`,`type`,`vote_num`,`review`,`update_time`,`create_time` FROM %s where %s $bash_where order by %s %s",$this->tableName(),$where,$order_list,$limit_sned);
         //echo $sql;
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;

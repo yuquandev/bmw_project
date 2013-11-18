@@ -98,7 +98,7 @@ class Topic extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-<<<<<<< .mine
+
  /**
      * 
      * Enter description here ...

@@ -178,3 +178,8 @@ img{ border:none;}
 .bm_main_sm2 span{ float:left; line-height:30px; font-weight:bold; font-size:14px; display:block; width:280px}
 .bm_main_an2{ margin:0 auto; overflow:hidden; width:300px;  margin-top:10px; padding-left:50px;}
 .bm_tck_an2{ background:url(/img/bm_tck_pic2.jpg) repeat-x; width:93px; height:33px; border:none; cursor:pointer; font-size:12px; color:#fff;border-radius: 3px 3px 3px 3px; float:left; margin-right:5px;}
+
+
+
+.bm_x4 a{ background:url(/img/bm_x1_picxs.png) no-repeat; width:150px; display:block; height:36px; position:absolute; left:268px;}
+.bm_x4 a:hover{ background:url(/img/bm_x1_picxs2.png) no-repeat}  
