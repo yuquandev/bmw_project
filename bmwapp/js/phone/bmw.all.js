@@ -1,6 +1,6 @@
 function onblureg(type)
 {
-	  
+	  var vuser;
 	  if(type=='user'){  
 	    if( $("#reg_username").val() == '' )
 	    {
@@ -14,17 +14,23 @@ function onblureg(type)
 	    	       if( rs.status == false )
 	               {
 	                   $("#reg_name").html('<strong>*</strong>用户名已经被注册了!');
-	                   var vuser =  false;
+	                       vuser =  false;
 	               }else{  
 	            	  $("#reg_name").html('<img src="/img/bm_tck_dg.jpg" />');
-	            	  var vuser =  true;
+	            	       vuser =  true;
 	               }
 	    	   }     
 	    	});
 	    	 	
 	    }
+	    
 	  }
-	 
+	   if(vuser == false)
+	   {
+		   return false;
+	   }
+	   
+	  
 	    if( $("#reg_nickname").val() == '' )
 	    {
 	    	 $("#reg_nkname").html('<strong>*</strong>请输入真实姓名');
@@ -130,7 +136,8 @@ function bm_reg(){
 
 
 function bm_login(){
-    $.ajax({url: '/index.php/user/ajax_login?_n='+ new Date().getTime(),
+    
+	$.ajax({url: '/index.php/user/ajax_login?_n='+ new Date().getTime(),
         type: 'POST',
         data: {username : $('#bm_username').val(), password : $('#bm_password').val()},
         dataType: 'json',

@@ -14,7 +14,7 @@
             <div class="sjb_sp">
            		<table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
-            <td height="58" colspan="2"><input name="textfield" id="bm_username" type="text" class="zck_text2"   value="请输入用户名" onfocus="if (value =='请输入用户名'){value =''}" onblur="if (value ==''){value='请输入用户名'}"/></td>
+            <td height="58" colspan="2"><input name="textfield" id="bm_username" type="text" class="zck_text2" value="请输入用户名" onfocus="if (value =='请输入用户名'){value =''}" onblur="if (value ==''){value='请输入用户名'}"/></td>
           </tr>
           <tr>
             <td height="58" colspan="2"><input name="textfield" id="bm_password" type="password" class="zck_text2"    value="请输入密码" onfocus="if (value =='请输入密码'){value =''}" onblur="if (value ==''){value='请输入密码'}"/></td>

@@ -15,6 +15,7 @@ class PhoneController extends Controller
     public  $user;
     private $vote_log_tbl;
     public  $style = 'style="background:url(/img/phone/bm_hd_title2.jpg) repeat-x top left; line-height:35px;"';
+    public  $nav;
     public function init(){
         $this->works        = new Works();
         $this->user         = new User();
@@ -26,18 +27,21 @@ class PhoneController extends Controller
     //BMW  INDEX 3X
     public function actionIndex()
     {
-        $this->render('index');
+        $this->nav = 1;
+    	$this->render('index');
     }
     
     //BMW 规则
     public function actionRule()
     {
-        $this->render('rule');
+        $this->nav = 2;
+    	$this->render('rule');
     }
 
     //BMW 上传图片
     public function actionUpimg()
     {
+       $this->nav = 3;
        if( empty($this->userinfo)){
            $this->msg('对不起，您还没有登录,请登录','/index.php/phone/login');
            exit;
@@ -47,6 +51,10 @@ class PhoneController extends Controller
 
     public function actionuplodeimg()
     { 
+       if( empty($this->userinfo)){
+           $this->msg('对不起，您还没有登录,请登录','/index.php/phone/login');
+           exit;
+       }
        if(isset($_POST['submit']))
        {
           $title      = isset($_POST['title']) ? trim($_POST['title']) : ''; 
@@ -80,7 +88,8 @@ class PhoneController extends Controller
     //BMW 作品
     public function actionWorks()
     {
-        $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        $this->nav = 4;
+    	$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
         $page_limit = 8;
     	$works = $this->works->selectWork(array('review'=>0,'type'=>2),$page,$page_limit,'`vote_num` desc ,`update_time` desc');
     	$count_number = $this->works->countWork(array('review'=>0,'type'=>2));
@@ -95,6 +104,7 @@ class PhoneController extends Controller
     //作品详情
     public function actionShow()
     {
+       $this->nav = 4;
        $str = isset($_GET['id']) ? trim($_GET['id']) : false;
        list($id,$sign) = explode(',', $str);
        

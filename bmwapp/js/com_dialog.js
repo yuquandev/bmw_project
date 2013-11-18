@@ -124,7 +124,7 @@ function bm_login(){
                 //alert(data['msg']);
                 window.location.reload();
             }else if(data['status'] == 'falis'){
-            	$("#login_text").html(data['msg']);
+            	$("#login_text").html('<span style="color:red;">'+data['msg']+'</span>');
             }
         },
         complete : function(){
