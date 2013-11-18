@@ -134,7 +134,7 @@ function base_upload_success(file, serverData) {
             $('#thumbnails img').css('width','200px');
             $('#thumbnails img').css('height','200px');
             $('#t_img_dialog').css('height','380px');
-            $('#thumbnails img').show();
+            $('#thumbnails').show();
 
             progress.setStatus("Upload Complete.");
             progress.toggleCancel(false);
@@ -545,7 +545,7 @@ function add_topic_img(type_id,info) {
         $('.combo-value').val(info.status);
         //$('#t_img_stat option')[info.status-1].setAttribute('selected','1');
         $('#t_img_file').val('');
-        $('#t_img_dialog').show();
+        $('#thumbnails').show();
     }else {
         act = 'add';
         title = '新建图片';
@@ -553,8 +553,9 @@ function add_topic_img(type_id,info) {
         $('#t_img_url').val('');
         $('#t_img_stat').val('');
         $('#t_img_file').val('');
-        $('#t_img_dialog').hide();
+        $('#thumbnails').hide();
     }
+    $('#t_img_dialog').show();
 
     $('#t_img_dialog').dialog({
         title:title,

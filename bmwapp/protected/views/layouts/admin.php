@@ -123,7 +123,7 @@
     <label class="lbInfo">上传图片：<input id="t_img_file" type="text" value="" /><a style="vertical-align:middle;" href="javascript:void(0)" id="add_btn" class="l-btn" group="" ><span class="l-btn-left"><span class="l-btn-text"><div id="spanButtonPlaceholder"></div></span></span></a></label><div id="divFileProgressContainer" style="height:14px;overflow: hidden;"></div><br />
     <div id="error_banner"></div>
     <div id="thumbnails" >
-        <img style="margin: 5px; vertical-align: middle; opacity: 1;width: 200px; height: 200px;display: none;" src="" />
+        <img style="margin: 5px; vertical-align: middle; opacity: 1;width: 100px; height: 100px;" src="" />
     </div>
     <input id="t_img_url"  type="hidden" class=""  required="true" runat="server" /><br />
 </div>
