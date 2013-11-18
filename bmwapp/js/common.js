@@ -545,6 +545,7 @@ function add_topic_img(type_id,info) {
         $('.combo-value').val(info.status);
         //$('#t_img_stat option')[info.status-1].setAttribute('selected','1');
         $('#t_img_file').val('');
+        $('#t_img_dialog').show();
     }else {
         act = 'add';
         title = '新建图片';
@@ -552,9 +553,9 @@ function add_topic_img(type_id,info) {
         $('#t_img_url').val('');
         $('#t_img_stat').val('');
         $('#t_img_file').val('');
+        $('#t_img_dialog').hide();
     }
 
-    $('#t_img_dialog').show();
     $('#t_img_dialog').dialog({
         title:title,
         collapsible: false,
