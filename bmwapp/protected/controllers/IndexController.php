@@ -64,10 +64,6 @@ class IndexController extends Controller {
        {
           $this->redirect('/',5);
        }
-       //用户选择的图
-       
-       $get_one_works='';
-          // $get_one_works = $this->works->getOneWork(array('id'=>$id));
        if($center === 'center')  //用户中心
        {
           $works_user_list = $this->works->selectWork(array('user_id'=>$uid,'type'=>$type),0,0,'create_time desc','and id !='.$id);
@@ -75,8 +71,14 @@ class IndexController extends Controller {
           $works_user_list = $this->works->selectWork(array('review'=>0,'user_id'=>$uid,'type'=>$type),0,0,'create_time desc','and id !='.$id);
        }
        
-       array_unshift($works_user_list,$get_one_works);
-       
+       //用户选择的图
+       if($id < 0)
+       {
+         $get_one_works = $this->works->getOneWork(array('id'=>$id));
+         if($get_one_works){
+         	array_unshift($works_user_list,$get_one_works);
+         }	
+       }
        foreach($works_user_list as $k=>$val){
           $user_info       = $this->user->getOneUser(array('id'=>$val['user_id']));
        	  $works_user_list[$k]['username'] =!empty($user_info['nickname']) ?  $user_info['nickname'] : $user_info['username'];
@@ -125,15 +127,16 @@ class IndexController extends Controller {
        }else{
          $one_img = '';
        }
-       $all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>$type,'status'=>0));
+       $all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>$type,'status'=>0),9);
        foreach($all_img as $key=>$v)
        {
            if($v['id'] == $id){
               unset($all_img[$key]);
            }
        }
-       array_unshift($all_img,$one_img);
-       
+       if($one_img){
+       		array_unshift($all_img,$one_img);
+       }
        $data = array(
           'all_img'=>$all_img
        );
