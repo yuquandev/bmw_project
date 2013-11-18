@@ -22,13 +22,17 @@
         </div>
         <div class="bm_hd_main" id="menuTabcontent012_12">
         	<div class="bm_hd_left">
-            <?php if (!empty($this->userinfo)){?>
-        	<a href="javascript:void(0);" onclick="com_dialog('uploads');">
-        	<?php }else {?>
-        	<a href="javascript:com_dialog('login');">
-        	<?php }?>
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
-            <div class="bm_hd_zj" style="left:0px;width:500px">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" border="0" usemap="#Map" />
+                <map name="Map" id="Map">
+                <?php if (!empty($this->userinfo)){?>
+        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('uploads');" />
+                <?php }else {?>
+        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="com_dialog('uploads');"  />
+                <?php }?>
+               </map>
+           </div>
+        	
+        	<div class="bm_hd_zj" style="left:0px;width:500px">
             <h2 style="padding-left:200px; padding-bottom:10px;">　　　运动宣言有奖活动征集</h2>
             <span style="padding-left:210px">参与运动宣言活动的用户，上传图片并发</span><br />
             <p style="padding-left:198px">表运动宣言，即有机会获得宝马中国提供</p>
@@ -51,13 +55,21 @@
             </div>
         </div>
         <div class="bm_hd_main" style="display:none" id="menuTabcontent012_11">
+        	
         	<div class="bm_hd_left">
-        	<?php if (!empty($this->userinfo)){?>
-        	<a href="javascript:void(0);" onclick="com_dialog('uploads');">
-        	<?php }else {?>
-        	<a href="javascript:com_dialog('login');">
-        	<?php }?>
-        	<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" border="0" usemap="#Map" />
+                <map name="Map" id="Map">
+                <?php if (!empty($this->userinfo)){?>
+        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('uploads');" />
+                <?php }else {?>
+        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="com_dialog('uploads');"  />
+                <?php }?>
+               </map>
+           </div>
+        	
+        	
+        	
+        	</div>
             <div class="bm_hd_zj">
             <h2 style="padding-top:10px;">　　　　　　活动时间：11月25—12月1日</h2><br />
  			<p>　　　　　　　　1.登陆美图秀秀，下载BMW专属海报模板，<br />　　　　　　　将生活中自己带有运动元素的图片进行拼图。</p><br />
@@ -74,14 +86,19 @@
             </div>
         </div>
         <div class="bm_hd_main" id="menuTabcontent012_10" style="display:none">
+        	
         	<div class="bm_hd_left">
-        	<?php if (!empty($this->userinfo)){?>
-        	<a href="javascript:void(0);" onclick="com_dialog('uploads');">
-        	<?php }else {?>
-        	<a href="javascript:com_dialog('login');">
-        	<?php }?>
-        	<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
-            <div class="bm_hd_zj">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" border="0" usemap="#Map" />
+                <map name="Map" id="Map">
+                <?php if (!empty($this->userinfo)){?>
+        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('uploads');" />
+                <?php }else {?>
+        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="com_dialog('uploads');"  />
+                <?php }?>
+               </map>
+           </div>
+        	
+        	<div class="bm_hd_zj">
             <h2>　　　　　　　你的运动宣言有动征集33x</h2><br />
             <span>　　　　　　　　BMW 3系的历史在这里一览无疑，由于脾<br />　　　　　　　气火爆，性格直率，所以被人们常常亲切称为<br />　　　　　　“三哥”。
 			</span><br /><br />
