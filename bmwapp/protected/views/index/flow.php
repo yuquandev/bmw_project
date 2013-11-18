@@ -7,18 +7,13 @@ var imgArray = []; //img数组 也就是数据来源
 var textArray = []; //img底下的文字和img对应
 var srcArray = []; //超链接
 
-textArray[0] = "<?php echo $name[0];?>"; 
-textArray[1] = "<?php echo $name[1];?>"; 
-textArray[2] = "<?php echo $name[2];?>"; 
-textArray[3] = "<?php echo $name[3];?>"; 
-textArray[4] = "<?php echo $name[4];?>"; 
+<?php foreach ($name as $_key=>$_value){
+    echo "textArray[{$key}] = '{$_value}';";
+}?>
 
-
-imgArray[0] = "<?php echo $v[0];?>"; 
-imgArray[1] = "<?php echo $v[1];?>"; 
-imgArray[2] = "<?php echo $v[2];?>"; 
-imgArray[3] = "<?php echo $v[3];?>"; 
-imgArray[4] = "<?php echo $v[4];?>"; 
+<?php foreach ($v as $_key=>$_value){
+    echo "imgArray[{$key}] = '{$_value}';";
+}?>
 
 srcArray[0] = "http://www.baidu.com"; 
 srcArray[1] = "http://www.baidu.com"; 
