@@ -273,7 +273,7 @@ function uplodedata()
 }
 function bulid_upload(){
     $('#divFileProgressContainer').html('');
-    $('#thumbnails').html('<img style="margin: 5px; vertical-align: middle; opacity: 1;width: 300px;" src="" />');
+    $('#thumbnails').html('<img style="margin: 5px; vertical-align: middle; opacity: 1;width: 100px;" src=""/>');
     var swfu = new SWFUpload({
         // Backend Settings
         upload_url: "/index.php/index/uploads",
@@ -302,7 +302,7 @@ function bulid_upload(){
         button_placeholder_id : "spanButtonPlaceholder",
         button_width: 53,
         button_height:28,
-        button_text : '<span class="zck_ll"  id="uplode_img">上传</span>',
+        button_text : '<span  id="uplode_img">上传</span>',
         button_text_style : '',
         button_text_top_padding: 8,
         //button_text_left_padding: 18,
@@ -366,22 +366,33 @@ function base_fileQueueError(file, errorCode, message) {
 
 function base_upload_success(file, serverData) {
     try {
+    	var percent = Math.ceil( (serverData/ file.size) * 100);
         var progress = new FileProgress(file,  this.customSettings.upload_target);
+        progress.setProgress(percent);
+        if(percent === 100)
+        {
+        	progress.setStatus("文件上传成功");
+        	progress.toggleCancel(false,this);
+        }else{
+        	progress.setStatus("正在上传("+percent+"%)请稍后...");
+        	progress.toggleCancel(false,this);
+        }
         if (serverData) {
             addImage(serverData);
             $('#divFileProgressContainer').css("display","none");
             $('#bm_uploads_name').val($('.progressName').html());
             $('#bm_uploads_url').val(serverData);
-            //$('#popDiv').css('height','444px');
+            $('#popDiv').css('height','444px');
             $('#thumbnails img')[0].style.width='100px';
-            $('#thumbnails img')[0].style.height='100px';
-            progress.setStatus("Upload Complete.");
-            progress.toggleCancel(false);
+            $('#thumbnails img')[0].style.height='90px';
+            progress.setStatus("文件上传成功");
+            progress.toggleCancel(false,this);
         } else if(serverData == '') {
-            addImage("images/error.gif");
-            progress.setStatus("Error.");
-            progress.toggleCancel(false);
-            alert(serverData);
+        	
+        	//addImage("images/error.gif");
+            
+            progress.toggleCancel(false,this);
+            //alert(serverData);
         }
     } catch (ex) {
         this.debug(ex);
@@ -396,8 +407,8 @@ function top_vote(wid,num)
 	    if(rs == 1){
 
             $('#vote_'+wid).html(parseInt(num) + 1);
-            //pop_msg('恭喜你，投票成功!');
-            pop_msg2();
+            pop_msg('恭喜你，投票成功!');
+            //pop_msg2();
     	}else if(rs == 2){
     		pop_msg('投票失败，请不要恶意投票!');
 	    }else{

@@ -6,8 +6,14 @@
     <!--作品展示-->
     <div class="bm_cpzs">
     	<div class="bm_cpzs_title">
-        	<div class="bm_cpzs_zi"><?php if($center =='center'){?>我上传的作品<?php }else{ ?>作品展示<?php }?></div>
-        	
+        	<div class="bm_cpzs_zi"><span style="float:left"><?php if($center =='center'){?>我上传的作品<?php }else{ ?>作品展示<?php }?></div></span>
+        	  <div class="bm_dl"  style="padding-top:0">
+            	 <?php if (empty($this->userinfo)){?>
+            	    <a href="javascript:com_dialog('login');">登陆 | </a><a href="javascript:com_dialog('reg');">注册</a>
+                <?php }else { ?>
+                    欢迎您，<?php echo $this->userinfo['username'] ?>&nbsp;<a href="/index.php/index/more?uuid=<?php echo $this->userinfo['uid'];?>,2,center"><span style="color:red;">查看作品</span></a> | <a href='/index.php/user/logout'>退出</a>
+                <?php }?>
+            </div>
         </div> 
              <div class="bm_cpzs_main">
             		<!--作品展示-->

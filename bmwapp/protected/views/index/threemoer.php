@@ -6,7 +6,8 @@
     <!--作品展示-->
     <div class="bm_zpzs">
     	<div class="bm_zpzs_title">
-        	<span>作品展示</span>
+        	<span style="float:left">作品展示</span>
+        	
         </div>
         <a name ="toppage"></a>
         <div class="bm_zpzs_main">
