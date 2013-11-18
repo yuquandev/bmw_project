@@ -27,7 +27,7 @@
 				<span class="Summary FlLeft">
                 	<span class="bm_nr">
                     <span class="bm_wz2">
-                    <strong><?php echo $val['name'];?></strong><br />作者：<?php echo $val['username'];?><br />票数：<span  id="vote_<?php echo $val['id']?>"><?php echo $val['vote_num']?></span><br /><?php echo $val['description'];?>
+                    <strong><?php echo $val['name'];?></strong><br />作者：<?php echo $val['username'];?><br /><strong style="color:red;">票数:<span  id="vote_<?php echo $val['id']?>"><?php echo $val['vote_num']?></span></strong><br /><?php echo $val['description'];?>
                     </span>
                     <span>
                     <?php  if($center =='center'){?>
@@ -72,6 +72,7 @@
 	
 
 	<div class="ThumbPicBorder">
+	    <a name="footerimg"></a>
 		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowL.jpg" id="btnPrev" class="FlLeft" style="cursor:pointer;" />
 		<div class="jCarouselLite FlLeft">
 			<ul id="ThumbPic">

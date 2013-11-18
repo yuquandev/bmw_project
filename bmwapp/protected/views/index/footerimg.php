@@ -15,16 +15,7 @@
 		<div id="OriginalPic">
 			<div id="aPrev" class="CursorL"></div>
 			<div id="aNext" class="CursorR"></div>
-			
-        <?php if( !empty($one_img) ):?>    
-			<p class="Hidden">
-                <span class="SliderPicBorder2 FlRight"><img src="<?php echo $one_img['image_url']?>" /></span>
-                 <span class="Clearer"></span>
-				<span class="More"></span>
-			</p>
-		<?php endif;?>
-		    
-        <?php  foreach($all_img as $key=>$val):?>    
+		<?php  foreach($all_img as $key=>$val):?>    
 			<p class="Hidden">
                 <span class="SliderPicBorder2 FlRight"><img src="<?php echo $val['image_url']?>" /></span>
                  <span class="Clearer"></span>
@@ -44,11 +35,9 @@
 		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowL.jpg" id="btnPrev" class="FlLeft" style="cursor:pointer;" />
 		<div class="jCarouselLite FlLeft">
 			<ul id="ThumbPic">
-		        <?php if( !empty($one_img) ):?> 	    
-                   <li rel='1'><img src="<?php echo $one_img['image_url'];?>" /></li>
-		        <?php endif;?>
+		        
 		        <?php  foreach($all_img as $key=>$val):?> 
-				<li rel='<?php if(!empty($one_img)){ echo $key + 2;}else{echo $key + 1;}?>'><img src="<?php echo $val['image_url'];?>" /></li>
+				<li rel='<?php echo $key + 1;?>'><img src="<?php echo $val['image_url'];?>" /></li>
 		        <?php endforeach;?>
 	            	    
 		    </ul>

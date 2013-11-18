@@ -16,7 +16,7 @@
             	 <?php if (empty($this->userinfo)){?>
             	    <a href="javascript:com_dialog('login');">登陆 | </a><a href="javascript:com_dialog('reg');">注册</a>
                 <?php }else { ?>
-                    欢迎您，<?php echo $this->userinfo['username'] ?>&nbsp;<a href="/index.php/index/more?uuid=<?php echo $this->userinfo['uid'];?>,2,center"><span style="color:red;">查看作品</span></a> | <a href='/index.php/user/logout'>退出</a>
+                    欢迎您，<?php echo $this->userinfo['username'] ?>&nbsp;<a href="/index.php/index/more?uuid=false,<?php echo $this->userinfo['uid'];?>,2,center"><span style="color:red;">查看作品</span></a> | <a href='/index.php/user/logout'>退出</a>
                 <?php }?>
             </div>
         </div>
@@ -42,7 +42,7 @@
             <p style="padding-left:145px">共同去感受运动的热潮，去寻找纯粹的运动</p>
             <p style="padding-left:130px">基因！</p>
 
-			<p style="padding-left:117px"><strong>活动要求：<></p>
+			<p style="padding-left:117px"><strong>活动要求：</strong></p>
  			<p style="padding-left:107px">1.参与者拍摄三张自己的运动特写照片</p>
             <p style="padding-left:96px">2.使用美图秀秀的BMW3系专属模板进行拼</p>
             <p style="padding-left:86px">图并保存</p>
@@ -182,7 +182,7 @@
         <div class="bm_hd_title3">
         	<ul>
                 <div class="bm_jcts_left"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico4.gif" style="padding-left:10px;"/><span >精彩图赏</span></div>
-                <div class="bm_jcts_you"><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/more.png" /></a></div>
+                <div class="bm_jcts_you"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/flow#flow"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/more.png" /></a></div>
             </ul>
         </div>
         <div class="bm_x1_main" id="menuTabcontent013_12">

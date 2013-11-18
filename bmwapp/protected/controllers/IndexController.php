@@ -65,7 +65,9 @@ class IndexController extends Controller {
           $this->redirect('/',5);
        }
        //用户选择的图
-       $get_one_works = $this->works->getOneWork(array('id'=>$id));
+       
+       $get_one_works='';
+          // $get_one_works = $this->works->getOneWork(array('id'=>$id));
        if($center === 'center')  //用户中心
        {
           $works_user_list = $this->works->selectWork(array('user_id'=>$uid,'type'=>$type),0,0,'create_time desc','and id !='.$id);
@@ -130,8 +132,9 @@ class IndexController extends Controller {
               unset($all_img[$key]);
            }
        }
+       array_unshift($all_img,$one_img);
+       
        $data = array(
-          'one_img'=>$one_img,
           'all_img'=>$all_img
        );
        
@@ -165,17 +168,8 @@ class IndexController extends Controller {
     public function actionFlow()
     {
         $all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0));
-        foreach($all_img as $key=>$val)
-        {
-             $k[]    = $key;
-             $name[] = $val['name'];
-             $v[]    = $val['image_url'];
-        }
         $data = array(
-           'count'=> count($k),
-           'name'  =>$name,
-           'k'=>$k,
-           'v'=>$v
+           'all_img'=>$all_img
         );
         $this->render('flow',$data);
     }

@@ -7,19 +7,12 @@ var imgArray = []; //img数组 也就是数据来源
 var textArray = []; //img底下的文字和img对应
 var srcArray = []; //超链接
 
-<?php foreach ($name as $_key=>$_value){
-    echo "textArray[{$key}] = '{$_value}';";
-}?>
-
-<?php foreach ($v as $_key=>$_value){
-    echo "imgArray[{$key}] = '{$_value}';";
-}?>
-
-srcArray[0] = "http://www.baidu.com"; 
-srcArray[1] = "http://www.baidu.com"; 
-srcArray[2] = "http://www.baidu.com"; 
-srcArray[3] = "http://www.baidu.com"; 
-srcArray[4] = "http://www.baidu.com"; 
+<?php foreach ($all_img as $_key=>$_value){
+    echo "textArray[{$_key}] = '{$_value['name']}';";
+    echo "imgArray[{$_key}] = '{$_value['image_url']}';";
+    echo "srcArray[{$_key}] = '';"; 
+}
+?>
 </script> 
 <!-- </volist> -->
 <script type="text/javascript">
@@ -174,7 +167,6 @@ clearInterval(timer);
         <!--图片欣赏-->
         <div class="bm_jcts_main">
         	<div class="ycsy_main" style="width:980px; margin:0 auto;overflow:hidden;">
-<input type="hidden" name=""id="count"value="{$count}">
 <div class="ycsy_zj">
 <div id="all" class="all"> 
 <div id="one" class="number"> </div> 
