@@ -119,7 +119,7 @@ class UserController extends Controller {
 
         $username = isset($_POST['username']) ? trim($_POST['username']) : '';
         $password = isset($_POST['password']) ? trim($_POST['password']) : '';
-
+        
         if (!empty($username) && !empty($password)){
             $userinfo = $this->user->get_userinfo_by_username($username);
             if (!empty($userinfo) && $userinfo['password'] == md5($password.$userinfo['salt'])){

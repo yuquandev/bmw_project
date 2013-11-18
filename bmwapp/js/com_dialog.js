@@ -455,7 +455,8 @@ function pop_msg2()
      			'</div>',
      			'<div class="bm_main_an2">',
      			'<input name="" type="button" class="bm_tck_an2" value="确 定" onclick="closeDiv5();"/>',
-                '<wb:share-button count="n" type="button" size="big" style="float:left"></wb:share-button></div>',
+                '<wb:share-button addition="simple" type="button"></wb:share-button>',
+     			'</div>',
                 '</div>',
 '</div>'].join('');	
    $("#popmsg2").html(pop);     

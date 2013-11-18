@@ -123,7 +123,7 @@ class IndexController extends Controller {
        }else{
          $one_img = '';
        }
-       $all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>$type));
+       $all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>$type,'status'=>0));
        foreach($all_img as $key=>$v)
        {
            if($v['id'] == $id){
@@ -160,5 +160,27 @@ class IndexController extends Controller {
         echo  '/uploads/works/'.$new_file;
 
     }
+    
+    //瀑布流
+    public function actionFlow()
+    {
+        $all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0));
+        foreach($all_img as $key=>$val)
+        {
+             $k[]    = $key;
+             $name[] = $val['name'];
+             $v[]    = $val['image_url'];
+        }
+        $data = array(
+           'count'=> count($k),
+           'name'  =>$name,
+           'k'=>$k,
+           'v'=>$v
+        );
+        $this->render('flow',$data);
+    }
+    
+    
+    
     
 }

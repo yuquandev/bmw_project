@@ -191,3 +191,17 @@ img{ border:none;}
 .bm_jcts_left  img{ float:left; padding-left:20px; padding-top:7px; padding-right:10px; display:block;}
 .bm_jcts_left span{float:left; display:block; width:70px; line-height:36px; font-size:14px;}
 .bm_jcts_you{ float:right; padding-top:14px; margin-right:15px;}
+
+/*精彩图赏*/
+.bm_jcts_main{ margin:0 auto;}
+.bm_jcts_list{ width:285px; height:196px; padding:4px; border:1px solid #d3d1c5; background:#f2eeeb; margin:10px 10px; float:left;}
+.all{ margin:0 auto; width:980px; } 
+.number{ float:left; } 
+.ycsy_zj{ min-height:600px; width:950px; margin:0 auto;}
+.content 
+{ margin:10px; background-color:#f2eeeb; padding:5px;text-align:center;border:1px solid #d3d1c5;} 
+.bot{ line-height:24px; padding-top:10px; text-align:left; display:block;}
+.loading{ width:80%; height:40px; display:none; text-align:center; } 
+#toTop 
+{ position:fixed; _position:fixed; font-size:12px; color:#000; width:15px; text-align:center; right:130px; bottom:100px; cursor:pointer; background-color:RGB(243,247,251); display:none; 
+} 
