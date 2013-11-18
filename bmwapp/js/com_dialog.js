@@ -373,17 +373,8 @@ function base_fileQueueError(file, errorCode, message) {
 
 function base_upload_success(file, serverData) {
     try {
-    	var percent = Math.ceil( (serverData/ file.size) * 100);
+    	
         var progress = new FileProgress(file,  this.customSettings.upload_target);
-        progress.setProgress(percent);
-        if(percent === 100)
-        {
-        	progress.setStatus("文件上传成功");
-        	progress.toggleCancel(false,this);
-        }else{
-        	progress.setStatus("正在上传("+percent+"%)请稍后...");
-        	progress.toggleCancel(false,this);
-        }
         if (serverData) {
             addImage(serverData);
             //$('#divFileProgressContainer').css("display","none");
