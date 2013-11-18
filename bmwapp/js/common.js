@@ -134,6 +134,7 @@ function base_upload_success(file, serverData) {
             $('#thumbnails img').css('width','200px');
             $('#thumbnails img').css('height','200px');
             $('#t_img_dialog').css('height','380px');
+            $('#thumbnails img').show();
 
             progress.setStatus("Upload Complete.");
             progress.toggleCancel(false);
