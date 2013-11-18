@@ -366,6 +366,9 @@ setTimeout('CompScr()',Speed);
             $(this).css('margin-left',tmp+'px');
             $(this).find('img').height(366);
             $(this).find('img').removeAttr('width');
+            if ($(this).css('margin-left') == '114px'){
+                $(this).css('margin-left','400px');
+            }
         });
     })();
 </script>
