@@ -56,6 +56,8 @@ class IndexController extends Controller {
     {
        $this->top  =false;
        $this->nav = '2xmoer';
+       $pash_where = '';
+       $get_one_works='';
        $list     = isset($_GET['uuid'])    ? trim($_GET['uuid']) : '';
        if( strpos($list,',') !== false ){
           list($id,$uid,$type,$center) = explode(',', $list);
@@ -64,26 +66,28 @@ class IndexController extends Controller {
        {
           $this->redirect('/',5);
        }
-       if($center === 'center')  //用户中心
-       {
-          $works_user_list = $this->works->selectWork(array('user_id'=>$uid,'type'=>$type),0,0,'create_time desc','and id !='.$id);
-       }else{
-          $works_user_list = $this->works->selectWork(array('review'=>0,'user_id'=>$uid,'type'=>$type),0,0,'create_time desc','and id !='.$id);
+       if($id > 0){
+           $pash_where = sprintf('and id !=%d',$id);
+            //用户选择的图
+           $get_one_works = $this->works->getOneWork(array('id'=>$id));
        }
        
-       //用户选择的图
-       if($id < 0)
+       if($center === 'center')  //用户中心
        {
-         $get_one_works = $this->works->getOneWork(array('id'=>$id));
-         if($get_one_works){
-         	array_unshift($works_user_list,$get_one_works);
-         }	
+          $works_user_list = $this->works->selectWork(array('user_id'=>$uid,'type'=>$type),0,0,'create_time desc',$pash_where);
+       }else{
+          $works_user_list = $this->works->selectWork(array('review'=>0,'user_id'=>$uid,'type'=>$type),0,0,'create_time desc',$pash_where);
        }
-       foreach($works_user_list as $k=>$val){
+       
+      foreach($works_user_list as $k=>$val){
           $user_info       = $this->user->getOneUser(array('id'=>$val['user_id']));
        	  $works_user_list[$k]['username'] =!empty($user_info['nickname']) ?  $user_info['nickname'] : $user_info['username'];
        }
-      
+      if($get_one_works){
+       	   $user_info       = $this->user->getOneUser(array('id'=>$get_one_works['user_id']));
+           $get_one_works['username'] = $user_info['username'];
+       	   array_unshift($works_user_list,$get_one_works);
+      }	
        $data = array(
            'center'          => $center,
            'works_user_list' => $works_user_list,

@@ -99,8 +99,8 @@
 <script type="text/javascript">
 //缩略图滚动事件
 $(".jCarouselLite").jCarouselLite({
-	btnNext: "#btnNext",
-	btnPrev: "#btnPrev",
+	btnNext: "#btnNext .footerimg",
+	btnPrev: "#btnPrev .footerimg",
 	scroll: 1,
 	speed: 114,
 	circular: false,
