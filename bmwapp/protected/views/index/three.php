@@ -176,7 +176,8 @@
         </div>
     </div>
     <!--底部-->
-     <?php ?>
+    <?php $this->beginContent('//index/footer'); ?>
+<?php $this->endContent(); ?>
 </div>
 <!--上传图片-->
 
