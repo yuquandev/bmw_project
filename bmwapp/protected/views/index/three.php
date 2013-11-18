@@ -163,7 +163,8 @@
     <div class="bm_x1">
     	<div class="bm_hd_title bm_hd_title2">
         	<ul   style="width:182px">
-        		<li style="width:182px"><a href="javascript:;"  id=menuTabmenu013_12 onclick="setTimeout('Show_menuTab013(1,2)',200);" style="width:182px"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico4.gif" style="padding-left:10px;"/><span style="width:120px">BMW 3系精彩图赏</span></a></li>
+        		<li style="width:182px"><a href="javascript:;"  id=menuTabmenu013_12 onclick="setTimeout('Show_menuTab013(1,2)',200);" style="width:182px"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico4.gif" style="padding-left:10px;"/>
+        		<span style="width:125px">BMW 3系精彩图赏</span></a></li>
             	
             </ul>
         </div>
