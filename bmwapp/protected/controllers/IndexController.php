@@ -127,7 +127,7 @@ class IndexController extends Controller {
        }else{
          $one_img = '';
        }
-       $all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>$type,'status'=>0),9);
+       $all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>$type,'status'=>0),0,21);
        foreach($all_img as $key=>$v)
        {
            if($v['id'] == $id){
@@ -137,6 +137,7 @@ class IndexController extends Controller {
        if($one_img){
        		array_unshift($all_img,$one_img);
        }
+       
        $data = array(
           'all_img'=>$all_img
        );
