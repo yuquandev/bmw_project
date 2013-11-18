@@ -266,6 +266,7 @@ function reload_datagrid(table,title,columns,id){
         onLoadSuccess:function(){
             if ($('.datagrid-view2 .datagrid-btable').height() > $('.datagrid-view2 .datagrid-body').height()){
                 $('.datagrid-view2 .datagrid-header .datagrid-header-inner .datagrid-htable ').css('width','743px');
+                $('.datagrid-view2 .datagrid-body .datagrid-btable').css('width','741px');
             }
         },
         columns:[columns],
