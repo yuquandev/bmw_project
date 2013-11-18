@@ -28,13 +28,24 @@
         	<a href="javascript:com_dialog('login');">
         	<?php }?>
             <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
-            <div class="bm_hd_zj">
-            <h2>　　　　你的运动宣言有奖活动征集</h2><br />
-            <span>　　　　　　参与活动即可获得宝马中国提供的BMW<br />　　　　　新3系精美车模、BMW U盘以及BMW精美<br />　　　　钥匙链等。</span><br /><br />
- 			<p>　　　1.拍摄现场活动照片。</p><br />
-            <p>　　2.使用美图秀秀的BMW3系专属模板进行拼　　　　　图并保存。</p><br />
-            <p>3.上传至活动官网参与有奖活动。</p>
+            <div class="bm_hd_zj" style="left:0px;width:500px">
+            <h2 style="padding-left:200px; padding-bottom:10px;">　　　运动宣言有奖活动征集</h2>
+            <span style="padding-left:210px">参与运动宣言活动的用户，上传图片并发</span><br />
+            <p style="padding-left:198px">表运动宣言，即有机会获得宝马中国提供</p>
+            <p style="padding-left:183px">的精美奖品。用户可以通过在线投票选出</p>
+            <p style="padding-left:168px">自己喜欢的图片。</p>
+            <p style="padding-left:157px">让我们一起见证这激情的盛会，与BMW3系</p>
+            <p style="padding-left:145px">共同去感受运动的热潮，去寻找纯粹的运动</p>
+            <p style="padding-left:130px">基因！</p>
+
+			<p style="padding-left:117px"><strong>活动要求：<></p>
+ 			<p style="padding-left:107px">1.参与者拍摄三张自己的运动特写照片</p>
+            <p style="padding-left:96px">2.使用美图秀秀的BMW3系专属模板进行拼</p>
+            <p style="padding-left:86px">图并保存</p>
+            <p style="padding-left:70px">3.将拼好图片上传至活动官网并写出你的</p>
+            <p style="padding-left:60px">运动宣言参与有奖活动</p>
             </div>
+
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tu.jpg" /></div>
             </div>
@@ -48,12 +59,16 @@
         	<?php }?>
         	<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" /></a></div>
             <div class="bm_hd_zj">
-            <h2>　　　活动时间：11月15-12月2日</h2><br />
- 			<p>　　　　　　1.登陆美图秀秀，下载BMW专属海报模　　　　　　板，将生活中带有运动元素的图片进行拼图。</p><br />
-            <p>　　　2.图片拼好后保存至手机，并上传至活动官<br />　　网参与活动。</p><br />
-            <p>　3.用户浏览官方网站，对喜欢的图片进行<br />　投票。</p><br />
-            <p>4.奖项评选将根据得票数量由高到低进行<br />评选。</p>
+            <h2 style="padding-top:10px;">　　　　　　活动时间：11月25—12月1日</h2><br />
+ 			<p>　　　　　　　　1.登陆美图秀秀，下载BMW专属海报模板，<br />　　　　　　　将生活中自己带有运动元素的图片进行拼图。</p><br />
+            <p style="padding-left:75px">2.上传至活动官网参与活动。</p><br />
+            <p style="padding-left:51px">3.用户浏览官方网站，对喜欢的图片进行</p>
+            <p style="padding-left:39px">投票。</p><br />
+            <p style="padding-left:17px">4.奖项评选将根据得票数量由高到低进行</p>
+            <p style="padding-left:3px">评选。</p>
             </div>
+
+
             <div class="bm_hd_yc">
             	<div class="bm_hd_tu"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tu.jpg" /></div>
             </div>

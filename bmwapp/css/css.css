@@ -39,8 +39,8 @@ img{ border:none;}
 .bm_dl{ float:right; padding-top:14px;}
 .bm_hd_main{ width:980px; margin:0 auto; margin-top:22px; background:url(/img/bm_hd_bg.jpg) no-repeat; height:379px; position:relative;}
 .bm_hd_main2{ width:980px; margin:0 auto; margin-top:22px; background:url(/img/bm_hd_bg3.jpg) no-repeat; height:379px; position:relative;}
-.bm_hd_left{ width:154px; height:146px; float:left; padding-left:49px; position:absolute}
-.bm_hd_zj{ width:355px; float:left; padding-top:20px; color:#fff; font-size:14px; line-height:24px; position:absolute; left:140px;}
+.bm_hd_left{ width:154px; height:146px; float:left;left:49px; position:absolute; z-index:222;}
+.bm_hd_zj{ width:400px; float:left; padding-top:20px; color:#fff; font-size:14px; line-height:24px; position:absolute; left:90px;}
 .bm_hd_zj h2{ font-size:20px;}
 .bm_hd_yc{ width:460px;right:41px; float:left; position:absolute; _right:20px;}
 .bm_hd_tu{ width:458px; height:297px; position:absolute;  top:53px;}
