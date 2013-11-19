@@ -164,6 +164,27 @@ function lvcode()
 {
 	document.getElementById('vcode').src='/index.php/api/vcode?_j='+Math.random();	
 }
-
-
+function upimg_reg()
+{
+	var title   = $("#title").val();
+	var img     = $("#img").val();
+	var content = $("#content").val();                        
+    
+	if(title == '')
+    {
+    	$("#img_title").html('请输入作品标题!');
+        return false;
+    }
+	if(img == '')
+    {
+    	$("#img_val").html('请上传作品!');
+        return false;
+    }
+	if(content == '')
+    {
+    	$("#img_content").html('请输入活动宣言!');
+        return false;
+    }
+    return true;
+}
 
