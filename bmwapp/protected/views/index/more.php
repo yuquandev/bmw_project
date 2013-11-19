@@ -77,7 +77,7 @@
 		<div class="jCarouselLite FlLeft">
 			<ul id="ThumbPic">
 				<?php foreach($works_user_list as $key=>$val):?>
-				<li rel='<?php echo $key+1?>'><img src="<?php echo $val['img_url'];?>" /></li>
+				<li rel='<?php echo $key+1?>'><img src="<?php echo $val['img_url'];?>#footer" /></li>
 				<?php endforeach;?>
 			</ul>
 			<div class="Clearer"></div>
@@ -85,7 +85,7 @@
 		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowR.jpg" id="btnNext" class="FlLeft" style="cursor:pointer;" />
 		<div class="Clearer"></div>
 	</div>
-
+    <a name="footer"></a>
 	<div class="HS15"></div>
 	
 </div>

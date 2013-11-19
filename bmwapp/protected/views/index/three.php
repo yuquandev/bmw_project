@@ -33,7 +33,7 @@
            </div>
         	
         	<div class="bm_hd_zj" style="left:0px;width:500px">
-            <h2 style="padding-left:200px; padding-bottom:10px;">　　　运动宣言有奖活动征集</h2>
+            <!-- <h2 style="padding-left:200px; padding-bottom:10px;">　　　运动宣言有奖活动征集</h2>
             <span style="padding-left:210px">参与运动宣言活动的用户，上传图片并发</span><br />
             <p style="padding-left:198px">表运动宣言，即有机会获得宝马中国提供</p>
             <p style="padding-left:183px">的精美奖品。用户可以通过在线投票选出</p>
@@ -47,7 +47,7 @@
             <p style="padding-left:96px">2.使用美图秀秀的BMW3系专属模板进行拼</p>
             <p style="padding-left:86px">图并保存</p>
             <p style="padding-left:70px">3.将拼好图片上传至活动官网并写出你的</p>
-            <p style="padding-left:60px">运动宣言参与有奖活动</p>
+            <p style="padding-left:60px">运动宣言参与有奖活动</p> -->
             </div>
 
             <div class="bm_hd_yc">
