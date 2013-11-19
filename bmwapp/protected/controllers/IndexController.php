@@ -160,7 +160,8 @@ class IndexController extends Controller {
         if (!is_dir(Yii::app()->params['root_dir'].'uploads/works')){
             mkdir(Yii::app()->params['root_dir'].'uploads/works',0777);
         }
-        $new_file = $this->userinfo['uid'].'_'.time().'.jpg';
+        $new_patg_name = md5( time(). mt_rand() );
+        $new_file = $this->userinfo['uid'].'_'.$new_patg_name.'.jpg';
         $target = Yii::app()->params['root_dir'].'uploads/works/'.$new_file;
 //		$target = '/tmp/1-1373267407.jpg';
 
