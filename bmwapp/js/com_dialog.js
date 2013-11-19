@@ -305,11 +305,11 @@ function bulid_upload(){
         upload_complete_handler : base_uploadComplete,
 
         // Button Settings
-        //button_image_url : "images/SmallSpyGlassWithTransperancy_17x18.png",
+        button_image_url : "/img/bm_tp_pic.jpg",
         button_placeholder_id : "spanButtonPlaceholder",
         button_width: 53,
         button_height:28,
-        button_text : '<span class="upload_button">上传</span>',
+        button_text : '<span class="upload_button">&nbsp;上传</span>',
         button_text_style : '',
         button_text_top_padding: 8,
         //button_text_left_padding: 18,

@@ -119,7 +119,7 @@ class User extends CActiveRecord
     //
     public function get_user_list($page=1,$rows=10){
         $offset = ($page-1) * $rows;
-        $sql = sprintf("SELECT * FROM `user_tbl` LIMIT %d, %d",$offset,$rows);
+        $sql = sprintf("SELECT * FROM `user_tbl` order by create_time desc LIMIT %d, %d",$offset,$rows);
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
     }
