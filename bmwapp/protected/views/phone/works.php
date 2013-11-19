@@ -20,12 +20,21 @@
             	<div class="bm_zpzs_list">
             	<div class="bm_zpzs_tu"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/phone/show?id=<?php echo $val['id'];?>,phone"><img src="<?php echo Yii::app()->request->baseUrl; ?><?php echo $val['img_url'];?>" width="130" height="193"/></a></div>
                 <div class="bm_zpzs_zi"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/phone/show?id=<?php echo $val['id'];?>,phone"><?php echo Yii::app()->request->baseUrl; ?><?php echo $val['name'];?></a></div>
-                <div class="bm_zpzs_zan">
-                	<a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/phone/phonevote?wid=<?php echo $val['id'];?>" style="display:block;left">
-                    <input type="button" class="bm_tp_an" value="投票"/>
-                    </a>
-                    <span><?php echo $val['vote_num']?></span>
-                </div>
+                
+                	
+                    <?php if($this->center =='phone'){?>
+                         <div class="bm_zpzs_zi"><span style="color:red;">审核状态:<?php if($val['review'] == 0){echo '审核已通过';}else{ echo '审核未通过';}?></span></div>
+                    <?php }else{?>
+                          <div class="bm_zpzs_zan">
+                          <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/phone/phonevote?wid=<?php echo $val['id'];?>" style="display:block;left">
+                          <input type="button" class="bm_tp_an" value="投票"/>
+                          <span><?php echo $val['vote_num']?></span>
+                          </a>
+                          </div>
+                    <?php }?>     
+                    
+                    
+                
                 </div>
                 <?php endforeach;?>
             </div>

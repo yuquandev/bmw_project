@@ -14,10 +14,12 @@ class IndexController extends Controller {
     public  $nav;   //导航
     public  $userinfo = array();
     public  $type;
+    public  $style;
     private $works;
     private $user;
 	private $topicimage;
 	private $video;
+	
    
     public function init(){
         $this->works       = new Works();
@@ -31,7 +33,7 @@ class IndexController extends Controller {
     //BMW  INDEX 3X
     public function actionIndex()
     {
-        $this->nav = '2x';  //定义导航样式
+        $this->nav = '1x';  //定义导航样式
     	$this->top = true;
         //video
         $video = $this->video->selectVideo(array('status'=>0),1,5);
@@ -176,7 +178,8 @@ class IndexController extends Controller {
     //瀑布流
     public function actionFlow()
     {
-        $all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0));
+        $this->nav = '2x';  //定义导航样式
+    	$all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0));
         $data = array(
            'all_img'=>$all_img
         );

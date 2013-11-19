@@ -28,6 +28,8 @@ img{ border:none;}
 .bm_3xt a:hover{ background:url(/img/bm_x1_pic3t.png) no-repeat}
 .bm_x1t_on{ background:url(/img/bm_x1_pict2.png) no-repeat}
 .bm_3xt_on{background:url(/img/bm_x1_pic3t.png) no-repeat;}
+
+
 .bm_nav_main a strong{ font-size:16px; font-weight:100; font-family:"微软雅黑"}
 .bm_hd{ width:980px; margin:0 auto; margin-top:14px;}
 .bm_hd_title{ height:36px; border-bottom:1px solid #d8d8d8;}
@@ -183,7 +185,7 @@ img{ border:none;}
 
 .bm_x4 a{ background:url(/img/bm_x1_picxs.png) no-repeat; width:150px; display:block; height:36px; position:absolute; left:268px;}
 .bm_x4 a:hover{ background:url(/img/bm_x1_picxs2.png) no-repeat}
-
+.bm_4xt_on{background:url(/img/bm_x1_picxs2.png) no-repeat;}
 
 .bm_hd_title3{ height:36px; border-bottom:1px solid #d8d8d8; width:100%}
 .bm_hd_title3 ul{  height:35px;width:100%;}

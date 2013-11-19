@@ -16,6 +16,7 @@ class PhoneController extends Controller
     private $vote_log_tbl;
     public  $style = 'style="background:url(/img/phone/bm_hd_title2.jpg) repeat-x top left; line-height:35px;"';
     public  $nav;
+    public  $center;
     public function init(){
         $this->works        = new Works();
         $this->user         = new User();
@@ -89,10 +90,20 @@ class PhoneController extends Controller
     public function actionWorks()
     {
         $this->nav = 4;
+    	$uid  = $center ='';
+        $uid_list = isset($_GET['uuid']) ? trim($_GET['uuid']) : ''; 
+        if( $uid_list ){
+           list($uid , $center) = explode(',', $uid_list);	
+        }
     	$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
         $page_limit = 8;
-    	$works = $this->works->selectWork(array('review'=>0,'type'=>2),$page,$page_limit,'`vote_num` desc ,`update_time` desc');
-    	$count_number = $this->works->countWork(array('review'=>0,'type'=>2));
+    	if($uid && $center == 'phone'){
+            $this->center = 'phone';
+    		$works = $this->works->selectWork(array('user_id'=>$uid,'type'=>2),$page,$page_limit,'`vote_num` desc ,`update_time` desc');		
+    	}else{
+    	    $works = $this->works->selectWork(array('review'=>0,'type'=>2),$page,$page_limit,'`vote_num` desc ,`update_time` desc');
+    	}
+        $count_number = $this->works->countWork(array('review'=>0,'type'=>2));
     	$page_html = $this->page_limit($count_number,$page,$page_limit,4);
     	$data = array(
     	   'page'  =>$page_html,
@@ -191,8 +202,10 @@ class PhoneController extends Controller
        }
     }
    
+  
+    
 
-   //提示跳转页
+    //提示跳转页
     private function msg($msg='',$url)
     {
         $data = array(

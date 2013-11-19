@@ -74,7 +74,7 @@
               <tr>
                 <td height="50" align="right" valign="middle"><strong>验证码：</strong></td>
                 <td height="50" colspan="2" align="left" valign="middle">
-                <input name="" type="text" id="vcode_value" onblur="onblureg();" class="zck_text3" style="width:30%;float:left;"/>
+                <input name="" type="text" id="vcode_value"  class="zck_text3" style="width:30%;float:left;"/>
                 <a href="javascript:void(0);" onclick="lvcode();"><img src="/index.php/api/vcode" id="vcode" style="float:left;margin-left:17px;"/></a>
                 </td>
                 </tr>
