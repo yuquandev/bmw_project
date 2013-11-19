@@ -83,9 +83,8 @@ function com_dialog(act){
         '</tr>',
         '<tr>',
         '<td height="40" align="right" valign="middle"><strong>图片地址：</strong></td>',
-        '<td height="59" align="left" valign="middle"><input name="" type="text" class="zck_text4" id="bm_uploads_name"/><input type="hidden" id="bm_uploads_url" value="" /></td>',
-        '<td width="20%"><div id="spanButtonPlaceholder"></div><span id="pop_img" style="color:red;"></span></td>',
-        
+        '<td height="40" align="left" valign="middle"><input name="" type="text" class="zck_text4" id="bm_uploads_name"/><input type="hidden" id="bm_uploads_url" value="" /></td>',
+        '<td width="30%" height="26"><span id="progressBarStatus_loding"></span><div id="spanButtonPlaceholder"></div><span id="pop_img" style="color:red;"></span></td>',
         '</tr>',
         '<tr><td width="15%" align="right" valign="top"></td><td width="59%" align="left" valign="middle"><div id="divFileProgressContainer" ></div></td></tr>',
         '<tr>',
@@ -401,6 +400,8 @@ function base_uploadProgress(file, bytesLoaded) {
 
     try {
         $('.progressBarStatus').show();
+        $('#progressBarStatus_loding').show();
+        $('#progressBarStatus_loding').html('<img src="/img/loading.gif" width="20" height="20">');
         var percent = Math.ceil((bytesLoaded / file.size) * 100);
         var progress = new FileProgress(file,  this.customSettings.upload_target);
         progress.setProgress(percent);
@@ -418,6 +419,7 @@ function base_uploadComplete(file) {
             this.startResizedUpload(this.getFile(0).ID, this.customSettings.thumbnail_width, this.customSettings.thumbnail_height, SWFUpload.RESIZE_ENCODING.JPEG, this.customSettings.thumbnail_quality, false);
         } else {
             var progress = new FileProgress(file,  this.customSettings.upload_target);
+            $('#progressBarStatus_loding').hide();
             progress.setComplete();
             progress.setStatus("上传成功");
             progress.toggleCancel(false);
