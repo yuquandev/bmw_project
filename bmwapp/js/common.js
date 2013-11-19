@@ -51,7 +51,7 @@ function bulid_upload(){
         button_width: 30,
         button_height:22,
         button_text : '<span class="l-btn" >上传</span>',
-        button_text_style : '.l-btn{ font-size: 12; color:red;}',
+        button_text_style : '',
         //button_text_top_padding: 0,
         //button_text_left_padding: 18,
         button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
