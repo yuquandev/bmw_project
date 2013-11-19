@@ -379,7 +379,7 @@ function base_upload_success(file, serverData) {
             //$('#divFileProgressContainer').css("display","none");
             $('#bm_uploads_name').val($('.progressName').html());
             $('#bm_uploads_url').val(serverData);
-            $('#popDiv').css('height','444px');
+            $('#popDiv').css('height','380px');
             $('#thumbnails img')[0].style.width='100px';
             $('#thumbnails img')[0].style.height='90px';
             progress.setStatus("文件上传成功");
