@@ -309,7 +309,7 @@ function bulid_upload(){
         button_placeholder_id : "spanButtonPlaceholder",
         button_width: 53,
         button_height:28,
-        button_text : '<span class="upload_button">&nbsp;上传</span>',
+        button_text : '<span class="upload_button">选择作品</span>',
         button_text_style : '',
         button_text_top_padding: 8,
         //button_text_left_padding: 18,
