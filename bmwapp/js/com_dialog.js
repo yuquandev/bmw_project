@@ -400,8 +400,8 @@ function base_uploadProgress(file, bytesLoaded) {
 
     try {
         $('.progressBarStatus').show();
-        $('#progressBarStatus_loding').show();
-        $('#progressBarStatus_loding').html('<img src="/img/loading.gif" width="20" height="20">');
+        $('#progressBarStatus_loding').show().html('<img src="/img/loading.gif" width="20" height="20">');
+        
         var percent = Math.ceil((bytesLoaded / file.size) * 100);
         var progress = new FileProgress(file,  this.customSettings.upload_target);
         progress.setProgress(percent);
