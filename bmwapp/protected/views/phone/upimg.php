@@ -19,7 +19,7 @@
           <tr>
             <td width="30%" height="40" align="right" valign="middle">
             <strong>标题：</strong></td>
-            <td width="54%" height="40" align="left" valign="middle">
+            <td width="50%" height="40" align="left" valign="middle">
             <input name="input" name="title" id="title" type="text" class="zck_text4"/>
             </td>
             <td width="20%" height="40" align="left" valign="middle"><span id="img_title" style="color:red;"></span></td>
