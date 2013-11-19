@@ -267,4 +267,11 @@ filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMe
 	}
 /*3œµ ”∆µ«–ªª*/
 
+.FlLeft2{ width:100%}
+.FlRight{ width:100%;}
+.Summary2{ width:214px;margin-left:18px;}
+.Summary2 strong{ line-height:24px; font-size:16px;}
+.More{text-align:right;color:#666;line-height:47px;height:47px;font-size:12px;display:block;}        
+.bm_tp{ width:132px; height:36px; text-align:center; font-size:14px; color:#fff; font-size:14px; cursor:pointer; margin-bottom:16px; background:url(/img/tck_an2.jpg); border:none; line-height:36px; margin-top:62px; display:block;}
+.bm_tu_wen{ margin:0 auto; line-height:24px; padding:10px; font-size:14px; display:block;}
 

@@ -1,7 +1,7 @@
 <?php $this->beginContent('//index/header'); ?>
 <?php $this->endContent(); ?>
 <div class="bm_index">
-	<?php $this->beginContent('//index/nav'); ?>
+    <?php $this->beginContent('//index/nav'); ?>
     <?php $this->endContent(); ?>
     <!--作品展示-->
     <div class="bm_cpzs">
@@ -9,22 +9,35 @@
         	<div class="bm_cpzs_zi">BMW 3系精彩图赏</div>
         </div> 
              <div class="bm_cpzs_main">
-            		<!--作品展示-->
+            		    <!--作品展示-->
                     	<div class="MainBg">
-	<div class="OriginalPicBorder">
+                        <!--标题-->
+                        <div class="Title">
+						<h1>北京宝马大型团购会再次起航招募中</h1>
+					    </div>
+                        <!--标题-->
+                       
+     <div class="OriginalPicBorder">
 		<div id="OriginalPic">
 			<div id="aPrev" class="CursorL"></div>
-			<div id="aNext" class="CursorR"></div>
-		<?php  foreach($all_img as $key=>$val):?>    
-			<p class="Hidden">
-                <span class="SliderPicBorder2 FlRight"><img src="<?php echo $val['image_url']?>" /></span>
-                 <span class="Clearer"></span>
-				<span class="More"></span>
-			</p>
-        <?php endforeach;?>    
-		
-		</div>
-	</div>
+			<div id="aNext" class="CursorR" style="right:0"></div>
+            
+            <?php  foreach($all_img as $key=>$val):?>    
+            <p class="Hidden">
+		        <span class="SliderPicBorder2 FlRight"><img src="<?php echo $val['image_url'];?>"/></span>
+                <!--描述-->
+        	    <span class="Clearer"></span>
+            	<span class="Summary2 FlLeft2">	 
+                    <span class="bm_tu_wen">
+                    <?php echo $val['description'];?>
+                    </span>	
+                </span>
+				<span class="Clearer"></span>
+             <!--描述-->   
+            </p>
+            <?php endforeach;?>  
+        </div>
+	 </div>
 	
 	<div class="SpaceLine"></div>
 	
@@ -55,7 +68,7 @@
     </div>
     
     <!--底部-->
-      <?php $this->beginContent('//index/footer'); ?>
+    <?php $this->beginContent('//index/footer'); ?>
     <?php $this->endContent(); ?>
 </div>
 <script type="text/javascript">
@@ -69,13 +82,7 @@ $(".jCarouselLite").jCarouselLite({
 	visible: 7
 });
 </script>
-<!--高度定义-->
-<script type="text/javascript">
-$().ready(function(){
-  $('html').scrollTop(0);
-});
-</script>
-<!--高度定义-->
+
 <script type="text/javascript">
 var currentImage;
 var currentIndex = -1;
@@ -171,6 +178,7 @@ $(".OriginalPicBorder").ready(function(){
 	$('#ThumbPic li').bind('click',function(e){
 		var count = $(this).attr('rel');
 		showImage(parseInt(count) - 1);
+		
 		$('html').scrollTop(1000);
 		$('body').scrollTop(1000);
 	});

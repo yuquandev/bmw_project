@@ -82,7 +82,7 @@
 
 
             <div class="bm_hd_yc">
-            	<div class="bm_hd_tu"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tu.jpg" /></div>
+            	<div class="bm_hd_tu"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tu2.jpg" /></div>
             </div>
         </div>
         <div class="bm_hd_main" id="menuTabcontent012_10" style="background:url(/img/bm_hd_bg3.jpg) no-repeat;display:none">

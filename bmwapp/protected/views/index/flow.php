@@ -3,18 +3,20 @@
 <!--图片欣赏-->
 <script type="text/javascript"> 
 //数据源 
-var imgArray = []; //img数组 也就是数据来源 
+var imgArray  = []; //img数组 也就是数据来源 
 var textArray = []; //img底下的文字和img对应
-var srcArray = []; //超链接
+var srcArray  = []; //超链接
+var descArray = []; //描述
 
 <?php foreach ($all_img as $_key=>$_value){
     echo "textArray[{$_key}] = '{$_value['name']}';";
-    echo "imgArray[{$_key}] = '{$_value['image_url']}';";
-    echo "srcArray[{$_key}] = '/index.php/index/footerlg?id={$_value['id']},2';"; 
+    echo "imgArray[{$_key}]  = '{$_value['image_url']}';";
+    echo "srcArray[{$_key}]  = '/index.php/index/footerlg?id={$_value['id']},2';"; 
+    echo "descArray[{$_key}] = '{$_value['description']}';";
 }
 ?>
+
 </script> 
-<!-- </volist> -->
 <script type="text/javascript">
  window.onload = function () { 
 //初始参数 
