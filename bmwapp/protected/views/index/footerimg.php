@@ -69,7 +69,13 @@ $(".jCarouselLite").jCarouselLite({
 	visible: 7
 });
 </script>
-
+<!--高度定义-->
+<script type="text/javascript">
+$().ready(function(){
+  $('html').scrollTop(0);
+});
+</script>
+<!--高度定义-->
 <script type="text/javascript">
 var currentImage;
 var currentIndex = -1;
@@ -165,6 +171,8 @@ $(".OriginalPicBorder").ready(function(){
 	$('#ThumbPic li').bind('click',function(e){
 		var count = $(this).attr('rel');
 		showImage(parseInt(count) - 1);
+		$('html').scrollTop(1000);
+		$('body').scrollTop(1000);
 	});
 });
 </script>

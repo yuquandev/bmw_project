@@ -20,14 +20,14 @@
                 <?php }?>
             </div>
         </div>
-        <div class="bm_hd_main" id="menuTabcontent012_12">
+        <div class="bm_hd_main" id="menuTabcontent012_12" style="background:url(/img/bm_hd_bg1.jpg) no-repeat">
         	<div class="bm_hd_left">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" border="0" usemap="#Map" />
                 <map name="Map" id="Map">
                 <?php if (!empty($this->userinfo)){?>
         	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('uploads');" />
                 <?php }else {?>
-        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="com_dialog('uploads');"  />
+        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('login');"/>
                 <?php }?>
                </map>
            </div>
@@ -54,7 +54,7 @@
             	<div class="bm_hd_tu"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tu.jpg" /></div>
             </div>
         </div>
-        <div class="bm_hd_main" style="display:none" id="menuTabcontent012_11">
+        <div class="bm_hd_main" id="menuTabcontent012_11" style="background:url(/img/bm_hd_bg2.jpg) no-repeat;display:none;">
         	
         	<div class="bm_hd_left">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" border="0" usemap="#Map" />
@@ -62,7 +62,7 @@
                 <?php if (!empty($this->userinfo)){?>
         	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('uploads');" />
                 <?php }else {?>
-        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="com_dialog('uploads');"  />
+        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('login');"/>
                 <?php }?>
                </map>
            </div>
@@ -71,13 +71,13 @@
         	
         
             <div class="bm_hd_zj">
-            <h2 style="padding-top:10px;">　　　　　　活动时间：11月25—12月1日</h2><br />
+            <!-- <h2 style="padding-top:10px;">　　　　　　活动时间：11月25—12月1日</h2><br />
  			<p>　　　　　　　　1.登陆美图秀秀，下载BMW专属海报模板，<br />　　　　　　　将生活中自己带有运动元素的图片进行拼图。</p><br />
             <p style="padding-left:75px">2.上传至活动官网参与活动。</p><br />
             <p style="padding-left:51px">3.用户浏览官方网站，对喜欢的图片进行</p>
             <p style="padding-left:39px">投票。</p><br />
             <p style="padding-left:17px">4.奖项评选将根据得票数量由高到低进行</p>
-            <p style="padding-left:3px">评选。</p>
+            <p style="padding-left:3px">评选。</p> -->
             </div>
 
 
@@ -85,7 +85,7 @@
             	<div class="bm_hd_tu"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tu.jpg" /></div>
             </div>
         </div>
-        <div class="bm_hd_main" id="menuTabcontent012_10" style="display:none">
+        <div class="bm_hd_main" id="menuTabcontent012_10" style="background:url(/img/bm_hd_bg3.jpg) no-repeat;display:none">
         	
         	<div class="bm_hd_left">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" border="0" usemap="#Map" />
@@ -93,18 +93,18 @@
                 <?php if (!empty($this->userinfo)){?>
         	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('uploads');" />
                 <?php }else {?>
-        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="com_dialog('uploads');"  />
+        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('login');"/>
                 <?php }?>
                </map>
            </div>
         	
         	<div class="bm_hd_zj">
-            <h2>　　　　　　　你的运动宣言有动征集33x</h2><br />
+            <!-- <h2>　　　　　　　你的运动宣言有动征集33x</h2><br />
             <span>　　　　　　　　BMW 3系的历史在这里一览无疑，由于脾<br />　　　　　　　气火爆，性格直率，所以被人们常常亲切称为<br />　　　　　　“三哥”。
 			</span><br /><br />
  			<p>　　　　漂亮的甩尾，灵动的转弯，澎湃的动力，都刺<br />　　　激着你的肾上腺素</p><br />
             <h2>　　　　BMW 3系</h2><br />
-            <h2>　　　　运动王者 领衔起跑</h2>
+            <h2>　　　　运动王者 领衔起跑</h2> -->
             </div>
 
             <div class="bm_hd_yc">
@@ -127,7 +127,7 @@
        <div id="List2"></div>
       </div>
      </div>
-<a href="javascript:;"  onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp()" onmouseout="ISL_StopUp()" class="img2" hidefocus="true"></a>
+<a href="javascript:;"  onmousedown="ISL_GoUp();" onmouseup="ISL_StopUp();" onmouseout="ISL_StopUp();" class="img2" hidefocus="true"></a>
     </div>
                         	
                         </div>

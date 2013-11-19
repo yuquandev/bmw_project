@@ -45,12 +45,13 @@ function bulid_upload(){
         upload_complete_handler : base_uploadComplete,
 
         // Button Settings
-        //button_image_url : "images/SmallSpyGlassWithTransperancy_17x18.png",
+        button_image_url : "images/SmallSpyGlassWithTransperancy_17x18.png",
         button_placeholder_id : "spanButtonPlaceholder",
+        
         button_width: 30,
         button_height:22,
-        button_text : '<span class="l-btn" >上传</span>',
-        button_text_style : '',
+        button_text : '<span class="l-btn" >选择文件</span>',
+        button_text_style : '.l-btn{ font-size: 12; color:red;}',
         //button_text_top_padding: 0,
         //button_text_left_padding: 18,
         button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,

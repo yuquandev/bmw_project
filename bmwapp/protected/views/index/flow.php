@@ -10,7 +10,7 @@ var srcArray = []; //超链接
 <?php foreach ($all_img as $_key=>$_value){
     echo "textArray[{$_key}] = '{$_value['name']}';";
     echo "imgArray[{$_key}] = '{$_value['image_url']}';";
-    echo "srcArray[{$_key}] = '';"; 
+    echo "srcArray[{$_key}] = '/index.php/index/footerlg?id={$_value['id']},2';"; 
 }
 ?>
 </script> 
