@@ -169,8 +169,8 @@ class TopicImage extends CActiveRecord
     }
 
     //添加图片
-    public function add_image_info($type_id,$name,$image_url,$stat){
-        $sql = sprintf("insert into topic_image_tbl (type_id,name,image_url,status,update_time,create_time) value (%d,'%s','%s',%d,NOW(),NOW()); ",$type_id,$name,$image_url,$stat);
+    public function add_image_info($type_id,$name,$image_url,$des,$stat){
+        $sql = sprintf("insert into topic_image_tbl (type_id,name,image_url,description,status,update_time,create_time) value (%d,'%s','%s','%s',%d,NOW(),NOW()); ",$type_id,$name,$image_url,$des,$stat);
         $res = Yii::app()->db->createCommand($sql)->execute();
         if ($res){
             return Yii::app()->db->getLastInsertID();
@@ -187,8 +187,8 @@ class TopicImage extends CActiveRecord
     }
 
     //更新单个图片信息
-    public function set_img_info($id,$name,$image_url,$stat){
-        $sql = sprintf("update topic_image_tbl set name='%s',image_url='%s',status=%s,update_time=NOW() where id=%d",$name,$image_url,$stat,$id);
+    public function set_img_info($id,$name,$image_url,$des,$stat){
+        $sql = sprintf("update topic_image_tbl set name='%s',image_url='%s',description='%s',status=%s,update_time=NOW() where id=%d",$name,$image_url,$des,$stat,$id);
         $res = Yii::app()->db->createCommand($sql)->execute();
         return $res;
     }

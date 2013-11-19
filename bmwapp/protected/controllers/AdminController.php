@@ -184,6 +184,7 @@ class AdminController extends Controller {
             $res = array(
                 array("field"=>"name","title"=>"名称"),
                 array("field"=>"image_url","title"=>"图片地址"),
+                array("field"=>"description","title"=>"图片描述"),
                 array("field"=>"status","title"=>"图片状态"),
                 array("field"=>"create_time","title"=>"创建时间"),
                 array("field"=>"editor","title"=>"编辑"),
@@ -205,6 +206,7 @@ class AdminController extends Controller {
                 //array("field"=>"status","title"=>"状态"),
                 //array("field"=>"last_login","title"=>"登录时间"),
                 array("field"=>"create_time","title"=>"注册时间"),
+                array("field"=>"editor","title"=>"编辑"),
             );
         }
         echo json_encode($res);
@@ -237,7 +239,7 @@ class AdminController extends Controller {
             #$this->works     = new Works();
             #$this->works_img = new WorkImg();
             $type_id = substr($act,11,strlen($act)-10);
-            $sort = $sort == 'id' ? 'vote_num' : $sort;
+            $sort = $sort == 'id' ? 'create_time' : $sort;
             $data = $this->works->get_works_list_by_type($type_id,$page,$rows,$sort,$order);
             $count = $this->works->get_works_total_by_type($type_id);
             $res = array("total"=>$count[0]['total'],"rows"=>$data);
@@ -386,11 +388,12 @@ class AdminController extends Controller {
         $img_url = isset($_POST['image_url']) ? trim($_POST['image_url']) : '';
         $stat = isset($_POST['stat']) ? trim($_POST['stat']) : '';
         $act = isset($_POST['act']) ? trim($_POST['act']) : '';
+        $des = isset($_POST['des']) ? trim($_POST['des']) : '';
         if (!empty($type_id) && !empty($name)){
             if ($act == 'add'){
-                $res = $this->topic_image->add_image_info($type_id,$name,$img_url,$stat);
+                $res = $this->topic_image->add_image_info($type_id,$name,$img_url,$des,$stat);
             }else if($act == 'set') {
-                $res = $this->topic_image->set_img_info($id,$name,$img_url,$stat);
+                $res = $this->topic_image->set_img_info($id,$name,$img_url,$des,$stat);
             }
             echo json_encode(array('status'=>'success','res'=>$res));
         }else {
@@ -459,6 +462,8 @@ class AdminController extends Controller {
                 $res = $this->video->del_id($id);
             }else if ($act == 'works'){
                 $res = $this->works->del_id($id);
+            }else if ($act == 'admin'){
+                $res = $this->admin_user->del_id($id);
             }
             if($res){
                 echo json_encode(array('status'=>'success','res'=>$res));exit();

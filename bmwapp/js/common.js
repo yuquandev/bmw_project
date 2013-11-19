@@ -134,7 +134,7 @@ function base_upload_success(file, serverData) {
             $('#t_img_url').val(serverData);
             $('#thumbnails img').css('width','200px');
             $('#thumbnails img').css('height','200px');
-            $('#t_img_dialog').css('height','380px');
+            //$('#t_img_dialog').css('height','380px');
             $('#thumbnails').show();
 
             progress.setStatus("Upload Complete.");
@@ -181,8 +181,14 @@ function base_uploadComplete(file) {
 }
 
 //异步获取datagrid字段
-function ajax_get_columns(table,title,id){
+function ajax_get_columns(table,title,id,that){
     init_main();
+    $('#nav_mark').css('background-color','#ffffff');
+    $('#nav_mark').find('a').css('color','#000000');
+    $('#nav_mark').removeAttr('id');
+    that.id = 'nav_mark';
+    $('#nav_mark').css('background-color','#0081c2');
+    $('#nav_mark').find('a').css('color','#ffffff');
     id = id || 0;
 
     //console.log(table.substr(0,10));
@@ -219,10 +225,12 @@ function ajax_get_columns(table,title,id){
                     }else if (data[n]['field'] == 'video_url' || data[n]['field'] == 'c_url' ){
                         columns.push({field:data[n]['field'],title:data[n]['title'],width:200});
                     }else if (data[n]['field'] == 'create_time'){
-                        columns.push({field:data[n]['field'],title:data[n]['title'],width:75,sortable:true});
+                        columns.push({field:data[n]['field'],title:data[n]['title'],width:72,sortable:true});
                     }else if (data[n]['field'] == 'vote_num'){
                         columns.push({field:data[n]['field'],title:data[n]['title'],sortable:true});
                     }else if (data[n]['field'] == 'description'){
+                        columns.push({field:data[n]['field'],title:data[n]['title'],width:120});
+                    }else if (data[n]['field'] == 'image_url'){
                         columns.push({field:data[n]['field'],title:data[n]['title'],width:110});
                     }else {
                         columns.push({field:data[n]['field'],title:data[n]['title']});
@@ -277,6 +285,14 @@ function reload_datagrid(table,title,columns,id){
                 for (var n in row){
                     if (n == 'id'){
                         row['editor'] = '<a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'user\')">删除</a>';
+                        //console.log(row['editor']);
+                    }
+                }
+            }
+            if (table == 'admin_list'){
+                for (var n in row){
+                    if (n == 'id'){
+                        row['editor'] = '<a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'admin\')">删除</a>';
                         //console.log(row['editor']);
                     }
                 }
@@ -542,6 +558,7 @@ function add_topic_img(type_id,info) {
         $('#t_img_name').val(info.name);
         $('#t_img_url').val(info.image_url);
         $('#t_img_stat').val(info.status);
+        $('#t_img_des').val(info.description);
         $('#thumbnails').html('<img style="margin: 5px; vertical-align: middle; opacity: 1;width: 200px; height:200px;" src="'+info.image_url+'" />');
         $('.combo-value').val(info.status);
         //$('#t_img_stat option')[info.status-1].setAttribute('selected','1');
@@ -554,6 +571,7 @@ function add_topic_img(type_id,info) {
         $('#t_img_url').val('');
         $('#t_img_stat').val('');
         $('#t_img_file').val('');
+        $('#t_img_des').val();
         $('#thumbnails').hide();
     }
     $('#t_img_dialog').show();
@@ -569,7 +587,7 @@ function add_topic_img(type_id,info) {
             handler: function() {
                 $.ajax({url: '/index.php/admin/addtimg?_n='+ new Date().getTime(),
                     type: 'POST',
-                    data: {id:id,type_id:type_id,name : $('#t_img_name').val(),stat: $('.combo-value').val(),image_url: $('#t_img_url').val(),act:act},
+                    data: {id:id,type_id:type_id,name : $('#t_img_name').val(),stat: $('.combo-value').val(),image_url: $('#t_img_url').val(),act:act,des:$('#t_img_des').val()},
                     dataType: 'json',
                     beforeSend : function(){
                     },
@@ -692,7 +710,7 @@ function ajax_del_id(id,act){
                 }else if (act == 'topic_image'){
                     $('#dg').datagrid('reload');
                     $('#dd').dialog('close');
-                }else if (act == 'video' || act == 'user' || act == 'works'){
+                }else if (act == 'video' || act == 'user' || act == 'works' || act == 'admin'){
                     $('#dg').datagrid('reload');
                     $('#dd').dialog('close');
                 }

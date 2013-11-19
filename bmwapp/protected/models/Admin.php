@@ -147,4 +147,11 @@ class Admin extends CActiveRecord
             return 0;
         }
     }
+
+    //删除详情
+    public function del_id($id){
+        $sql = sprintf("delete from admin_tbl where id = %d;",$id);
+        $res = Yii::app()->db->createCommand($sql)->execute();
+        return $res;
+    }
 }

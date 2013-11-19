@@ -72,18 +72,18 @@
                         <!--<li onclick="get_video_info(<?php #echo $vv['id'];?>);" class="bmw_acc_li" style="">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" ><?php #echo $vv['name'];?></a></li>-->
                     <?php #}
                 #}?>
-                <li onclick="ajax_get_columns('video_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>视频列表');" class="bmw_acc_li" style="pborder-top: 1px solid #bbb;"><a href="javascript:void(0);" >视频列表 - <?php echo $v['name'];?></a></li>
-                <li onclick="ajax_get_columns('image_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>底部轮播图');" class="bmw_acc_li" style="pborder-top: 1px solid #bbb;"><a href="javascript:void(0);" >底部轮播图 - <?php echo $v['name'];?></a></li>
+                <li onclick="ajax_get_columns('video_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>视频列表',0,this);" class="bmw_acc_li" style="pborder-top: 1px solid #bbb;"><a href="javascript:void(0);" >视频列表 - <?php echo $v['name'];?></a></li>
+                <li onclick="ajax_get_columns('image_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>精彩图赏',0,this);" class="bmw_acc_li" style="pborder-top: 1px solid #bbb;"><a href="javascript:void(0);" >精彩图赏 - <?php echo $v['name'];?></a></li>
             </div>
         <?php } ?>
         <div title="用户作品管理" data-options="" style="padding:10px;">
             <?php foreach ($this->car_list as $k=>$v){?>
-                <li onclick="ajax_get_columns('works_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>作品列表');" class="bmw_acc_li" ><a href="javascript:void(0);" ><?php echo $v['name'];?>作品列表</a></li>
+                <li onclick="ajax_get_columns('works_list_<?php echo $v['type_id'];?>','<?php echo $v['name'];?>作品列表',0,this);" class="bmw_acc_li" ><a href="javascript:void(0);" ><?php echo $v['name'];?>作品列表</a></li>
             <?php } ?>
         </div>
         <div title="用户管理" data-options="" style="overflow:auto;padding:10px;">
-            <li onclick="ajax_get_columns('user_list','用户列表');" class="bmw_acc_li"><a href="javascript:void(0);" >用户列表</a></li>
-            <li onclick="ajax_get_columns('admin_list','管理员列表');" class="bmw_acc_li" ><a href="javascript:void(0);" >管理员列表</a></li>
+            <li onclick="ajax_get_columns('user_list','用户列表',0,this);" class="bmw_acc_li"><a href="javascript:void(0);" >用户列表</a></li>
+            <li onclick="ajax_get_columns('admin_list','管理员列表',0,this);" class="bmw_acc_li" ><a href="javascript:void(0);" >管理员列表</a></li>
         </div>
 
     </div>
@@ -120,6 +120,8 @@
         <option value="1">关闭</option>
         <option value="0">开启</option>
     </select><br />
+    <label class="lbInfo">描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述：</label>
+    <textarea id="t_img_des" type="text" class="" style="width:200px;height:40px;" required="true" runat="server" ></textarea><br />
     <label class="lbInfo">上传图片：<input id="t_img_file" type="text" value="" /><a style="vertical-align:middle;" href="javascript:void(0)" id="add_btn" class="l-btn" group="" ><span class="l-btn-left"><span class="l-btn-text"><div id="spanButtonPlaceholder"></div></span></span></a></label><div id="divFileProgressContainer" style="height:14px;overflow: hidden;"></div><br />
     <div id="error_banner"></div>
     <div id="thumbnails" >
@@ -164,12 +166,16 @@
     $('.bmw_acc_li').each(function(){
         var tmp = $(this);
         $(this).bind('mouseover',function(){
-            tmp.css('background-color','#0081c2');
-            tmp.find('a').css('color','#ffffff');
+            if(this.id != 'nav_mark'){
+                tmp.css('background-color','#86D6FF');
+                tmp.find('a').css('color','#ffffff');
+            }
         });
         $(this).bind('mouseout',function(){
-            tmp.css('background-color','#ffffff');
-            tmp.find('a').css('color','#000000');
+            if(this.id != 'nav_mark'){
+                tmp.css('background-color','#ffffff');
+                tmp.find('a').css('color','#000000');
+            }
         });
     });
 
