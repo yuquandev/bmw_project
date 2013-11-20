@@ -62,15 +62,14 @@ class PhoneController extends Controller
        	  $images_url = $this->uploadfile_r($_FILES['img'],$this->userinfo['uid']);
        	  if($images_url == 2)
        	  {
-       	     $this->msg('请上传小于2MB的作品!','/index.php/phone/uplodeimg');
+       	     $this->msg('请上传小于2MB的作品!','/index.php/phone/uplodeimg');exit;
        	  }else if($images_url == 3)
        	  {
-       	     $this->msg('请上传图片作品!','/index.php/phone/uplodeimg');
+       	     $this->msg('上传作品必须为图片!','/index.php/phone/uplodeimg');exit;
        	  }
        	  $new_path   = $this->getFileNameArr($images_url['path']);
-          //var_dump($new_path);
-       	  //die;
-          $content    = isset($_POST['content']) ? trim($_POST['content']) : ''; 
+         
+       	  $content    = isset($_POST['content']) ? trim($_POST['content']) : ''; 
           $array      = array(
           
               'user_id' => $this->userinfo['uid'],
@@ -108,10 +107,12 @@ class PhoneController extends Controller
     	if($uid && $center == 'phone'){
             $this->center = 'phone';
     		$works = $this->works->selectWork(array('user_id'=>$uid,'type'=>2),$page,$page_limit,'`vote_num` desc ,`update_time` desc');		
+    	    $count_number = $this->works->countWork(array('user_id'=>$uid,'type'=>2));
     	}else{
     	    $works = $this->works->selectWork(array('review'=>0,'type'=>2),$page,$page_limit,'`vote_num` desc ,`update_time` desc');
+    	    $count_number = $this->works->countWork(array('review'=>0,'type'=>2));
     	}
-        $count_number = $this->works->countWork(array('review'=>0,'type'=>2));
+        
     	$page_html = $this->page_limit($count_number,$page,$page_limit,4);
     	$data = array(
     	   'page'  =>$page_html,

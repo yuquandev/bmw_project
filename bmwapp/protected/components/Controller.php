@@ -223,7 +223,7 @@ HTML;
 public static function uploadfile_r($filefield,$userid,$maxsize=2097152,$ImgType=1)
 	{
 		$arr1 = array('gif'=>'image/gif','jpg'=>'image/jpg','jpeg'=>'image/jpeg','kkk'=>'image/pjpeg','png'=>'image/png');
-		$arr2 = array('image/gif'=>'gif','image/jpg'=>'jpg','image/jpeg'=>'jpg','image/pjpeg'=>'jpg','image/png'=>'png','application/octet-stream'=>'rar','application/x-zip-compressed'=>'zip');
+		$arr2 = array('image/gif'=>'gif','image/jpg'=>'jpg','image/jpeg'=>'jpg','image/pjpeg'=>'jpg','image/png'=>'png');
 		$arr3 = array('jpg'=>'image/jpg','jpeg'=>'image/jpeg','kkkk'=>'image/pjpeg');
 
 		$filearr = $filefield;//$_FILES[$filefield];
@@ -236,7 +236,7 @@ public static function uploadfile_r($filefield,$userid,$maxsize=2097152,$ImgType
 		{
 			$returnPath = date("Ymd",time()).DIRECTORY_SEPARATOR.$userid;
 			$path		= Yii::app()->params['root_dir'].'uploads/phone/'.$returnPath;
-			$filname	= date('Y-m-d').mt_rand(1,100).time().$userid;
+			$filname	= mt_rand(1,100).time().$userid;
 		}
 		elseif ($ImgType == 2)
 			{
