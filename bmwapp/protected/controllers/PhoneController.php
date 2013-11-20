@@ -58,8 +58,9 @@ class PhoneController extends Controller
        }
        if(isset($_POST['submit']))
        {
-          $title      = isset($_POST['title']) ? trim($_POST['title']) : ''; 
-       	  $images_url = $this->uploadfile_r($_FILES['img'],$this->userinfo['uid']);
+          $title      = isset($_POST['titles']) ? trim($_POST['titles']) : ''; 
+       	 
+          $images_url = $this->uploadfile_r($_FILES['img'],$this->userinfo['uid']);
        	  if($images_url == 2)
        	  {
        	     $this->msg('请上传小于2MB的作品!','/index.php/phone/uplodeimg');exit;
