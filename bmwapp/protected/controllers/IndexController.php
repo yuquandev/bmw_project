@@ -39,7 +39,7 @@ class IndexController extends Controller {
         $video = $this->video->selectVideo(array('status'=>0),1,5);
     	//var_dump($video);
         //works  
-        $works = $this->works->selectWork(array('review'=>0,'type'=>2),1,8,'`vote_num` desc ,`update_time` desc');
+        $works = $this->works->selectWork(array('review'=>0,'type'=>2,'recommend'=>0),1,8,'`vote_num` desc ,`update_time` desc');
     	//footer img
         $image_list = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0),1,12);
         
