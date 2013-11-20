@@ -170,7 +170,7 @@ clearInterval(timer);
     <!--作品展示-->
     <div class="bm_zpzs">
     	<div class="bm_zpzs_title">
-        	<span>精彩图赏</span>
+        	<span>精彩图赏</span> <a name="flow"></a>
         </div>
         <div class="bm_jcts_main">
         	<div class="ycsy_main" style="width:980px; margin:0 auto;overflow:hidden;">

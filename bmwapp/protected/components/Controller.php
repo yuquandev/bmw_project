@@ -222,7 +222,7 @@ HTML;
 	**/
 public static function uploadfile_r($filefield,$userid,$maxsize=2097152,$ImgType=1)
 	{
-		$arr1 = array('gif'=>'image/gif','jpg'=>'image/jpg','jpeg'=>'image/jpeg','kkk'=>'image/pjpeg','png'=>'image/png','rar'=>'application/octet-stream','zip'=>'application/x-zip-compressed');
+		$arr1 = array('gif'=>'image/gif','jpg'=>'image/jpg','jpeg'=>'image/jpeg','kkk'=>'image/pjpeg','png'=>'image/png');
 		$arr2 = array('image/gif'=>'gif','image/jpg'=>'jpg','image/jpeg'=>'jpg','image/pjpeg'=>'jpg','image/png'=>'png','application/octet-stream'=>'rar','application/x-zip-compressed'=>'zip');
 		$arr3 = array('jpg'=>'image/jpg','jpeg'=>'image/jpeg','kkkk'=>'image/pjpeg');
 
@@ -230,11 +230,11 @@ public static function uploadfile_r($filefield,$userid,$maxsize=2097152,$ImgType
 
 		if ((int)$filearr['size']>$maxsize) return '2';
 
-		if (!in_array($filearr['type'],$arr1) || ($ImgType==2 && !in_array($filearr['type'],$arr3))) return '3';
+		if (!in_array($filearr['type'],$arr1)) return '3';
 
 		if ($ImgType == 1)
 		{
-			$returnPath = date("Ym",time()).DIRECTORY_SEPARATOR.$userid;
+			$returnPath = date("Ymd",time()).DIRECTORY_SEPARATOR.$userid;
 			$path		= Yii::app()->params['root_dir'].'uploads/phone/'.$returnPath;
 			$filname	= date('Y-m-d').mt_rand(1,100).time().$userid;
 		}

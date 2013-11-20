@@ -306,8 +306,8 @@ function bulid_upload(){
         // Button Settings
         button_image_url : "/img/bm_tp_pic.jpg",
         button_placeholder_id : "spanButtonPlaceholder",
-        button_width :53,
-        button_height:29,
+        button_width :42,
+        button_height:34,
         button_text : '<span class="upload_button">浏       览</span>',
         button_text_style : '.upload_button{border:1px solid #a0a0a2; font-size:12px; color:#FFFFFF;  text-align:center;}',
         button_text_top_padding: 8,

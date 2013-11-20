@@ -17,9 +17,9 @@
         </div> 
              <div class="bm_cpzs_main">
             		<!--作品展示-->
-                    	<div class="MainBg">
+   <div class="MainBg">
 	<div class="OriginalPicBorder">
-		<div id="OriginalPic">
+		<div id="OriginalPic"><a name="works"></a>
 			<div id="aPrev" class="CursorL"></div>
 			<div id="aNext" class="CursorR"></div>
 			<?php foreach($works_user_list as $key=>$val):?>

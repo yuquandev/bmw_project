@@ -16,7 +16,7 @@
             	 <?php if (empty($this->userinfo)){?>
             	    <a href="javascript:com_dialog('login');">登陆 | </a><a href="javascript:com_dialog('reg');">注册</a>
                 <?php }else { ?>
-                    欢迎您，<?php echo $this->userinfo['username'] ?>&nbsp;<a href="/index.php/index/more?uuid=-1,<?php echo $this->userinfo['uid'];?>,2,center"><span style="color:red;">查看作品</span></a> | <a href='/index.php/user/logout'>退出</a>
+                    欢迎您，<?php echo $this->userinfo['username'] ?>&nbsp;<a href="/index.php/index/more?uuid=-1,<?php echo $this->userinfo['uid'];?>,2,center#works"><span style="color:red;">查看作品</span></a> | <a href='/index.php/user/logout'>退出</a>
                 <?php }?>
             </div>
         </div>
@@ -33,21 +33,6 @@
            </div>
         	
         	<div class="bm_hd_zj" style="left:0px;width:500px">
-            <!-- <h2 style="padding-left:200px; padding-bottom:10px;">　　　运动宣言有奖活动征集</h2>
-            <span style="padding-left:210px">参与运动宣言活动的用户，上传图片并发</span><br />
-            <p style="padding-left:198px">表运动宣言，即有机会获得宝马中国提供</p>
-            <p style="padding-left:183px">的精美奖品。用户可以通过在线投票选出</p>
-            <p style="padding-left:168px">自己喜欢的图片。</p>
-            <p style="padding-left:157px">让我们一起见证这激情的盛会，与BMW3系</p>
-            <p style="padding-left:145px">共同去感受运动的热潮，去寻找纯粹的运动</p>
-            <p style="padding-left:130px">基因！</p>
-
-			<p style="padding-left:117px"><strong>活动要求：</strong></p>
- 			<p style="padding-left:107px">1.参与者拍摄三张自己的运动特写照片</p>
-            <p style="padding-left:96px">2.使用美图秀秀的BMW3系专属模板进行拼</p>
-            <p style="padding-left:86px">图并保存</p>
-            <p style="padding-left:70px">3.将拼好图片上传至活动官网并写出你的</p>
-            <p style="padding-left:60px">运动宣言参与有奖活动</p> -->
             </div>
 
             <div class="bm_hd_yc">
@@ -71,13 +56,6 @@
         	
         
             <div class="bm_hd_zj">
-            <!-- <h2 style="padding-top:10px;">　　　　　　活动时间：11月25—12月1日</h2><br />
- 			<p>　　　　　　　　1.登陆美图秀秀，下载BMW专属海报模板，<br />　　　　　　　将生活中自己带有运动元素的图片进行拼图。</p><br />
-            <p style="padding-left:75px">2.上传至活动官网参与活动。</p><br />
-            <p style="padding-left:51px">3.用户浏览官方网站，对喜欢的图片进行</p>
-            <p style="padding-left:39px">投票。</p><br />
-            <p style="padding-left:17px">4.奖项评选将根据得票数量由高到低进行</p>
-            <p style="padding-left:3px">评选。</p> -->
             </div>
 
 
@@ -99,12 +77,6 @@
            </div>
         	
         	<div class="bm_hd_zj">
-            <!-- <h2>　　　　　　　你的运动宣言有动征集33x</h2><br />
-            <span>　　　　　　　　BMW 3系的历史在这里一览无疑，由于脾<br />　　　　　　　气火爆，性格直率，所以被人们常常亲切称为<br />　　　　　　“三哥”。
-			</span><br /><br />
- 			<p>　　　　漂亮的甩尾，灵动的转弯，澎湃的动力，都刺<br />　　　激着你的肾上腺素</p><br />
-            <h2>　　　　BMW 3系</h2><br />
-            <h2>　　　　运动王者 领衔起跑</h2> -->
             </div>
 
             <div class="bm_hd_yc">
@@ -148,13 +120,13 @@
     <div class="bm_zpzs">
     	<div class="bm_zpzs_title">
         	<span>作品展示</span>
-            <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/threemoer"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_zpzs_more.jpg" /></a>
+            <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/threemoer#works"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_zpzs_more.jpg" /></a>
         </div>
           <div class="bm_zpzs_main">
         	<?php foreach($works as $key=>$val):?>
         	<div class="bm_zpzs_list">
-            	<div class="bm_zpzs_tu" style="position: relative;background: url(/js/lazyload/grey.gif) no-repeat center center;"><a style="position: absolute;width:366px;"  href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><img src="<?php echo $val['img_url']; ?>" width="" height="366"/></a></div>
-                <div class="bm_zpzs_zi"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><?php echo $val['name'];?></a></div>
+            	<div class="bm_zpzs_tu" style="position: relative;background: url(/js/lazyload/grey.gif) no-repeat center center;"><a style="position: absolute;width:366px;"  href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b#works"><img src="<?php echo $val['img_url']; ?>" width="" height="366"/></a></div>
+                <div class="bm_zpzs_zi"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b#works"><?php echo $val['name'];?></a></div>
                 <div class="bm_zpzs_zan">
                 	<input onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);" type="button" class="bm_tp_an" value="投票"/>
                     <span  id="vote_<?php echo $val['id']?>"><?php echo $val['vote_num']?></span>
@@ -194,7 +166,7 @@
 					<?php foreach($image_list as $key=>$val):?>
 					<li class="featureBox" >
 					<div class="box" style="background: url(/js/lazyload/grey.gif) no-repeat center center;">
-						<a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/footerlg?id=<?php echo $val['id']?>,<?php echo $val['type_id']?>" target="_blank">
+						<a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/footerlg?id=<?php echo $val['id']?>,<?php echo $val['type_id']?>#works" target="_blank">
 						<img src="<?php echo $val['image_url'];?>"  width="265" height="176">
 						</a>
 					</div>

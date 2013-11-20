@@ -60,8 +60,16 @@ class PhoneController extends Controller
        {
           $title      = isset($_POST['title']) ? trim($_POST['title']) : ''; 
        	  $images_url = $this->uploadfile_r($_FILES['img'],$this->userinfo['uid']);
+       	  if($images_url == 2)
+       	  {
+       	     $this->msg('请上传小于2MB的作品!','/index.php/phone/uplodeimg');
+       	  }else if($images_url == 3)
+       	  {
+       	     $this->msg('请上传图片作品!','/index.php/phone/uplodeimg');
+       	  }
        	  $new_path   = $this->getFileNameArr($images_url['path']);
-          
+          //var_dump($new_path);
+       	  //die;
           $content    = isset($_POST['content']) ? trim($_POST['content']) : ''; 
           $array      = array(
           
@@ -126,7 +134,7 @@ class PhoneController extends Controller
        
        //上一遍
        $up_getone = $this->works->getUpwork(array('id'=>$id),'<','id desc');
-       if( empty($up_getone) )
+      if( empty($up_getone) )
        {
           $up_getone['name'] = '已经是第一篇了!';
        }

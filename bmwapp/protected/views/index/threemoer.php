@@ -10,9 +10,9 @@
         	<span style="float:left">作品展示</span>
         	
         </div>
-        <a name ="toppage"></a>
+       
         <div class="bm_zpzs_main">
-        	
+        	 <a name="works"></a>
         	<?php foreach($works as $key=>$val):?>
         	<div class="bm_zpzs_list">
             	<div class="bm_zpzs_tu"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><img src="<?php echo $val['img_url']; ?>" width="228" height="366"/></a></div>

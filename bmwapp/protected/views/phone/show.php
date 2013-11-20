@@ -22,10 +22,14 @@
                         <p style="width:295;">
                         <?php echo $getone['description'];?>
                         </p>
-                        <div class="bm_zpzs_zan bm_zpzs_zan2">
+                <?php if( $getone['review'] == 1){?>   
+                <div class="bm_zpzs_zi"><span style="color:red;">审核状态:<?php if($getone['review'] == 0){echo '审核已通过';}else{ echo '审核未通过';}?></span></div>
+                <?php }else{?>
+                <div class="bm_zpzs_zan bm_zpzs_zan2">
                 	<a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/phone/phonevote?wid=<?php echo $getone['id'];?>" style="display:block;left"><input name="" type="button" class="bm_tp_an" value="投票" /></a>
                     <span><?php echo $getone['vote_num'];?></span>
                 </div>
+                <?php }?>
                     </div>
                     <div class="sjbzp_sp">
                     	<p>上一个作品：<a href="<?php if( isset($up_getone['id'] )){?> <?php echo Yii::app()->request->baseUrl; ?>/index.php/phone/show?id=<?php echo $up_getone['id'];?>,phone#pagePhone<?php }else{ echo '#'; }?>"><?php echo $up_getone['name'];?></a></p>

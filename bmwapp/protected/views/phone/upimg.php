@@ -17,7 +17,7 @@
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <form action="/index.php/phone/uplodeimg" method=post enctype="multipart/form-data" onsubmit="return upimg_reg();">
           <tr>
-            <td width="30%" height="40" align="right" valign="middle">
+            <td  height="40" align="right" valign="middle">
             <strong>标题：</strong></td>
             <td width="50%" height="40" align="left" valign="middle">
             <input name="input" name="title" id="title" type="text" class="zck_text4"/>
