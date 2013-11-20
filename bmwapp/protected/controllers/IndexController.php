@@ -179,8 +179,12 @@ class IndexController extends Controller {
     public function actionFlow()
     {
         $this->nav = '2x';  //定义导航样式
-    	$all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0));
-        $data = array(
+    	$all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0),0,5);
+        foreach($all_img as $key=>$val)
+        {
+           str_replace(array('	',' '),array('',''),$val['description']);
+        }
+    	$data = array(
            'all_img'=>$all_img
         );
         $this->render('flow',$data);

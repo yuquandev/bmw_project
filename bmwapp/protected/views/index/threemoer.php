@@ -31,6 +31,56 @@
     <?php $this->endContent(); ?>
    
 </div>
+<script type="text/javascript">
+
+    (function(){
+        var tmp = 0;
+        $('.bm_zpzs_tu a').each(function(){
+            var that = $(this);
+            $(this).find('img').bind('load',function(){
+                tmp = - that.find('img').width() / 2 + 228/2;
+                that.css('margin-left',tmp+'px');
+                that.find('img').height(366);
+            });
+            //console.log($(this).find('img').width());
+            //if ($(this).find('img').height() > 366){
+                tmp = - $(this).find('img').width() / 2 + 228/2;
+            //}else {
+            //    tmp = - $(this).find('img').width() / 2 + 183;
+            //}
+           $(this).css('margin-left',tmp+'px');
+           $(this).find('img').height(366);
+        });
+    })();
+</script>
+
+<script type="text/javascript">
+
+    (function(){
+        var tmp = 0;
+        $('.bm_zpzs_tu a').each(function(){
+            var that = $(this);
+            $(this).find('img').bind('load',function(){
+                tmp = - that.find('img').width() / 2 + 228/2;
+                that.css('margin-left',tmp+'px');
+                that.find('img').height(366);
+                that.find('img').removeAttr('width');
+            });
+            //console.log($(this).find('img').width());
+            //if ($(this).find('img').height() > 366){
+            tmp = - $(this).find('img').width() / 2 + 228/2;
+            //}else {
+            //    tmp = - $(this).find('img').width() / 2 + 183;
+            //}
+            $(this).css('margin-left',tmp+'px');
+            $(this).find('img').height(366);
+            $(this).find('img').removeAttr('width');
+            if ($(this).css('margin-left') == '114px'){
+                $(this).css('margin-left','400px');
+            }
+        });
+    })();
+</script>
 <!--上传图片-->
 <span id="uplode_img"></span>
 <input type="hidden" id="ty_id" value="<?php echo $this->type;?>">

@@ -90,7 +90,7 @@ class PhoneController extends Controller
     public function actionWorks()
     {
         $this->nav = 4;
-    	$uid  = $center ='';
+    	$uid  = $this->center ='';
         $uid_list = isset($_GET['uuid']) ? trim($_GET['uuid']) : ''; 
         if( $uid_list ){
            list($uid , $center) = explode(',', $uid_list);	
