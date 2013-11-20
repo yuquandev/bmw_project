@@ -1,13 +1,11 @@
 <?php $this->beginContent('//index/header'); ?>
 <?php $this->endContent(); ?>
-<!--图片欣赏-->
 <script type="text/javascript"> 
 //数据源 
-var imgArray  = []; //img数组 也就是数据来源 
+var imgArray = []; //img数组 也就是数据来源 
 var textArray = []; //img底下的文字和img对应
-var srcArray  = []; //超链接
+var srcArray = []; //超链接
 var descArray = []; //描述
-
 <?php foreach ($all_img as $_key=>$_value){
     echo "textArray[{$_key}] = '{$_value['name']}';";
     echo "imgArray[{$_key}]  = '{$_value['image_url']}';";
@@ -15,8 +13,8 @@ var descArray = []; //描述
     echo "descArray[{$_key}] = '{$_value['description']}';";
 }
 ?>
-
 </script> 
+<!-- </volist> -->
 <script type="text/javascript">
  window.onload = function () { 
 //初始参数 
@@ -96,6 +94,12 @@ function addDiv(j) {
 var small_div = document.createElement("div"); 
 small_div.className="bot";
 small_div.innerHTML = textArray[j]; 
+
+//描述
+var desc_div = document.createElement("div"); 
+desc_div.className="bot2";
+desc_div.innerHTML = descArray[j]; 
+
 //内部img 
 var img = document.createElement("img"); 
 img.alt = ""; 
@@ -108,11 +112,12 @@ var a = document.createElement("a");
 a.href = srcArray[j];
 a.target="_blank";
 a.appendChild(img);
+a.appendChild(small_div);
 //包含img的层 
 var div = document.createElement("div"); 
 div.className = "content"; 
 div.appendChild(a); 
-div.appendChild(small_div); 
+div.appendChild(desc_div); 
 return div; 
 } 
 //通过id得到对象 
@@ -154,7 +159,9 @@ clearInterval(timer);
 }; 
 } 
 </script>
-<!--图片欣赏-->
+</head>
+
+<body>
 <div class="bm_index">
 	<?php $this->beginContent('//index/nav'); ?>
     <?php $this->endContent(); ?>
@@ -164,11 +171,10 @@ clearInterval(timer);
     <div class="bm_zpzs">
     	<div class="bm_zpzs_title">
         	<span>精彩图赏</span>
-        	<a name="flow">
         </div>
-        <!--图片欣赏-->
         <div class="bm_jcts_main">
         	<div class="ycsy_main" style="width:980px; margin:0 auto;overflow:hidden;">
+<input type="hidden" name=""id="count"value="{$count}">
 <div class="ycsy_zj">
 <div id="all" class="all"> 
 <div id="one" class="number"> </div> 
@@ -182,15 +188,23 @@ clearInterval(timer);
 </div> 
 <div id="toTop"><span>△回顶部</span></div> 
 </div>
+
+
+ 
 </div>
-</div>
-        <!--图片欣赏-->
-</div>
+        
+        
+           
+        </div>
+        
+        
+        <div class="clear"></div>
+    </div>
     
     
     
     <!--底部-->
-     <?php $this->beginContent('//index/footer'); ?>
+    <?php $this->beginContent('//index/footer'); ?>
     <?php $this->endContent(); ?>
 </div>
 <!--上传图片-->

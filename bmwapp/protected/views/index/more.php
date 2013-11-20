@@ -90,7 +90,7 @@
 	
 </div>
                     <!--作品展示-->
-            </div>
+           
     </div>
     
    <?php $this->beginContent('//index/footer'); ?>
