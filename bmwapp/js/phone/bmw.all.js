@@ -183,7 +183,7 @@ function upimg_reg()
 	if(content == '')
     {
     	$("#img_content").html('请输入活动宣言!');
-        return false;
+        //return false;
     }
     return true;
 }
