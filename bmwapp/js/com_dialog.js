@@ -258,7 +258,7 @@ function uplodedata()
     }
     if(text ==''){
       	$("#pop_text").html('请描述活动宣言!');
-    	return false;
+    //	return false;
     }else{
     	$("#pop_text").html('<img src="/img/bm_tck_dg.jpg" />');
     }
@@ -286,7 +286,7 @@ function bulid_upload(){
         post_params: {},
 
         // File Upload Settings
-        file_size_limit : "10000",
+        file_size_limit : "5000",
         file_types : "*.jpg;*.png;*.jpeg;*.bmp;",
         file_types_description : "JPG Images; PNG Image",
         file_upload_limit : 0,
@@ -309,7 +309,7 @@ function bulid_upload(){
         button_width :53,
         button_height:29,
         button_text : '<span class="upload_button">浏       览</span>',
-        button_text_style : '.upload_button{border:1px solid #a0a0a2; font-size:12px; color:#fff;  text-align:center;}',
+        button_text_style : '.upload_button{border:1px solid #a0a0a2; font-size:12px; color:#FFFFFF;  text-align:center;}',
         button_text_top_padding: 8,
         //button_text_left_padding: 18,
         button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,

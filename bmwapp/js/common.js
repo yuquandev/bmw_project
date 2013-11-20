@@ -300,7 +300,7 @@ function reload_datagrid(table,title,columns,id){
             if (table.substr(0,10) == 'image_list'){
                 for (var n in row){
                     if (n == 'id'){
-                        var tmp = '{id:'+row['id']+',type_id:'+row['type_id']+',name:\''+row['name']+'\',image_url:\''+row['image_url']+'\',status:'+row['status']+'}';
+                        var tmp = '{id:'+row['id']+',type_id:'+row['type_id']+',name:\''+row['name']+'\',description:\''+row['description']+'\',image_url:\''+row['image_url']+'\',status:'+row['status']+'}';
                     }
                     if (n == 'status' && row['status']==1){
                         row['status'] = '已禁用<br /><a href="javascript:void(0);" onclick="set_image_stat('+row['id']+','+row['status']+');">启用</a>';

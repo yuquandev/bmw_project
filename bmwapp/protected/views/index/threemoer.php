@@ -1,4 +1,5 @@
 <?php $this->beginContent('//index/header'); ?>
+
 <?php $this->endContent(); ?>
 <div class="bm_index">
     <?php $this->beginContent('//index/nav'); ?>
@@ -57,6 +58,7 @@
 <script type="text/javascript">
 
     (function(){
+		
         var tmp = 0;
         $('.bm_zpzs_tu a').each(function(){
             var that = $(this);
@@ -79,6 +81,9 @@
                 $(this).css('margin-left','400px');
             }
         });
+
+		$("html").scrollTop("550");
+		$("body").scrollTop("550");
     })();
 </script>
 <!--上传图片-->
