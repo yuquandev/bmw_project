@@ -180,11 +180,11 @@ function upimg_reg()
     	$("#img_val").html('请上传作品!');
         return false;
     }
-	if(content == '')
-    {
-    	$("#img_content").html('请输入活动宣言!');
+	//if(content == '')
+    //{
+    	//$("#img_content").html('请输入活动宣言!');
         //return false;
-    }
+    //}
     return true;
 }
 
