@@ -127,9 +127,10 @@ function base_fileQueueError(file, errorCode, message) {
 function base_upload_success(file, serverData) {
     try {
         var progress = new FileProgress(file,  this.customSettings.upload_target);
-        if (serverData) {
+        if (serverData && serverData != 'false') {
             del_error('error_banner');
             addImage(serverData);
+            $('#t_img_url').val('');
             $('#t_img_file').val($('.progressName').html());
             $('#t_img_url').val(serverData);
             $('#thumbnails img').css('width','200px');
@@ -137,11 +138,11 @@ function base_upload_success(file, serverData) {
             //$('#t_img_dialog').css('height','380px');
             $('#thumbnails').show();
 
-            progress.setStatus("Upload Complete.");
+            progress.setStatus("上传成功");
             progress.toggleCancel(false);
-        } else if(serverData == '') {
-            addImage("images/error.gif");
-            progress.setStatus("Error.");
+        } else if(serverData == 'false') {
+            //addImage("images/error.gif");
+            progress.setStatus("上传失败");
             progress.toggleCancel(false);
             alert(serverData);
         }
@@ -172,7 +173,7 @@ function base_uploadComplete(file) {
         } else {
             var progress = new FileProgress(file,  this.customSettings.upload_target);
             progress.setComplete();
-            progress.setStatus("上传成功");
+            //progress.setStatus("上传成功");
             progress.toggleCancel(false);
         }
     } catch (ex) {

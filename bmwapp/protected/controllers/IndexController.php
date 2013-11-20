@@ -154,7 +154,7 @@ class IndexController extends Controller {
     public function actionUploads(){
 
         if (!isset($_FILES["Filedata"]) || !is_uploaded_file($_FILES["Filedata"]["tmp_name"]) || $_FILES["Filedata"]["error"] != 0) {
-            echo 'fails';
+            echo 'false';
         }
 
         /* save to tmp */
@@ -168,7 +168,7 @@ class IndexController extends Controller {
 //		$target = '/tmp/1-1373267407.jpg';
 
         if(!move_uploaded_file($file['tmp_name'], $target)){
-            echo 'fails';
+            echo 'false';
         }
 
         echo  '/uploads/works/'.$new_file;

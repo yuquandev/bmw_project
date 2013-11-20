@@ -354,7 +354,7 @@ class AdminController extends Controller {
     public function actionUpload(){
 
         if (!isset($_FILES["Filedata"]) || !is_uploaded_file($_FILES["Filedata"]["tmp_name"]) || $_FILES["Filedata"]["error"] != 0) {
-            echo 'fails';
+            echo 'false';
         }
 
         /* save to tmp */
@@ -367,7 +367,7 @@ class AdminController extends Controller {
 //		$target = '/tmp/1-1373267407.jpg';
 
         if(!move_uploaded_file($file['tmp_name'], $target)){
-            echo 'fails';
+            echo 'false';
         }
 
         //include_once(Yii::app()->params['root_dir'].'protected/components/Common.php');
@@ -377,7 +377,6 @@ class AdminController extends Controller {
         //resize($target,$show_pic_scal[0],$show_pic_scal[1]);
 
         echo  '/uploads/topic/'.$new_file;
-
     }
 
     //添加图片
