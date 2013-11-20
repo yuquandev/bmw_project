@@ -286,7 +286,7 @@ function bulid_upload(){
         post_params: {},
 
         // File Upload Settings
-        file_size_limit : "5000",
+        file_size_limit : "10000",
         file_types : "*.jpg;*.png;*.jpeg;*.bmp;",
         file_types_description : "JPG Images; PNG Image",
         file_upload_limit : 0,
