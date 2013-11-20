@@ -132,10 +132,10 @@ class PhoneController extends Controller
            $this->redirect('/index.php/phone');
        }
        $getone = $this->works->getOneWork(array('id'=>$id));
-       
+       $review = $getone['review'];
        //上一遍
        $up_getone = $this->works->getUpwork(array('id'=>$id),'<','id desc');
-      if( empty($up_getone) )
+       if( empty($up_getone) )
        {
           $up_getone['name'] = '已经是第一篇了!';
        }

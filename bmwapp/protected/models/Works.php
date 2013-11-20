@@ -210,7 +210,7 @@ class Works extends CActiveRecord
         }else{
             return false;
         }
-    	$sql = sprintf("SELECT `id`,`user_id`,`name`,`img_url`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM %s where review=0 and %s order by %s limit 1",$this->tableName(),$where,$order);
+    	$sql = sprintf("SELECT `id`,`user_id`,`name`,`img_url`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM %s where  %s order by %s limit 1",$this->tableName(),$where,$order);
         //echo $sql;
     	$res = Yii::app()->db->createCommand($sql)->queryRow();
         return $res;
