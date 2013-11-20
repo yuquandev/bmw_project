@@ -257,7 +257,7 @@ function uplodedata()
         $("#pop_img").html('<img src="/img/bm_tck_dg.jpg" />');
     }
     if(text ==''){
-        $("#pop_text").html('请描述活动宣言!');
+        //$("#pop_text").html('请描述活动宣言!');
         //	return false;
     }else{
         $("#pop_text").html('<img src="/img/bm_tck_dg.jpg" />');
