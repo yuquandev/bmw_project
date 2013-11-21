@@ -44,7 +44,7 @@ class PhoneController extends Controller
     {
        $this->nav = 3;
        if( empty($this->userinfo)){
-           $this->msg('对不起，您还没有登录,请登录','/index.php/phone/login');
+           $this->msg('对不起，您还没有登录,请登录','/index.php/phone/login',false);
            exit;
        }
        $this->render('upimg');
@@ -53,29 +53,28 @@ class PhoneController extends Controller
     public function actionuplodeimg()
     { 
        if( empty($this->userinfo)){
-           $this->msg('对不起，您还没有登录,请登录','/index.php/phone/login');
+           $this->msg('对不起，您还没有登录,请登录','/index.php/phone/login',false);
            exit;
        }
        if(isset($_POST['submit']))
        {
           $title      = isset($_POST['titles']) ? trim($_POST['titles']) : ''; 
+       	  $images_url = $this->uploadfile_r($_FILES['img'],$this->userinfo['uid'],'phone');
        	 
-          $images_url = $this->uploadfile_r($_FILES['img'],$this->userinfo['uid']);
-       	  if($images_url == 2)
+          if($images_url == 2)
        	  {
-       	     $this->msg('请上传小于2MB的作品!','/index.php/phone/uplodeimg');exit;
-       	  }else if($images_url == 3)
-       	  {
-       	     $this->msg('上传作品必须为图片!','/index.php/phone/uplodeimg');exit;
+       	     $this->msg('请上传小于2MB的作品!','/index.php/phone/uplodeimg',false);exit;
        	  }
-       	  $new_path   = $this->getFileNameArr($images_url['path']);
-         
+       	  if($images_url == 3)
+       	  {
+       	     $this->msg('上传作品必须为图片!','/index.php/phone/uplodeimg',false);exit;
+       	  }
        	  $content    = isset($_POST['content']) ? trim($_POST['content']) : ''; 
           $array      = array(
           
               'user_id' => $this->userinfo['uid'],
               'name'    => $title,
-              'img_url' => Yii::app()->params['root_dir'].'/uploads/phone/'.$new_path[0],
+              'img_url' => Yii::app()->params['root_dir'].'/uploads/phone/'.$images_url['path'],
               'description' =>$content,
               'status' =>1,
               'type'   =>2
@@ -84,7 +83,7 @@ class PhoneController extends Controller
           if( $info ){
              $this->msg('上传成功，请等待审核!','/index.php/phone/works');exit;
           }else{
-             $this->msg('上传失败，请重新上传!','/index.php/phone/works');exit;
+             $this->msg('上传失败，请重新上传!','/index.php/phone/works',false);exit;
           }       
        }else{
           $this->msg('','/index.php/phone');
@@ -113,7 +112,18 @@ class PhoneController extends Controller
     	    $works = $this->works->selectWork(array('review'=>0,'type'=>2),$page,$page_limit,'`vote_num` desc ,`update_time` desc');
     	    $count_number = $this->works->countWork(array('review'=>0,'type'=>2));
     	}
-        
+    	var_dump(Yii::app()->params['root_dir'].'uplodes/');
+    	die;
+    	//查找文件缩略图
+        foreach($works as $key=>$val)
+        {
+           $new_path   = $this->getFileNameArr($val['img_url']);
+           echo $new_path[0];
+           var_dump(is_file($new_path[0]));
+           die;
+           $works[$key]['new_img_path'] = (file_exists($new_path[0]) == true) ? $new_path[0] :  $val['img_url'];
+        }
+       // var_dump($works);
     	$page_html = $this->page_limit($count_number,$page,$page_limit,4);
     	$data = array(
     	   'page'  =>$page_html,
@@ -184,14 +194,14 @@ class PhoneController extends Controller
     {
        
        if( empty($this->userinfo)){
-           $this->msg('对不起，您还没有登录,请登录','/index.php/phone/login');
+           $this->msg('对不起，您还没有登录,请登录','/index.php/phone/login',false);
            exit;
        }
        
        $wid = isset($_GET['wid']) ? intval($_GET['wid']) : false;     
        $ip  = $this->get_client_ip();
        if( false === $wid){
-              $this->msg('操作失败','/index.php/phone/works');exit;
+              $this->msg('操作失败','/index.php/phone/works',false);exit;
        }
        $data = array(
            'work_id'=>$wid,
@@ -205,23 +215,21 @@ class PhoneController extends Controller
           	  $this->works->updateWork(array('vote_num'=>"vote_num+1"),$wid);
           	  $this->msg('恭喜您，投票成功!','/index.php/phone/works');
           }else{
-              $this->msg('投票失败，请不要恶意投票!','/index.php/phone/works'); 	
+              $this->msg('投票失败，请不要恶意投票!','/index.php/phone/works',false); 	
           }
        }else{
-       	      $this->msg('对不起，您已经投过该作品了!','/index.php/phone/works'); 
+       	      $this->msg('对不起，您已经投过该作品了!','/index.php/phone/works',false); 
        }
     }
    
-  
-    
-
     //提示跳转页
-    private function msg($msg='',$url)
+    private function msg($msg='',$url,$status = true)
     {
         $data = array(
           'msg'=>$msg,
           'url'=>$url,
-        );
+          'img_url'=> ($status == true) ? '/img/bm_tck_pic_big.jpg' : '/img/bm_tck_pic2_big.jpg',
+    	);
     	$this->render('msg',$data);
     }
 
