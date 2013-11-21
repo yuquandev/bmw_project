@@ -42,6 +42,12 @@ class IndexController extends Controller {
         $works = $this->works->selectWork(array('review'=>0,'type'=>2),1,8,'`recommend` asc, `vote_num` desc ,`update_time` desc');
     	//footer img
         $image_list = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0),1,12);
+        //查找文件缩略图
+        foreach($image_list as $key=>$val)
+        {
+           $new_path   = $this->getFileNameArr($val['image_url']);
+           $image_list[$key]['new_img_path'] = (file_exists(Yii::app()->params['root_dir'].$new_path[1]) == true) ? $new_path[1] :  $val['image_url'];
+        }
         
         $data = array(
            'video'=>$video,
