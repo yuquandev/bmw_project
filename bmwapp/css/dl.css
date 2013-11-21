@@ -7,9 +7,9 @@ a{ text-decoration:none;}
 
 
 
-.dl_body{ width:100%; margin:0; background:url(/img/dlbody.jpg) no-repeat top center; height:610px;}
+.dl_body{ width:100%; margin:0; background:url(../img/dlbody.jpg) no-repeat top center; height:610px;}
 .dl_main{ width:980px; margin:0 auto; height:600px;}
 .dl_main_tu{ width:280px; height:233px; padding-top:200px; padding-left:670px;}
 .sy_user{ width:82%; height:20px; line-height:20px; border-top:1px solid #000; border-left:1px solid #000; border-right:1px solid #b9b9b9; border-bottom:1px solid #b9b9b9; background:#f3f3f3;}
 .sy_dl_an{ width:200px;}
-.sy_dl_1{ line-height:25px; background:url(/img/dl_an.jpg); border:none; margin-right:7px;border:1px solid #a7a7a7; cursor:pointer; height:25px; width:70px;}
+.sy_dl_1{ line-height:25px; background:url(../img/dl_an.jpg); border:none; margin-right:7px;border:1px solid #a7a7a7; cursor:pointer; height:25px; width:70px;}

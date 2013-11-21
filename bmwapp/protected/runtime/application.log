@@ -1549,3 +1549,164 @@ Stack trace:
 #4 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
 #5 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
 REQUEST_URI=/index.php/phone/uplodeimg
+2013/11/20 23:02:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "uploads/phone/201311/19/2013-11-2071138495947619_1.jpg".' in D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/phone/2...')
+#1 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php//uploads/phone/201311/19/2013-11-2071138495947619_1.jpg
+---
+2013/11/20 23:02:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "uploads/phone/201311/19/2013-11-2071138495947619_1.jpg".' in D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/phone/2...')
+#1 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/uploads/phone/201311/19/2013-11-2071138495947619_1.jpg
+---
+2013/11/20 23:03:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "uploads/phone".' in D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/phone')
+#1 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/uploads/phone/
+---
+2013/11/20 23:03:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "uploads".' in D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads')
+#1 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/uploads/
+---
+2013/11/20 23:06:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "uploads/phone/201311/19/2013-11-2071138495947619_1.jpg".' in D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/phone/2...')
+#1 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php//uploads/phone/201311/19/2013-11-2071138495947619_1.jpg
+---
+2013/11/20 23:27:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "uplados".' in D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('uplados')
+#1 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/uplados
+---
+2013/11/20 23:27:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "uploads".' in D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads')
+#1 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/uploads
+---
+2013/11/20 23:27:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "uploads".' in D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads')
+#1 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/uploads/
+---
+2013/11/20 23:27:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "uploads/201311/18/2013-11-2052138496118718_1.png".' in D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/201311/...')
+#1 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/uploads/201311/18/2013-11-2052138496118718_1.png
+---
+2013/11/21 00:24:44 [error] [php] Undefined variable: val (D:\xampp\htdocs\bmw_project\bmwapp\protected\views\phone\show.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(869): PhoneController->renderFile()
+#1 D:\xampp\htdocs\bmw_project\framework\web\CController.php(782): PhoneController->renderPartial()
+#2 D:\xampp\htdocs\bmw_project\bmwapp\protected\controllers\PhoneController.php(146): PhoneController->render()
+#3 D:\xampp\htdocs\bmw_project\framework\web\actions\CInlineAction.php(49): PhoneController->actionShow()
+#4 D:\xampp\htdocs\bmw_project\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): PhoneController->runAction()
+#6 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): PhoneController->runActionWithFilters()
+#7 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): PhoneController->run()
+#8 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/phone/show?id=57,phone
+2013/11/21 00:33:14 [error] [php] Undefined variable: arr2 (D:\xampp\htdocs\bmw_project\bmwapp\protected\components\Controller.php:249)
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): PhoneController->runAction()
+#2 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): PhoneController->runActionWithFilters()
+#3 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): PhoneController->run()
+#4 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/phone/uplodeimg
+2013/11/21 00:46:33 [error] [php] Illegal string offset 'path' (D:\xampp\htdocs\bmw_project\bmwapp\protected\controllers\PhoneController.php:70)
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): PhoneController->runAction()
+#1 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): PhoneController->runActionWithFilters()
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): PhoneController->run()
+#3 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/phone/uplodeimg
+2013/11/21 00:50:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "phone/uplodeimg".' in D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('phone/uplodeimg')
+#1 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/phone/uplodeimg
+HTTP_REFERER=http://bmw.com/index.php/phone/upimg
+---
+2013/11/21 01:13:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "phone".' in D:\xampp\htdocs\bmw_project\framework\web\CController.php:483
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(270): CController->missingAction('phone')
+#1 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): CController->run('phone')
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('index/phone')
+#3 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/index/phone
+---
+2013/11/21 01:13:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "phone".' in D:\xampp\htdocs\bmw_project\framework\web\CController.php:483
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(270): CController->missingAction('phone')
+#1 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): CController->run('phone')
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('index/phone')
+#3 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/index/phone
+---
+2013/11/21 01:14:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "Phone".' in D:\xampp\htdocs\bmw_project\framework\web\CController.php:483
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(270): CController->missingAction('Phone')
+#1 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): CController->run('Phone')
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('index/Phone')
+#3 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/index/Phone
+---
+2013/11/21 01:32:25 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`vote_num` desc ,`update_time` desc limit 0,8' at line 1. The SQL statement executed was: SELECT `id`,`user_id`,`name`,`img_url`,`description`,`type`,`vote_num`,`review`,`update_time`,`create_time` FROM works_tbl where `review` = '0' and`type` = '2'  order by `recommend` desc `vote_num` desc ,`update_time` desc limit 0,8.
+2013/11/21 01:32:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`vote_num` desc ,`update_time` desc limit 0,8' at line 1. The SQL statement executed was: SELECT `id`,`user_id`,`name`,`img_url`,`description`,`type`,`vote_num`,`review`,`update_time`,`create_time` FROM works_tbl where `review` = '0' and`type` = '2'  order by `recommend` desc `vote_num` desc ,`update_time` desc limit 0,8' in D:\xampp\htdocs\bmw_project\framework\db\CDbCommand.php:541
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\xampp\htdocs\bmw_project\bmwapp\protected\models\Works.php(147): CDbCommand->queryAll()
+#2 D:\xampp\htdocs\bmw_project\bmwapp\protected\controllers\IndexController.php(42): Works->selectWork(Array, 1, 8, '`recommend` des...')
+#3 D:\xampp\htdocs\bmw_project\framework\web\actions\CInlineAction.php(49): IndexController->actionIndex()
+#4 D:\xampp\htdocs\bmw_project\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): CController->run('')
+#8 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#9 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php
+---
