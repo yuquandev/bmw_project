@@ -14,7 +14,7 @@
             <div class="sjb_sp">
            		<table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                <td width="28%" height="42" align="right" valign="middle"><strong>用户名：</strong></td>
+                <td width="28%" height="42" align="right" valign="middle"><strong>邮箱：</strong></td>
                 <td height="42" colspan="2" align="left" valign="middle">
                 <input name="" type="text" class="zck_text3" id="reg_username" onblur="onblureg('user');"/></td>
                 </tr>
@@ -26,16 +26,17 @@
                     </div></td>
                </tr>
               
+                <!--
                 <tr>
-                <td width="28%" height="42" align="right" valign="middle"><strong>真实姓名：</strong></td>
-                <td height="42" colspan="2" align="left" valign="middle">
-                <input name="" type="text" class="zck_text3" id="reg_nickname" onblur="onblureg();"/></td>
-                </tr>
-                <tr>
-                     <td width="28%" height="22" align="right" valign="middle"></td>
-                    <td height="22" colspan="2" align="left" valign="middle"><div class="tck_pd tck_pd2">
-                    <span id="reg_nkname"></span></div></td>
-               </tr>
+                  	<td width="28%" height="42" align="right" valign="middle"><strong>真实姓名：</strong></td>
+                	<td height="42" colspan="2" align="left" valign="middle">
+                	<input name="" type="text" class="zck_text3" id="reg_nickname" onblur="onblureg();"/></td>
+                	</tr>
+                	<tr>
+                   <td width="28%" height="22" align="right" valign="middle"></td>
+                   <td height="22" colspan="2" align="left" valign="middle"><div class="tck_pd tck_pd2">
+                   <span id="reg_nkname"></span></div></td>
+               </tr>-->
               
               <tr>
                 <td height="42" align="right" valign="middle"><strong>手机：</strong></td>

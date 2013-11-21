@@ -15,9 +15,9 @@
         	 <a name="works"></a>
         	<?php foreach($works as $key=>$val):?>
         	<div class="bm_zpzs_list" style="position: relative;">
-            	<div class="bm_zpzs_tu"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><img src="<?php echo $val['img_url']; ?>" width="228" height="366"/></a></div>
+            	<div class="bm_zpzs_tu"><img src="<?php echo $val['img_url']; ?>" width="228" height="366"/></div>
                 <div class="bm_zpzs_zi"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><?php echo $val['name'];?></a></div>
-                <div style="
+                <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><div style="
     				position: absolute;
     width: 228px;
     height: 366px;
@@ -25,7 +25,7 @@
     border: 3px solid #fff;
     top: 0px;
     margin: 1px;
-"></div>
+"></div></a>
                 <div class="bm_zpzs_zan">
                 	<input onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);" type="button" class="bm_tp_an" value="投票"/>
                     <span  id="vote_<?php echo $val['id']?>"><?php echo $val['vote_num']?></span>

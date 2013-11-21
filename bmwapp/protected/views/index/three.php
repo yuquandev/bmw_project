@@ -125,8 +125,8 @@
           <div class="bm_zpzs_main">
         	<?php foreach($works as $key=>$val):?>
         	<div class="bm_zpzs_list" style="position: relative;">
-            	<div class="bm_zpzs_tu" style="position: relative;background: url(/js/lazyload/grey.gif) no-repeat center center;"><a style="position: absolute;width:366px;"  href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b#works"><img src="<?php echo $val['img_url']; ?>" width="" height="366"/></a></div>
-                <div style="
+            	<div class="bm_zpzs_tu" style="position: relative;background: url(/js/lazyload/grey.gif) no-repeat center center;"><a style="position: absolute;width:366px;"><img src="<?php echo $val['img_url']; ?>" width="" height="366"/></a></div>
+                <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b#works"><div style="
     position: absolute;
     width: 228px;
     height: 366px;
@@ -134,7 +134,7 @@
     border: 3px solid #fff;
     top: 0px;
     margin: 1px;
-"></div>
+"></div></a>
                 <div class="bm_zpzs_zi"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b#works"><?php echo $val['name'];?></a></div>
                 <div class="bm_zpzs_zan">
                 	<input onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);" type="button" class="bm_tp_an" value="投票"/>

@@ -4,16 +4,21 @@ function onblureg(type)
 	  if(type=='user'){  
 	    if( $("#reg_username").val() == '' )
 	    {
-	    	 $("#reg_name").html('<strong>*</strong>请输入用户名'); 
+	    	 $("#reg_name").html('<strong>*</strong>请输入邮箱'); 
 	    	 return false;
 	    }else{
-	    	
+	    	            var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+	    	            if(!myreg.test($("#reg_username").val()))
+	    	            {
+	    	                $("#reg_name").html('<strong>*</strong>请输入有效的邮箱');
+	    	                return false;
+	    	            }
 	    	var url = '/index.php/user/regusername?_j='+ new Date().getTime();
 	    	$.ajax({'url':url,'async':false,'data':{'username':$("#reg_username").val()},'dataType':'json',
 	    	'success':function(rs){
 	    	       if( rs.status == false )
 	               {
-	                   $("#reg_name").html('<strong>*</strong>用户名已经被注册了!');
+	                   $("#reg_name").html('<strong>*</strong>邮箱已经被注册了!');
 	                       vuser =  false;
 	               }else{  
 	            	  $("#reg_name").html('<img src="/img/bm_tck_dg.jpg" />');
@@ -31,14 +36,14 @@ function onblureg(type)
 	   }
 	   
 	  
-	    if( $("#reg_nickname").val() == '' )
+	   /* if( $("#reg_nickname").val() == '' )
 	    {
 	    	 $("#reg_nkname").html('<strong>*</strong>请输入真实姓名');
 	    	 return false;
 	    }else{
 	    	$("#reg_nkname").html('<img src="/img/bm_tck_dg.jpg" />');
 	    }
-	
+	   */
 	
 		if( $("#reg_telephone").val() == '' )
 	    {

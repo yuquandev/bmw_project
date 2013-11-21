@@ -30,7 +30,7 @@ function com_dialog(act){
         '<table width="100%" border="0" cellspacing="0" cellpadding="0">',
         '<tr>',
         '<td width="13%" height="42" align="right" valign="middle">',
-        '<strong>用户名：</strong>',
+        '<strong>用户邮箱：</strong>',
         '</td>',
         '<td width="42%" height="42" align="left" valign="middle">',
         '<input name="" id="reg_username" type="text" class="zck_text3" onblur="bm_reg();"/>',
@@ -39,11 +39,6 @@ function com_dialog(act){
         '<div class="tck_pd tck_pd2">',
         '<span id="reg_name"></span></div></td>',
         '</tr>',
-        '<tr>',
-        '<td width="13%" height="42" align="right" valign="middle"><strong> 真实姓名：</strong></td>',
-        '<td width="42%" height="42" align="left" valign="middle"><input id="reg_nickname" name="" onblur="bm_reg();" type="text" class="zck_text3"/></td>',
-        '<td width="45%" height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><span id="reg_nkname"></span></div></td></tr>',
-        '<tr>',
         '<td height="42" align="right" valign="middle"><strong>手机：</strong></td>',
         '<td height="42" align="left" valign="middle"><input name="" id="reg_telephone" onblur="bm_reg();" type="text" class="zck_text3"/></td>',
         '<td height="42" align="left" valign="middle"><div class="tck_pd tck_pd2"><span id="reg_phone"></span></div></td>',
@@ -135,17 +130,16 @@ function bm_reg(){
 
     if( $("#reg_username").val() == '' )
     {
-        $("#reg_name").html('<img src="/img/tck_pic.jpg" />请输入用户名');
+        $("#reg_name").html('<img src="/img/tck_pic.jpg" />请输入用户邮箱');
         return false;
     }else{
-        $("#reg_name").html('<img src="/img/bm_tck_dg.jpg" />');
-    }
-    if( $("#reg_nickname").val() == '' )
-    {
-        $("#reg_nkname").html('<img src="/img/tck_pic.jpg" />请输入真实姓名');
-        return false;
-    }else{
-        $("#reg_nkname").html('<img src="/img/bm_tck_dg.jpg" />');
+    	var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+        if(!myreg.test($("#reg_username").val()))
+        {
+            $("#reg_name").html('<img src="/img/tck_pic.jpg" />请输入有效的邮箱');
+            return false;
+        }
+    	$("#reg_name").html('<img src="/img/bm_tck_dg.jpg" />');
     }
     if( $("#reg_telephone").val() == '' )
     {

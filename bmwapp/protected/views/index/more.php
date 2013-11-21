@@ -206,6 +206,15 @@ $(".OriginalPicBorder").ready(function(){
 	});
 });
 </script>
+<span id="uplode_img"></span>
+<input type="hidden" id="ty_id" value="<?php echo $this->type;?>">
+<!--注册账号-->
+<div id="com_dialog"></div>
+<!--登陆与注册-->
+<!--投票成功-->
 <span id="popmsg"></span>
+<span id="popmsg2"></span>
+<div id="bg" class="bg" style="display:none;"></div>
+<iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
 </body>
 </html>
