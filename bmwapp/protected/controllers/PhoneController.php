@@ -82,9 +82,9 @@ class PhoneController extends Controller
           );
        	  $info = $this->works->insertWork($array);
           if( $info ){
-             $this->msg('上传成功，请等待审核!','/index.php/phone/works');
+             $this->msg('上传成功，请等待审核!','/index.php/phone/works');exit;
           }else{
-             $this->msg('上传失败，请重新上传!','/index.php/phone/works');
+             $this->msg('上传失败，请重新上传!','/index.php/phone/works');exit;
           }       
        }else{
           $this->msg('','/index.php/phone');

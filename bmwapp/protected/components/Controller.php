@@ -227,16 +227,20 @@ public static function uploadfile_r($filefield,$userid,$maxsize=2097152,$ImgType
 		$arr3 = array('jpg'=>'image/jpg','jpeg'=>'image/jpeg','kkkk'=>'image/pjpeg');
 
 		$filearr = $filefield;//$_FILES[$filefield];
+        
+		if ((int)$filearr['size']>$maxsize){ 
+		    return '2';	
+		}
 
-		if ((int)$filearr['size']>$maxsize) return '2';
-
-		if (!in_array($filearr['type'],$arr1)) return '3';
+		if (!in_array($filearr['type'],$arr1)){
+			return '3';
+		} 
 
 		if ($ImgType == 1)
 		{
-			$returnPath = date("Ymd",time()).DIRECTORY_SEPARATOR.$userid;
+			$returnPath = $userid;
 			$path		= Yii::app()->params['root_dir'].'uploads/phone/'.$returnPath;
-			$filname	= mt_rand(1,100).time().$userid;
+			$filname	= mt_rand(1,100).date("Ymd",time());
 		}
 		elseif ($ImgType == 2)
 			{
@@ -246,11 +250,11 @@ public static function uploadfile_r($filefield,$userid,$maxsize=2097152,$ImgType
 			}
 		if (!is_dir($path))
 		{
-			mkdir($path,0700,true);
+			mkdir($path,0777,true);
 		}
 		$fileType	 = $arr2[$filearr['type']];
-		$path1		 = $path.DIRECTORY_SEPARATOR.$filname.'.'.$fileType;
-		$returnPath .= DIRECTORY_SEPARATOR.$filname.'.'.$fileType;
+		$path1		 = $path.'/'.$filname.'.'.$fileType;
+		$returnPath .= '/'.$filname.'.'.$fileType;
 
 		move_uploaded_file($filearr['tmp_name'],$path1);
 

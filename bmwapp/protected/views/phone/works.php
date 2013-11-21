@@ -23,7 +23,7 @@
                 
                 	
                     <?php if($this->center =='phone'){?>
-                         <div class="bm_zpzs_zi"><span style="color:red;">审核状态:<?php if($val['review'] == 0){echo '审核已通过';}else{ echo '审核未通过';}?></span></div>
+                         <div class="bm_zpzs_zi"><span style="color:red;">审核状态:<?php if($val['review'] == 0){echo '审核已通过';}else{ echo '正在审核中';}?></span></div>
                     <?php }else{?>
                           <div class="bm_zpzs_zan">
                           <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/phone/phonevote?wid=<?php echo $val['id'];?>" style="display:block;left">

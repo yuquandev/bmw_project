@@ -31,7 +31,7 @@
                     </span>
                     <span>
                     <?php  if($center =='center'){?>
-                       <span style="color:red">状态：<?php if($val['review'] == 0 ){echo '审核通过'; }else{ echo '审核未通过';}?></span>
+                       <span style="color:red">状态：<?php if($val['review'] == 0 ){echo '审核通过'; }else{ echo '正在审核中';}?></span>
                     <?php }else{?>
                        <input  type="button" class="bm_tp" value="投票" onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);"/>
                     <?php }?>
