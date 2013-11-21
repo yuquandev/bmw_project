@@ -112,7 +112,10 @@ class PhoneController extends Controller
     	    $works = $this->works->selectWork(array('review'=>0,'type'=>2),$page,$page_limit,'`vote_num` desc ,`update_time` desc');
     	    $count_number = $this->works->countWork(array('review'=>0,'type'=>2));
     	}
-    	
+    	if( empty($works) )
+    	{
+    	   $this->msg('您还没有上传作品，请上传作品!','/index.php/phone/works',false);exit;
+    	}
     	
     	//查找文件缩略图
         foreach($works as $key=>$val)

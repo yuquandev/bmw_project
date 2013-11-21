@@ -87,10 +87,12 @@ class IndexController extends Controller {
           $works_user_list = $this->works->selectWork(array('review'=>0,'user_id'=>$uid,'type'=>$type),0,0,'create_time desc',$pash_where);
        }
        
-      foreach($works_user_list as $k=>$val){
-          $user_info       = $this->user->getOneUser(array('id'=>$val['user_id']));
-       	  $works_user_list[$k]['username'] =!empty($user_info['nickname']) ?  $user_info['nickname'] : $user_info['username'];
-       }
+       if( !empty($works_user_list )){
+       		foreach($works_user_list as $k=>$val){
+          		$user_info       = $this->user->getOneUser(array('id'=>$val['user_id']));
+       	  		$works_user_list[$k]['username'] =!empty($user_info['nickname']) ?  $user_info['nickname'] : $user_info['username'];
+       		}
+       }		
       if($get_one_works){
        	   $user_info       = $this->user->getOneUser(array('id'=>$get_one_works['user_id']));
            $get_one_works['username'] = $user_info['username'];

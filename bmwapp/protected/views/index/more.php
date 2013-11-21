@@ -21,30 +21,8 @@
 	<div class="OriginalPicBorder">
 		<div id="OriginalPic"><a name="works"></a>
 			<div id="aPrev" class="CursorL"></div>
-			<div id="aNext" class="CursorR"></div>
-			<?php foreach($works_user_list as $key=>$val):?>
-			<p class="Hidden">
-				<span class="Summary FlLeft">
-                	<span class="bm_nr">
-                    <span class="bm_wz2">
-                    <strong><?php echo $val['name'];?></strong><br />作者：<?php echo $val['username'];?><br /><strong style="color:red;">票数:<span  id="vote_<?php echo $val['id']?>"><?php echo $val['vote_num']?></span></strong><br /><?php echo $val['description'];?>
-                    </span>
-                    <span>
-                    <?php  if($center =='center'){?>
-                       <span style="color:red">状态：<?php if($val['review'] == 0 ){echo '审核通过'; }else{ echo '正在审核中';}?></span>
-                    <?php }else{?>
-                       <input  type="button" class="bm_tp" value="投票" onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);"/>
-                    <?php }?>
-                    </span>		
-                     
-                </span>
-                </span>
-				<span class="SliderPicBorder FlRight"><img src="<?php echo $val['img_url'];?>" /></span>
-				<span class="Clearer"></span>
-				<span class="More">
-				</span>
-			</p>
-            <?php endforeach;?>
+			<div id="aNext" class="CursorR"></div>            <?php if( empty($works_user_list) ){?>                <div class="HS15">                <strong style="color:red;">                       	您还没有上传作品,您可以现在 :<a href="javascript:void(0);" onclick="com_dialog('uploads');" style="color:blue;"/>上传作品</a>                        	                                             	                                      </strong>                </div>            <?php }else{?>
+			<?php foreach($works_user_list as $key=>$val):?>            <p class="Hidden">              <span class="Summary FlLeft">                <span class="bm_nr">                  <span class="bm_wz2">					<strong><?php echo $val['name'];?></strong><br />作者：<?php echo $val['username'];?><br /><strong style="color:red;">票数:<span  id="vote_<?php echo $val['id']?>"><?php echo $val['vote_num']?></span></strong><br /><?php echo $val['description'];?>					</span>					<span>					<?php  if($center =='center'){?>                     <span style="color:red">状态：<?php if($val['review'] == 0 ){echo '审核通过'; }else{ echo '正在审核中';}?></span>                    <?php }else{?>						<input  type="button" class="bm_tp" value="投票" onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);"/>     				<?php }?>					</span>						</span>				</span>				<span class="SliderPicBorder FlRight"><img src="<?php echo $val['img_url'];?>" /></span>				<span class="Clearer"></span>				<span class="More">				</span>				</p>			<?php endforeach;?>           
             <span class="wb_fx">
                 <!-- Baidu Button BEGIN -->
                 <div id="ckepop" style="float:left">
@@ -87,7 +65,7 @@
 		</div>
 		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowR.jpg" id="btnNext" class="FlLeft" style="cursor:pointer;" />
 		<div class="Clearer"></div>
-	</div>
+	</div> <?php }?>
     <a name="footer"></a>
 	<div class="HS15"></div>
 	
@@ -211,13 +189,7 @@ $(".OriginalPicBorder").ready(function(){
 </script>
 <span id="uplode_img"></span>
 <input type="hidden" id="ty_id" value="<?php echo $this->type;?>">
-<!--注册账号-->
-<div id="com_dialog"></div>
-<!--登陆与注册-->
-<!--投票成功-->
-<span id="popmsg"></span>
-<span id="popmsg2"></span>
-<div id="bg" class="bg" style="display:none;"></div>
-<iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
+<!--注册账号--><span id="uplode_img"></span><!--注册账号--><div id="com_dialog"></div><!--登陆与注册--><!--投票成功--><span id="popmsg"></span><span id="popmsg2"></span>
+<div id="com_dialog"></div><!--登陆与注册--><!--投票成功--><div id="bg" class="bg" style="display:none;"></div><iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
 </body>
 </html>
