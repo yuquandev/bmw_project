@@ -26,7 +26,7 @@ function com_dialog(act){
 
     var reg_html =  ['<div class="zc_tck mydiv" id="popDiv2"  style="display:none;">',
         '<div class="zc_tck_title"><span>注册账号</span><a href="javascript:closeDiv2()"><img src="/img/bm_gb.jpg" /></a></div>',
-        '<div class="zc_tck_main" style="padding-top:5px;">',
+        '<div class="zc_tck_main">',
         '<table width="100%" border="0" cellspacing="0" cellpadding="0">',
         '<tr>',
         '<td width="13%" height="42" align="right" valign="middle">',
