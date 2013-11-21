@@ -23,7 +23,7 @@
                         <?php echo $getone['description'];?>
                         </p>
                 <?php if( $getone['review'] == 1){?>   
-                <div class="bm_zpzs_zi"><span style="color:red;">审核状态:<?php if($getone['review'] == 0){echo '审核已通过';}else{ echo '审核未通过';}?></span></div>
+                <div class="bm_zpzs_zi"><span style="color:red;">审核状态:<?php if($getone['review'] == 0){echo '审核已通过';}else{ echo '正在审核中';}?></span></div>
                 <?php }else{?>
                 <div class="bm_zpzs_zan bm_zpzs_zan2">
                 	<a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/phone/phonevote?wid=<?php echo $getone['id'];?>" style="display:block;left"><input name="" type="button" class="bm_tp_an" value="投票" /></a>
