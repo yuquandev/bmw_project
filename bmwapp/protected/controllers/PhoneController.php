@@ -112,19 +112,15 @@ class PhoneController extends Controller
     	    $works = $this->works->selectWork(array('review'=>0,'type'=>2),$page,$page_limit,'`vote_num` desc ,`update_time` desc');
     	    $count_number = $this->works->countWork(array('review'=>0,'type'=>2));
     	}
-    	var_dump(Yii::app()->params['root_dir'].'uplodes/');
-    	die;
+    	
+    	
     	//查找文件缩略图
         foreach($works as $key=>$val)
         {
            $new_path   = $this->getFileNameArr($val['img_url']);
-           echo $new_path[0];
-           var_dump(is_file($new_path[0]));
-           die;
-           $works[$key]['new_img_path'] = (file_exists($new_path[0]) == true) ? $new_path[0] :  $val['img_url'];
+           $works[$key]['new_img_path'] = (file_exists(Yii::app()->params['root_dir'].$new_path[0]) == true) ? $new_path[0] :  $val['img_url'];
         }
-       // var_dump($works);
-    	$page_html = $this->page_limit($count_number,$page,$page_limit,4);
+        $page_html = $this->page_limit($count_number,$page,$page_limit,4);
     	$data = array(
     	   'page'  =>$page_html,
     	   'works' =>$works,
