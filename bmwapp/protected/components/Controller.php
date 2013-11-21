@@ -220,7 +220,7 @@ HTML;
 	 *				[size] => 2313213
 	 *			)
 	**/
-public static function uploadfile_r($filefield,$userid,$maxsize=2097152,$ImgType=1)
+public static function uploadfile_r($filefield,$userid,$path_name ='',$maxsize=2097152,$ImgType=1)
 	{
 		$arr1 = array('gif'=>'image/gif','jpg'=>'image/jpg','jpeg'=>'image/jpeg','kkk'=>'image/pjpeg','png'=>'image/png');
 		$arr2 = array('image/gif'=>'gif','image/jpg'=>'jpg','image/jpeg'=>'jpg','image/pjpeg'=>'jpg','image/png'=>'png');
@@ -231,21 +231,20 @@ public static function uploadfile_r($filefield,$userid,$maxsize=2097152,$ImgType
 		if ((int)$filearr['size']>$maxsize){ 
 		    return '2';	
 		}
-
-		if (!in_array($filearr['type'],$arr1)){
+        if (!in_array($filearr['type'],$arr1)){
 			return '3';
 		} 
 
 		if ($ImgType == 1)
 		{
 			$returnPath = $userid;
-			$path		= Yii::app()->params['root_dir'].'uploads/phone/'.$returnPath;
+			$path		= Yii::app()->params['root_dir'].'uploads/'.$path_name.'/'.$returnPath;
 			$filname	= mt_rand(1,100).date("Ymd",time());
 		}
 		elseif ($ImgType == 2)
 			{
 				$returnPath = $userid;
-				$path		= Yii::app()->params['root_dir'].'uploads/phone/'.$returnPath;
+				$path		= Yii::app()->params['root_dir'].'uploads/'.$path_name.'/'.$returnPath;
 				$filname	= $userid;
 			}
 		if (!is_dir($path))
@@ -300,12 +299,12 @@ public static function uploadfile_r($filefield,$userid,$maxsize=2097152,$ImgType
 			{
 				case 1:
 					
-					$a = 130;
-					$b = 193;
+					$a = 135;   //手机展现的尺寸
+					$b = 195;
 					break;
 				case 2:
-					$a = 100;
-					$b = 130;
+					$a = 310;   //首页底部展现的尺寸
+					$b = 210;
 					
 					break;
 				case 3:
@@ -450,3 +449,7 @@ public static function uploadfile_r($filefield,$userid,$maxsize=2097152,$ImgType
 		return $newPath;
 	}
 }
+
+
+
+
