@@ -57,7 +57,7 @@ class IndexController extends Controller {
     public function actionMore()
     {
        $this->top  =false;
-       $this->nav = '1x';
+      // $this->nav = '1x';
        $pash_where = '';
        $get_one_works='';
        $list     = isset($_GET['uuid'])    ? trim($_GET['uuid']) : '';
@@ -103,7 +103,7 @@ class IndexController extends Controller {
     public function actionthreemoer()
     {
        $this->top  =false;
-       $this->nav = '1x';
+       //$this->nav = '1x';
        $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
        $page_limit = 8;
        
