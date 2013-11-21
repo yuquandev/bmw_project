@@ -18,7 +18,7 @@
             	
             	<?php foreach($works as $key=>$val):?>
             	<div class="bm_zpzs_list">
-            	<div class="bm_zpzs_tu"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/phone/show?id=<?php echo $val['id'];?>,phone"><img src="<?php echo Yii::app()->request->baseUrl; ?><?php echo $val['img_url'];?>" width="130" height="193"/></a></div>
+            	<div class="bm_zpzs_tu"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/phone/show?id=<?php echo $val['id'];?>,phone"><img src="<?php echo Yii::app()->request->baseUrl; ?><?php echo $val['new_img_path'];?>" width="130" height="193"/></a></div>
                 <div class="bm_zpzs_zi"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/phone/show?id=<?php echo $val['id'];?>,phone"><?php echo Yii::app()->request->baseUrl; ?><?php echo $val['name'];?></a></div>
                 
                 	

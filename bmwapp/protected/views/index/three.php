@@ -176,7 +176,7 @@
 					<li class="featureBox" >
 					<div class="box" style="background: url(/js/lazyload/grey.gif) no-repeat center center;">
 						<a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/footerlg?id=<?php echo $val['id']?>,<?php echo $val['type_id']?>#works" target="_blank">
-						<img src="<?php echo $val['image_url'];?>"  width="265" height="176">
+						<img src="<?php echo $val['new_img_path'];?>"  width="265" height="176">
 						</a>
 					</div>
 					<!-- /box -->
