@@ -1,8 +1,8 @@
 <div class="bm_top_3x">
         <div class="bm_top_logo">
-            <ul>
+            <!-- <ul>
                <li><a href="http://www.bmw.com.cn/cn/zh/index.html" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo.png" /></a></li>
-             </ul>
+             </ul> -->
         </div>
         <!--导航-->
         <div class="bm_top_nav">
