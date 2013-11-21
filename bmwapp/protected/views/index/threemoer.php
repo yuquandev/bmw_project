@@ -15,10 +15,9 @@
         	 <a name="works"></a>
         	<?php foreach($works as $key=>$val):?>
         	<div class="bm_zpzs_list" style="position: relative;">
-            	<div class="bm_zpzs_tu"><img src="<?php echo $val['img_url']; ?>" width="228" height="366"/></div>
-                <div class="bm_zpzs_zi"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><?php echo $val['name'];?></a></div>
-                <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><div style="
-    				position: absolute;
+            	<div class="bm_zpzs_tu" style="position: relative;background: url(/js/lazyload/grey.gif) no-repeat center center;"><a style="position: absolute;width:366px;"><img src="<?php echo $val['img_url']; ?>" width="" height="366"/></a></div>
+                <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b#works"><div style="
+    position: absolute;
     width: 228px;
     height: 366px;
     background: none;
@@ -26,6 +25,7 @@
     top: 0px;
     margin: 1px;
 "></div></a>
+                <div class="bm_zpzs_zi"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b"><?php echo $val['name'];?></a></div>
                 <div class="bm_zpzs_zan">
                 	<input onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);" type="button" class="bm_tp_an" value="投票"/>
                     <span  id="vote_<?php echo $val['id']?>"><?php echo $val['vote_num']?></span>
@@ -41,28 +41,6 @@
     <?php $this->endContent(); ?>
    
 </div>
-<script type="text/javascript">
-
-    (function(){
-        var tmp = 0;
-        $('.bm_zpzs_tu a').each(function(){
-            var that = $(this);
-            $(this).find('img').bind('load',function(){
-                tmp = - that.find('img').width() / 2 + 228/2;
-                that.css('margin-left',tmp+'px');
-                that.find('img').height(366);
-            });
-            //console.log($(this).find('img').width());
-            //if ($(this).find('img').height() > 366){
-                tmp = - $(this).find('img').width() / 2 + 228/2;
-            //}else {
-            //    tmp = - $(this).find('img').width() / 2 + 183;
-            //}
-           $(this).css('margin-left',tmp+'px');
-           $(this).find('img').height(366);
-        });
-    })();
-</script>
 
 <script type="text/javascript">
 
