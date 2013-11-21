@@ -94,7 +94,7 @@ return array(
 	    'imgpath'=> 'http://'.$_SERVER["HTTP_HOST"].'/img/',
 	    'jspath'=>  'http://'.$_SERVER["HTTP_HOST"].'/js/',
 	    'csspath'=> 'http://'.$_SERVER["HTTP_HOST"].'/css/',
-	
+        'root_dir' => dirname(__FILE__).'/../../',
 	),
 	
 );

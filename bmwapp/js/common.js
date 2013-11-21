@@ -221,7 +221,9 @@ function ajax_get_columns(table,title,id,that){
         success: function(data){
             for (var n in data){
                 if(data[n]){
-                    if (data[n]['field'] == 'name'){
+                    if (data[n]['field'] == 'username'){
+                        columns.push({field:data[n]['field'],title:data[n]['title'],width:100});
+                    }else if (data[n]['field'] == 'name'){
                         columns.push({field:data[n]['field'],title:data[n]['title'],width:100});
                     }else if (data[n]['field'] == 'video_url' || data[n]['field'] == 'c_url' ){
                         columns.push({field:data[n]['field'],title:data[n]['title'],width:200});
