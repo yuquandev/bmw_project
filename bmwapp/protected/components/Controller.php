@@ -220,7 +220,7 @@ HTML;
 	 *				[size] => 2313213
 	 *			)
 	**/
-public static function uploadfile_r($filefield,$userid,$path_name ='',$maxsize=2097152,$ImgType=1)
+public static function uploadfile_r($filefield,$userid,$path_name ='works',$maxsize=2097152,$ImgType=1)
 	{
 		$arr1 = array('gif'=>'image/gif','jpg'=>'image/jpg','jpeg'=>'image/jpeg','kkk'=>'image/pjpeg','png'=>'image/png');
 		$arr2 = array('image/gif'=>'gif','image/jpg'=>'jpg','image/jpeg'=>'jpg','image/pjpeg'=>'jpg','image/png'=>'png');
