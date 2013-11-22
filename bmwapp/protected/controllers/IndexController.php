@@ -188,18 +188,46 @@ class IndexController extends Controller {
     public function actionFlow()
     {
         $this->nav = '2x';  //定义导航样式
-    	$all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0),0,5);
-        foreach($all_img as $key=>$val)
-        {
-           str_replace(array('	',' '),array('',''),$val['description']);
+    	//img
+        $all_img = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0),0,5);
+        if( $all_img ){
+	    	foreach($all_img as $key=>$val)
+	        {
+	           str_replace(array('	',' '),array('',''),$val['description']);
+	        }
         }
+        //video
+        $all_video = $this->video->selectVideo(array('status'=>0));
     	$data = array(
-           'all_img'=>$all_img
+           'all_img'=>$all_img,
+    	   'all_video'=>$all_video,
         );
+        
         $this->render('flow',$data);
     }
     
-    
+    //人车交互
+    public function actionpopcar()
+    {
+       $this->nav = '3x';  //定义导航样式
+       $this->render('rcar');
+    }
+    //视频详细
+    public function actionShowvideo()
+    {
+       $status = isset($_GET['sid']) ? trim($_GET['sid']) : '';
+       list($id,$label) = explode(',', $status);
+       if( empty($id) || $label !='video')
+       {
+          $this->redirect('/');
+       }
+       
+       $get_one_video_info = $this->video->getOneVideo(array('id'=>$id));
+       $data = array(
+          'get_one_video_info'=>$get_one_video_info,
+       );
+       $this->render('video',$data);
+    }
     
     
 }
