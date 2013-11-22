@@ -131,7 +131,7 @@ class Video extends CActiveRecord
         }else{
            $limit_sned ='';
         }
-        $sql = sprintf("SELECT `id`,`name`,`video_url`,`c_url`,`status`,`create_time` FROM %s where %s order by %s %s",$this->tableName(),$where,$order_list,$limit_sned);
+        $sql = sprintf("SELECT `id`,`name`,`img_url`,`video_url`,`description`,`status`,`create_time` FROM %s where %s order by %s %s",$this->tableName(),$where,$order_list,$limit_sned);
         //echo $sql;
         $res = Yii::app()->db->createCommand($sql)->queryAll();
         return $res;
@@ -158,7 +158,7 @@ class Video extends CActiveRecord
         }else{
             return false;
         }
-        $sql = sprintf("SELECT `id`,`user_id`,`name`,`img_url`,`description`,`status`,`vote_num`,`update_time`,`create_time` FROM %s where %s limit 1",$this->tableName(),$where);
+        $sql = sprintf("SELECT `id`,`name`,`img_url`,`video_url`,`description`,`status`,`create_time` FROM %s where %s limit 1",$this->tableName(),$where);
         $res = Yii::app()->db->createCommand($sql)->queryRow();
         return $res;
     } 
@@ -206,8 +206,7 @@ class Video extends CActiveRecord
                 }
         		
 			}
-			
-		    $command = implode ( ',', $command );
+			$command = implode ( ',', $command );
         }else{
            return false;
         }
