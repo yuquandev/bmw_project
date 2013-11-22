@@ -179,8 +179,8 @@ $(".OriginalPicBorder").ready(function(){
 		var count = $(this).attr('rel');
 		showImage(parseInt(count) - 1);
 		
-		$('html').scrollTop(1000);
-		$('body').scrollTop(1000);
+		 $("html").scrollTop("2000");
+		$("body").scrollTop("2000");
 	});
 });
 </script>

@@ -142,7 +142,7 @@ function showImage(index){
 		//设置向左向右鼠标手势区域的高度                        
 		//var tempHeight = $($('#OriginalPic img')[index]).height();
 		//$('#aPrev').height(tempHeight);
-		//$('#aNext').height(tempHeight);                        
+		//$('#aNext').height(tempHeight);           $("html").scrollTop("2000");		$("body").scrollTop("2000");
 	}
 }
 
@@ -188,7 +188,7 @@ $(".OriginalPicBorder").ready(function(){
 });
 </script>
 <span id="uplode_img"></span>
-<input type="hidden" id="ty_id" value="<?php echo $this->type;?>">
+<input type="hidden" id="ty_id" value="<?php echo $this->type;?>"><div class="bm_tp_tck mydiv"  id="popDiv5" style="display:none;">        <div class="bm_tck_title">        <span>提示</span>        <a href="javascript:closeDiv5();">X</a></div>        <div class="bm_tck_main2">        <div class="bm_main_sm2">        <img src="/img/bm_tck_pic.jpg" />        <span>恭喜你，投票成功！<br />(分享微博，有更多礼品哦！)</span>        </div>        <div class="bm_main_an2">        <input name="" type="button" class="bm_tck_an2" value="确 定" onclick="closeDiv5();"/>        <wb:share-button count="n" type="button" size="big" style="float:left"></wb:share-button>        </div>        </div></div>
 <!--注册账号--><span id="uplode_img"></span><!--注册账号--><div id="com_dialog"></div><!--登陆与注册--><!--投票成功--><span id="popmsg"></span><span id="popmsg2"></span>
 <div id="com_dialog"></div><!--登陆与注册--><!--投票成功--><div id="bg" class="bg" style="display:none;"></div><iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
 </body>
