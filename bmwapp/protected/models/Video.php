@@ -226,8 +226,8 @@ class Video extends CActiveRecord
     }
 
     //添加导航
-    public function add_nav_info($id,$name,$video_url,$c_url,$status=1){
-        $sql = sprintf("insert into video_tbl (type_id,name,video_url,status,c_url,create_time) value (%d,'%s','%s',%d,'%s',NOW())",$id,$name,$video_url,$status,$c_url);
+    public function add_nav_info($id,$name,$des,$resource,$img_url,$status=1){
+        $sql = sprintf("insert into video_tbl (type_id,name,video_url,status,description,img_url,create_time) value (%d,'%s','%s',%d,'%s','%s',NOW())",$id,$name,$resource,$status,$des,$img_url);
         $res = Yii::app()->db->createCommand($sql)->execute();
         if ($res){
             return Yii::app()->db->getLastInsertID();
@@ -263,8 +263,8 @@ class Video extends CActiveRecord
     }
 
     //更新单个导航信息
-    public function set_nav_info($id,$name,$video_url,$c_url){
-        $sql = sprintf("update video_tbl set name='%s',video_url='%s',c_url='%s' where id=%d",$name,$video_url,$c_url,$id);
+    public function set_nav_info($id,$name,$des,$resource,$img_url){
+        $sql = sprintf("update video_tbl set name='%s',description='%s',video_url='%s',img_url='%s' where id=%d",$name,$des,$resource,$img_url,$id);
         $res = Yii::app()->db->createCommand($sql)->execute();
         return $res;
     }

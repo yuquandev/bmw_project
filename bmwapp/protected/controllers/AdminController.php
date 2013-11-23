@@ -192,8 +192,10 @@ class AdminController extends Controller {
         }elseif (substr($act,0,10) == 'video_list'){
             $res = array(
                 array("field"=>"name","title"=>"视频名称"),
+                array("field"=>"description","title"=>"描述"),
+                array("field"=>"img_url","title"=>"视频缩略图"),
                 array("field"=>"video_url","title"=>"视频地址"),
-                array("field"=>"c_url","title"=>"链接地址"),
+                //array("field"=>"c_url","title"=>"链接地址"),
                 array("field"=>"status","title"=>"视频状态"),
                 array("field"=>"create_time","title"=>"创建时间"),
                 array("field"=>"editor","title"=>"编辑"),
@@ -352,7 +354,10 @@ class AdminController extends Controller {
     }
 
     public function actionUpload(){
-
+        $act = isset($_GET['act']) ? trim($_GET['act']) : '';
+        if (empty($act)){
+            echo 'false';
+        }
          if (!isset($_FILES["Filedata"]) || !is_uploaded_file($_FILES["Filedata"]["tmp_name"]) || $_FILES["Filedata"]["error"] != 0) {
             echo 'false';
         }
@@ -360,7 +365,7 @@ class AdminController extends Controller {
          /* save to tmp */
          $file = $_FILES["Filedata"];
         
-         $images_url = $this->uploadfile_r($_FILES["Filedata"],$_COOKIE['bmw_ad_uid'],'admin');
+         $images_url = $this->uploadfile_r($_FILES["Filedata"],$_COOKIE['bmw_ad_uid'],$act);
          if($images_url == 2)
        	 {
        	     echo 'false';
@@ -369,7 +374,7 @@ class AdminController extends Controller {
        	     echo 'false';
        	 }
         /* save to tmp */
-        echo  '/uploads/admin/'.$images_url['path'];
+        echo  '/uploads/'.$act.'/'.$images_url['path'];
 
         //include_once(Yii::app()->params['root_dir'].'protected/components/Common.php');
 
@@ -481,11 +486,12 @@ class AdminController extends Controller {
         $des = isset($_POST['des']) ? trim($_POST['des']) : '';
         $resource = isset($_POST['resource']) ? trim($_POST['resource']) : '';
         $act = isset($_POST['act']) ? trim($_POST['act']) : '';
+        $img_url = isset($_POST['img_url']) ? trim($_POST['img_url']) : '';
         if (!empty($name)){
             if ($act == 'add'){
-                $res = $this->video->add_nav_info($id,$name,$des,$resource);
+                $res = $this->video->add_nav_info($id,$name,$des,$resource,$img_url);
             }else if($act == 'set') {
-                $res = $this->video->set_nav_info($id,$name,$des,$resource);
+                $res = $this->video->set_nav_info($id,$name,$des,$resource,$img_url);
             }
             echo json_encode(array('status'=>'success','res'=>$res));
         }else {

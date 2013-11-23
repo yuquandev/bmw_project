@@ -17,13 +17,13 @@ function bulid_infodata(){
     $('#infodata').css('padding','10px');
 }
 
-function bulid_upload(){
+function bulid_upload(act){
     $('#divFileProgressContainer').html('');
     $('#thumbnails').html('<img style="margin: 5px; vertical-align: middle; opacity: 1;width: 300px;" src="" />');
 
     var swfu = new SWFUpload({
         // Backend Settings
-        upload_url: "/index.php/admin/upload",
+        upload_url: "/index.php/admin/upload?act="+act,
         post_params: {},
 
         // File Upload Settings
@@ -232,9 +232,11 @@ function ajax_get_columns(table,title,id,that){
                     }else if (data[n]['field'] == 'vote_num'){
                         columns.push({field:data[n]['field'],title:data[n]['title'],sortable:true});
                     }else if (data[n]['field'] == 'description'){
-                        columns.push({field:data[n]['field'],title:data[n]['title'],width:120});
+                        columns.push({field:data[n]['field'],title:data[n]['title'],width:100});
                     }else if (data[n]['field'] == 'image_url'){
                         columns.push({field:data[n]['field'],title:data[n]['title'],width:110});
+                    }else if (data[n]['field'] == 'img_url'){
+                        columns.push({field:data[n]['field'],title:data[n]['title'],width:100});
                     }else {
                         columns.push({field:data[n]['field'],title:data[n]['title']});
                     }
@@ -346,7 +348,7 @@ function reload_datagrid(table,title,columns,id){
             if (table.substr(0,10) == 'video_list'){
                 for (var n in row){
                     if (n == 'id'){
-                        var tmp = '{id:'+row['id']+',video_url:\''+row['video_url']+'\',name:\''+row['name']+'\',c_url:\''+row['c_url']+'\',status:'+row['status']+'}';
+                        var tmp = '{id:'+row['id']+',description:\''+row['description']+'\',video_url:\''+row['video_url']+'\',name:\''+row['name']+'\',img_url:\''+row['img_url']+'\',status:'+row['status']+'}';
                     }
                     if (n == 'status' && row['status']==1){
                         row['status'] = '已禁用<br /><a href="javascript:void(0);" onclick="set_video_stat('+row['id']+','+row['status']+');">启用</a>';
@@ -355,6 +357,9 @@ function reload_datagrid(table,title,columns,id){
                     }
                     if (n == 'status'){
                         row['editor'] = '<a href="javascript:void(0);" onclick="add_video_dialog('+row['id']+','+tmp+');">修改</a><br /><a href="javascript:void(0);" onclick="confirm_dialog('+row['id']+',\'video\')">删除</a>';
+                    }
+                    if (n == 'img_url'){
+                        row[n] = '<img src="'+row[n]+'" width="100" height="100" />';
                     }
                 }
             }
@@ -546,13 +551,14 @@ function set_nav_stat(id,stat){
 
 //添加图片
 function add_topic_img(type_id,info) {
+    $('#div_upload_2').html(get_upload_dialog_html());
     type_id = type_id || 0;
     info = info || null;
     var act = '';
     var title = '';
     var id = 0;
 
-    bulid_upload();
+    bulid_upload('topic');
 
     if(!!info){
         act = 'set';
@@ -574,7 +580,7 @@ function add_topic_img(type_id,info) {
         $('#t_img_url').val('');
         $('#t_img_stat').val('');
         $('#t_img_file').val('');
-        $('#t_img_des').val();
+        $('#t_img_des').val('');
         $('#thumbnails').hide();
     }
     $('#t_img_dialog').show();
@@ -607,6 +613,7 @@ function add_topic_img(type_id,info) {
                                 $('#dg').datagrid('reload');
                             }
                             $('#t_img_dialog').dialog('close');
+                            $('#div_upload_2').html(' ');
                         }if (data.status == 'fails'){
                             alert('提交失败');
                         }
@@ -619,6 +626,7 @@ function add_topic_img(type_id,info) {
             text: '取消',
             handler: function() {
                 $('#t_img_dialog').dialog('close');
+                $('#div_upload_2').html(' ');
             }
         }]
     });
@@ -770,18 +778,26 @@ function ajax_reg_admin(){
 
 //添加导航对话框
 function add_video_dialog(type_id,info) {
+    $('#div_upload_1').html(get_upload_dialog_html());
     type_id = type_id || 0;
     info = info || null;
     var act = '';
     var title = '';
     var id = 0;
+
+    bulid_upload('video');
+
     if(!!info){
         id = info.id;
         act = 'set';
         title = '修改视频';
         $('#nav_name_').val(info.name);
-        $('#nav_des_').val(info.video_url);
-        $('#nav_resource_').val(info.c_url);
+        $('#nav_des_').val(info.description);
+        $('#nav_resource_').val(info.video_url);
+        $('#t_img_url').val(info.img_url);
+
+        $('#thumbnails').html('<img style="margin: 5px; vertical-align: middle; opacity: 1;width: 200px; height:200px;" src="'+info.img_url+'" />');
+        $('#thumbnails').show();
     }else {
         id = type_id;
         act = 'add';
@@ -789,6 +805,8 @@ function add_video_dialog(type_id,info) {
         $('#nav_name_').val('');
         $('#nav_des_').val('');
         $('#nav_resource_').val('');
+        $('#t_img_url').val('');
+        $('#thumbnails').hide();
     }
     $('#nav_dialog_').show();
     $('#nav_dialog_').dialog({
@@ -802,7 +820,7 @@ function add_video_dialog(type_id,info) {
             handler: function() {
                 $.ajax({url: '/index.php/admin/addvideo?_n='+ new Date().getTime(),
                     type: 'POST',
-                    data: {id:id,name : $('#nav_name_').val(),des: $('#nav_des_').val(),resource: $('#nav_resource_').val(),act:act},
+                    data: {id:id,name : $('#nav_name_').val(),des: $('#nav_des_').val(),resource: $('#nav_resource_').val(),act:act,img_url:$('#t_img_url').val()},
                     dataType: 'json',
                     beforeSend : function(){
                     },
@@ -822,6 +840,7 @@ function add_video_dialog(type_id,info) {
                                 $('#dg').datagrid('reload');
                             }
                             $('#nav_dialog_').dialog('close');
+                            $('#div_upload_1').html(' ');
                         }if (data.status == 'fails'){
                             alert('提交失败');
                         }
@@ -834,6 +853,7 @@ function add_video_dialog(type_id,info) {
             text: '取消',
             handler: function() {
                 $('#nav_dialog_').dialog('close');
+                $('#div_upload_1').html(' ');
             }
         }]
     });
@@ -954,7 +974,41 @@ function set_vote_num(id,num){
 }
 
 
+function get_nav_dialog_html(){
+    return ['<label class="lbInfo_">视频名称：</label>',
+        '<input id="nav_name_" type="text" class="" required="true" runat="server" /><br />',
+        '<label class="lbInfo">描　　述：</label>',
+        '<textarea id="nav_des_" type="text" class="" required="true" runat="server" style="height:40px;width:260px;" ></textarea><br />',
+        '<label class="lbInfo">视频地址：</label>',
+        '<input id="nav_resource_" type="text" class="" required="true" runat="server" style="width:260px;" /><br />',
+        '<label class="lbInfo">上传缩略：<input id="t_img_file" type="text" value="" style="margin-left:6px"/><a style="vertical-align:middle;" href="javascript:void(0)" id="add_btn" class="l-btn" group="" ><span class="l-btn-left"><span class="l-btn-text"><div id="spanButtonPlaceholder"></div></span></span></a></label><div id="divFileProgressContainer" style="height:14px;overflow: hidden;"></div><br />',
+        '<div id="error_banner"></div>',
+        '<div id="thumbnails" >',
+        '<img style="margin: 5px; vertical-align: middle; opacity: 1;width: 100px; height: 100px;" src="" />',
+        '</div>',
+        '<input id="t_img_url"  type="hidden" class=""  required="true" runat="server" /><br />'].join("");
+}
 
+function get_img_dialog_html(){
+    return ['    <label class="lbInfo">描　　述：</label>',
+    '    <textarea id="t_img_des" type="text" class="" style="width:200px;height:40px;margin-top:5px;" required="true" runat="server" ></textarea><br />',
+    '    <label class="lbInfo">上传图片：<input id="t_img_file" type="text" value="" style="margin-left:6px"/><a style="vertical-align:middle;" href="javascript:void(0)" id="add_btn" class="l-btn" group="" ><span class="l-btn-left"><span class="l-btn-text"><div id="spanButtonPlaceholder"></div></span></span></a></label><div id="divFileProgressContainer" style="height:14px;overflow: hidden;"></div><br />',
+    '   <div id="error_banner"></div>',
+    '    <div id="thumbnails" >',
+    '        <img style="margin: 5px; vertical-align: middle; opacity: 1;width: 100px; height: 100px;" src="" />',
+    '    </div>',
+    '    <input id="t_img_url"  type="hidden" class=""  required="true" runat="server" /><br />'].join('');
+}
+
+function get_upload_dialog_html(){
+    return [
+        '    <label class="lbInfo">上传图片：<input id="t_img_file" type="text" value="" style="margin-left:6px"/><a style="vertical-align:middle;" href="javascript:void(0)" id="add_btn" class="l-btn" group="" ><span class="l-btn-left"><span class="l-btn-text"><div id="spanButtonPlaceholder"></div></span></span></a></label><div id="divFileProgressContainer" style="height:14px;overflow: hidden;"></div><br />',
+        '   <div id="error_banner"></div>',
+        '    <div id="thumbnails" >',
+        '        <img style="margin: 5px; vertical-align: middle; opacity: 1;width: 100px; height: 100px;" src="" />',
+        '    </div>',
+        '    <input id="t_img_url"  type="hidden" class=""  required="true" runat="server" /><br />'].join('');
+}
 
 
 
