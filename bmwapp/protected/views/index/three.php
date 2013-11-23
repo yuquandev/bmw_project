@@ -1,4 +1,7 @@
-﻿<?php $this->beginContent('//index/header'); ?><?php $this->endContent(); ?><script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3168919025" type="text/javascript" charset="utf-8"></script><script>
+﻿<?php $this->beginContent('//index/header'); ?>
+<?php $this->endContent(); ?>
+<script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3168919025" type="text/javascript" charset="utf-8"></script>
+<script>
 $().ready(function(){
   $(".banner").hide();
   $(".featureBox").mouseover(function(){
@@ -8,7 +11,8 @@ $().ready(function(){
 	  $(this).find(".banner").hide();
   });
 });
-</script><div class="bm_index">
+</script>
+<div class="bm_index">
     <?php $this->beginContent('//index/nav'); ?>
     <?php $this->endContent(); ?>
     <!--活动细则-->
@@ -17,7 +21,7 @@ $().ready(function(){
         	<ul>
         		<li><a href="javascript:;"  class="hymenuon" id=menuTabmenu012_11 onclick="setTimeout('Show_menuTab012(1,1)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico.jpg" /><span>活动介绍</span></a></li>
             	<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu012_10 onclick="setTimeout('Show_menuTab012(1,0)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico2.jpg" /><span>活动规则</span></a></li>
-           		<li><a href="#top" class="hymenuoff"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico3.gif" /><span>作品展示</span></a></li>
+           		<li><a href="#top" class="hymenuoff"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico5.jpg" /><span>作品展示</span></a></li>
             </ul>
             <div class="bm_dl">
             	 <?php if (empty($this->userinfo)){?>
@@ -160,7 +164,22 @@ $().ready(function(){
 <!--注册账号-->
 <div id="com_dialog"></div>
 <!--登陆与注册-->
-<!--投票成功--><div class="bm_tp_tck mydiv"  id="popDiv5" style="display:none;">        <div class="bm_tck_title">        <span>提示</span>        <a href="javascript:closeDiv5();">X</a></div>        <div class="bm_tck_main2">        <div class="bm_main_sm2">        <img src="/img/bm_tck_pic.jpg" />        <span>恭喜你，投票成功！<br />(分享微博，有更多礼品哦！)</span>        </div>        <div class="bm_main_an2">        <input name="" type="button" class="bm_tck_an2" value="确 定" onclick="closeDiv5();"/>        <wb:share-button count="n" type="button" size="big" style="float:left"></wb:share-button>        </div>        </div></div>
+<!--投票成功-->
+<div class="bm_tp_tck mydiv"  id="popDiv5" style="display:none;">
+        <div class="bm_tck_title">
+        <span>提示</span>
+        <a href="javascript:closeDiv5();">X</a></div>
+        <div class="bm_tck_main2">
+        <div class="bm_main_sm2">
+        <img src="/img/bm_tck_pic.jpg" />
+        <span>恭喜你，投票成功！<br />(分享微博，有更多礼品哦！)</span>
+        </div>
+        <div class="bm_main_an2">
+        <input name="" type="button" class="bm_tck_an2" value="确 定" onclick="closeDiv5();"/>
+        <wb:share-button count="n" type="button" size="big" style="float:left"></wb:share-button>
+        </div>
+        </div>
+</div>
 <span id="popmsg"></span>
 
 <div id="bg" class="bg" style="display:none;"></div>
@@ -313,4 +332,5 @@ setTimeout('CompScr()',Speed);
     })();
 </script>
 
-</body></html>
+</body>
+</html>

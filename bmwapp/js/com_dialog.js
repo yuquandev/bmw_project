@@ -433,12 +433,15 @@ function top_vote(wid,num)
             if(rs == 1){
 
                 $('#vote_'+wid).html(parseInt(num) + 1);
-                pop_msg('恭喜你，投票成功!');
+                $("#popDiv5").css('display','block');
+                $("#bg").css('display','block');
+                
+                //pop_msg('恭喜你，投票成功!');
                 //pop_msg2();
             }else if(rs == 2){
-                pop_msg('投票失败，请不要恶意投票!');
+            	pop_msg('投票失败，请不要恶意投票!');
             }else{
-                pop_msg('你已经投过票了!');
+            	pop_msg('你已经投过票了!');
             }
         }
     });
@@ -467,24 +470,6 @@ function pop_msg(msg)
     $("#popmsg").html(pop);
 }
 
-//加分享提示
-function pop_msg2()
-{
-    var pop = ['<div class="bm_tp_tck mydiv"  id="popDiv5" style="display:block;">',
-        '<div class="bm_tck_title">',
-        '<span>提示</span>',
-        '<a href="javascript:closeDiv5();">X</a></div>',
-        '<div class="bm_tck_main2">',
-        '<div class="bm_main_sm2">',
-        '<img src="/img/bm_tck_pic.jpg" />',
-        '<span>恭喜你，投票成功！<br />(分享此图片，有更多礼品哦！)</span>',
-        '</div>',
-        '<div class="bm_main_an2">',
-        '<input name="" type="button" class="bm_tck_an2" value="确 定" onclick="closeDiv5();"/>',
-        '<wb:share-button addition="simple" type="button"></wb:share-button>',
-        '</div>',
-        '</div>',
-        '</div>'].join('');
-    $("#popmsg2").html(pop);
-}
+
+
 

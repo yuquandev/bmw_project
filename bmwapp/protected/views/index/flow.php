@@ -347,8 +347,8 @@ clearInterval(timer);
     <div class="bm_zpzs">
 <div class="bm_hd_title bm_hd_title2"><a name="flow"></a>
         	<ul>
-        		<li><a href="javascript:;"  class="hymenuon" id=menuTabmenu013_11 onclick="setTimeout('Show_menuTab013(1,1)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico.jpg" /><span>精彩图赏</span></a></li>
-            	<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu013_10 onclick="setTimeout('Show_menuTab013(1,0)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico2.jpg" /><span>视频剪辑</span></a></li>
+        		<li><a href="javascript:;"  class="hymenuon" id=menuTabmenu013_11 onClick="setTimeout('Show_menuTab013(1,1)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico5.gif" /><span>精彩图赏</span></a></li>
+            	<li><a href="javascript:;" class="hymenuoff" id=menuTabmenu013_10 onClick="setTimeout('Show_menuTab013(1,0)',200);"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico6.gif" /><span>精彩视频</span></a></li>
             </ul>
             <div class="bm_dl">
             	 <?php if (empty($this->userinfo)){?>
@@ -395,15 +395,41 @@ clearInterval(timer);
 
 </div>
 
-		<div class="bj_jcts_main" id="menuTabcontent013_10" style="display:none">         <?php if( $all_video ) :?>
-             <?php foreach($all_video as $key=>$val):?>             <div class="bm_spjj_list">                  <ul>                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/showvideo?sid=<?php echo $val['id']?>,video"><img src="<?php echo $val['img_url_path'];?>" width="290" height="205" />                    </a></li>                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/showvideo?sid=<?php echo $val['id']?>,video"><?php echo $val['name'];?></a></li>                  </ul>            </div>            <?php endforeach;?>          <?php endif;?></div></div>        </div>        <div class="clear"></div>    </div>    <!--底部-->
+		<div class="bj_jcts_main" id="menuTabcontent013_10" style="display:none">
+         <?php if( $all_video ) :?>
+             <?php foreach($all_video as $key=>$val):?>
+             <div class="bm_spjj_list">
+                  <ul>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/showvideo?sid=<?php echo $val['id']?>,video"><img src="<?php echo $val['img_url_path'];?>" width="290" height="205" />
+                    </a></li>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/showvideo?sid=<?php echo $val['id']?>,video"><?php echo $val['name'];?></a></li>
+                  </ul>
+            </div>
+            <?php endforeach;?>
+          <?php endif;?>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--底部-->
 
-    <?php $this->beginContent('//index/footer'); ?>    <?php $this->endContent(); ?>
+    <?php $this->beginContent('//index/footer'); ?>
+    <?php $this->endContent(); ?>
 
 </div>
 
 <!--上传图片-->
-<span id="uplode_img"></span><input type="hidden" id="ty_id" value="2"><!--注册账号--><div id="com_dialog"></div><!--登陆与注册--><!--投票成功--><span id="popmsg"></span><span id="popmsg2"></span><div id="bg" class="bg" style="display:none;"></div><iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
+<span id="uplode_img"></span>
+<input type="hidden" id="ty_id" value="2">
+<!--注册账号-->
+<div id="com_dialog"></div>
+<!--登陆与注册-->
+<!--投票成功-->
+<span id="popmsg"></span>
+<span id="popmsg2"></span>
+<div id="bg" class="bg" style="display:none;"></div>
+<iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
 
 </body>
 

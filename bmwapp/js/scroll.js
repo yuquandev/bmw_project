@@ -80,7 +80,7 @@ function() {$(this).fadeTo("slow", 5);
 
 
 function Show_menuTab012(menuTabid_num,menuTabnum){
-	for(var i=0;i<3;i++){
+	for(var i=0;i<2;i++){
 		document.getElementById("menuTabcontent012_"+menuTabid_num+i).style.display="none";
 
 		document.getElementById("menuTabmenu012_"+menuTabid_num+i).className="hymenuoff";
@@ -90,7 +90,7 @@ function Show_menuTab012(menuTabid_num,menuTabnum){
 }
 
 function Show_menuTab013(menuTabid_num,menuTabnum){
-	for(var i=0;i<3;i++){
+	for(var i=0;i<2;i++){
 		document.getElementById("menuTabcontent013_"+menuTabid_num+i).style.display="none";
 
 		document.getElementById("menuTabmenu013_"+menuTabid_num+i).className="hymenuoff";

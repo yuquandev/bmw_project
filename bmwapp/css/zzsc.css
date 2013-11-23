@@ -1,279 +1,286 @@
-
-A IMG {
-	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none
-}
-#featureContainer {
-	BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; MARGIN: 0px auto; WIDTH: 950px; FONT-SIZE: 80%; BORDER-TOP: #999 0px dotted; BORDER-RIGHT: #999 0px dotted
-}
-#wrap {
-	OVERFLOW: hidden
-}
-#load {
-	BACKGROUND-IMAGE: url(/img/loader32x32.gif); BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; TEXT-INDENT: -9999px; MARGIN: 0px auto; WIDTH: 923px; DISPLAY: none; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: center 50%; HEIGHT: 100px; BORDER-TOP: #999 0px dotted; BORDER-RIGHT: #999 0px dotted
-}
-#feature {
-	BORDER-BOTTOM: #999 0px dotted; POSITION: relative; BORDER-LEFT: #999 0px dotted; MARGIN-TOP: 5px; MARGIN-BOTTOM: 10px; BORDER-TOP: #999 0px dotted; BORDER-RIGHT: #999 0px dotted
-}
-#feature .button {
-	BORDER-BOTTOM: #999 0px dotted; POSITION: absolute; BORDER-LEFT: #999 0px dotted; WIDTH: 840px; BORDER-TOP: #999 0px dotted; TOP: 72px; BORDER-RIGHT: #999 0px dotted; LEFT: 0px
-}
-#feature .prev {
-	BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; TEXT-INDENT: -9999px; WIDTH: 14px; DISPLAY: block; position:relative; BACKGROUND: url(/img/feature_left.gif) center top; FLOAT: left; HEIGHT: 22px; BORDER-TOP: #999 0px dotted; TOP: -125px; BORDER-RIGHT: #999 0px dotted
-}
-#feature .next {
-	BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; TEXT-INDENT: -9999px; WIDTH:14px; DISPLAY: block; position:relative; BACKGROUND: url(/img/feature_right.gif) center top; FLOAT: right; HEIGHT: 22px; BORDER-TOP: #999 0px dotted; TOP: -125px; BORDER-RIGHT: #999 0px dotted
-}
-#feature .prev:hover {
-	BACKGROUND-POSITION: center bottom
-}
-#feature .next:hover {
-	BACKGROUND-POSITION: center bottom
-}
-.featureUL {
-	BORDER-BOTTOM: #000 0px dotted; POSITION: relative; BORDER-LEFT: #000 0px dotted; PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 2800px; PADDING-RIGHT: 0px; FLOAT: left; BORDER-TOP: #000 0px dotted; BORDER-RIGHT: #000 0px dotted; PADDING-TOP: 0px; LEFT: 0px
-}
-.featureBox {
-	  WIDTH: 265px; BACKGROUND-REPEAT: no-repeat; FLOAT: left; HEIGHT: 176px; OVERFLOW: hidden; margin-right: 18px; background:#f2eeeb; border:1px solid #d3d1c5; padding:5px;
-}
-#botton-scroll {
-	Z-INDEX: 0; BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; MARGIN: 0px auto; WIDTH: 855px; FLOAT: left; HEIGHT: 200px; BORDER-TOP: #999 0px dotted; BORDER-RIGHT: #999 0px dotted
-}
-#block {
-	Z-INDEX: 0; BORDER-BOTTOM: #999 0px dotted; POSITION: relative; BORDER-LEFT: #999 0px dotted; PADDING-BOTTOM: 20px; MARGIN: 0px auto; PADDING-LEFT: 0px; WIDTH: 870px; PADDING-RIGHT: 0px; HEIGHT: 180px; FONT-SIZE: 70%; OVERFLOW: hidden; BORDER-TOP: #999 0px dotted; BORDER-RIGHT: #999 0px dotted; PADDING-TOP: 0px
-}
-#block .box {
-	WIDTH: 265px; HEIGHT: 176px; background:#fff; text-align:center; display:block;vertical-align:middle;display: table-cell;*display: block;
-}
-.box a img{ vertical-align:middle;text-align:center;*+font-size:175px;}
-
-/*3系*/
-#feature .button2 {
-	BORDER-BOTTOM: #999 0px dotted; POSITION: absolute; BORDER-LEFT: #999 0px dotted; WIDTH: 840px; BORDER-TOP: #999 0px dotted; TOP: 72px; BORDER-RIGHT: #999 0px dotted; LEFT: 0px
-}
-#feature .prev2 {
-	BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; TEXT-INDENT: -9999px; WIDTH: 14px; DISPLAY: block; position:relative; BACKGROUND: url(/img/feature_left.gif) center top; FLOAT: left; HEIGHT: 22px; BORDER-TOP: #999 0px dotted; TOP: -125px; BORDER-RIGHT: #999 0px dotted
-}
-#feature .next2 {
-	BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; TEXT-INDENT: -9999px; WIDTH:14px; DISPLAY: block; position:relative; BACKGROUND: url(/img/feature_right.gif) center top; FLOAT: right; HEIGHT: 22px; BORDER-TOP: #999 0px dotted; TOP: -125px; BORDER-RIGHT: #999 0px dotted
-}
-#feature .prev2:hover {
-	BACKGROUND-POSITION: center bottom
-}
-#feature .next2:hover {
-	BACKGROUND-POSITION: center bottom
-}
-.featureUL2 {
-	BORDER-BOTTOM: #000 0px dotted; POSITION: relative; BORDER-LEFT: #000 0px dotted; PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 2800px; PADDING-RIGHT: 0px; FLOAT: left; BORDER-TOP: #000 0px dotted; BORDER-RIGHT: #000 0px dotted; PADDING-TOP: 0px; LEFT: 0px
-}
-.featureBox {
-	  WIDTH: 265px; BACKGROUND-REPEAT: no-repeat; FLOAT: left; HEIGHT: 176px; OVERFLOW: hidden; margin-right: 18px; background:#f2eeeb; border:1px solid #d3d1c5; padding:5px;
-}
-#botton-scroll2 {
-	Z-INDEX: 0; BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; MARGIN: 0px auto; WIDTH: 855px; FLOAT: left; HEIGHT: 200px; BORDER-TOP: #999 0px dotted; BORDER-RIGHT: #999 0px dotted
-}
-
-#block .box2 {
-	WIDTH: 265px; HEIGHT: 176px; background:#fff; text-align:center; display:block;vertical-align:middle;display: table-cell;*display: block;
-}
-.box2 a img{ vertical-align:middle;text-align:center;*+font-size:175px;}
-
-
-
-
-
-/*产品展示效果*/
-.HS10, .HS15{overflow:hidden;clear:both;}
-.HS10{height:10px;}
-.HS15{height:15px;}
-.Hidden{display:none;}
-.Clearer{display:block;clear:both;font-size:1px;line-height:1px;margin:0;padding:0;}
-.FlLeft{float:right;}
-.FlRight{float:left;}
-/*幻灯片区域背景*/
-.MainBg{width:980px;margin:0 auto; overflow:hidden;}
-/*灰色分隔线*/
-.SpaceLine{border-bottom:1px solid #d0d0d0;height:1px;font-size:1px;}
-/*大图展示区域*/
-.OriginalPicBorder{padding:15px 32px 0 24px;}
-#OriginalPic{width:930px;overflow:hidden;position:relative;font-size:12px;}
-#OriginalPic img{display:block;margin:0 auto;max-width:100%;-webkit-touch-callout:none;}
-/*鼠标手势*/
-.CursorL{position:absolute;z-index:999;width:50%;height:500px;color:#FFF;left:0px;cursor:url(/img/CurL.cur), auto;background:url(/img/space.png) repeat scroll 0 0 transparent; cursor:pointer;}
-.CursorR{position:absolute;z-index:999;width:50%;height:500px;color:#FFF;right:240px;cursor:url(/img/CurR.cur), auto;background:url(/img/space.png) repeat scroll 0 0 transparent;cursor:pointer;}
-/*小图预览和滑动*/
-.SliderPicBorder{width:676px;overflow:hidden; background:#f4f1ec; border:1px solid #d1d1d1; padding:10px;}
-.SliderPicBorder2{width:900px; margin:0 auto;overflow:hidden; background:#f4f1ec; border:1px solid #d1d1d1; padding:10px;}
-
-.Summary{ width:214px;margin-left:18px;}
-.Summary strong{ line-height:24px; font-size:16px;}
-.More{text-align:right;color:#666;line-height:47px;height:47px;font-size:12px;display:block;}        
-.ThumbPicBorder {width:940px;margin:0 auto;}
-#ThumbPic img{border:1px solid #d0d0d0;cursor:pointer;background-color:#f4f1ec;margin:0 9px;width:104px;height:72px;display:block;}
-#ThumbPic img.active{border:1px solid #FF9900;}
-.bm_tp{ width:132px; height:36px; text-align:center; font-size:14px; color:#fff; font-size:14px; cursor:pointer; margin-bottom:16px; background:url(/img/tck_an2.jpg); border:none; line-height:36px; margin-top:62px; display:block;}
-.wb_fx{ width:214px; margin:0 auto; margin-top:36px; margin-left:6px;}
-.bm_nr{line-height:20px;display:block;width:192px;color:#060606;overflow:hidden;background-color:#fff; height:100%; padding:10px; border:1px solid #e8e8e8; line-height:20px; margin-bottom:14px;}
-.bm_wz{ display:block; height:auto; line-height:24px;  color:#060606; padding-top:10px;background-color:#f8f7f5; padding:5px;}
-.bm_wz2{ display:block; height:auto; line-height:24px;  color:#060606; padding-top:10px;background-color:#fff; padding:5px;}
-
-
-
-
-/*弹出框*/
-.mydiv {
-z-index:999;
-left:40%;
-top:40%;
-margin-left:-150px!important;/*FF IE7 该值为本身宽的一半 */
-margin-top:-60px!important;/*FF IE7 该值为本身高的一半*/
-margin-top:0px;
-position:fixed!important;/* FF IE7*/
-position:absolute;/*IE6*/
-_top:       expression(eval(document.compatMode &&
-            document.compatMode=='CSS1Compat') ?
-            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
-            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
-    border-radius: 3px;-webkit-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);background-clip:padding-box;outline:0;-moz-border-radius:10px;
--webkit-border-radius:10px; 
-}
-.mydiv2 {
-z-index:999;
-left:40%;
-top:40%;
-margin-left:-150px!important;/*FF IE7 该值为本身宽的一半 */
-margin-top:-60px!important;/*FF IE7 该值为本身高的一半*/
-margin-top:0px;
-position:fixed!important;/* FF IE7*/
-position:absolute;/*IE6*/
-_top:       expression(eval(document.compatMode &&
-            document.compatMode=='CSS1Compat') ?
-            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
-            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
-}
-.mydiv3 {
-z-index:999;
-left:40%;
-top:40%;
-margin-left:-150px!important;/*FF IE7 该值为本身宽的一半 */
-margin-top:-60px!important;/*FF IE7 该值为本身高的一半*/
-margin-top:0px;
-position:fixed!important;/* FF IE7*/
-position:absolute;/*IE6*/
-_top:       expression(eval(document.compatMode &&
-            document.compatMode=='CSS1Compat') ?
-            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
-            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
-}
-
-.bg,.popIframe {
-background-color: #666; display:none;
-width: 100%;
-height: 100%;
-left:0;
-top:0;/*FF IE7*/
-filter:alpha(opacity=50);/*IE*/
-opacity:0.5;/*FF*/
-z-index:1;
-position:fixed!important;/*FF IE7*/
-position:absolute;/*IE6*/
-_top:       expression(eval(document.compatMode &&
-            document.compatMode=='CSS1Compat') ?
-            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
-            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);
-}
-.popIframe {
-filter:alpha(opacity=0);/*IE*/
-opacity:0;/*FF*/
-}
-
-
-
-
-/*视频切换效果*/
-#focus{position: relative;height: 210px;width: 400px; margin-top:40px;}
-#focus .bd{position: relative}
-#focus .btn-prev, #focus .btn-next{display: none;position: absolute;top: 130px;width: 40px;height: 80px;z-index: 2}
-#focus .btn-prev{left: 0;background: url(/img/left-arrow.png) no-repeat;_background: 0;
-filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/left-arrow.png")}
-#focus .btn-next{right: 0;background: url(/img/right-arrow.png) no-repeat;_background: 0;
-filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/right-arrow.png")}
-#focus .focus-bar-box{width: 100%;height: 230px;position: relative;overflow: hidden}
-#focus .focus-bar{width: 10000px}
-#focus .focus-bar li{float: left;width: 750px;height: 210px}
-#focus .focus-bar li a{width: 100%;height: 100%;display: block}
-#focus .focus-bar li img{width: 100%;min-height: 100%}
-#focus .ft{position: absolute;left: 0;bottom:-50px;z-index: 1;width: 240px;height: 20px; right:100px;}
-#focus .change{position: absolute;right: 0;bottom: 15px;height: 10px}
-#focus .change a{float: left;width:6px;height: 6px;margin-right: 10px;background: url(/img/btn-normal.png) no-repeat;_background: 0;
-_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/btn-normal.png");cursor: pointer}
-#focus .change a.on{background: url(/img/btn-active.png) no-repeat;_background: 0;
-_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/btn-active.png")}
-#focus .hd{position: absolute;left: 0;bottom: 0;z-index: 2;width: 400px;height: 40px; top:-50px; padding-left:10px;}
-#focus .focus-title{overflow: hidden;position: absolute;top: 0;left: 0;height: 30px;line-height: 30px;font-size: 24px;}
-#focus .focus-title .title{color: #64d734}
-#focus .hdicon{position: absolute;left:10px;bottom: 10px;width: 59px;height: 59px;background: url(/img/play-btn.png) no-repeat;_background: 0;
-filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/play-btn.png")}
-#focus .focus-title a{display: none;color: #000}
-
-
-
-
-
-/*3系视频切换*/
-.pilot .pilotmain{
-	width:460px;
-	height:275px;
-	position:absolute;
-	left:27px;
-}
-.pilotpic{
-	width:400px;
-	height:275px;
-	position:absolute;
-	overflow:hidden;
-	left:24px;
-	}
-.pilotpic .ScrCont{
-	width:100000px;
-	}	
-.pilotpic #List1,.pilotpic #List2{
-	float:left;
-	}
-.pilotpic ul li{
-	width:400px;
-	height:275px;
-    border-radius: 3px;
-	display:block;
-	float:left;
-	margin-right:12px;
-	}
-.wz_js{ font-size:20px; line-height:24px; padding-bottom:5px; padding-left:20px;}
-.pilotleft{
-	width:23px;
-	height:44px;
-	position:absolute;
-	background:url(/img/fc_left.png) no-repeat;
-	top:130px;
-	cursor:pointer;
-	}
-.pilotright{
-	width:23px;
-	height:44px;
-	position:absolute;
-	background:url(/img/fc_right.png) no-repeat;
-	top:130px;
-	right:10px;
-	cursor:pointer;
-	}
-/*3系视频切换*/
-
-
-.Summary2{ width:214px;margin-left:18px;}
-.Summary2 strong{ line-height:24px; font-size:16px;}
-.More{text-align:right;color:#666;line-height:47px;height:47px;font-size:12px;display:block;}        
-.bm_tp{ width:132px; height:36px; text-align:center; font-size:14px; color:#fff; font-size:14px; cursor:pointer; margin-bottom:16px; background:url(/img/tck_an2.jpg); border:none; line-height:36px; margin-top:62px; display:block;}
-.bm_tu_wen{ margin:0 auto; line-height:24px; padding:10px; font-size:14px; display:block;}
-.Title{color:#666;padding:5px 20px 0 20px;text-align:center;line-height:40px;height:40px; margin-top:10px;}
-.Title h1{display:inline;}
-	
-
+
+A IMG {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none
+}
+#featureContainer {
+	BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; MARGIN: 0px auto; WIDTH: 950px; FONT-SIZE: 80%; BORDER-TOP: #999 0px dotted; BORDER-RIGHT: #999 0px dotted
+}
+#wrap {
+	OVERFLOW: hidden
+}
+#load {
+	BACKGROUND-IMAGE: url(/img/loader32x32.gif); BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; TEXT-INDENT: -9999px; MARGIN: 0px auto; WIDTH: 923px; DISPLAY: none; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: center 50%; HEIGHT: 100px; BORDER-TOP: #999 0px dotted; BORDER-RIGHT: #999 0px dotted
+}
+#feature {
+	BORDER-BOTTOM: #999 0px dotted; POSITION: relative; BORDER-LEFT: #999 0px dotted; MARGIN-TOP: 5px; MARGIN-BOTTOM: 10px; BORDER-TOP: #999 0px dotted; BORDER-RIGHT: #999 0px dotted
+}
+#feature .button {
+	BORDER-BOTTOM: #999 0px dotted; POSITION: absolute; BORDER-LEFT: #999 0px dotted; WIDTH: 840px; BORDER-TOP: #999 0px dotted; TOP: 72px; BORDER-RIGHT: #999 0px dotted; LEFT: 0px
+}
+#feature .prev {
+	BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; TEXT-INDENT: -9999px; WIDTH: 14px; DISPLAY: block; position:relative; BACKGROUND: url(/img/feature_left.gif) center top; FLOAT: left; HEIGHT: 22px; BORDER-TOP: #999 0px dotted; TOP: -125px; BORDER-RIGHT: #999 0px dotted
+}
+#feature .next {
+	BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; TEXT-INDENT: -9999px; WIDTH:14px; DISPLAY: block; position:relative; BACKGROUND: url(/img/feature_right.gif) center top; FLOAT: right; HEIGHT: 22px; BORDER-TOP: #999 0px dotted; TOP: -125px; BORDER-RIGHT: #999 0px dotted
+}
+#feature .prev:hover {
+	BACKGROUND-POSITION: center bottom
+}
+#feature .next:hover {
+	BACKGROUND-POSITION: center bottom
+}
+.featureUL {
+	BORDER-BOTTOM: #000 0px dotted; POSITION: relative; BORDER-LEFT: #000 0px dotted; PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 2800px; PADDING-RIGHT: 0px; FLOAT: left; BORDER-TOP: #000 0px dotted; BORDER-RIGHT: #000 0px dotted; PADDING-TOP: 0px; LEFT: 0px
+}
+.featureBox {
+	  WIDTH: 265px; BACKGROUND-REPEAT: no-repeat; FLOAT: left; HEIGHT: 176px; OVERFLOW: hidden; margin-right: 18px; background:#f2eeeb; border:1px solid #d3d1c5; padding:5px; position:relative;
+}
+#botton-scroll {
+	Z-INDEX: 0; BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; MARGIN: 0px auto; WIDTH: 855px; FLOAT: left; HEIGHT: 200px; BORDER-TOP: #999 0px dotted; BORDER-RIGHT: #999 0px dotted
+}
+#block {
+	Z-INDEX: 0; BORDER-BOTTOM: #999 0px dotted; POSITION: relative; BORDER-LEFT: #999 0px dotted; PADDING-BOTTOM: 20px; MARGIN: 0px auto; PADDING-LEFT: 0px; WIDTH: 870px; PADDING-RIGHT: 0px; HEIGHT: 180px; FONT-SIZE: 70%; OVERFLOW: hidden; BORDER-TOP: #999 0px dotted; BORDER-RIGHT: #999 0px dotted; PADDING-TOP: 0px
+}
+#block .box {
+	WIDTH: 265px; HEIGHT: 176px; background:#fff; text-align:center; display:block;vertical-align:middle;display: table-cell;*display: block;
+}
+.box a img{ vertical-align:middle;text-align:center;*+font-size:175px;}
+
+/*3系*/
+#feature .button2 {
+	BORDER-BOTTOM: #999 0px dotted; POSITION: absolute; BORDER-LEFT: #999 0px dotted; WIDTH: 840px; BORDER-TOP: #999 0px dotted; TOP: 72px; BORDER-RIGHT: #999 0px dotted; LEFT: 0px
+}
+#feature .prev2 {
+	BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; TEXT-INDENT: -9999px; WIDTH: 14px; DISPLAY: block; position:relative; BACKGROUND: url(/img/feature_left.gif) center top; FLOAT: left; HEIGHT: 22px; BORDER-TOP: #999 0px dotted; TOP: -125px; BORDER-RIGHT: #999 0px dotted
+}
+#feature .next2 {
+	BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; TEXT-INDENT: -9999px; WIDTH:14px; DISPLAY: block; position:relative; BACKGROUND: url(/img/feature_right.gif) center top; FLOAT: right; HEIGHT: 22px; BORDER-TOP: #999 0px dotted; TOP: -125px; BORDER-RIGHT: #999 0px dotted
+}
+#feature .prev2:hover {
+	BACKGROUND-POSITION: center bottom
+}
+#feature .next2:hover {
+	BACKGROUND-POSITION: center bottom
+}
+.featureUL2 {
+	BORDER-BOTTOM: #000 0px dotted; POSITION: relative; BORDER-LEFT: #000 0px dotted; PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 2800px; PADDING-RIGHT: 0px; FLOAT: left; BORDER-TOP: #000 0px dotted; BORDER-RIGHT: #000 0px dotted; PADDING-TOP: 0px; LEFT: 0px
+}
+.featureBox {
+	  WIDTH: 265px; BACKGROUND-REPEAT: no-repeat; FLOAT: left; HEIGHT: 176px; OVERFLOW: hidden; margin-right: 18px; background:#f2eeeb; border:1px solid #d3d1c5; padding:5px;
+}
+#botton-scroll2 {
+	Z-INDEX: 0; BORDER-BOTTOM: #999 0px dotted; BORDER-LEFT: #999 0px dotted; MARGIN: 0px auto; WIDTH: 855px; FLOAT: left; HEIGHT: 200px; BORDER-TOP: #999 0px dotted; BORDER-RIGHT: #999 0px dotted
+}
+
+#block .box2 {
+	WIDTH: 265px; HEIGHT: 176px; background:#fff; text-align:center; display:block;vertical-align:middle;display: table-cell;*display: block;
+}
+.box2 a img{ vertical-align:middle;text-align:center;*+font-size:175px;}
+
+
+
+
+
+/*产品展示效果*/
+.HS10, .HS15{overflow:hidden;clear:both;}
+.HS10{height:10px;}
+.HS15{height:15px;}
+.Hidden{display:none;}
+.Clearer{display:block;clear:both;font-size:1px;line-height:1px;margin:0;padding:0;}
+.FlLeft{float:right;}
+.FlRight{float:left;}
+/*幻灯片区域背景*/
+.MainBg{width:980px;margin:0 auto; overflow:hidden;}
+/*灰色分隔线*/
+.SpaceLine{border-bottom:1px solid #d0d0d0;height:1px;font-size:1px;}
+/*大图展示区域*/
+.OriginalPicBorder{padding:15px 32px 0 24px;}
+#OriginalPic{width:930px;overflow:hidden;position:relative;font-size:12px;}
+#OriginalPic img{display:block;margin:0 auto;max-width:100%;-webkit-touch-callout:none;}
+/*鼠标手势*/
+.CursorL{position:absolute;z-index:999;width:50%;height:500px;color:#FFF;left:0px;cursor:url(/img/CurL.cur), auto;background:url(/img/space.png) repeat scroll 0 0 transparent; cursor:pointer;}
+.CursorR{position:absolute;z-index:999;width:50%;height:500px;color:#FFF;right:240px;cursor:url(/img/CurR.cur), auto;background:url(/img/space.png) repeat scroll 0 0 transparent;cursor:pointer;}
+/*小图预览和滑动*/
+.SliderPicBorder{width:676px;overflow:hidden; background:#f4f1ec; border:1px solid #d1d1d1; padding:10px;}
+.SliderPicBorder2{width:900px; margin:0 auto;overflow:hidden; background:#f4f1ec; border:1px solid #d1d1d1; padding:10px;}
+
+.Summary{ width:214px;margin-left:18px;}
+.Summary strong{ line-height:24px; font-size:16px;}
+.More{text-align:right;color:#666;line-height:47px;height:47px;font-size:12px;display:block;}        
+.ThumbPicBorder {width:940px;margin:0 auto;}
+#ThumbPic img{border:1px solid #d0d0d0;cursor:pointer;background-color:#f4f1ec;margin:0 9px;width:104px;height:72px;display:block;}
+#ThumbPic img.active{border:1px solid #FF9900;}
+.bm_tp{ width:132px; height:36px; text-align:center; font-size:14px; color:#fff; font-size:14px; cursor:pointer; margin-bottom:16px; background:url(/img/tck_an2.jpg); border:none; line-height:36px; margin-top:62px; display:block;}
+.wb_fx{ width:214px; margin:0 auto; margin-top:36px; margin-left:6px;}
+.bm_nr{line-height:20px;display:block;width:192px;color:#060606;overflow:hidden;background-color:#fff; height:100%; padding:10px; border:1px solid #e8e8e8; line-height:20px; margin-bottom:14px;}
+.bm_wz{ display:block; height:auto; line-height:24px;  color:#060606; padding-top:10px;background-color:#f8f7f5; padding:5px;}
+.bm_wz2{ display:block; height:auto; line-height:24px;  color:#060606; padding-top:10px;background-color:#fff; padding:5px;}
+
+
+
+
+/*弹出框*/
+.mydiv {
+z-index:999;
+left:40%;
+top:40%;
+margin-left:-150px!important;/*FF IE7 该值为本身宽的一半 */
+margin-top:-60px!important;/*FF IE7 该值为本身高的一半*/
+margin-top:0px;
+position:fixed!important;/* FF IE7*/
+position:absolute;/*IE6*/
+_top:       expression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+    border-radius: 3px;-webkit-box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);box-shadow:0 3px 7px rgba(0, 0, 0, 0.3);background-clip:padding-box;outline:0;-moz-border-radius:10px;
+-webkit-border-radius:10px; 
+}
+.mydiv2 {
+z-index:999;
+left:40%;
+top:40%;
+margin-left:-150px!important;/*FF IE7 该值为本身宽的一半 */
+margin-top:-60px!important;/*FF IE7 该值为本身高的一半*/
+margin-top:0px;
+position:fixed!important;/* FF IE7*/
+position:absolute;/*IE6*/
+_top:       expression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+}
+.mydiv3 {
+z-index:999;
+left:40%;
+top:40%;
+margin-left:-150px!important;/*FF IE7 该值为本身宽的一半 */
+margin-top:-60px!important;/*FF IE7 该值为本身高的一半*/
+margin-top:0px;
+position:fixed!important;/* FF IE7*/
+position:absolute;/*IE6*/
+_top:       expression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+}
+
+.bg,.popIframe {
+background-color: #666; display:none;
+width: 100%;
+height: 100%;
+left:0;
+top:0;/*FF IE7*/
+filter:alpha(opacity=50);/*IE*/
+opacity:0.5;/*FF*/
+z-index:1;
+position:fixed!important;/*FF IE7*/
+position:absolute;/*IE6*/
+_top:       expression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);
+}
+.popIframe {
+filter:alpha(opacity=0);/*IE*/
+opacity:0;/*FF*/
+}
+
+
+
+
+/*视频切换效果*/
+#focus{position: relative;height: 210px;width: 400px; margin-top:40px;}
+#focus .bd{position: relative}
+#focus .btn-prev, #focus .btn-next{display: none;position: absolute;top: 130px;width: 40px;height: 80px;z-index: 2}
+#focus .btn-prev{left: 0;background: url(/img/left-arrow.png) no-repeat;_background: 0;
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/left-arrow.png")}
+#focus .btn-next{right: 0;background: url(/img/right-arrow.png) no-repeat;_background: 0;
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/right-arrow.png")}
+#focus .focus-bar-box{width: 100%;height: 230px;position: relative;overflow: hidden}
+#focus .focus-bar{width: 10000px}
+#focus .focus-bar li{float: left;width: 750px;height: 210px}
+#focus .focus-bar li a{width: 100%;height: 100%;display: block}
+#focus .focus-bar li img{width: 100%;min-height: 100%}
+#focus .ft{position: absolute;left: 0;bottom:-50px;z-index: 1;width: 240px;height: 20px; right:100px;}
+#focus .change{position: absolute;right: 0;bottom: 15px;height: 10px}
+#focus .change a{float: left;width:6px;height: 6px;margin-right: 10px;background: url(/img/btn-normal.png) no-repeat;_background: 0;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/btn-normal.png");cursor: pointer}
+#focus .change a.on{background: url(/img/btn-active.png) no-repeat;_background: 0;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/btn-active.png")}
+#focus .hd{position: absolute;left: 0;bottom: 0;z-index: 2;width: 400px;height: 40px; top:-50px; padding-left:10px;}
+#focus .focus-title{overflow: hidden;position: absolute;top: 0;left: 0;height: 30px;line-height: 30px;font-size: 24px;}
+#focus .focus-title .title{color: #64d734}
+#focus .hdicon{position: absolute;left:10px;bottom: 10px;width: 59px;height: 59px;background: url(/img/play-btn.png) no-repeat;_background: 0;
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src="/img/play-btn.png")}
+#focus .focus-title a{display: none;color: #000}
+
+
+
+
+
+/*3系视频切换*/
+.pilot .pilotmain{
+	width:460px;
+	height:275px;
+	position:absolute;
+	left:27px;
+}
+.pilotpic{
+	width:400px;
+	height:275px;
+	position:absolute;
+	overflow:hidden;
+	left:24px;
+	}
+.pilotpic .ScrCont{
+	width:100000px;
+	}	
+.pilotpic #List1,.pilotpic #List2{
+	float:left;
+	}
+.pilotpic ul li{
+	width:400px;
+	height:275px;
+    border-radius: 3px;
+	display:block;
+	float:left;
+	margin-right:12px;
+	}
+.wz_js{ font-size:20px; line-height:24px; padding-bottom:5px; padding-left:20px;}
+.pilotleft{
+	width:23px;
+	height:44px;
+	position:absolute;
+	background:url(/img/fc_left.png) no-repeat;
+	top:130px;
+	cursor:pointer;
+	}
+.pilotright{
+	width:23px;
+	height:44px;
+	position:absolute;
+	background:url(/img/fc_right.png) no-repeat;
+	top:130px;
+	right:10px;
+	cursor:pointer;
+	}
+/*3系视频切换*/
+
+
+.Summary2{ width:214px;margin-left:18px;}
+.Summary2 strong{ line-height:24px; font-size:16px;}
+.More{text-align:right;color:#666;line-height:47px;height:47px;font-size:12px;display:block;}        
+.bm_tp{ width:132px; height:36px; text-align:center; font-size:14px; color:#fff; font-size:14px; cursor:pointer; margin-bottom:16px; background:url(/img/tck_an2.jpg); border:none; line-height:36px; margin-top:62px; display:block;}
+.bm_tu_wen{ margin:0 auto; line-height:24px; padding:10px; font-size:14px; display:block;}
+.Title{color:#666;padding:5px 20px 0 20px;text-align:center;line-height:40px;height:40px; margin-top:10px;}
+.Title h1{display:inline;}
+	
+/*精彩图赏*/
+.banner {
+ width: 265px;position: absolute; height:24px;left: 5px; bottom: 5px;color: #fff;text-align: center;opacity:0.9;filter:alpha(opacity=90);background:#000;  line-height:24px;}
+.banner a{ color:#fff; text-decoration:none;}
+.featureBox .banner {display: block;}
+.featureBox_two { width: 285px; position: relative;}
+
+
