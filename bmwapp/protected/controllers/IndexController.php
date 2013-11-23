@@ -198,7 +198,15 @@ class IndexController extends Controller {
         }
         //video
         $all_video = $this->video->selectVideo(array('status'=>0));
-    	$data = array(
+    	if($all_video){
+       //查找文件缩略图
+		        foreach($all_video as $key=>$val)
+		        {
+		           $all_video[$key]['img_url_path'] =  !empty($val['img_url'])  ? $val['img_url'] : '/img/bm_spt_pic.jpg';
+		        }
+    	}
+    	//var_dump($all_video);
+        $data = array(
            'all_img'=>$all_img,
     	   'all_video'=>$all_video,
         );
