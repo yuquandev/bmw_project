@@ -396,7 +396,7 @@ clearInterval(timer);
 </div>
 
 		<div class="bj_jcts_main" id="menuTabcontent013_10" style="display:none">         <?php if( $all_video ) :?>
-             <?php foreach($all_video as $key=>$val):?>             <div class="bm_spjj_list">                  <ul>                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/showvideo?sid=<?php echo $val['id']?>,video"><img src="/img/bm_spt_pic.jpg" width="290" height="205" />                    </a></li>                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/showvideo?sid=<?php echo $val['id']?>,video"><?php echo $val['name'];?></a></li>                  </ul>            </div>            <?php endforeach;?>          <?php endif;?></div></div>        </div>        <div class="clear"></div>    </div>    <!--底部-->
+             <?php foreach($all_video as $key=>$val):?>             <div class="bm_spjj_list">                  <ul>                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/showvideo?sid=<?php echo $val['id']?>,video"><img src="<?php echo $val['img_url_path'];?>" width="290" height="205" />                    </a></li>                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/showvideo?sid=<?php echo $val['id']?>,video"><?php echo $val['name'];?></a></li>                  </ul>            </div>            <?php endforeach;?>          <?php endif;?></div></div>        </div>        <div class="clear"></div>    </div>    <!--底部-->
 
     <?php $this->beginContent('//index/footer'); ?>    <?php $this->endContent(); ?>
 
