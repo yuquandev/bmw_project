@@ -22,6 +22,11 @@ class IndexController extends Controller {
 	
    
     public function init(){
+        //web wap dump
+        /*if($this->check_wap() == true ){
+           $this->redirect('/index.php/phone');
+           exit;
+        }*/
         $this->works       = new Works();
         $this->user        = new User();
 	    $this->topicimage  = new TopicImage();

@@ -5,5 +5,5 @@
     <div class="bm_rcjh">
     	<div class="bm_zpzs_title">
         	<span>人车交互</span>
-        </div> <a name="rche"></a><div class="bm_rcjh_main"><img src="/img/bm_rcjh.jpg" /></div></div><div class="clear"></div></div>    <!--底部-->    <?php $this->beginContent('//index/footer'); ?>    <?php $this->endContent(); ?></div><!--上传图片--><div id="bg" class="bg" style="display:none;"></div><iframe id='popIframe' class='popIframe' frameborder='0' ></iframe></body></html>
+        </div> <a name="rche"></a><!--  <div class="bm_rcjh_main"><img src="/img/bm_rcjh.jpg" /></div>--><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="980" height="570">    <param name="movie" value="/flash/loading.swf">    <param name="quality" value="high">    <embed src="/flash/loading.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="980" height="570"></embed></object></div><div class="clear"></div></div>    <!--底部-->    <?php $this->beginContent('//index/footer'); ?>    <?php $this->endContent(); ?></div><!--上传图片--><div id="bg" class="bg" style="display:none;"></div><iframe id='popIframe' class='popIframe' frameborder='0' ></iframe></body></html>
 

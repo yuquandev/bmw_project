@@ -1,8 +1,5 @@
 ﻿<?php $this->beginContent('//index/header'); ?>
-<?php $this->endContent(); ?>
-<script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3168919025" type="text/javascript" charset="utf-8"></script>
-<script>
-$().ready(function(){
+<?php $this->endContent(); ?><script>$().ready(function(){
   $(".banner").hide();
   $(".featureBox").mouseover(function(){
 	  $(this).find(".banner").show();
@@ -165,7 +162,7 @@ $().ready(function(){
 <div id="com_dialog"></div>
 <!--登陆与注册-->
 <!--投票成功-->
-<div class="bm_tp_tck mydiv"  id="popDiv5" style="display:none;">
+<div class="bm_tp_tck mydiv"  id="popDiv5" style="display:block;">
         <div class="bm_tck_title">
         <span>提示</span>
         <a href="javascript:closeDiv5();">X</a></div>

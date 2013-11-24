@@ -1710,3 +1710,23 @@ Stack trace:
 #11 {main}
 REQUEST_URI=/index.php
 ---
+2013/11/24 09:28:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "flash".' in D:\xampp\htdocs\bmw_project\framework\web\CController.php:483
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(270): CController->missingAction('flash')
+#1 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): CController->run('flash')
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('index/flash/BWM...')
+#3 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/index/flash/BWMmain.swf
+HTTP_REFERER=http://bmw.com/flash/loading.swf
+---
+2013/11/24 10:52:23 [error] [php] Undefined offset: 2 (D:\xampp\htdocs\bmw_project\bmwapp\protected\controllers\PhoneController.php:140)
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): PhoneController->runAction()
+#1 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): PhoneController->runActionWithFilters()
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): PhoneController->run()
+#3 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/phone/show?id=75,phone

@@ -74,7 +74,7 @@ class PhoneController extends Controller
           
               'user_id' => $this->userinfo['uid'],
               'name'    => $title,
-              'img_url' => Yii::app()->params['root_dir'].'/uploads/phone/'.$images_url['path'],
+              'img_url' => '/uploads/phone/'.$images_url['path'],
               'description' =>$content,
               'status' =>1,
               'type'   =>2
@@ -125,6 +125,7 @@ class PhoneController extends Controller
         }
         $page_html = $this->page_limit($count_number,$page,$page_limit,4);
     	$data = array(
+    	   'uid'   =>$uid,
     	   'page'  =>$page_html,
     	   'works' =>$works,
     	);
@@ -141,6 +142,7 @@ class PhoneController extends Controller
        if( empty($id) || $sign !='phone'){
            $this->redirect('/index.php/phone');
        }
+    
        $getone = $this->works->getOneWork(array('id'=>$id));
        $review = $getone['review'];
        //上一遍
