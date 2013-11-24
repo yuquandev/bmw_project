@@ -1,5 +1,8 @@
 ﻿<?php $this->beginContent('//index/header'); ?>
-<?php $this->endContent(); ?><script>$().ready(function(){
+<?php $this->endContent(); ?>
+<script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3168919025" type="text/javascript" charset="utf-8"></script>
+<script>
+$().ready(function(){
   $(".banner").hide();
   $(".featureBox").mouseover(function(){
 	  $(this).find(".banner").show();
@@ -9,6 +12,12 @@
   });
 });
 </script>
+<SCRIPT language=javascript>
+if(document.all){
+var tags=document.all.tags("a")
+for (var i=0;i<tags.length;i++)
+tags(i).outerHTML=tags(i).outerHTML.replace(">"," hidefocus=true>")}
+</SCRIPT>
 <div class="bm_index">
     <?php $this->beginContent('//index/nav'); ?>
     <?php $this->endContent(); ?>
@@ -29,9 +38,9 @@
             </div>
         </div>
         <div class="bm_hd_main" id="menuTabcontent012_11" style="background:url(/img/bm_hd_bg1.jpg) no-repeat">
-        	<div class="bm_hd_left">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" border="0" usemap="#Map" />
-                <map name="Map" id="Map">
+        	<div class="bm_hd_left" >
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" border="0" usemap="#Map"  />
+                <map name="Map" id="Map" >
                 <?php if (!empty($this->userinfo)){?>
         	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('uploads');" />
                 <?php }else {?>
@@ -82,7 +91,7 @@
           <div class="bm_zpzs_main">
         	<?php foreach($works as $key=>$val):?>
         	<div class="bm_zpzs_list" style="position: relative;">
-            	<div class="bm_zpzs_tu" style="position: relative;background: url(/js/lazyload/grey.gif) no-repeat center center;"><a style="position: absolute;width:366px;"><img src="<?php echo $val['img_url']; ?>" width="" height="366"/></a></div>
+            	<div class="bm_zpzs_tu" style="position: relative;background: url(/js/lazyload/grey.gif) no-repeat center center;"><a style="position: absolute;width:366px;"><img src="<?php echo $val['new_img_path']; ?>" /></a></div>
                 <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b#works"><div style="
     position: absolute;
     width: 228px;
@@ -111,7 +120,9 @@
            
         </div>
         <div class="bm_wzb_main">   
-     <wb:topic topmid="z8ClGsZa8" column="n" border="n" title="BMW%203%E7%B3%BB%20%E8%BF%90%E5%8A%A8%E7%8E%8B%E8%80%85%20%E5%B0%BD%E5%9C%A8%E5%92%AB%E5%B0%BA" width="978" height="1165" tags="%E5%83%8F%E5%AE%9D%E9%A9%AC%E4%B8%80%E6%A0%B7%E5%A5%94%E8%B7%91%2C%E6%88%91%E7%9A%84%E7%A5%9E%E9%A9%AC%E7%85%A7%2C%E5%AE%9D%E9%A9%AC%E7%AC%91%E8%84%B8%E5%A2%99" color="333333%2Cffffff%2C0078b6%2Ccccccc%2C333333%2Cfafeff%2C0078b6%2Ccccccc%2Ccccccc%2Ce9f4fb" language="zh_cn" version="base" refer="y" footbar="y" url="http%3A%2F%2Fwww.bmw3-sport.com" filter="n" ></wb:topic>
+
+     <wb:topic topmid="z8ClGsZa8" column="n" border="n" title="BMW%20%E6%96%B03%E7%B3%BB%20%E8%BF%90%E5%8A%A8%E7%8E%8B%E8%80%85%20%E9%A2%86%E8%A1%94%E8%B5%B7%E8%B7%91" width="978" height="1165" tags="%E5%A4%A9%E7%94%9F%E8%BF%90%E5%8A%A8%E7%8E%8B%2C%E6%88%91%E7%9A%84%E7%A5%9E%E9%A9%AC%E7%85%A7%2C%E5%AE%9D%E9%A9%AC%E7%AC%91%E8%84%B8%E5%A2%99" language="zh_cn" version="base" footbar="y" url="http%3A%2F%2Fwww.bmw3-sport.com" filter="n" ></wb:topic>
+
         </div>
     </div>
     <!--X1-->
@@ -120,7 +131,7 @@
         <div class="bm_hd_title3">
         	<ul>
                 <div class="bm_jcts_left"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_ico4.gif" style="padding-left:10px;"/><span >精彩图赏</span></div>
-                <div class="bm_jcts_you"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/flow#flow"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/more.png" /></a></div>
+                <div class="bm_jcts_you" style="margin-right:37px"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/flow#flow"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/more.png" /></a></div>
             </ul>
         </div>
         <div class="bm_x1_main" id="menuTabcontent013_12">
@@ -129,19 +140,79 @@
 		<div id="block">
 			<div id="botton-scroll">
 				<ul class="featureUL">
-					<?php foreach($image_list as $key=>$val):?>
-					<li class="featureBox" >
-					<div class="box" style="background: url(/js/lazyload/grey.gif) no-repeat center center;">
-						<a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/footerlg?id=<?php echo $val['id']?>,<?php echo $val['type_id']?>#works" target="_blank">
-						<img src="<?php echo $val['new_img_path'];?>"  width="265" height="176">
-						</a>
-					</div>
-                     <div class="banner">
-						<a  href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/footerlg?id=<?php echo $val['id']?>,<?php echo $val['type_id']?>#works"><?php echo $val['name'];?></a>
+					<li class="featureBox">
+					<div class="box">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx.html" target="_blank">
+						<img alt="Paracletos" src="/pic/IMG_01.jpg" width="265" height="176">
+						</a></div>
+                      <div class="banner">
+						<a  href="">赛前培训营 北京</a>
 						</div>
-					<!-- /box -->
-					</li>
-					<?php endforeach;?>
+					<!-- /box --></li>
+					<li class="featureBox">
+					<div class="box">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx2.html" target="_blank">
+						<img alt="Natural Touch Soap" src="/pic/IMG_02.jpg" width="265" height="176">
+						</a></div>
+                         <div class="banner">
+						<a  href="">赛前培训营 上海</a>
+						</div>
+					<!-- /box --></li>
+					<li class="featureBox">
+					<div class="box">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx3.html" target="_blank">
+						<img alt="LRTK" src="/pic/IMG_03.jpg" width="265" height="176" >
+						</a></div>
+                        <div class="banner">
+						<a  href="">沙桐</a>
+						</div>
+					<!-- /box --></li>
+					<li class="featureBox">
+					<div class="box">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx4.html" target="_blank">
+						<img alt="Natalie Reid" src="/pic/IMG_04.jpg" width="265" height="176">
+						</a></div>
+                        <div class="banner">
+						<a  href="">于嘉</a>
+						</div>
+					<!-- /box --></li>
+					<li class="featureBox">
+					<div class="box">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx5.html" target="_blank">
+						<img alt="Natural Touch Soap" src="/pic/IMG_05.jpg" width="265" height="176">
+						</a></div>
+                        <div class="banner">
+						<a  href="">328Li</a>
+						</div>
+					<!-- /box --></li>
+					<li class="featureBox">
+					<div class="box">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx6.html" target="_blank">
+						<img alt="Catherine Sherwood" src="/pic/IMG_06.jpg"  width="265" height="176">
+						</a></div>
+                        <div class="banner">
+						<a  href="">宝马车主 Arthur Li</a>
+						</div>
+					<!-- /box --></li>
+                    <li class="featureBox">
+					<div class="box">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx7.html" target="_blank">
+						<img alt="Catherine Sherwood" src="/pic/IMG_07.jpg"  width="265" height="176">
+						</a></div>
+                        <div class="banner">
+						<a  href="">宝马车主 Coco Yan</a>
+						</div>
+					<!-- /box --></li>
+                    <li class="featureBox">
+					<div class="box">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx8.html" target="_blank">
+						<img alt="Catherine Sherwood" src="/pic/IMG_08.jpg"  width="265" height="176">
+						</a></div>
+                        <div class="banner">
+						<a  href="">宝马车主 Wennie Gao</a>
+						</div>
+					<!-- /box --></li>
+  
 				</ul>
 			</div>
 			<!-- /botton-scroll --></div>
@@ -162,7 +233,7 @@
 <div id="com_dialog"></div>
 <!--登陆与注册-->
 <!--投票成功-->
-<div class="bm_tp_tck mydiv"  id="popDiv5" style="display:block;">
+<div class="bm_tp_tck mydiv"  id="popDiv5" style="display:none;">
         <div class="bm_tck_title">
         <span>提示</span>
         <a href="javascript:closeDiv5();">X</a></div>

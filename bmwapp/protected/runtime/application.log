@@ -1730,3 +1730,93 @@ Stack trace:
 #4 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
 #5 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
 REQUEST_URI=/index.php/phone/show?id=75,phone
+2013/11/24 11:58:42 [error] [php] Undefined index: bmw_ad_uid (D:\xampp\htdocs\bmw_project\bmwapp\protected\controllers\IndexController.php:183)
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): IndexController->runAction()
+#1 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): IndexController->runActionWithFilters()
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): IndexController->run()
+#3 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/index/uploads
+2013/11/24 11:58:47 [error] [php] Undefined index: bmw_ad_uid (D:\xampp\htdocs\bmw_project\bmwapp\protected\controllers\IndexController.php:183)
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): IndexController->runAction()
+#1 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): IndexController->runActionWithFilters()
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): IndexController->run()
+#3 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/index/uploads
+2013/11/24 11:59:16 [error] [php] Undefined index: bmw_ad_uid (D:\xampp\htdocs\bmw_project\bmwapp\protected\controllers\IndexController.php:183)
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): IndexController->runAction()
+#1 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): IndexController->runActionWithFilters()
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): IndexController->run()
+#3 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/index/uploads
+2013/11/24 12:00:20 [error] [php] Undefined index: bmw_ad_uid (D:\xampp\htdocs\bmw_project\bmwapp\protected\controllers\IndexController.php:183)
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): IndexController->runAction()
+#1 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): IndexController->runActionWithFilters()
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): IndexController->run()
+#3 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/index/uploads
+2013/11/24 12:00:32 [error] [php] Undefined index: bmw_ad_uid (D:\xampp\htdocs\bmw_project\bmwapp\protected\controllers\IndexController.php:183)
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): IndexController->runAction()
+#1 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): IndexController->runActionWithFilters()
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): IndexController->run()
+#3 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/index/uploads
+2013/11/24 12:02:32 [error] [php] Undefined index: bmw_ad_uid (D:\xampp\htdocs\bmw_project\bmwapp\protected\controllers\IndexController.php:183)
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): IndexController->runAction()
+#1 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): IndexController->runActionWithFilters()
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): IndexController->run()
+#3 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/index/uploads
+2013/11/24 12:07:32 [error] [php] Illegal string offset 'path' (D:\xampp\htdocs\bmw_project\bmwapp\protected\controllers\IndexController.php:193)
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): IndexController->runAction()
+#1 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): IndexController->runActionWithFilters()
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): IndexController->run()
+#3 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/index/uploads
+2013/11/24 12:07:50 [error] [php] Illegal string offset 'path' (D:\xampp\htdocs\bmw_project\bmwapp\protected\controllers\IndexController.php:193)
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): IndexController->runAction()
+#1 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): IndexController->runActionWithFilters()
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): IndexController->run()
+#3 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/index/uploads
+2013/11/24 12:07:59 [error] [php] Illegal string offset 'path' (D:\xampp\htdocs\bmw_project\bmwapp\protected\controllers\IndexController.php:193)
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CController.php(286): IndexController->runAction()
+#1 D:\xampp\htdocs\bmw_project\framework\web\CController.php(265): IndexController->runActionWithFilters()
+#2 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(282): IndexController->run()
+#3 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CWebApplication->run()
+REQUEST_URI=/index.php/index/uploads
+2013/11/24 12:10:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "null".' in D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\xampp\htdocs\bmw_project\framework\web\CWebApplication.php(141): CWebApplication->runController('null')
+#1 D:\xampp\htdocs\bmw_project\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\bmw_project\bmwapp\index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/null
+HTTP_REFERER=http://bmw.com/index.php/admin
+---

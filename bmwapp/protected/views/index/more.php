@@ -21,8 +21,40 @@
 	<div class="OriginalPicBorder">
 		<div id="OriginalPic"><a name="works"></a>
 			<div id="aPrev" class="CursorL"></div>
-			<div id="aNext" class="CursorR"></div>            <?php if( empty($works_user_list) ){?>                <div class="HS15">                <strong style="color:red;">                       	您还没有上传作品,您可以现在 :<a href="javascript:void(0);" onclick="com_dialog('uploads');" style="color:blue;"/>上传作品</a>                        	                                             	                                      </strong>                </div>            <?php }else{?>
-			<?php foreach($works_user_list as $key=>$val):?>            <p class="Hidden">              <span class="Summary FlLeft">                <span class="bm_nr">                  <span class="bm_wz2">					<strong><?php echo $val['name'];?></strong><br />作者：<?php echo $val['username'];?><br /><strong style="color:red;">票数:<span  id="vote_<?php echo $val['id']?>"><?php echo $val['vote_num']?></span></strong><br /><?php echo $val['description'];?>					</span>					<span>					<?php  if($center =='center'){?>                     <span style="color:red">状态：<?php if($val['review'] == 0 ){echo '审核通过'; }else{ echo '正在审核中';}?></span>                    <?php }else{?>						<input  type="button" class="bm_tp" value="投票" onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);"/>     				<?php }?>					</span>						</span>				</span>				<span class="SliderPicBorder FlRight"><img src="<?php echo $val['img_url'];?>" /></span>				<span class="Clearer"></span>				<span class="More">				</span>				</p>			<?php endforeach;?>           
+			<div id="aNext" class="CursorR"></div>
+            <?php if( empty($works_user_list) ){?>
+                <div class="HS15">
+                <strong style="color:red;">
+                       	您还没有上传作品,您可以现在 :<a href="javascript:void(0);" onclick="com_dialog('uploads');" style="color:blue;"/>上传作品</a> 
+                       	                      
+                       	                      
+                </strong>
+                </div>
+            <?php }else{?>
+			<?php foreach($works_user_list as $key=>$val):?>
+            <p class="Hidden">
+              <span class="Summary FlLeft">
+                <span class="bm_nr">
+                  <span class="bm_wz2">
+					<strong><?php echo $val['name'];?></strong><br />作者：<?php echo $val['username'];?><br /><strong style="color:red;">票数:<span  id="vote_<?php echo $val['id']?>"><?php echo $val['vote_num']?></span></strong><br /><strong style="font-size:14px">运动宣言：</strong><br /><?php echo $val['description'];?> 
+					</span>
+
+					<span>
+					<?php  if($center =='center'){?>
+                     <span style="color:red">状态：<?php if($val['review'] == 0 ){echo '审核通过'; }else{ echo '正在审核中';}?></span>
+                    <?php }else{?>
+						<input  type="button" class="bm_tp" value="投票" onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);"/>
+     				<?php }?>
+					</span>		
+				</span>
+				</span>
+				<span class="SliderPicBorder FlRight"><img src="<?php echo $val['img_url'];?>" /></span>
+				<span class="Clearer"></span>
+				<span class="More">
+				</span>
+				</p>
+			<?php endforeach;?>
+           
             <span class="wb_fx">
                 <!-- Baidu Button BEGIN -->
                 <div id="ckepop" style="float:left">
@@ -54,7 +86,7 @@
 
 	<div class="ThumbPicBorder">
 	    <a name="footerimg"></a>
-		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowL.jpg" id="btnPrev" class="FlLeft" style="cursor:pointer;" />
+		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowL.jpg" id="btnPrev" class="FlLeft" style="cursor:pointer;padding-top:40px;" />
 		<div class="jCarouselLite FlLeft">
 			<ul id="ThumbPic">
 				<?php foreach($works_user_list as $key=>$val):?>
@@ -63,9 +95,10 @@
 			</ul>
 			<div class="Clearer"></div>
 		</div>
-		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowR.jpg" id="btnNext" class="FlLeft" style="cursor:pointer;" />
+		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowR.jpg" id="btnNext" class="FlLeft" style="cursor:pointer; padding-top:40px;" />
 		<div class="Clearer"></div>
-	</div> <?php }?>
+	</div>
+ <?php }?>
     <a name="footer"></a>
 	<div class="HS15"></div>
 	
@@ -142,7 +175,10 @@ function showImage(index){
 		//设置向左向右鼠标手势区域的高度                        
 		//var tempHeight = $($('#OriginalPic img')[index]).height();
 		//$('#aPrev').height(tempHeight);
-		//$('#aNext').height(tempHeight);           $("html").scrollTop("2000");		$("body").scrollTop("2000");
+		//$('#aNext').height(tempHeight);
+           $("html").scrollTop("2000");
+		$("body").scrollTop("2000");
+
 	}
 }
 
@@ -188,8 +224,35 @@ $(".OriginalPicBorder").ready(function(){
 });
 </script>
 <span id="uplode_img"></span>
-<input type="hidden" id="ty_id" value="<?php echo $this->type;?>"><div class="bm_tp_tck mydiv"  id="popDiv5" style="display:none;">        <div class="bm_tck_title">        <span>提示</span>        <a href="javascript:closeDiv5();">X</a></div>        <div class="bm_tck_main2">        <div class="bm_main_sm2">        <img src="/img/bm_tck_pic.jpg" />        <span>恭喜你，投票成功！<br />(分享微博，有更多礼品哦！)</span>        </div>        <div class="bm_main_an2">        <input name="" type="button" class="bm_tck_an2" value="确 定" onclick="closeDiv5();"/>        <wb:share-button count="n" type="button" size="big" style="float:left"></wb:share-button>        </div>        </div></div>
-<!--注册账号--><span id="uplode_img"></span><!--注册账号--><div id="com_dialog"></div><!--登陆与注册--><!--投票成功--><span id="popmsg"></span><span id="popmsg2"></span>
-<div id="com_dialog"></div><!--登陆与注册--><!--投票成功--><div id="bg" class="bg" style="display:none;"></div><iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
+<input type="hidden" id="ty_id" value="<?php echo $this->type;?>">
+<div class="bm_tp_tck mydiv"  id="popDiv5" style="display:none;">
+        <div class="bm_tck_title">
+        <span>提示</span>
+        <a href="javascript:closeDiv5();">X</a></div>
+        <div class="bm_tck_main2">
+        <div class="bm_main_sm2">
+        <img src="/img/bm_tck_pic.jpg" />
+        <span>恭喜你，投票成功！<br />(分享微博，有更多礼品哦！)</span>
+        </div>
+        <div class="bm_main_an2">
+        <input name="" type="button" class="bm_tck_an2" value="确 定" onclick="closeDiv5();"/>
+        <wb:share-button count="n" type="button" size="big" style="float:left"></wb:share-button>
+        </div>
+        </div>
+</div>
+<!--注册账号-->
+<span id="uplode_img"></span>
+
+<!--注册账号-->
+<div id="com_dialog"></div>
+<!--登陆与注册-->
+<!--投票成功-->
+<span id="popmsg"></span>
+<span id="popmsg2"></span>
+<div id="com_dialog"></div>
+<!--登陆与注册-->
+<!--投票成功-->
+<div id="bg" class="bg" style="display:none;"></div>
+<iframe id='popIframe' class='popIframe' frameborder='0' ></iframe>
 </body>
 </html>

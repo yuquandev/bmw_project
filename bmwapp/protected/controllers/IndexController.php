@@ -33,6 +33,7 @@ class IndexController extends Controller {
         $this->video       = new Video();
         include_once(Yii::app()->params['root_dir'].'protected/controllers/UserController.php');
         $this->userinfo = UserController::getuserinfo();
+        //var_dump($this->userinfo);
         $this->type = 2;
     }
     //BMW  INDEX 3X
@@ -45,7 +46,14 @@ class IndexController extends Controller {
     	//var_dump($video);
         //works  
         $works = $this->works->selectWork(array('review'=>0,'type'=>2),1,8,'`recommend` asc, `vote_num` desc ,`update_time` desc');
-    	//footer img
+         //查找文件缩略图
+        foreach($works as $key=>$val)
+        {
+           $new_path   = $this->getFileNameArr($val['img_url']);
+           $works[$key]['new_img_path'] = (file_exists(Yii::app()->params['root_dir'].$new_path[2]) == true) ? $new_path[2] :  $val['img_url'];
+        }
+        
+        //footer img
         $image_list = $this->topicimage->selectCarTopicimage(array('type_id'=>2,'status'=>0),1,12);
         //查找文件缩略图
         foreach($image_list as $key=>$val)
@@ -170,8 +178,27 @@ class IndexController extends Controller {
         if (!isset($_FILES["Filedata"]) || !is_uploaded_file($_FILES["Filedata"]["tmp_name"]) || $_FILES["Filedata"]["error"] != 0) {
             echo 'false';
         }
-
+         $_FILES["Filedata"]['type'] = 'image/jpg';
+         /* save to tmp */
+         $file = $_FILES["Filedata"];
+         $images_url = $this->uploadfile_r($_FILES["Filedata"], $this->userinfo['uid'],'works');
+         if($images_url == 2)
+       	 {
+       	     echo 'false';
+       	 }else if($images_url == 3)
+       	 {
+       	     echo 'false';
+       	 }
         /* save to tmp */
+        echo  '/uploads/works/'.$images_url['path'];
+    	
+        
+        
+        /*if (!isset($_FILES["Filedata"]) || !is_uploaded_file($_FILES["Filedata"]["tmp_name"]) || $_FILES["Filedata"]["error"] != 0) {
+            echo 'false';
+        }
+
+   
         $file = $_FILES["Filedata"];
         if (!is_dir(Yii::app()->params['root_dir'].'uploads/works')){
             mkdir(Yii::app()->params['root_dir'].'uploads/works',0777);
@@ -179,13 +206,13 @@ class IndexController extends Controller {
         $new_patg_name = md5( time(). mt_rand() );
         $new_file = $this->userinfo['uid'].'_'.$new_patg_name.'.jpg';
         $target = Yii::app()->params['root_dir'].'uploads/works/'.$new_file;
-//		$target = '/tmp/1-1373267407.jpg';
+     	$target = '/tmp/1-1373267407.jpg';
 
         if(!move_uploaded_file($file['tmp_name'], $target)){
             echo 'false';
         }
 
-        echo  '/uploads/works/'.$new_file;
+        echo  '/uploads/works/'.$new_file;*/
 
     }
     

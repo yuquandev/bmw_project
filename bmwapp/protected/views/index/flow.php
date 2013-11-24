@@ -34,6 +34,65 @@ var descArray = []; //描述
 
 </script> 
 
+
+<script type="text/javascript"> 
+//数据源 
+var imgArray = []; //img数组 也就是数据来源 
+var textArray = []; //img底下的文字和img对应
+var srcArray = []; //超链接
+var descArray = []; //描述
+//i=0;
+</script>
+<!-- <volist name="imgs" id="vo" key="k"> 
+<input type="hidden" name=""id="src{$k-1}" value="{$vo.name}">
+<input type="hidden" name=""id="title{$k-1}" value="{$vo.desc}">-->
+<script type="text/javascript">
+//textArray[i] = $("#title"+i).val(); 
+//imgArray[i] = $("#src"+i).val();
+//i++;
+textArray[0] = "赛前培训营 北京"; 
+textArray[1] = "赛前培训营 上海"; 
+textArray[2] = "沙桐"; 
+textArray[3] = "于嘉"; 
+textArray[4] = "328Li"; 
+textArray[5] = "宝马车主 Arthur Li"; 
+textArray[6] = "宝马车主 Coco Yan"; 
+textArray[7] = "宝马车主 Wennie Gao";  
+
+
+descArray[0] = ""; 
+descArray[1] = ""; 
+descArray[2] = ""; 
+descArray[3] = ""; 
+descArray[4] = ""; 
+descArray[5] = ""; 
+descArray[6] = ""; 
+descArray[7] = ""; 
+
+
+imgArray[0] = "/pic/IMG_01.jpg"; 
+imgArray[1] = "/pic/IMG_02.jpg"; 
+imgArray[2] = "/pic/IMG_03.jpg"; 
+imgArray[3] = "/pic/IMG_04.jpg"; 
+imgArray[4] = "/pic/IMG_05.jpg"; 
+imgArray[5] = "/pic/IMG_06.jpg"; 
+imgArray[6] = "/pic/IMG_07.jpg"; 
+imgArray[7] = "/pic/IMG_08.jpg"; 
+
+
+srcArray[0] = "http://blu004150.chinaw3.com/ts/sctpx.html"; 
+srcArray[1] = "http://blu004150.chinaw3.com/ts/sctpx2.html"; 
+srcArray[2] = "http://blu004150.chinaw3.com/ts/sctpx3.html"; 
+srcArray[3] = "http://blu004150.chinaw3.com/ts/sctpx4.html"; 
+srcArray[4] = "http://blu004150.chinaw3.com/ts/sctpx5.html"; 
+srcArray[5] = "http://blu004150.chinaw3.com/ts/sctpx6.html"; 
+srcArray[6] = "http://blu004150.chinaw3.com/ts/sctpx7.html"; 
+srcArray[7] = "http://blu004150.chinaw3.com/ts/sctpx8.html"; 
+
+</script> 
+
+
+
 <!-- </volist> -->
 
 <script type="text/javascript">
