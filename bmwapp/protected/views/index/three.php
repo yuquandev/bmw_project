@@ -39,12 +39,12 @@ tags(i).outerHTML=tags(i).outerHTML.replace(">"," hidefocus=true>")}
         </div>
         <div class="bm_hd_main" id="menuTabcontent012_11" style="background:url(/img/bm_hd_bg1.jpg) no-repeat">
         	<div class="bm_hd_left" >
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" border="0" usemap="#Map"  />
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" border="0" usemap="#Map"  hidefocus="true"/>
                 <map name="Map" id="Map" >
                 <?php if (!empty($this->userinfo)){?>
-        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('uploads');" />
+        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('uploads');" onfocus="blur(this);"/>
                 <?php }else {?>
-        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('login');"/>
+        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('login');" onfocus="blur(this);"/>
                 <?php }?>
                </map>
            </div>
@@ -59,12 +59,12 @@ tags(i).outerHTML=tags(i).outerHTML.replace(">"," hidefocus=true>")}
         <div class="bm_hd_main" id="menuTabcontent012_10" style="background:url(/img/bm_hd_bg2.jpg) no-repeat; display:none;">
         	
         	<div class="bm_hd_left">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" border="0" usemap="#Map" />
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/img/bm_hd_tp.png" border="0" usemap="#Map" hidefocus="true"/>
                 <map name="Map" id="Map">
                 <?php if (!empty($this->userinfo)){?>
-        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('uploads');" />
+        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('uploads');"  onfocus="blur(this);"/>
                 <?php }else {?>
-        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('login');"/>
+        	    <area shape="poly" coords="78,98,56,98,40,71,22,37,23,22,58,16,104,19,125,22,130,31,129,42,96,96" href="javascript:void(0);" onclick="com_dialog('login');" onfocus="blur(this);"/>
                 <?php }?>
                </map>
            </div>
@@ -91,16 +91,8 @@ tags(i).outerHTML=tags(i).outerHTML.replace(">"," hidefocus=true>")}
           <div class="bm_zpzs_main">
         	<?php foreach($works as $key=>$val):?>
         	<div class="bm_zpzs_list" style="position: relative;">
-            	<div class="bm_zpzs_tu" style="position: relative;background: url(/js/lazyload/grey.gif) no-repeat center center;"><a style="position: absolute;width:366px;"><img src="<?php echo $val['new_img_path']; ?>" /></a></div>
-                <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b#works"><div style="
-    position: absolute;
-    width: 228px;
-    height: 366px;
-    background: none;
-    border: 3px solid #fff;
-    top: 0px;
-    margin: 1px;
-"></div></a>
+            	<div class="bm_zpzs_tu" style="position: relative;background: url(/js/lazyload/grey.gif) no-repeat center center;"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b#works"><img src="<?php echo $val['new_img_path']; ?>" width="228" height="366"/></a></div>
+                <a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b#works"><div style="position: absolute;width: 228px;height: 366px;background: none;border: 3px solid #fff;top: 0px;margin: 1px;"></div></a>
                 <div class="bm_zpzs_zi"><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/index/more?&uuid=<?php echo $val['id'];?>,<?php echo $val['user_id'];?>,<?php echo $val['type'];?>,b#works"><?php echo $val['name'];?></a></div>
                 <div class="bm_zpzs_zan">
                 	<input onclick="top_vote(<?php echo $val['id']?>,<?php echo $val['vote_num']?>);" type="button" class="bm_tp_an" value="投票"/>
@@ -142,74 +134,74 @@ tags(i).outerHTML=tags(i).outerHTML.replace(">"," hidefocus=true>")}
 				<ul class="featureUL">
 					<li class="featureBox">
 					<div class="box">
-						<a href="http://blu004150.chinaw3.com/ts/sctpx.html" target="_blank">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx.html#flow" target="_blank">
 						<img alt="Paracletos" src="/pic/IMG_01.jpg" width="265" height="176">
 						</a></div>
                       <div class="banner">
-						<a  href="">赛前培训营 北京</a>
+						<a  href="http://blu004150.chinaw3.com/ts/sctpx.html#flow">赛前培训营 北京</a>
 						</div>
 					<!-- /box --></li>
 					<li class="featureBox">
 					<div class="box">
-						<a href="http://blu004150.chinaw3.com/ts/sctpx2.html" target="_blank">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx2.html#flow" target="_blank">
 						<img alt="Natural Touch Soap" src="/pic/IMG_02.jpg" width="265" height="176">
 						</a></div>
                          <div class="banner">
-						<a  href="">赛前培训营 上海</a>
+						<a  href="http://blu004150.chinaw3.com/ts/sctpx2.html#flow">赛前培训营 上海</a>
 						</div>
 					<!-- /box --></li>
 					<li class="featureBox">
 					<div class="box">
-						<a href="http://blu004150.chinaw3.com/ts/sctpx3.html" target="_blank">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx3.html#flow" target="_blank">
 						<img alt="LRTK" src="/pic/IMG_03.jpg" width="265" height="176" >
 						</a></div>
                         <div class="banner">
-						<a  href="">沙桐</a>
+						<a  href="http://blu004150.chinaw3.com/ts/sctpx3.html#flow">沙桐</a>
 						</div>
 					<!-- /box --></li>
 					<li class="featureBox">
 					<div class="box">
-						<a href="http://blu004150.chinaw3.com/ts/sctpx4.html" target="_blank">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx4.html#flow" target="_blank">
 						<img alt="Natalie Reid" src="/pic/IMG_04.jpg" width="265" height="176">
 						</a></div>
                         <div class="banner">
-						<a  href="">于嘉</a>
+						<a  href="http://blu004150.chinaw3.com/ts/sctpx4.html#flow">于嘉</a>
 						</div>
 					<!-- /box --></li>
 					<li class="featureBox">
 					<div class="box">
-						<a href="http://blu004150.chinaw3.com/ts/sctpx5.html" target="_blank">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx5.html#flow" target="_blank">
 						<img alt="Natural Touch Soap" src="/pic/IMG_05.jpg" width="265" height="176">
 						</a></div>
                         <div class="banner">
-						<a  href="">328Li</a>
+						<a  href="http://blu004150.chinaw3.com/ts/sctpx5.html#flow">328Li</a>
 						</div>
 					<!-- /box --></li>
 					<li class="featureBox">
 					<div class="box">
-						<a href="http://blu004150.chinaw3.com/ts/sctpx6.html" target="_blank">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx6.html#flow" target="_blank">
 						<img alt="Catherine Sherwood" src="/pic/IMG_06.jpg"  width="265" height="176">
 						</a></div>
                         <div class="banner">
-						<a  href="">宝马车主 Arthur Li</a>
+						<a  href="http://blu004150.chinaw3.com/ts/sctpx6.html#flow">宝马车主 Arthur Li</a>
 						</div>
 					<!-- /box --></li>
                     <li class="featureBox">
 					<div class="box">
-						<a href="http://blu004150.chinaw3.com/ts/sctpx7.html" target="_blank">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx7.html#flow" target="_blank">
 						<img alt="Catherine Sherwood" src="/pic/IMG_07.jpg"  width="265" height="176">
 						</a></div>
                         <div class="banner">
-						<a  href="">宝马车主 Coco Yan</a>
+						<a  href="http://blu004150.chinaw3.com/ts/sctpx7.html#flow">宝马车主 Coco Yan</a>
 						</div>
 					<!-- /box --></li>
                     <li class="featureBox">
 					<div class="box">
-						<a href="http://blu004150.chinaw3.com/ts/sctpx8.html" target="_blank">
+						<a href="http://blu004150.chinaw3.com/ts/sctpx8.html#flow" target="_blank">
 						<img alt="Catherine Sherwood" src="/pic/IMG_08.jpg"  width="265" height="176">
 						</a></div>
                         <div class="banner">
-						<a  href="">宝马车主 Wennie Gao</a>
+						<a  href="http://blu004150.chinaw3.com/ts/sctpx8.html#flow">宝马车主 Wennie Gao</a>
 						</div>
 					<!-- /box --></li>
   
@@ -347,58 +339,7 @@ GetObj('ISL_Cont').scrollLeft += num;
 setTimeout('CompScr()',Speed);
 }
 }
-//--><!]]>
-</script>
-<script type="text/javascript">
-
-    (function(){
-        var tmp = 0;
-        $('.bm_zpzs_tu a').each(function(){
-            var that = $(this);
-            $(this).find('img').bind('load',function(){
-                tmp = - that.find('img').width() / 2 + 228/2;
-                that.css('margin-left',tmp+'px');
-                that.find('img').height(366);
-            });
-            //console.log($(this).find('img').width());
-            //if ($(this).find('img').height() > 366){
-                tmp = - $(this).find('img').width() / 2 + 228/2;
-            //}else {
-            //    tmp = - $(this).find('img').width() / 2 + 183;
-            //}
-           $(this).css('margin-left',tmp+'px');
-           $(this).find('img').height(366);
-        });
-    })();
-</script>
-
-<script type="text/javascript">
-
-    (function(){
-        var tmp = 0;
-        $('.bm_zpzs_tu a').each(function(){
-            var that = $(this);
-            $(this).find('img').bind('load',function(){
-                tmp = - that.find('img').width() / 2 + 228/2;
-                that.css('margin-left',tmp+'px');
-                that.find('img').height(366);
-                that.find('img').removeAttr('width');
-            });
-            //console.log($(this).find('img').width());
-            //if ($(this).find('img').height() > 366){
-            tmp = - $(this).find('img').width() / 2 + 228/2;
-            //}else {
-            //    tmp = - $(this).find('img').width() / 2 + 183;
-            //}
-            $(this).css('margin-left',tmp+'px');
-            $(this).find('img').height(366);
-            $(this).find('img').removeAttr('width');
-            if ($(this).css('margin-left') == '114px'){
-                $(this).css('margin-left','400px');
-            }
-        });
-    })();
-</script>
+//--><!]]></script>
 
 </body>
 </html>

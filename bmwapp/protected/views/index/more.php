@@ -55,30 +55,19 @@
 				</p>
 			<?php endforeach;?>
            
-            <span class="wb_fx">
-                <!-- Baidu Button BEGIN -->
-                <div id="ckepop" style="float:left">
-<a class="jiathis_button_weixin" style="padding-top:5px; margin-left:5px; display:block; float:left;" ></a> </div> 
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1" charset="utf-8"></script>
-	
-				<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
-				<a class="bds_tsina"></a>
-				<a class="bds_tqq"></a>
-				<a class="bds_renren"></a>
-				<a class="bds_t163"></a>
-               <!-- JiaThis Button BEGIN -->
-</div> <!-- JiaThis Button END -->
-			</div>
-				<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1285861" ></script>
-				<script type="text/javascript" id="bdshell_js"></script>
-				<script type="text/javascript">
-				document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
-				</script>
-				<!-- Baidu Button END -->
-			</span>
+            
+            
         </div>
+        	 <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_24x24" style="width:100%;overflow:hidden; height:28px;"> 
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 	</div>
-	
+
 	<div class="SpaceLine"></div>
 	
 	<div class="HS15"></div>
@@ -86,16 +75,16 @@
 
 	<div class="ThumbPicBorder">
 	    <a name="footerimg"></a>
-		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowL.jpg" id="btnPrev" class="FlLeft" style="cursor:pointer;padding-top:40px;" />
+		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowL.jpg" id="btnNext" class="FlLeft" style="cursor:pointer;padding-top:40px;" />
 		<div class="jCarouselLite FlLeft">
 			<ul id="ThumbPic">
 				<?php foreach($works_user_list as $key=>$val):?>
-				<li rel='<?php echo $key+1?>'><img src="<?php echo $val['img_url'];?>#footer" /></li>
+				<li rel='<?php echo $key+1?>' style="height:150px;"><img src="<?php echo $val['img_url'];?>#footer" /></li>
 				<?php endforeach;?>
 			</ul>
 			<div class="Clearer"></div>
 		</div>
-		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowR.jpg" id="btnNext" class="FlLeft" style="cursor:pointer; padding-top:40px;" />
+		<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/ArrowR.jpg" id="btnPrev" class="FlLeft" style="cursor:pointer; padding-top:40px;" />
 		<div class="Clearer"></div>
 	</div>
  <?php }?>

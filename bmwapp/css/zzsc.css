@@ -98,8 +98,8 @@ A IMG {
 #OriginalPic{width:930px;overflow:hidden;position:relative;font-size:12px;}
 #OriginalPic img{display:block;margin:0 auto;max-width:100%;-webkit-touch-callout:none;}
 /*鼠标手势*/
-.CursorL{position:absolute;z-index:999;width:50%;height:100%;color:#FFF;left:0px;cursor:url(/img/CurL.cur), auto;background:url(/img/space.png) repeat scroll 0 0 transparent; cursor:pointer;}
-.CursorR{position:absolute;z-index:999;width:50%;height:100%;color:#FFF;right:240px;cursor:url(/img/CurR.cur), auto;background:url(/img/space.png) repeat scroll 0 0 transparent;cursor:pointer;}
+.CursorL{position:absolute;z-index:999;width:50%;height:60%;color:#FFF;left:0px;cursor:url(/img/CurL.cur), auto;background:url(/img/space.png) repeat scroll 0 0 transparent; cursor:pointer;}
+.CursorR{position:absolute;z-index:999;width:50%;height:60%;color:#FFF;right:240px;cursor:url(/img/CurR.cur), auto;background:url(/img/space.png) repeat scroll 0 0 transparent;cursor:pointer;}
 /*小图预览和滑动*/
 .SliderPicBorder{width:676px;overflow:hidden; background:#f4f1ec; border:1px solid #d1d1d1; padding:10px;}
 .SliderPicBorder2{width:900px; margin:0 auto;overflow:hidden; background:#f4f1ec; border:1px solid #d1d1d1; padding:10px;}
@@ -280,7 +280,7 @@ filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMe
 /*精彩图赏*/
 .banner {
  width: 265px;position: absolute; height:24px;left: 5px; bottom: 5px;color: #fff;text-align: center;opacity:0.9;filter:alpha(opacity=90);background:#000;  line-height:24px;}
-.banner a{ color:#fff; text-decoration:none;}
+.banner a{ color:#fff; text-decoration:none; font-size:14px;}
 .featureBox .banner {display: block;}
 .featureBox_two { width: 285px; position: relative;}
 

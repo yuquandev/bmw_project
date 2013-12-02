@@ -39,7 +39,7 @@ html
 
 .bm_zpzs_main{ width:97%; margin:0 auto; margin-top:10px; margin-bottom:15px;*+margin-bottom:15px; padding-bottom:0px; overflow:hidden;}
 .bm_zpzs_list{ width:47%; float:left; padding-bottom:20px; overflow:hidden; margin-left:5px;}
-.bm_zpzs_tu{padding:3px; background:#fff; border:1px solid #9fa0a0; overflow:hidden; width:90%; margin:0 auto; text-align:center;}
+.bm_zpzs_tu{padding:3px; background:#fff; border:1px solid #9fa0a0; overflow:hidden; width:90%; margin:0 auto; text-align:center;/*display:table-cell;vertical-align:middle;*/ height:193px;}
 .bm_zpzs_tu2{width:228px; padding:5px;overflow:hidden; background:url(/img/phone/bm_x1_bg.jpg) no-repeat; height:128px;}
 .bm_zpzs_zi{ line-height:28px; display:block; height:28px; text-align:center; font-size:14px; font-weight:bold;}
 .bm_zpzs_zan{ height:31px; width:110px; margin:0 auto;}

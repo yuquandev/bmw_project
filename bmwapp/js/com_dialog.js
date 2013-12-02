@@ -254,7 +254,11 @@ function uplodedata()
         //$("#pop_text").html('请描述活动宣言!');
         //	return false;
     }else{
-        $("#pop_text").html('<img src="/img/bm_tck_dg.jpg" />');
+    	if( text.length > 140 ){
+    		alert('活动描述请少于140字!');
+    		return false;
+    	}
+    	$("#pop_text").html('<img src="/img/bm_tck_dg.jpg" />');
     }
     var url = '/index.php/api/uplodewords?_j='+ new Date().getTime();
     $.ajax({'url':url,'data':{'title':title,'file':file,'text':text,'type':ty},type: 'POST','dataType':'json',

@@ -80,14 +80,14 @@ imgArray[6] = "/pic/IMG_07.jpg";
 imgArray[7] = "/pic/IMG_08.jpg"; 
 
 
-srcArray[0] = "http://blu004150.chinaw3.com/ts/sctpx.html"; 
-srcArray[1] = "http://blu004150.chinaw3.com/ts/sctpx2.html"; 
-srcArray[2] = "http://blu004150.chinaw3.com/ts/sctpx3.html"; 
-srcArray[3] = "http://blu004150.chinaw3.com/ts/sctpx4.html"; 
-srcArray[4] = "http://blu004150.chinaw3.com/ts/sctpx5.html"; 
-srcArray[5] = "http://blu004150.chinaw3.com/ts/sctpx6.html"; 
-srcArray[6] = "http://blu004150.chinaw3.com/ts/sctpx7.html"; 
-srcArray[7] = "http://blu004150.chinaw3.com/ts/sctpx8.html"; 
+srcArray[0] = "http://blu004150.chinaw3.com/ts/sctpx.html#flow"; 
+srcArray[1] = "http://blu004150.chinaw3.com/ts/sctpx2.html#flow"; 
+srcArray[2] = "http://blu004150.chinaw3.com/ts/sctpx3.html#flow"; 
+srcArray[3] = "http://blu004150.chinaw3.com/ts/sctpx4.html#flow"; 
+srcArray[4] = "http://blu004150.chinaw3.com/ts/sctpx5.html#flow"; 
+srcArray[5] = "http://blu004150.chinaw3.com/ts/sctpx6.html#flow"; 
+srcArray[6] = "http://blu004150.chinaw3.com/ts/sctpx7.html#flow"; 
+srcArray[7] = "http://blu004150.chinaw3.com/ts/sctpx8.html#flow"; 
 
 </script> 
 

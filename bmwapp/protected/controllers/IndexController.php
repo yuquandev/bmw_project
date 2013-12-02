@@ -22,12 +22,12 @@ class IndexController extends Controller {
 	
    
     public function init(){
-        //web wap dump
-        /*if($this->check_wap() == true ){
-           $this->redirect('/index.php/phone');
-           exit;
-        }*/
-        $this->works       = new Works();
+        //wap 验证
+    	if($this->check_wap() == true)
+    	{
+    	   $this->redirect('index.php/phone');exit;
+    	}
+		$this->works       = new Works();
         $this->user        = new User();
 	    $this->topicimage  = new TopicImage();
         $this->video       = new Video();
@@ -232,13 +232,22 @@ class IndexController extends Controller {
         $all_video = $this->video->selectVideo(array('status'=>0));
     	if($all_video){
        //查找文件缩略图
-		        foreach($all_video as $key=>$val)
+		        $last_one_video = array();
+    		    foreach($all_video as $key=>$val)
 		        {
-		           $all_video[$key]['img_url_path'] =  !empty($val['img_url'])  ? $val['img_url'] : '/img/bm_spt_pic.jpg';
+		           if( $val['id'] == 16 ){  //特殊视频处理
+		              $last_one_video  =  $val;
+		              $last_one_video['img_url_path']  =  !empty($val['img_url'])  ? $val['img_url'] : '/img/bm_spt_pic.jpg';
+		              unset($all_video[$key]);
+		           }else{
+		              $all_video[$key]['img_url_path'] =  !empty($val['img_url'])  ? $val['img_url'] : '/img/bm_spt_pic.jpg';
+		           }
 		        }
+    	        if( $last_one_video ){
+		          array_push($all_video,$last_one_video);
+    	        }  
     	}
-    	//var_dump($all_video);
-        $data = array(
+    	$data = array(
            'all_img'=>$all_img,
     	   'all_video'=>$all_video,
         );
